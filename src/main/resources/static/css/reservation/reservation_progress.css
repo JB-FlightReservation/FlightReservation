@@ -1,10 +1,11 @@
 @charset "UTF-8";
 
-ul{
+ol{
 	list-style:none;
+	float : right;
 }
 
 li {
-	float: right;
+	float: left;
 	margin-right: 20px;
 }
