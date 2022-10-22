@@ -13,9 +13,25 @@ public class ReservationController {
 		return "reservation/reservationSearch";
 	}
 	
+
 	@GetMapping("/passenger_list.do")
 	public void pList() {
 		
 	}
 	
+	@GetMapping("/terms.do")
+	public String terms() {
+		return "reservation/reservationTerms";
+	}
+	
+	@GetMapping("/pay.do")
+	public String pay() {
+		return	"reservation/reservationPay";
+	}
+	
+	@GetMapping("/payComplete.do")
+	public String payComplete() {
+		return	"reservation/reservationPayComplete";
+	}
+
 }
