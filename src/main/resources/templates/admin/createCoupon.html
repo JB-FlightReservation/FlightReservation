@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:include="/adminheaderNav"></header>
+	<main>
+		<h1>쿠폰 생성하기</h1>
+		<form>
+			<div>
+				<label>쿠폰이름 : </label>
+				<input class="" type="text" name="cpName" id="" value="">
+				<div class="">생성 가능한 쿠폰입니다.</div>
+				<div class="" id="">이미 생성한 쿠폰입니다.</div>
+			</div>
+			<div>
+				<label>할인율</label>
+				<input class="" type="text" name="cpDiscount" id="" value="">
+			</div>
+			<div>
+				<label>사용 기간</label>
+				<input class="" type="date" name="cpStart" value=""> ~ 
+				<input class="" type="date" name="cpEnd" value="">
+			</div>
+			<div>
+				<button class="">생성하기</button>
+			</div>
+		</form>
+	</main>
+</body>
+</html>
