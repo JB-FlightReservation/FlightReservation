@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	width: 1100px;
+	margin: 0 auto;
+	background-color: #f4f4f4;
+}
+
+.head {
+	margin: 60px 0;
+}
+
+.head h2 {
+	font-size: 41px;
+	color: #1a1a1a;
+	text-align: left;
+}
+
+/*------- body -------*/
+.text h3 {
+	vertical-align: middle;
+	font-size: 30px;
+	color: #1a1a1a;
+	margin-bottom: 3px;
+}
+
+.text .text-sub {
+	margin: 8px 0 0 0;
+	font-size: 14px;
+	color: #1a1a1a;
+}
