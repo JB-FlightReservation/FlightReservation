@@ -1,57 +1,373 @@
 @charset "UTF-8";
-*{
-	margin:0;
-	padding: 0;
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 body{
-	width:1100px;
-	margin: 0 auto;
+    min-width: 1200px;
+    background: rgb(255, 255, 255);
+    color: rgb(49, 49, 49);
+    font-size: 16px;
+    font-weight: normal;
+    font-family: Arial, Meiryo, "Hiragino Kaku Gothic Pro", "Microsoft Yahei", STXihei, "Microsoft MingLiU", Mingliu, SimHei, "Nanum Gothic", "Yu Gothic", sans-serif;
+    word-break: break-word;
 }
 
-div{
-	border: 1px solid #000;
-	box-sizing: border-box;
+div {
+    display: block;
 }
 
-div.title {
-	float: left;
-	width:20%;
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
-div.progressbar{
-	float:right;
-	width:80%;
+ul, ol, li {
+    list-style: none;
 }
 
-ul.travel-slider {
-	list-style: none;
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
 
-div.travel-slider {
-	display: flex;
-	justify-content: center;
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
 
-div.slider-box{
-	width: 600px;
-	height: 100px;
-	border: 1px	solid #000;
+a {
+    color: rgb(49, 49, 49);
+    text-decoration: none;
+    cursor: pointer;
 }
 
-/*--
-	DeleteMe:
-		delete below styles when finished this page
---*/
-
-div.title{
-	background-color: #ffc720;
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 
-div.progressbar{
-	background-color: #0dcaf0;
+.content {
+    position: relative;
+    margin: 0 auto;
+    width: 1100px;
+    min-height: 450px;
 }
 
-div.travel-slider{
-	background-color: #198754;
+/* SOL: HEADER PROGRESSBAR*/
+.tit_booking_wrap {
+    margin-top: 60px;
 }
+.tit_booking_wrap .pg_tit {
+    float: left;
+    display: inline-block;
+    font-size: 41px;
+    color: #1a1a1a;
+    text-align: left;
+}
+.tit_booking_wrap .step_booking {
+    float: right;
+}
+
+.tit_booking_wrap .step_booking .step01.on {
+    background-image: url("//contents-image.twayair.com/homepage/images/booking/ico_step01_on.png");
+}
+
+.tit_booking_wrap .step_booking li.on {
+    color: #d22c26;
+}
+
+.tit_booking_wrap .step_booking .on {
+    font-weight: 700;
+}
+
+.tit_booking_wrap .step_booking .step01 {
+    background-image: url("//contents-image.twayair.com/homepage/images/booking/ico_step01_off.png");
+}
+
+.tit_booking_wrap .step_booking .step02 {
+    background-image: url("//contents-image.twayair.com/homepage/images/booking/ico_step02_off.png");
+}
+
+.tit_booking_wrap .step_booking .step03 {
+    background-image: url("//contents-image.twayair.com/homepage/images/booking/ico_step03_off.png");
+}
+
+.tit_booking_wrap .step_booking .step04 {
+    background-image: url("//contents-image.twayair.com/homepage/images/booking/ico_step04_off.png");
+}
+
+.tit_booking_wrap .step_booking .step05 {
+    background-image: url("//contents-image.twayair.com/homepage/images/booking/ico_step05_off.png");
+}
+
+.tit_booking_wrap .step_booking .step06 {
+    background-image: url("//contents-image.twayair.com/homepage/images/booking/ico_step06_off.png");
+}
+
+.tit_booking_wrap .step_booking li {
+    float: left;
+    padding-top: 35px;
+    width: 120px;
+    height: 50px;
+    font-size: 13px;
+    color: #808080;
+    text-align: center;
+    letter-spacing: -1px;
+    background-repeat: no-repeat;
+    background-position: 2px -2px;
+    box-sizing: border-box;
+}
+
+.tit_booking_wrap:after {
+    display: block;
+    clear: both;
+    content: "";
+}
+/* EOL: HEADER PROGRESSBAR*/
+
+/* SOL: SELECTION BOX SLIDER */
+.sel_service_section {
+    position: relative;
+    margin-top: 60px;
+    width: 100%;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.service_section_wrap--simple {
+    padding-bottom: 10px;
+}
+
+.service_section_wrap {
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.service_section_wrap--simple .service_section_slide {
+    height: 92px;
+}
+
+.service_section_wrap .service_section_slide {
+    height: 120px;
+    box-sizing: border-box;
+}
+
+.swiper-container {
+    margin: 0px auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0px;
+    z-index: 1;
+}
+.service_section_wrap .service_section_slide div#route_1 {
+    padding: 25px 0px;
+    box-sizing: border-box;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform, -webkit-transform;
+}
+
+.service_section_box {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.service_section_box .bul_section {
+    display: inline-block;
+    position: absolute;
+    top: 17px;
+    left: -120px;
+    padding: 0px 10px;
+    height: 30px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 32px;
+    background-color: rgb(210, 44, 38);
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.service_section_box .service_name {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+}
+
+.service_section_box .service_name .tit {
+    display: block;
+    font-size: 40px;
+    font-weight: 700;
+    color: rgb(26, 26, 26);
+    text-align: center;
+    line-height: 36px;
+}
+
+.service_section_box .service_name .addition {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    color: rgb(26, 26, 26);
+    text-align: center;
+    line-height: 20px;
+}
+
+.service_section_box .service_exp {
+    display: inline-block;
+    width: 250px;
+    height: 55px;
+    background: url("//contents-image.twayair.com/homepage/images/booking/bg_service_exp.png") 50% 50% no-repeat;
+    box-sizing: border-box;
+}
+
+.sel_service_section .btn_refresh {
+    position: absolute;
+    top: 36px;
+    right: 65px;
+    background-color: rgb(255, 255, 255);
+    z-index: 18;
+}
+
+.btn_small {
+    display: inline-block;
+    padding: 12px 20px;
+    min-width: 80px;
+    min-height: 46px;
+    font-size: 16px;
+    color: rgb(26, 26, 26);
+    text-align: center;
+    line-height: 1.1;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(128, 128, 128);
+    border-radius: 3px;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+button {
+    border: 0px;
+    vertical-align: middle;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.btn_small.refresh {
+    padding: 0px 7px 0px 40px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/route_refresh_red.png") 10px 50% no-repeat;
+}
+
+.red {
+    color: rgb(210, 44, 38) !important;
+}
+
+.btn_small.red {
+    min-width: 100px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(210, 44, 38);
+    color: rgb(210, 44, 38) !important;
+}
+
+.service_section_wrap .btn_slide_prev {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 45px;
+    height: 120px;
+    border-right: 1px solid rgb(204, 204, 204);
+    background: url("//contents-image.twayair.com/homepage/images/booking/btn_sec_prev.png") 50% 50% no-repeat rgb(255, 255, 255);
+    border-radius: 5px 0px 0px 5px;
+    text-indent: -9999px;
+    box-sizing: border-box;
+    z-index: 18;
+}
+
+.service_section_wrap .btn_slide_next {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 45px;
+    height: 120px;
+    border-left: 1px solid rgb(204, 204, 204);
+    background: url("//contents-image.twayair.com/homepage/images/booking/btn_sec_next.png") 50% 50% no-repeat rgb(255, 255, 255);
+    border-radius: 0px 5px 5px 0px;
+    text-indent: -9999px;
+    box-sizing: border-box;
+    z-index: 18;
+}
+
+.service_section_wrap--simple .swiper-pagination {
+    width: fit-content;
+    position: unset;
+    display: inline-block;
+    left: 45%;
+}
+.service_section_wrap .swiper-pagination {
+    bottom: 10px;
+}
+
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: opacity 300ms ease 0s;
+    transform: translate3d(0px, 0px, 0px);
+    z-index: 10;
+}
+
+.service_section_wrap .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: rgb(77, 77, 77);
+}
+
+.service_section_wrap .swiper-pagination .swiper-pagination-bullet {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(204, 204, 204);
+    border-radius: 100%;
+    opacity: 1;
+    margin: 0px 3px;
+}
+
+.sel_service_section .swiper-pagination-wrapper .swiper-pagination-bullet {
+    border: 1px solid rgb(128, 128, 128);
+}
+
+.swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: rgb(0, 122, 255);
+}
+/* EOL: SELECTION BOX SLIDER */
+
+/* SOL: DATE SELECTION SLIDE */
+
+/* EOL: DATE SELECTION SLIDE */

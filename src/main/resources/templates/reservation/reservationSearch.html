@@ -1,46 +1,122 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="ko-KR">
 <head>
-    <meta charset="UTF-8">
-    <title>JB Flight Reservation</title>
     <link rel="stylesheet" href="/css/reservation/reservationSearch.css">
 </head>
-<body>
-<!--<header th:include="/headerNav"></header>-->
 
-<!-- page title -->
-<main>
-    <div>
-        <div class="title">항공권 예매</div>
-        <div class="progressbar" th:include="/reservation/reservation_progressbar"></div>
-    </div>
-
-
-    <!-- 구간 선택 슬라이드 -->
-    <div class="travel-slider">
-        <ul class="travel-slider">
-            <li class="travel-slider-left">l</li>
-            <li class="travel-slider-content">
-                <div>
-                    <div class="slider-box">
-                        <span class="depart-airport">출발지</span>
-                        <span class="land-airport"> 도착지</span>
+<!-- Contnent -->
+<body class="booking">
+<div id="container">
+    <div class="content" id="content">
+        <!-- 컨텐츠 영역 -->
+        
+        <!-- Title & Step -->
+        <div class="tit_booking_wrap">
+            <h2 class="pg_tit">항공권 예매</h2>
+            <div class="step_booking">
+                <ol>
+                    <li class="step01">
+                        <span class="text_step">01 여정 검색</span>
+                    </li>
+                    <li class="step02">
+                        <span class="text_step">02</span>
+                    </li>
+                    <li class="step03">
+                        <span class="text_step">03</span>
+                    </li>
+                    <li class="step04">
+                        <span class="text_step">04</span>
+                    </li>
+                    <li class="step05">
+                        <span class="text_step">05</span>
+                    </li>
+                
+                </ol>
+            </div>
+        </div>
+        <!-- Title & Step -->
+        
+        <!-- 구간선택 -->
+        <div class="sel_service_section">
+            
+            <div class="service_section_wrap service_section_wrap--simple">
+                
+                <!-- 구간선택 슬라이드 -->
+                <div class="service_section_slide swiper-container swiper-container-horizontal">
+                    
+                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev"
+                         id="route_1">
+                        <!-- 구간선택 박스 -->
+                        <div class="service_section_box">
+                            <!-- 구간 -->
+                            <span class="bul_section">구간1</span>
+                            <!--// 구간 -->
+                            <!-- 출발 -->
+                            <div class="service_name first">
+                                <strong class="tit airport departure">GMP</strong>
+                                <span class="addition">서울/김포</span>
+                            </div>
+                            <!-- 출발 -->
+                            <!-- 설명 -->
+                            <div class="service_exp"></div>
+                            <!--// 설명 -->
+                            <!-- 도착 -->
+                            <div class="service_name last">
+                                <strong class="tit airport arrival">CJU</strong>
+                                <span class="addition">제주</span>
+                            </div>
+                            <!-- 도착 -->
+                        </div>
+                        <!--// 구간선택 박스 -->
                     </div>
                 </div>
-            </li>
-            <li class="travel-slider-right">r</li>
-        </ul>
+                <!--// 구간선택 슬라이드 -->
+                
+                
+                <!-- 여정 재검색 -->
+                <div class="btn_refresh">
+                    <button class="btn_small refresh red">재검색</button>
+                </div>
+                <!--// 여정 재검색 -->
+                
+                <!-- 슬라이드 버튼 -->
+                <a class="btn_slide_prev" href="#">이전</a>
+                <a class="btn_slide_next" href="#">다음</a>
+                <!--// 슬라이드 버튼 -->
+                <!-- 구간 더보기 -->
+                <div class="swiper-pagination-wrapper">
+                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active" role="button"></span>
+                    </div>
+                </div>
+                <!--// 구간 더보기 -->
+            </div>
+        </div>
+        <!--// 구간선택 -->
+        
+        
+        <div id="layer_availability_list">
+            <!--            TODO: START OF LINE-->
+            <div class="sel_date_wrap">
+                <!--날짜 선택 슬라이드 -->
+                <div class="sel_date_slide swiper-container route_all route_1 swiper-container-horizontal" id="price_slider_1" style="display: block;">
+                    <ul class="swiper-wrapper">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+            <!--            TODO: END OF LINE-->
+        </div>
     </div>
+</div>
+<!--// Contnent -->
 
 
-    <div>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-            <option selected value="1">이른 출발 시간 순</option>
-            <option value="2">늦은 출발 시간 순</option>
-            <option value="3">가격 높은 순</option>
-            <option value="4">가격 낮은 순</option>
-        </select>
-    </div>
-</main>
+<!--// end content -->
+
+<!--// begin footerFragment -->
 </body>
 </html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="/css/reservation/reservationResearch.css">
+</head>
+<body>
+<!-- 여정 재검색 레이어 -->
+<div class="layer_plan_research">
+    <div class="plan_research">
+        <!-- 여정 재검색 -->
+        
+        <!-- Title -->
+        <div class="tit_booking_wrap">
+            <h2 class="pg_tit">여정 재검색</h2>
+        </div>
+        <!-- Title -->
+        
+        <!-- 여정검색  -->
+        
+        
+        <!-- Input Booking -->
+        <div class="input_booking_wrap">
+            <!-- 예약 탭 -->
+            <div class="booking_option">
+                <ul class="sel_section">
+                    <li>
+                        <a href="#booking01">
+                            <input aria-hidden="true" id="display_tripType_RT" name="tripTypeButton" tabindex="-1"
+                                   type="radio" value="RT"/>
+                            <label for="display_tripType_RT">왕복</label>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#booking02">
+                            <input aria-hidden="true" id="display_tripType_OW" name="tripTypeButton" tabindex="-1"
+                                   type="radio" value="OW"/>
+                            <label for="display_tripType_OW">편도</label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--// 예약 탭 -->
+            
+            
+            <!-- 왕복 -->
+            <div class="tab_cont fixed schedule_box" id="booking01">
+                <div class="booking_input">
+                    <ul class="booking_form">
+                        <li>
+                            <div class="sel_route">
+                                <div class="input_wrap start">
+                                    <label>출발지</label>
+                                    <input placeholder="도시/공항"
+                                           readonly="" title="출발지 입력" type="text" value=""/>
+                                    <a class="btn_pin focus_start2" href="#"
+                                       title="출발지 선택 레이어 열림">출발지 선택</a>
+                                    
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area start">
+                                        <a href="#">
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                </div>
+                                <a class="btn_change" href="#">출발지/도착지 바꾸기</a>
+                                <div class="input_wrap end">
+                                    <label>도착지</label>
+                                    <input placeholder="도시/공항"
+                                           title="도착지 선택" type="text" value=""/>
+                                    <a readonly="" title="도착지 선택 레이어 열림">도착지 선택</a>
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area end">
+                                        <a href="#">
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input_wrap date">
+                                <label>탑승일</label>
+                                <input placeholder="YYYY-MM-DD"
+                                       readonly="readonly"
+                                       title="출발일 선택"
+                                       type="text"
+                                       value=""/>
+                                <span class="space">~</span>
+                                <input placeholder="YYYY-MM-DD"
+                                       readonly="readonly"
+                                       title="도착일 선택"
+                                       type="text"
+                                       value=""/>
+                                <a href="#">날짜선택</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 왕복 -->
+            
+            <!-- 편도 -->
+            <div class="tab_cont fixed schedule_box" id="booking02">
+                <div class="booking_input">
+                    <ul class="booking_form">
+                        <li>
+                            <div class="sel_route">
+                                <div class="input_wrap start">
+                                    <label>출발지</label>
+                                    <input placeholder="도시/공항"
+                                           readonly="" title="출발지 입력" type="text" value=""/>
+                                    <a href="#"
+                                       title="출발지 선택 레이어 열림">출발지 선택</a>
+                                    
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area start">
+                                        <a href="#">
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                </div>
+                                <a class="btn_change" href="#">출발지/도착지 바꾸기</a>
+                                <div class="input_wrap end">
+                                    <label>도착지</label>
+                                    <input placeholder="도시/공항"
+                                           readonly="" title="도착지 입력" type="text" value=""/>
+                                    <a href="#"
+                                       title="도착지 선택 레이어 열림">도착지 선택</a>
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area end">
+                                        <a href="#">
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input_wrap date">
+                                <label>탑승일</label>
+                                <input
+                                        placeholder="YYYY-MM-DD" readonly="readonly" title="출발일 입력" type="text" value=""
+                                />
+                                <a class="btn_date focus_date3" href="#" title="출발일 선택 레이어 열림"
+                                >출발일
+                                    선택</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 편도 -->
+            
+            <!-- 다구간 -->
+            <div class="tab_cont fixed schedule_box" id="booking03">
+                
+                
+                <div class="booking_input section" id="itinerary_multi_trip_1">
+                    <div class="section_tit">
+                        <h5>구간1</h5>
+                    </div>
+                    <ul class="booking_form">
+                        <li>
+                            <div class="sel_route">
+                                <div class="input_wrap start">
+                                    <label>출발지</label>
+                                    <input class="booking start focus_start1"
+                                           placeholder="도시/공항"
+                                           readonly=""
+                                           title="출발지 입력"
+                                           type="text"
+                                           value=""/>
+                                    <a class="btn_pin focus_start2" href="#" title="출발지 선택 레이어 열림">출발지
+                                        선택</a>
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area start">
+                                        <a href="#">
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                </div>
+                                <a class="btn_change" href="#">출발지/도착지 바꾸기</a>
+                                <div class="input_wrap end">
+                                    <label>도착지</label>
+                                    <input class="booking end focus_end1" placeholder="도시/공항" readonly="" title="도착지 선택"
+                                           type="text"
+                                           value=""/>
+                                    <a class="btn_pin end focus_end2" href="#" title="도착지 선택 레이어 열림">도착지
+                                        선택</a>
+                                    
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area end">
+                                        <a href="#">
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input_wrap date">
+                                <label>탑승일</label>
+                                <input class="booking date focus_date1"
+                                       id="lostFlightDate3_1"
+                                       placeholder="YYYY-MM-DD"
+                                       readonly="readonly"
+                                       title="출/도착일 입력"
+                                       type="text"
+                                       value=""/>
+                                <a class="btn_date focus_date3" href="#" title="출/도착 날짜 선택 레이어 열림">출/도착
+                                    날짜 선택</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                <div class="booking_input section" id="itinerary_multi_trip_2">
+                    <div class="section_tit">
+                        <h5>구간2</h5>
+                    </div>
+                    <ul class="booking_form">
+                        <li>
+                            <div class="sel_route">
+                                <div class="input_wrap start">
+                                    <label>출발지</label>
+                                    <input class="booking start focus_start1"
+                                           placeholder="도시/공항"
+                                           readonly=""
+                                           title="출발지 입력"
+                                           type="text"
+                                           value=""/>
+                                    <a class="btn_pin focus_start2" href="#" title="출발지 선택 레이어 열림"
+                                    >출발지
+                                        선택</a>
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area start">
+                                        <a href="#">
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                </div>
+                                <a class="btn_change" href="#" onclick="exchangeAirportMC(1);">출발지/도착지 바꾸기</a>
+                                <div class="input_wrap end">
+                                    <label>도착지</label>
+                                    <input class="booking end focus_end1" placeholder="도시/공항" readonly="" title="도착지 선택"
+                                           type="text"
+                                           value=""/>
+                                    <a class="btn_pin end focus_end2" href="#" title="도착지 선택 레이어 열림">도착지
+                                        선택</a>
+                                    
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area end">
+                                        <a href="#">
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input_wrap date">
+                                <label>탑승일</label>
+                                <input class="booking date focus_date1"
+                                       id="lostFlightDate3_2"
+                                       placeholder="YYYY-MM-DD"
+                                       readonly="readonly"
+                                       title="출/도착일 입력"
+                                       type="text"
+                                       value=""/>
+                                <a class="btn_date focus_date3" href="#" title="출/도착 날짜 선택 레이어 열림">출/도착
+                                    날짜 선택</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                <div class="booking_input section" id="itinerary_multi_trip_3">
+                    <div class="section_tit">
+                        <h5>구간3</h5>
+                    </div>
+                    <ul class="booking_form">
+                        <li>
+                            <div class="sel_route">
+                                <div class="input_wrap start">
+                                    <label>출발지</label>
+                                    <input class="booking start focus_start1"
+                                           placeholder="도시/공항"
+                                           readonly=""
+                                           title="출발지 입력"
+                                           type="text"
+                                           value=""/>
+                                    <a class="btn_pin focus_start2" href="#" title="출발지 선택 레이어 열림">출발지
+                                        선택</a>
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area start">
+                                        <a href="#"
+                                        >
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                </div>
+                                <a class="btn_change" href="#" onclick="exchangeAirportMC(2);">출발지/도착지 바꾸기</a>
+                                <div class="input_wrap end">
+                                    <label>도착지</label>
+                                    <input class="booking end focus_end1" placeholder="도시/공항" readonly="" title="도착지 선택"
+                                           type="text"
+                                           value=""/>
+                                    <a class="btn_pin end focus_end2" href="#" title="도착지 선택 레이어 열림"
+                                    >도착지
+                                        선택</a>
+                                    
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area end">
+                                        <a href="#"
+                                        >
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input_wrap date">
+                                <label>탑승일</label>
+                                <input class="booking date focus_date1"
+                                       id="lostFlightDate3_3"
+                                       onfocus="blur();"
+                                       placeholder="YYYY-MM-DD"
+                                       readonly="readonly"
+                                       title="출/도착일 입력"
+                                       type="text"
+                                       value=""
+                                />
+                                <a class="btn_date focus_date3" href="#" title="출/도착 날짜 선택 레이어 열림">출/도착
+                                    날짜 선택</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                
+                <div class="booking_input section" id="itinerary_multi_trip_4" style="display:none;">
+                    <div class="section_tit">
+                        <h5>구간4</h5>
+                    </div>
+                    <ul class="booking_form">
+                        <li>
+                            <div class="sel_route">
+                                <div class="input_wrap start">
+                                    <label>출발지</label>
+                                    <input class="booking start focus_start1"
+                                           placeholder="도시/공항"
+                                           readonly=""
+                                           title="출발지 입력"
+                                           type="text"
+                                           value=""/>
+                                    <a class="btn_pin focus_start2" href="#" title="출발지 선택 레이어 열림"
+                                    >출발지
+                                        선택</a>
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area start">
+                                        <a href="#"
+                                        >
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                </div>
+                                <a class="btn_change" href="#" onclick="exchangeAirportMC(3);">출발지/도착지 바꾸기</a>
+                                <div class="input_wrap end">
+                                    <label>도착지</label>
+                                    <input class="booking end focus_end1" placeholder="도시/공항" readonly="" title="도착지 선택"
+                                           type="text"
+                                           value=""/>
+                                    <a class="btn_pin end focus_end2" href="#" title="도착지 선택 레이어 열림"
+                                    >도착지
+                                        선택</a>
+                                    
+                                    <!-- 선택 레이어 -->
+                                    <div class="selected_area end">
+                                        <a href="#"
+                                        >
+                                            <span class="eng">ICN</span>
+                                            <span class="area">서울/인천</span>
+                                        </a>
+                                    </div>
+                                    <!--// 선택 레이어 -->
+                                
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input_wrap date">
+                                <label>탑승일</label>
+                                <input class="booking date focus_date1"
+                                       id="lostFlightDate3_4"
+                                       onfocus="blur();"
+                                       placeholder="YYYY-MM-DD"
+                                       readonly="readonly"
+                                       title="출/도착일 입력"
+                                       type="text"
+                                       value=""
+                                />
+                                <a class="btn_date focus_date3" href="#" title="출/도착 날짜 선택 레이어 열림"
+                                >출/도착
+                                    날짜 선택</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            
+            </div>
+            <!--// Input Booking -->
+            
+            
+            <!--// 컨텐츠 영역 -->
+            
+            
+            <div class="section debug">
+                
+                <form action="/app/booking/chooseItinerary" id="airAvailabilityRQ" method="post"
+                      name="airAvailabilityRQ">
+                    <input name="searchDate" type="hidden"/>
+                    <input name="promoCode" type="hidden"/>
+                    search ticket :
+                    <input class="bookingTicket" name="bookingTicket" type="text" value=""/>
+                    
+                    <!--tripType - 여정타입 선택 왕복/편도/다구간-->
+                    <div>
+                        
+                        <input id="tripType_RT" name="tripType" type="radio" value="RT"/>
+                        <label for="tripType_RT">
+                            
+                            왕복
+                        
+                        
+                        </label> &nbsp;
+                        
+                        
+                        <input checked="checked" id="tripType_OW" name="tripType" type="radio" value="OW"/>
+                        <label for="tripType_OW">
+                            
+                            
+                            편도
+                        
+                        
+                        </label> &nbsp;
+                        
+                        
+                        <input id="tripType_MC" name="tripType" type="radio" value="MC"/>
+                        <label for="tripType_MC">
+                            
+                            
+                            다구간
+                        
+                        </label> &nbsp;
+                    
+                    </div>
+                    
+                    <!--bookingType - 개인/단체 선택-->
+                    <div>
+                        <!--지역이 한국인 경우에만 단체 노출-->
+                        <span id="bookingType_individual">
+                            <input checked="checked" id="bookingType_HI" name="bookingType" type="radio" value="HI"/>
+                            <label for="bookingType_HI">
+
+                                    개인
+
+
+                            </label> &nbsp;
+                        </span>
+                        <span id="bookingType_group">
+                            <input id="bookingType_HG" name="bookingType" type="radio" value="HG"/>
+                            <label for="bookingType_HG">
+
+
+                                    단체
+
+                            </label> &nbsp;
+                        </span>
+                    </div>
+                    
+                    <input name="_csrf" type="hidden" value="1c3e99e0-0a42-44d4-91de-b373e72c7b57"/>
+                </form>
+            
+            
+            </div>
+            
+            <!-- // 여정검색 -->
+            
+            <!-- Button -->
+            <div class="btn_wrap mb40">
+                <button class="btn_large cancel wh">취소</button>
+                <button class="btn_large red" onclick="chooseItinerary();">조회</button>
+            </div>
+            <!--// Button -->
+            
+            <!-- 여정 재검색 -->
+        </div>
+    </div>
+    <!-- 여정 재검색 레이어 -->
+</div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="/css/reservation/reservationSummary.css">
+</head>
+<body>
+<!-- Summary -->
+<div class="summary_wrap">
+    <div class="summary_top">
+        <div class="summary_top_cont">
+            <a class="js-toggle-summary" href="#" title="항공운임 등 총액 열기">
+                <!-- 가격 -->
+                <div class="price_wrap" id="summaryTopPrice">
+                    <span class="total">항공운임 등 총액</span>
+                    <span class="unit summary_currency">-</span>
+                    <span class="price" id="summary_title_amount">0</span>
+                    <span class="icon"></span>
+                </div>
+                <!-- 가격 -->
+            </a>
+            
+            <!-- 버튼영역 -->
+            <div class="float--right font0">
+                <!--previous-->
+                <button class="stepButton btn_large gray prev" id="buttonPrevRoute" style="display:none;">이전 구간</button>
+                <button class="stepButton btn_large gray prev" id="buttonPrevStep" style="display:none;">이전 단계</button>
+                
+                
+                <!--next-->
+                <button class="stepButton btn_large red next" id="buttonNextRoute" style="display:none;">다음 구간</button>
+                <button class="stepButton btn_large red next" id="buttonNextStep" style="display:none;">다음 단계</button>
+                <button class="stepButton btn_large gray" date-id="guest_login_layer" date-type="layer"
+                        id="buttonGuestStep" style="display:none;">비회원으로 진행
+                </button>
+                <button class="stepButton btn_large red" date-id="login_layer" date-type="layer" id="buttonMemberStep"
+                        style="display:none;">회원으로 진행
+                </button>
+                <input id="btnType" type="hidden" value=""/>
+            </div>
+            <!--// 버튼영역 -->
+        </div>
+    </div>
+    <!--// Summary Top -->
+    <!-- Summary 내용 -->
+    <div class="summary_cont">
+        <!-- 타이틀 -->
+        <div class="con_tit_wrap">
+            <h3 class="con_tit">예약 정보</h3>
+            <span class="con_tit_decs">성인 1</span>
+        </div>
+        <!-- //타이틀-->
+        
+        <!-- loop -->
+        <div id="summary_default">
+            
+            <!-- 구간 Tab -->
+            <div class="tab_wrap">
+                <ul class="tab n4">
+                    <li>
+                        <a href="#tab1" tabindex="-1">구간1 (GMP - CJU)</a>
+                    </li>
+                
+                
+                </ul>
+                
+                
+                <div class="tab_cont" id="tab1">
+                    <!-- 헤딩 타이틀 개발 분기 처리 요청  -->
+                    <h3 class="blind">예약 구간 정보</h3>
+                    <!-- 헤딩 타이틀 개발 분기 처리 요청  -->
+                    <!-- 입력전 -->
+                    <!-- 구간정보 -->
+                    <div class="route_info">
+                        <div class="route start">
+                            <span class="eng">GMP</span>
+                            <span>서울/김포</span>
+                        </div>
+                        <div class="route end">
+                            <span class="eng">CJU</span>
+                            <span>제주</span>
+                        </div>
+                    </div>
+                    <!-- 구간정보 -->
+                    
+                    <!-- 내역 리스트 -->
+                    <div class="summary_list">
+                        <dl class="fl">
+                            <dt>출발일/편명/기종</dt>
+                            <dd id="default_summary_flightDate1">
+                                2022-11-07(월)
+                                <span class="no_sel">/운임을 선택하세요.</span>
+                            </dd>
+                            <dt>출/도착시간/비행 시간</dt>
+                            <dd>
+                                <span class="no_sel">운임을 선택하세요.</span>
+                            </dd>
+                            <dt>운항 구분/실제 운항사</dt>
+                            <dd>
+                                <span class="no_sel">운임을 선택하세요.</span>
+                            </dd>
+                        </dl>
+                        <dl class="fr">
+                            <dt>기내 수하물</dt>
+                            <dd>
+                                <span class="no_sel">운임을 선택하세요.</span>
+                            </dd>
+                            <dt>무료위탁수하물</dt>
+                            <dd>
+                                <span class="no_sel">운임을 선택하세요.</span>
+                            </dd>
+                            <dt>운임 종류</dt>
+                            <dd>
+                                <span class="no_sel">운임을 선택하세요.</span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!--// 내역 리스트 -->
+                    
+                    <!-- 탑승자 리스트 -->
+                    <div class="passenger_list_wrap">
+                        <div class="tit mt30">
+                            <h3>탑승객 상세정보</h3>
+                        </div>
+                        
+                        <div class="passenger_list">
+                            <ul>
+                                
+                                
+                                <li class="ADULT">
+                                    <a class="title" href="#" tabindex="-1">
+                                        <span class="ico_passenger">승객</span>
+                                        <span class="passenger_title ADULT">
+															성인 1
+
+
+															</span>
+                                        <div class="price_wrap">
+                                            <span class="unit summary_currency">KRW</span>
+                                            <span class="price">0</span>
+                                            <span class="standard">1인 편도총액기준</span>
+                                        </div>
+                                    </a>
+                                    <div class="passenger_summary">
+                                        <div class="no_data">
+                                            <span>운임을 선택하세요.</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            
+                            
+                            </ul>
+                        </div>
+                    
+                    </div>
+                    <!--// 탑승자 리스트 -->
+                    
+                    <!-- 금액 -->
+                    <div class="sub_price">
+                        <dl>
+                            <dt>전체 탑승객 편도 총액</dt>
+                            <dd>
+                                <span class="unit">KRW</span>
+                                <span class="price">0</span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- 금액 -->
+                    <!--// 입력전 -->
+                </div>
+            
+            
+            </div>
+            <!-- 구간 Tab -->
+        </div>
+    
+    </div>
+</div>
+</body>
+</html>
