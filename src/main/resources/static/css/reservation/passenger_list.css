@@ -5,6 +5,10 @@
 	margin: 0;
 }
 
+ul, ol, li {
+	list-style: none;
+}
+
 .container {
 	width: 1100px;
 	margin: 0 auto;
@@ -32,5 +36,61 @@
 .text .text-sub {
 	margin: 8px 0 0 0;
 	font-size: 14px;
+	color: #1a1a1a;
+}
+
+.passenger_info {
+	border: 1px solid #ccc;
+	margin-top: 20px;
+}
+
+.passenger_info ul li a {
+	display: block;
+	padding: 30px 40px;
+	position: relative;
+	height: 22px;
+}
+
+.passenger_info ul li a span {
+	display: block;
+	padding-right: 30px;
+	background: url(//contents-image.twayair.com/homepage/images/common/ico_arrow_gray.png) no-repeat right center;
+}
+
+.passenger_info .p_info_wrap {
+	padding: 39px 39px;
+	box-sizing: border-box;
+}
+
+.p_info_wrap .info-top {
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid;
+}
+
+.p_info_wrap .info-text {
+	font-size: 14px;
+	color: #d22c26;
+	line-height: 21px;
+}
+
+.info_detail .datail_li {
+	display: flex;
+	height: 75px;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.info_detail .datail_li .type {
+	padding: 20px 30px;
+	font-size: 16px;
+	font-weight: normal;
+	color: #4d4d4d;
+	width: 95px;
+}
+
+.p_info_wrap .info_detail .datail_li .input_wrap {
+	padding: 14px 20px;
+	font-size: 16px;
 	color: #1a1a1a;
 }
