@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<head>
+<meta charset="UTF-8">
+<title>아이디 찾기 페이지</title>
+</head>
+<body>
+	<main class="container mx-auto" style="max-width: 500px">
+	<h1 class="d-flex justify-content-center mt-5">아이디 찾기</h1>
+		<!-- action -->
+		<form action="/login/findId.do" class="mt-5">
+			<div class="input-group input-group-lg mb-3">
+			  <span class="input-group-text" name="name" id="inputName">이름</span>
+			  <input type="text" class="form-control" placeholder="이름을 입력하세요" aria-label="name" aria-describedby="inputName">
+			</div>
+			<div class="input-group input-group-lg mb-3">
+				<span class="input-group-text" name="email" id="inputEmail">이메일</span>
+			  <input type="email" class="form-control" placeholder="이메일을 입력하세요" aria-label="email" aria-describedby="inputEmail">
+			  <button class="btn btn-outline-secondary" type="button" id="btnOtp">인증번호 받기</button>
+			</div>
+			<div class="input-group mb-3">
+				<input type="text" class="form-control visually-hidden" name="otpNum" placeholder="인증번호 입력">
+			</div>
+			<div class="d-grid gap-2 col-6 mx-auto">
+				<button type="button" class="btn btn-primary mt-4">아이디 찾기</button>
+			</div>
+		</form>
+	</main>
+</body>
+</html>

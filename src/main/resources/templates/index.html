@@ -5,6 +5,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<th:block th:if= "${session.loginCt==null}">
+	<h2><a href="/login/loginPage.do">로그인하기</a></h2>
+	</th:block>
+	<th:block th:unless= "${session.loginCt==null}">
+	<h2><a href="/login/logout.do">로그아웃</a></h2>
+	</th:block>
 </body>
 </html>
