@@ -12,4 +12,10 @@ public class ReservationController {
 		System.out.println("Reservation page connected");
 		return "reservation/reservationSearch";
 	}
+	
+	@GetMapping("/passenger_list.do")
+	public void pList() {
+		
+	}
+	
 }

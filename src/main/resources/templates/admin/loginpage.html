@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body {
+	margin: 0;
+	}
+	.box{
+	width: 300px;
+	border-radius: 5px;
+	background-color: #eeeff1;
+	padding: 20px;
+	margin: 50px auto;
+	}
+	.box2{
+	font-size: 14px;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	border: none;
+	width: 100%;
+	box-sizing: border-box;
+	}
+	.box3{
+	font-size: 14px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #87ceeb;
+	border: none;
+	width: 100%;
+	}
+	.links{
+	text-align: center;
+	margin: 30px;
+	}
+	.links a {
+	text-decoration: none;
+	font-size: 12px;
+	}
+</style>
+</head>
+<body>
+	<main>
+	<h1>관리자 로그인</h1>
+		<div class="box">
+			<form>
+				<input class="box2" type="text" placeholder="아이디를 입력하세요">
+				<input class="box2" type="password" placeholder="비밀번호를 입력하세요">
+				<input class="box3" type="submit" value="로그인">
+			</form>
+			<div class="links">
+				<a href="/findPassword.do">비밀번호 찾기</a>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
