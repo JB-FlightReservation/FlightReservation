@@ -1,0 +1,415 @@
+@charset "UTF-8";
+/* SOL: SUMMARY */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.summary_wrap .summary_cont .tab_wrap {
+    display: block;
+    margin: 0px auto;
+    width: 1200px;
+}
+
+.summary_wrap.open::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tab {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab_wrap .tab.added1 li {
+    width: 100%;
+}
+
+.tab li.on:last-child {
+    border-right: 1px solid rgb(204, 204, 204);
+}
+
+.tab.n4 li {
+    width: 25%;
+}
+
+.tab li.on {
+    background-color: rgb(255, 255, 255);
+    border-top: 4px solid rgb(210, 44, 38);
+    border-left: 1px solid rgb(204, 204, 204);
+    border-bottom: 0px;
+}
+
+.tab li:first-child {
+    border-left: 0px;
+}
+
+.tab li {
+    vertical-align: middle;
+    width: 50%;
+    min-height: 60px;
+    padding: 5px;
+    text-align: center;
+    background-color: rgb(241, 241, 241);
+    border-left: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(204, 204, 204);
+    box-sizing: border-box;
+    position: relative;
+}
+.summary_wrap .summary_cont .tab li.on a {
+    font-size: 24px;
+}
+
+.tab li.on a {
+    font-weight: 700;
+    color: rgb(210, 44, 38);
+    border-bottom: 0px;
+}
+
+.tab li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+.summary_wrap .summary_cont .tab_wrap .tab_cont {
+    margin-top: 0px;
+}
+
+.summary_wrap .summary_cont .tab_cont {
+    padding-top: 40px;
+}
+
+.summary_wrap .summary_cont .route_info {
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    background-color: rgb(245, 245, 245);
+}
+
+.summary_wrap .summary_cont .route_info .route {
+    display: inline-block;
+    font-size: 16px;
+    color: rgb(26, 26, 26);
+}
+
+.summary_wrap .summary_cont .route_info .route .eng {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.summary_wrap .summary_cont .summary_list {
+    margin-top: 30px;
+}
+
+.summary_wrap .summary_cont .summary_list::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.summary_wrap .summary_cont .summary_list dl {
+    display: inline-block;
+    position: relative;
+    width: 570px;
+    box-sizing: border-box;
+}
+
+.summary_wrap .summary_cont .summary_list dt {
+    clear: left;
+    float: left;
+    width: 50%;
+    font-size: 16px;
+    color: rgb(77, 77, 77);
+}
+
+.summary_wrap .summary_cont .summary_list dt, .summary_wrap .summary_cont .summary_list dd {
+    display: inline-block;
+    padding: 10px 0px;
+}
+
+.summary_wrap .summary_cont .summary_list dd {
+    clear: right;
+    float: right;
+    width: 50%;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(26, 26, 26);
+}
+
+.fr {
+    float: right !important;
+}
+
+.passenger_list_wrap {
+    margin-top: 30px;
+}
+
+.summary_wrap .summary_cont .passenger_list {
+    margin-top: 20px;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.passenger_list_wrap .passenger_list {
+    margin-top: 20px;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+.passenger_list_wrap .passenger_list li:last-child {
+    border-bottom: 0px;
+}
+
+.passenger_list_wrap .passenger_list li {
+    border-bottom: 1px solid rgb(204, 204, 204);
+    box-sizing: border-box;
+}
+
+.passenger_list_wrap .passenger_list .title {
+    display: block;
+    position: relative;
+    padding: 0px 40px;
+    height: 80px;
+    font-size: 18px;
+    color: rgb(26, 26, 26);
+    line-height: 80px;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+.passenger_list_wrap .passenger_list .title::after {
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 35px;
+    right: 40px;
+    width: 24px;
+    height: 13px;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_faq.png") 50% 50% no-repeat;
+}
+
+.summary_wrap .summary_cont .passenger_list .ico_passenger {
+    display: inline-block;
+    margin-right: 5px;
+    width: 40px;
+    height: 46px;
+    vertical-align: middle;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_passenger_gray.png") 0px 0px no-repeat;
+    text-indent: -9999px;
+}
+
+.passenger_list_wrap .passenger_list .ico_passenger {
+    display: inline-block;
+    margin-right: 5px;
+    width: 40px;
+    height: 46px;
+    vertical-align: middle;
+    background: url("//contents-image.twayair.com/homepage/images/ico/ico_passenger_gray.png") 0px 0px no-repeat;
+    text-indent: -9999px;
+}
+
+.summary_wrap .summary_cont .passenger_list .price_wrap {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 150px;
+    text-align: right;
+    line-height: 1;
+    height: 55px;
+    padding: 25px 0px 0px;
+}
+
+.passenger_list_wrap .passenger_list .title .price_wrap {
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 150px;
+    text-align: right;
+}
+
+.summary_wrap .summary_cont .passenger_list .price_wrap .unit {
+    display: inline-block;
+    font-size: 16px;
+    color: rgb(26, 26, 26);
+    height: 20px;
+    vertical-align: bottom;
+}
+
+.passenger_list_wrap .passenger_list .title .price_wrap .unit {
+    display: inline-block;
+    font-size: 16px;
+    color: rgb(26, 26, 26);
+}
+
+.summary_wrap .summary_cont .passenger_list .price_wrap .price {
+    display: inline-block;
+    font-size: 30px;
+    color: rgb(26, 26, 26);
+    height: 30px;
+    vertical-align: middle;
+}
+
+.passenger_list_wrap .passenger_list .title .price_wrap .price {
+    display: inline-block;
+    font-size: 30px;
+    color: rgb(26, 26, 26);
+}
+
+.summary_wrap .summary_cont .passenger_list .price_wrap .standard {
+    display: block;
+    font-size: 12px;
+    color: rgb(26, 26, 26);
+    padding-top: 2px;
+    height: 20px;
+}
+
+.summary_wrap .summary_cont .passenger_list .passenger_summary {
+    display: none;
+    padding: 40px;
+    font-size: 16px;
+    color: rgb(77, 77, 77);
+    line-height: 24px;
+    background-color: rgb(255, 255, 255);
+}
+
+.passenger_list .passenger_summary .summary_list {
+    margin-top: 0px;
+}
+
+.summary_wrap .summary_cont .summary_list {
+    margin-top: 30px;
+}
+
+.passenger_list .passenger_summary .summary_list dl {
+    display: inline-block;
+    position: relative;
+    width: 505px;
+    box-sizing: border-box;
+}
+
+.summary_wrap .summary_cont .summary_list dl {
+    display: inline-block;
+    position: relative;
+    width: 570px;
+    box-sizing: border-box;
+}
+
+.fl {
+    float: left !important;
+}
+
+.passenger_list .passenger_summary .summary_list dt {
+    float: left;
+    width: 50%;
+    font-size: 16px;
+    color: rgb(77, 77, 77);
+}
+
+.passenger_list .passenger_summary .summary_list dt, .passenger_list .passenger_summary .summary_list dd {
+    display: inline-block;
+    padding: 3px 0px;
+}
+
+.summary_wrap .summary_cont .summary_list dt {
+    clear: left;
+    float: left;
+    width: 50%;
+    font-size: 16px;
+    color: rgb(77, 77, 77);
+}
+
+.summary_wrap .summary_cont .summary_list dt, .summary_wrap .summary_cont .summary_list dd {
+    display: inline-block;
+    padding: 10px 0px;
+}
+
+.passenger_list .passenger_summary .summary_list dd {
+    float: right;
+    width: 50%;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(26, 26, 26);
+}
+
+.passenger_list .passenger_summary .summary_list dt, .passenger_list .passenger_summary .summary_list dd {
+    display: inline-block;
+    padding: 3px 0px;
+}
+
+.summary_wrap .summary_cont .summary_list dd {
+    clear: right;
+    float: right;
+    width: 50%;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(26, 26, 26);
+}
+
+.summary_wrap .summary_cont .summary_list dt, .summary_wrap .summary_cont .summary_list dd {
+    display: inline-block;
+    padding: 10px 0px;
+}
+
+.summary_wrap .summary_cont .sub_price {
+    margin-top: 20px;
+    padding: 0px 40px;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    border: 1px solid rgb(204, 204, 204);
+    background-color: rgb(245, 245, 245);
+    box-sizing: border-box;
+}
+
+.summary_wrap .summary_cont .sub_price dt {
+    float: left;
+    width: 20%;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(77, 77, 77);
+}
+
+.summary_wrap .summary_cont .sub_price dt, .summary_wrap .summary_cont .sub_price dd {
+    display: inline-block;
+}
+
+.summary_wrap .summary_cont .sub_price dd {
+    float: right;
+    width: 80%;
+    text-align: right;
+}
+
+.summary_wrap .summary_cont .sub_price dt, .summary_wrap .summary_cont .sub_price dd {
+    display: inline-block;
+}
+
+.summary_wrap .summary_cont .sub_price .unit {
+    font-size: 16px;
+    color: rgb(77, 77, 77);
+}
+
+.summary_wrap .summary_cont .route_info .route.end::before {
+    display: inline-block;
+    content: "";
+    width: 150px;
+    height: 14px;
+    background: url("//contents-image.twayair.com/homepage/images/booking/ico_route.png") 50% 0px no-repeat;
+}
+
+/* EOL: SUMMARY */
