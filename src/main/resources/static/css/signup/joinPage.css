@@ -1,0 +1,84 @@
+.terms__check__all {
+	height:100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.joinp {
+	font-weight: bold ;
+	font-size: 20px;
+	
+
+}
+.wel {
+	font-weight: bold ;
+	font-size: 40px;
+	margin:20px;
+	margin-bottom:30px;
+}
+.welp {
+	font-size: 18px;
+}
+
+img {
+  width: 350px;
+  height: 350px;
+
+}
+
+hr.style-seven {
+border: 0;
+height: 1px;
+background: #333;
+background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+margin-bottom:30px;
+
+}
+
+
+.button2 , .button3, .button4, .button5, .button6 {
+  background-color: #000000; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  padding: 14px 70px;
+  margin-bottom:50px;
+  border-radius: 4px;
+  margin-top:20px;
+  text-decoration: none;
+}
+
+.button3{
+	background-color: #cecece; /* Green */
+	margin-right:30px;
+}
+
+.button4{
+	background-color: #0000ff; /* Green */
+}
+
+.button5{
+	background-color: #ffffff; /* Green */
+	color: black; /* Green */
+	border: 1px solid black;
+	margin-right:10px;
+}
+.button5:hover {
+	color:black;
+}
+.button6:hover {
+	color:white;
+}
+
+.button4:disabled{
+	background-color: #bee1fe; /* Green */
+}
+

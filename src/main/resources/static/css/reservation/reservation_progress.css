@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+ol{
+	list-style:none;
+	float : right;
+}
+
+li {
+	float: left;
+	margin-right: 20px;
+}
