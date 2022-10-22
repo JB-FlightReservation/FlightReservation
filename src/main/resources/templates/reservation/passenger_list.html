@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reservation/passenger_list.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div class="head">
+			<h2>항공권 예매</h2>
+		</div>
+		<div class="body">
+			<div class="text">
+				<h3>탑승자 정보</h3>
+				<div class="text-sub">신분증에 기재된 이름, 생년월일을 작성하세요.</div>
+			</div>
+
+			<div class="passenger_info">
+				<form action="">
+					<div class="p_info-list">
+						<ul>
+							<li>
+								<a> <span> 성인 1 : 박소현</span>
+								</a>
+								<div class="p_info_wrap">
+									<div class="info-top">
+										<div class="me-check">
+											<label>
+												<input type="checkbox">
+												회원 본인 탑승 제외
+											</label>
+										</div>
+										<div class="info-text">* 은 필수 입력 항목입니다.</div>
+									</div>
+									<div class="info_detail">
+										<ul>
+											<li>
+												<div class="detail_li">
+													<div class="type">성별</div>
+													<div class="input_wrap">d</div>
+												</div>
+											</li>
+											<li>
+												<div class="detail_li">
+													<div class="type">국적</div>
+													<div class="input_wrap">d</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
