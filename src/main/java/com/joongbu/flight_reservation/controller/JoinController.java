@@ -16,7 +16,7 @@ import com.joongbu.flight_reservation.mapper.SignupMapper;
 
 @RequestMapping("/signup")
 @Controller 
-public class joinController {
+public class JoinController {
 	@Autowired //객체를 주입받겠다
 	DataSource dataSource;
 	SignupMapper signupMapper; 
