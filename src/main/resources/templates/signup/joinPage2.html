@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script defer="defer" src="/js/signup/joinInsert.js"></script>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/signup/joinPage.css">
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<br>
+			<h1>회원 가입</h1>
+			<hr>
+<main class="container mx-auto mt-5"  style="max-width:600px;">
+
+			<h2><strong>회원 정보 입력</strong></h2>
+			<p>회원가입에 필요한 정보를 입력합니다.</p>
+			
+		
+	<form name="userInsertForm" action="/signup/joinPage2.do" method="post" class="mt-4">
+		<div class="input-container">
+				<label class="joinp">아아디</label>
+				<div class="form-floating mb-3">
+						<input  class="form-control is-valid" placeholder=""  id="uid" type="text" name="ctId" value="">
+						<label  for="inputUserId">8자 영문,숫자를 조합해서 입력해주세요.</label>
+						
+						<div class="valid-feedback">
+							      사용할 수 있는 아이디입니다.
+						</div>
+						 <div class="invalid-feedback" id="userIdInvalid">
+					       			사용 중인 아이디입니다.
+					      </div>
+						</div>
+		</div>
+		<div class="input-container ">
+				<label class=" joinp">패스워드 </label>
+				<div class="form-floating mb-3">
+						<input class="form-control is-valid" placeholder="6-16자의 영문, 숫자, 특수문자를 조합해서 입력해주세요" type="password"name="ctPw" id="pw" onchange="check_pw()">
+						<label  for="inputUserId">6-16자의 영문, 숫자, 특수문자를 조합해서 입력해주세요.</label>
+						 <div class="valid-feedback">
+							      <span id="check1"></span>
+						</div>
+						 <div class="invalid-feedback">
+					       			<span id="check2"></span>
+					      </div>
+				</div>
+		</div>
+		<div class="input-container">
+				<label class="joinp">패스워드 확인</label>
+				<div class="form-floating mb-3">
+						<input class="form-control  is-valid" placeholder="" type="password" name="userPW2" id="pw2" onchange="check_pw()">
+						  <label  for="inputUserId">6-16자의 영문, 숫자, 특수문자를 조합해서 입력해주세요.</label>
+						  <div class="valid-feedback">
+							      <span id="userPWInvalid1"></span>
+						</div>
+						 <div class="invalid-feedback" >
+					       			<span id="userPWInvalid2"></span>
+					      </div>
+						</div>
+		</div>
+		
+		<div class="input-container"> <label class="joinp">이름</label>
+			<div class="form-floating mb-3">
+			  <input name="ctName"   th:name="name" th:value="${ctName}"  type="text" class="form-control" onkeyup="checkReg(event)" id="name" placeholder="ID" >
+			  <label  for="name">한글만 입력해주세요.</label>
+			</div>		
+		</div>
+		
+		<div class="input-container"><label class="joinp">폰번호</label>
+			<div class="form-floating mb-3">
+			   <input  id="phone" type="text" class="form-control" onKeyup="inputPhoneNumber(this);" placeholder="-없이 입력해주세요. 자동으로 생성됩니다." name="ctPhone" value="">
+				  <label  for="phone">-없이 입력해주세요.</label>
+			</div>		
+		</div>
+		
+		<div class="input-container"><label class="joinp">이메일</label>
+			<div class="form-floating mb-3">
+			   <input id="email"  type="text" class="form-control" placeholder="happy1234@naver.com" name="ctEmail" value="">
+				  <label  for="email">happy1234@naver.com</label>
+			</div>		
+		</div>
+		
+			<div class="input-container mb-3">
+			<label for="inputState" class="joinp form-label">성별</label><br>
+			   <div class="form-check form-check-inline">
+	
+			   
+		  <input class="form-check-input" type="radio" name="ctGender" id="male" value="남">
+		  <label class="form-check-label" for="inlineRadio1">남</label>
+		</div>
+		<div class="form-check form-check-inline">
+		  <input class="form-check-input" type="radio" name="ctGender" id="female" value="여">
+		  <label class="form-check-label" for="inlineRadio2">여</label>
+			</div></div>
+ 
+		  <div class="input-container mb-3">
+		    <label for="inputState" class="joinp form-label">생일</label>
+				<input class="form-control" id="inputField" type="date" name="ctBirth" 
+					value=>
+					<p>
+		</div>
+		
+				<div class="text-center " >
+		
+				
+				<button class="button3" type="reset">다시입력</button>
+				<button type="button" id="target_btn" class="button4" onclick="joinform_check()" disabled >가입하기</button>
+				</div>
+
+	</form>
+	</main>
+
+
+	
+
+</body>
+</html>
