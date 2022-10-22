@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
 
 	<th:block th:if= "${session.loginCt==null}">
 	<h2><a href="/login/loginPage.do">로그인하기</a></h2>
@@ -17,6 +19,30 @@
 	<a href="/reservation/terms.do">약관 페이지</a>
 	<a href="/reservation/pay.do">결제 페이지</a>
 	<a href="/reservation/payComplete.do">결제 완료 페이지</a>
+
+
+	<header th:include="/headerNav"></header>
+	<div class="main_text">
+		<div class="image"></div>
+		<div class="reserve"></div>
+	</div>
+	<div class="discount">
+		<ul class="icons">
+			<li>
+			</li>
+			<li>
+			</li>
+			<li>
+			</li>
+		</ul>
+	</div>
+	<div class="member">
+		<p>회원혜택</p>
+		<div class="mbox">
+			<p>VIP 회원혜택, 항공운임 5% + 5% 적립</p>
+		</div>
+	</div>
+	<footer th:include="/footerNav"></footer>
 
 </body>
 </html>
