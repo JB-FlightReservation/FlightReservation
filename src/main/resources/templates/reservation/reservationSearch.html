@@ -2,7 +2,9 @@
 
 <html lang="ko-KR">
 <head>
-    <link rel="stylesheet" href="/css/reservation/reservationSearch.css">
+    <link href="/css/reservation/reservationSearch.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <!-- Contnent -->
@@ -31,7 +33,6 @@
                     <li class="step05">
                         <span class="text_step">05</span>
                     </li>
-                
                 </ol>
             </div>
         </div>
@@ -45,31 +46,33 @@
                 <!-- 구간선택 슬라이드 -->
                 <div class="service_section_slide swiper-container swiper-container-horizontal">
                     
-                    <div class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev"
-                         id="route_1">
-                        <!-- 구간선택 박스 -->
-                        <div class="service_section_box">
-                            <!-- 구간 -->
-                            <span class="bul_section">구간1</span>
-                            <!--// 구간 -->
-                            <!-- 출발 -->
-                            <div class="service_name first">
-                                <strong class="tit airport departure">GMP</strong>
-                                <span class="addition">서울/김포</span>
+                    <ul class="swiper-wrapper" id="routeSlider">
+                        <li class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev"
+                            id="route_1">
+                            <!-- 구간선택 박스 -->
+                            <div class="service_section_box">
+                                <!-- 구간 -->
+                                <span class="bul_section">구간1</span>
+                                <!--// 구간 -->
+                                <!-- 출발 -->
+                                <div class="service_name first">
+                                    <strong class="tit airport departure">GMP</strong>
+                                    <span class="addition">서울/김포</span>
+                                </div>
+                                <!-- 출발 -->
+                                <!-- 설명 -->
+                                <div class="service_exp"></div>
+                                <!--// 설명 -->
+                                <!-- 도착 -->
+                                <div class="service_name last">
+                                    <strong class="tit airport arrival">CJU</strong>
+                                    <span class="addition">제주</span>
+                                </div>
+                                <!-- 도착 -->
                             </div>
-                            <!-- 출발 -->
-                            <!-- 설명 -->
-                            <div class="service_exp"></div>
-                            <!--// 설명 -->
-                            <!-- 도착 -->
-                            <div class="service_name last">
-                                <strong class="tit airport arrival">CJU</strong>
-                                <span class="addition">제주</span>
-                            </div>
-                            <!-- 도착 -->
-                        </div>
+                        </li>
                         <!--// 구간선택 박스 -->
-                    </div>
+                    </ul>
                 </div>
                 <!--// 구간선택 슬라이드 -->
                 
@@ -94,21 +97,117 @@
             </div>
         </div>
         <!--// 구간선택 -->
-        
-        
         <div id="layer_availability_list">
             <!--            TODO: START OF LINE-->
             <div class="sel_date_wrap">
                 <!--날짜 선택 슬라이드 -->
-                <div class="sel_date_slide swiper-container route_all route_1 swiper-container-horizontal" id="price_slider_1" style="display: block;">
+                <div class="sel_date_slide swiper-container route_all route_1 swiper-container-horizontal"
+                     id="price_slider_1" style="display: block;">
                     <ul class="swiper-wrapper">
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                        <li class="swiper-slide lowestFare swiper-slide-duplicate swiper-slide-prev">
+                            <a class="sel_date_box" href="#" title="여정 선택하기">
+                                <span class="date">MM-dd(요일)</span>
+                                <span class="price">xx,xxx</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide lowestFare on swiper-slide-active">
+                            <a class="sel_date_box" href="#" title="여정 선택됨">
+                                <span class="date">MM-dd(요일)</span>
+                                <span class="price">xx,xxx</span>
+                            </a>
+                        </li>
+                        <li class="swiper-slide lowestFare swiper-slide-next">
+                            <a class="sel_date_box" href="#" title="여정 선택하기">
+                                <span class="date">MM-dd(요일)</span>
+                                <span class="price">xx,xxx</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
+                <a class="btn_slide_prev price_slider_1" href="#" style="display: block;">이전</a>
+                <a class="btn_slide_next price_slider_1" href="#" style="display: block;">다음</a>
             </div>
-            <!--            TODO: END OF LINE-->
+            <!-- 구간 리스트 -->
+            <div class="section_list_wrap">
+                <!--     정렬 옵션 -->
+                <div class="list_opt">
+                    <span class="select small" id="filter_route_1" style="margin-right: 12px; display: inline-block;">
+                        <select class="form-select form-select-sm" name="filter_price" title="항공편 정렬 기준 옵션" id="filter_price_1">
+                            <option selected value="1">이른 시간 순</option>
+                            <option value="2">늦은 시간 순</option>
+                            <option value="3">낮은 가격순</option>
+                            <option value="4">높은 가격순</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="section_list" id="price_list_route_1">
+                <ul>
+                    <li class="price_list route_all route_1 section_list_item">
+                        <a href="#" title="구간리스트 열기" class="section_list_box">
+                            <div class="section_info">
+                                <div class="service_section_box">
+                                    <div class="plan_type">
+                                        <button class="bul_air_info jb" title="편명 보기">JB123(항공편명)</button>
+                                        <button class="bul_air_info" title="항공기 정보 보기">KD456-789(항공기명)</button>
+                                    </div>
+                                    <div class="service_name first">
+                                        <strong class="tit">HH:mm</strong>
+                                        <span class="addition">출발지</span>
+                                    </div>
+                                    <div class="service_exp">
+                                        <p class="top">
+                                            (HH)h (mm)m -> 비행 예상 시간
+                                        </p>
+                                        <p class="bttm">
+                                            <span>직항</span>
+                                        </p>
+                                    </div>
+                                    <div class="service_name last">
+                                        <strong class="tit">HH:mm</strong>
+                                        <span class="addition">도착지</span>
+                                    </div>
+                                    <div class="price_info fareInfo">
+                                        <div class="class normal">이코노미</div>
+                                        <span class="unit">KRW</span>
+                                        <strong class="price">xx,xxx</strong>
+                                        <p class="empty_seats">x석</p>
+                                    </div>
+                                     <div class="price_info fareInfo">
+                                        <div class="class business">비즈니스</div>
+                                        <span class="unit">KRW</span>
+                                        <strong class="price">xx,xxx</strong>
+                                        <p class="empty_seats">x석</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="detail_info fix s4">
+                            <div class="rate_box_index">
+                                <div class="select_rate"></div>
+                                <div class="rate_list">
+                                    <p class="service_index icon_seat">좌석</p>
+                                    <p class="service_index icon_carryon">기내 수하물</p>
+                                    <p class="service_index icon_free_bag">무료 위탁수하물</p>
+                                    <p class="service_index icon_food">무료 기내식</p>
+                                    <p class="service_index icon_business">비즈니스 혜택</p>
+                                </div>
+                            </div>
+                            <div class="rate_box fareType normal">
+                                <div class="select_rate">
+                                    <label class="float_item">
+                                        <span class="icon"></span>
+                                        이벤트 운임
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- TODO: END OF LINE -->
         </div>
     </div>
 </div>
