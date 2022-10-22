@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
-<header th:include="headerNav"></header>
 <body>
-
-	<a href="/templates/mainp/mainp.html">메인 페이지</a>
-
+	<th:block th:if= "${session.loginCt==null}">
+	<h2><a href="/login/loginPage.do">로그인하기</a></h2>
+	</th:block>
+	<th:block th:unless= "${session.loginCt==null}">
+	<h2><a href="/login/logout.do">로그아웃</a></h2>
+	</th:block>
 </body>
 </html>

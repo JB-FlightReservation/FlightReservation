@@ -1,9 +1,8 @@
 package com.joongbu.flight_reservation.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Date;
+
+import lombok.Data;
 
 /*
 +-----------+--------------+------+-----+---------+----------------+
@@ -21,16 +20,16 @@ import java.util.Date;
 | oc_no     | int unsigned | NO   | UNI | NULL    |                |
 +-----------+--------------+------+-----+---------+----------------+
  */
-@Getter@Setter
+@Data
 public class CustomerDto {
-    private int ctNo;   //  고객번호
-    private String ctId;    //  고객아이디
-    private String ctPw;    //  고객비밀번호;
-    private String ctName;  //  고객이름
-    private String ctEmail; //  고객이메일
-    private String ctPhone; //  고객휴대전화
-    private Date ctBirth;   //  고객생일
-    private String ctGender;    //  고객성별
-    private Date ctCreate;  //  회원가입일
-    private int ocNo;   //  쿠폰번호?
+	private int ctNo;
+	private String ctId;
+	private String ctPw;
+	private String ctName;
+	private String ctEmail;
+	private String ctPhone;
+	private Date ctBirth;
+	private char ctGender;
+	private Date ctCreate;
+	private int ocNo;
 }
