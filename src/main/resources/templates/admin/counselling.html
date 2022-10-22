@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<header th:include="/adminheaderNav"></header>
+	<main>
+		<table>
+			<thead>
+				<tr>
+					<th><input type="checkbox"></th>
+					<th>번호</th>
+					<th>제목</th>
+					<th>글쓴이</th>
+					<th>등록일</th>
+					<th>답변상태</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:onclick="" th:each="">
+					<th><input type="checkbox"></th>
+					<th th:text="${ct_no}"></th>
+					<th th:text="${i_contentName}"></th>
+					<th th:text="${i_name}"></th>
+					<th th:text="${#dates.format(,'MM월DD일 HH시mm분')}"></th>
+					<th th:text="${i_answer}"></th>
+				</tr>
+			</tbody>
+		</table>
+		<nav>
+			<ul>
+				<li><a href="">&lt;&lt;</a></li>
+				<li><a href="">&lt;</a></li>
+				<li class=""><a class="" th:href="@{''(page=1)}">1</a></li>
+				<li ><a th:href="@{''(page=2)}">2</a></li>
+				<li ><a th:href="@{''(page=3)}">3</a></li>
+				<li ><a th:href="@{''(page=4)}">4</a></li>
+				<li ><a th:href="@{''(page=5)}">5</a></li>
+				<li><a href="">&gt;</a></li>
+				<li><a href="">&gt;&gt;</a></li>
+			</ul>
+		</nav>
+	</main>
+</body>
+</html>
