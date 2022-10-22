@@ -12,4 +12,19 @@ public class ReservationController {
 		System.out.println("Reservation page connected");
 		return "reservation/reservationSearch";
 	}
+	
+	@GetMapping("/terms.do")
+	public String terms() {
+		return "reservation/reservationTerms";
+	}
+	
+	@GetMapping("/pay.do")
+	public String pay() {
+		return	"reservation/reservationPay";
+	}
+	
+	@GetMapping("/payComplete.do")
+	public String payComplete() {
+		return	"reservation/reservationPayComplete";
+	}
 }
