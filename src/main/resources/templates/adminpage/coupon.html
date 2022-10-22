@@ -1,89 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>쿠폰 지급</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-<header th:include="headerNav"></header>
-<main class="container mx-auto mt-5" style="max-width: 60%;">
-    <h1>쿠폰 지급하기</h1>
-    <div class="input-group flex-nowrap mt-5" style="height: 100px;">
-        <span class="input-group-text justify-content-center" id="addon-wrapping" style="width: 50%;">5% 할인 쿠폰</span>
-        <input type="button" class="form-control justify-content-center btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#userSelectModal" data-bs-whatever="@mdo" value="회원 선택">
-        <div class="modal fade" id="userSelectModal" tabindex="-1" aria-labelledby="userSelectModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="userSelectModalLabel">회원 선택</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form class="d-flex mt-1" role="search" method="get" action="#" style="max-width: 250px;">
-                            <input class="form-control me-2 " type="search" placeholder="사용자 검색" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                        <form action="#" method="post">
-                            <div class="input-group mb-1 mt-1">
-                                <span class="input-group-text"><input type="checkbox" class="form-check"></span>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control justify-content-center" id="floatingInputGroup1" placeholder="Username"  readonly>
-                                    <label for="floatingInputGroup1">Username</label>
-                                </div>
-                            </div>
-                            <div class="input-group mb-1 mt-1">
-                                <span class="input-group-text"><input type="checkbox" class="form-check"></span>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control justify-content-center" id="floatingInputGroup2" placeholder="Username"  readonly>
-                                    <label for="floatingInputGroup2">Username</label>
-                                </div>
-                            </div>
-                            <div class="input-group mb-1 mt-1">
-                                <span class="input-group-text"><input type="checkbox" class="form-check"></span>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control justify-content-center" id="floatingInputGroup3" placeholder="Username"  readonly>
-                                    <label for="floatingInputGroup3">Username</label>
-                                </div>
-                            </div>
-                            <div class="input-group mb-1 mt-1">
-                                <span class="input-group-text"><input type="checkbox" class="form-check"></span>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control justify-content-center" id="floatingInputGroup4" placeholder="Username"  readonly>
-                                    <label for="floatingInputGroup4">Username</label>
-                                </div>
-                            </div>
-                            <div class="input-group mb-1 mt-1">
-                                <span class="input-group-text"><input type="checkbox" class="form-check"></span>
-                                <div class="form-floating">
-                                    <input type="text" class="form-control justify-content-center" id="floatingInputGroup5" placeholder="Username"  readonly>
-                                    <label for="floatingInputGroup5">Username</label>
-                                </div>
-                            </div>
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link">Previous</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">지급하기</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+	<header th:include="/adminheaderNav"></header>
+	<main>
+		<h1>쿠폰 지금 하기</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>쿠폰 목록</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="" th:onclick="" th:each="coupon:${couponList}">
+					<th th:text="${coupon.cpName}"></th>
+					<th th:text="${coupon.cpDiscount}"></th>
+					<th th:text="${#dates.postTime(coupon.cpStart,YYYY년MM월dd일 HH시mm분)}"></th>
+					<th th:text="${#dates.postTime(coupon.cpEnd,YYYY년MM월dd일 HH시mm분)}"></th>
+				</tr>
+			</tbody>
+		</table>
+	</main>
 </body>
 </html>
