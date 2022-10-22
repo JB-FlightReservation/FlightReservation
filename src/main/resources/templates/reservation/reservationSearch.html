@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>JB Flight Reservation</title>
+    <link rel="stylesheet" href="/css/reservation/reservationSearch.css">
+</head>
+<body>
+<!--<header th:include="/headerNav"></header>-->
+
+<!-- page title -->
+<main>
+    <div>
+        <div class="title">항공권 예매</div>
+        <div class="progressbar" th:include="/reservation/reservation_progressbar"></div>
+    </div>
+
+
+    <!-- 구간 선택 슬라이드 -->
+    <div class="travel-slider">
+        <ul class="travel-slider">
+            <li class="travel-slider-left">l</li>
+            <li class="travel-slider-content">
+                <div>
+                    <div class="slider-box">
+                        <span class="depart-airport">출발지</span>
+                        <span class="land-airport"> 도착지</span>
+                    </div>
+                </div>
+            </li>
+            <li class="travel-slider-right">r</li>
+        </ul>
+    </div>
+
+
+    <div>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected value="1">이른 출발 시간 순</option>
+            <option value="2">늦은 출발 시간 순</option>
+            <option value="3">가격 높은 순</option>
+            <option value="4">가격 낮은 순</option>
+        </select>
+    </div>
+</main>
+</body>
+</html>
