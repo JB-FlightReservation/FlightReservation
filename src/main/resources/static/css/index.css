@@ -1,1 +1,68 @@
-@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+	width: 1100px;
+	margin: 0 auto;
+}
+
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5em;
+    font-size: 15px;
+}
+
+header {
+    font-weight: normal;
+    background: #fff;
+}
+
+ul{
+   list-style:none;
+}
+   
+/* 광고, 예매 */
+.main_text{
+	width: 100%;
+	height: 500px;
+	background: #f2f2f3;
+}
+
+/* 할인 */
+.discount{
+	width: 100%;
+	height: 330px;
+}
+.icons{
+	display: flex;
+	margin: auto;
+}
+.icons > li{
+	flex: 1;
+	height: 330px;
+}
+/* .icons > li:not(:last-child){
+	margin-right: 20px; 
+} */
+
+/* 회원해택 */
+.member{
+	width: 100%;
+	height: 250px;
+}
+.member .mbox{
+	width: 80%;
+	height: 110px;
+	background: #ffb6c1;
+	margin-top: 15px;
+}
+.mbox p{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+
+
