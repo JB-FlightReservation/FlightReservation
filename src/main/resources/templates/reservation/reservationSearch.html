@@ -2,8 +2,8 @@
 
 <html lang="ko-KR">
 <head>
-    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
     <link href="/css/reservation/reservationSearch.css" rel="stylesheet">
 </head>
 
@@ -12,7 +12,7 @@
 <div id="container">
     <div class="content" id="content">
         <!-- 컨텐츠 영역 -->
-        
+
         <!-- Title & Step -->
         <div class="tit_booking_wrap">
             <h2 class="pg_tit">항공권 예매</h2>
@@ -37,15 +37,15 @@
             </div>
         </div>
         <!-- Title & Step -->
-        
+
         <!-- 구간선택 -->
         <div class="sel_service_section">
-            
+
             <div class="service_section_wrap service_section_wrap--simple">
-                
+
                 <!-- 구간선택 슬라이드 -->
                 <div class="service_section_slide swiper-container swiper-container-horizontal">
-                    
+
                     <ul class="swiper-wrapper" id="routeSlider">
                         <li class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev"
                             id="route_1">
@@ -75,14 +75,14 @@
                     </ul>
                 </div>
                 <!--// 구간선택 슬라이드 -->
-                
-                
+
+
                 <!-- 여정 재검색 -->
                 <div class="btn_refresh">
                     <button class="btn_small refresh red">재검색</button>
                 </div>
                 <!--// 여정 재검색 -->
-                
+
                 <!-- 슬라이드 버튼 -->
                 <a class="btn_slide_prev" href="#">이전</a>
                 <a class="btn_slide_next" href="#">다음</a>
@@ -128,7 +128,7 @@
                 <a class="btn_slide_next price_slider_1" href="#" style="display: block;">다음</a>
             </div>
             <!-- 구간 리스트 -->
-            
+
             <div class="section_list_wrap">
                 <!--  정렬 옵션 -->
                 <div class="list_opt">
@@ -143,7 +143,7 @@
                     </span>
                 </div>
                 <!-- // 정렬 옵션 -->
-                
+
                 <!-- 항공편 리스트 -->
                 <div class="section_list" id="price_list_route_1">
                     <ul>
@@ -156,45 +156,45 @@
                             </div>
                         </li>
                         <li class="price_list route_all route_1 section_list_item on">
-                        <a class="section_list_box on" href="#" title="구간리스트 열기">
-                            <div class="section_info">
-                                <div class="service_section_box">
-                                    <div class="plan_type">
-                                        <button class="bul_air_info jb" title="편명 보기">JB123</button>
-                                        <button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
+                            <a class="section_list_box on" href="#" title="구간리스트 열기">
+                                <div class="section_info">
+                                    <div class="service_section_box">
+                                        <div class="plan_type">
+                                            <button class="bul_air_info jb" title="편명 보기">JB123</button>
+                                            <button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
+                                        </div>
+                                        <div class="service_name first">
+                                            <strong class="tit">HH:mm</strong>
+                                            <span class="addition">출발지</span>
+                                        </div>
+                                        <div class="service_exp">
+                                            <p class="top">
+                                                (HH)h (mm)m
+                                            </p>
+                                            <p class="bttm">
+                                                <span>직항</span>
+                                            </p>
+                                        </div>
+                                        <div class="service_name last">
+                                            <strong class="tit">HH:mm</strong>
+                                            <span class="addition">도착지</span>
+                                        </div>
+
                                     </div>
-                                    <div class="service_name first">
-                                        <strong class="tit">HH:mm</strong>
-                                        <span class="addition">출발지</span>
-                                    </div>
-                                    <div class="service_exp">
-                                        <p class="top">
-                                            (HH)h (mm)m
-                                        </p>
-                                        <p class="bttm">
-                                            <span>직항</span>
-                                        </p>
-                                    </div>
-                                    <div class="service_name last">
-                                        <strong class="tit">HH:mm</strong>
-                                        <span class="addition">도착지</span>
-                                    </div>
-                                    
-                                </div>
-                                <div class="price_info fareInfo">
+                                    <div class="price_info fareInfo">
                                         <div class="class normal">이코노미</div>
                                         <span class="unit">KRW</span>
                                         <strong class="price">xx,xxx</strong>
                                         <p class="empty_seats">x석</p>
                                     </div>
-                                     <div class="price_info fareInfo">
+                                    <div class="price_info fareInfo">
                                         <div class="class business">비즈니스</div>
                                         <span class="unit">KRW</span>
                                         <strong class="price">xx,xxx</strong>
                                         <p class="empty_seats">x석</p>
                                     </div>
-                            </div>
-                        </a>
+                                </div>
+                            </a>
                             <div class="detail_info fix s4">
                                 <div class="rate_box_index">
                                     <div class="select_rate"></div>
@@ -209,8 +209,10 @@
                                 <div class="rate_box fareType normal">
                                     <div class="select_rate">
                                         <label class="float_item">
-                                            <span class="icon"></span>
-                                            이벤트 운임
+                                            <span class="form-check">
+                                                <input type="radio" class="form-check-input" name="seatGrade">
+                                                <label class="form-check-label" name="seatGrade">이벤트 운임</label>
+                                            </span>
                                         </label>
                                         <a class="btn_tooltip alert" href="#"></a>
                                     </div>
@@ -288,7 +290,7 @@
                                         <p class="service icon_business">
                                             무료제공
                                             <a class="btn_tooltip alert businessBenefitLayer" href="#">
-                                        </a>
+                                            </a>
                                         </p>
                                     </div>
                                     <div class="rate_price">
@@ -300,45 +302,45 @@
                             </div>
                         </li>
                         <li class="price_list route_all route_1 section_list_item">
-                        <a class="section_list_box" href="#" title="구간리스트 열기">
-                            <div class="section_info">
-                                <div class="service_section_box">
-                                    <div class="plan_type">
-                                        <button class="bul_air_info jb" title="편명 보기">JB123</button>
-                                        <button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
+                            <a class="section_list_box" href="#" title="구간리스트 열기">
+                                <div class="section_info">
+                                    <div class="service_section_box">
+                                        <div class="plan_type">
+                                            <button class="bul_air_info jb" title="편명 보기">JB123</button>
+                                            <button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
+                                        </div>
+                                        <div class="service_name first">
+                                            <strong class="tit">HH:mm</strong>
+                                            <span class="addition">출발지</span>
+                                        </div>
+                                        <div class="service_exp">
+                                            <p class="top">
+                                                (HH)h (mm)m
+                                            </p>
+                                            <p class="bttm">
+                                                <span>직항</span>
+                                            </p>
+                                        </div>
+                                        <div class="service_name last">
+                                            <strong class="tit">HH:mm</strong>
+                                            <span class="addition">도착지</span>
+                                        </div>
+
                                     </div>
-                                    <div class="service_name first">
-                                        <strong class="tit">HH:mm</strong>
-                                        <span class="addition">출발지</span>
-                                    </div>
-                                    <div class="service_exp">
-                                        <p class="top">
-                                            (HH)h (mm)m
-                                        </p>
-                                        <p class="bttm">
-                                            <span>직항</span>
-                                        </p>
-                                    </div>
-                                    <div class="service_name last">
-                                        <strong class="tit">HH:mm</strong>
-                                        <span class="addition">도착지</span>
-                                    </div>
-                                    
-                                </div>
-                                <div class="price_info fareInfo">
+                                    <div class="price_info fareInfo">
                                         <div class="class normal">이코노미</div>
                                         <span class="unit">KRW</span>
                                         <strong class="price">xx,xxx</strong>
                                         <p class="empty_seats">x석</p>
                                     </div>
-                                     <div class="price_info fareInfo">
+                                    <div class="price_info fareInfo">
                                         <div class="class business">비즈니스</div>
                                         <span class="unit">KRW</span>
                                         <strong class="price">xx,xxx</strong>
                                         <p class="empty_seats">x석</p>
                                     </div>
-                            </div>
-                        </a>
+                                </div>
+                            </a>
                             <div class="detail_info fix s4" style="display: none">
                                 <div class="rate_box_index">
                                     <div class="select_rate"></div>
@@ -432,7 +434,7 @@
                                         <p class="service icon_business">
                                             무료제공
                                             <a class="btn_tooltip alert businessBenefitLayer" href="#">
-                                        </a>
+                                            </a>
                                         </p>
                                     </div>
                                     <div class="rate_price">
@@ -444,45 +446,45 @@
                             </div>
                         </li>
                         <li class="price_list route_all route_1 section_list_item">
-                        <a class="section_list_box" href="#" title="구간리스트 열기">
-                            <div class="section_info">
-                                <div class="service_section_box">
-                                    <div class="plan_type">
-                                        <button class="bul_air_info jb" title="편명 보기">JB123</button>
-                                        <button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
+                            <a class="section_list_box" href="#" title="구간리스트 열기">
+                                <div class="section_info">
+                                    <div class="service_section_box">
+                                        <div class="plan_type">
+                                            <button class="bul_air_info jb" title="편명 보기">JB123</button>
+                                            <button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
+                                        </div>
+                                        <div class="service_name first">
+                                            <strong class="tit">HH:mm</strong>
+                                            <span class="addition">출발지</span>
+                                        </div>
+                                        <div class="service_exp">
+                                            <p class="top">
+                                                (HH)h (mm)m
+                                            </p>
+                                            <p class="bttm">
+                                                <span>직항</span>
+                                            </p>
+                                        </div>
+                                        <div class="service_name last">
+                                            <strong class="tit">HH:mm</strong>
+                                            <span class="addition">도착지</span>
+                                        </div>
+
                                     </div>
-                                    <div class="service_name first">
-                                        <strong class="tit">HH:mm</strong>
-                                        <span class="addition">출발지</span>
-                                    </div>
-                                    <div class="service_exp">
-                                        <p class="top">
-                                            (HH)h (mm)m
-                                        </p>
-                                        <p class="bttm">
-                                            <span>직항</span>
-                                        </p>
-                                    </div>
-                                    <div class="service_name last">
-                                        <strong class="tit">HH:mm</strong>
-                                        <span class="addition">도착지</span>
-                                    </div>
-                                    
-                                </div>
-                                <div class="price_info fareInfo">
+                                    <div class="price_info fareInfo">
                                         <div class="class normal">이코노미</div>
                                         <span class="unit">KRW</span>
                                         <strong class="price">xx,xxx</strong>
                                         <p class="empty_seats">x석</p>
                                     </div>
-                                     <div class="price_info fareInfo">
+                                    <div class="price_info fareInfo">
                                         <div class="class business">비즈니스</div>
                                         <span class="unit">KRW</span>
                                         <strong class="price">xx,xxx</strong>
                                         <p class="empty_seats">x석</p>
                                     </div>
-                            </div>
-                        </a>
+                                </div>
+                            </a>
                             <div class="detail_info fix s4" style="display: none">
                                 <div class="rate_box_index">
                                     <div class="select_rate"></div>
@@ -576,7 +578,7 @@
                                         <p class="service icon_business">
                                             무료제공
                                             <a class="btn_tooltip alert businessBenefitLayer" href="#">
-                                        </a>
+                                            </a>
                                         </p>
                                     </div>
                                     <div class="rate_price">
@@ -591,8 +593,8 @@
                     <!-- // 항공편 리스트 -->
                 </div>
             </div>
-            
-            
+
+
             <!-- TODO: END OF LINE -->
         </div>
     </div>
@@ -603,5 +605,32 @@
 <!--// end content -->
 
 <!--// begin footerFragment -->
+<nav class="navbar fixed-bottom">
+    <div class="container-fluid">
+        <span class="navbar-brand">총 운임비</span>
+        <div class="price-info">
+            <span class="unit">KRW</span>
+            <span class="total-price">xx,xxx</span>
+        </div>
+    </div>
+    <button href="#" class="next_button">다음</button>
+</nav>
+
+<!-- Uncomment this block if footer needs drop up menu -->
+<!-- <nav class="navbar fixed-bottom navbar-light bg-light  "> -->
+<!--     <div class="collapse" id="navbarToggleExternalContent"> -->
+<!--         <div class="bg-light  p-4"> -->
+<!--             <h5 class="text-dark">Collapsed content</h5> -->
+<!--             <span class="text-muted">Toggleable via the navbar brand.</span> -->
+<!--         </div> -->
+<!--     </div> -->
+<!--     <div class="container-fluid"> -->
+<!--         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" -->
+<!--                 data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" -->
+<!--                 aria-expanded="false" aria-label="Toggle navigation"> -->
+<!--             <span class="navbar-toggler-icon"></span> -->
+<!--         </button> -->
+<!--     </div> -->
+<!-- </nav> -->
 </body>
 </html>

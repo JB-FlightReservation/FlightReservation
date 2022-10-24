@@ -921,3 +921,48 @@ select {
 }
 
 /* EOL: AIR FLIGHT LIST */
+
+/* SOL: FOOTER */
+.navbar.fixed-bottom {
+    height: 55px;
+    flex-flow: row;
+    box-shadow: 2px 7px 20px 4px #878787;
+    background-color: #f5f5f5;
+}
+
+.navbar .container-fluid {
+    height: 39px;
+    flex:4;
+    display: flex;
+    justify-content: left;
+}
+
+.navbar .container-fluid .unit {
+    font-size: 12px;
+    font-weight: normal;
+    color: #d22c26;
+}
+
+.navbar .container-fluid .price-info{
+    font-size: 24px;
+    font-weight: bold;
+    color: #d22c26;
+}
+
+.navbar .container-fluid .navbar-brand {
+    height:39px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #3c3c3c;
+}
+
+.next_button {
+    display: inline-block;
+    background-color: #d22c26;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 18px;
+    height: 55px;
+    flex:1;
+}
+/* EOL: FOOTER */

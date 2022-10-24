@@ -5,7 +5,7 @@
 <mapper namespace="com.joongbu.flight_reservation.mapper.SignupMapper">
 
 	
-	<insert id="insert" parameterType="SignupDto">
+	<insert id="insert" parameterType="com.joongbu.flight_reservation.dto.SignupDto">
 		INSERT INTO customer
 			(ct_no, ct_id,ct_pw,ct_name,ct_email,ct_phone,ct_birth,ct_gender,ct_create,oc_no)
 			VALUES
