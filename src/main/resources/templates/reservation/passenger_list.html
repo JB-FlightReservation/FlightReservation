@@ -21,129 +21,229 @@
 				<form action="">
 					<div class="p_info-list">
 						<ul>
-							<li>
-								<a>
+							<li class="p_list on">
+								<a class="person" th:onclick="toggle(this)">
 									<span> 성인 1 : 박소현</span>
 								</a>
-								<div class="p_info_wrap">
-									<div class="info-top">
-										<div class="me-check">
-											<label>
-												<input type="checkbox">
-												회원 본인 탑승 제외
-											</label>
+								<div>
+									<div class="p_info_wrap">
+										<div class="info-top">
+											<div class="me-check">
+												<label>
+													<input type="checkbox">
+													회원 본인 탑승 제외
+												</label>
+											</div>
+											<div class="info-text">* 은 필수 입력 항목입니다.</div>
 										</div>
-										<div class="info-text">* 은 필수 입력 항목입니다.</div>
-									</div>
-									<div class="info_detail">
-										<table>
-											<tr class="detail_li">
-												<th class="type">성별 <span class="info-text">*</span></th>
-												<td class="input_wrap"><input type="radio" name="gender"> 남 <input type="radio" name="gender"> 여</td>
-											</tr>
-											<tr class="detail_li">
-												<th class="type">국적</th>
-												<td class="input_wrap">
-													<div>
-														<input type="text" value="대한민국" readonly>
-														<button class="btn" type="button">국적 검색</button>
-													</div>
-												</td>
-											</tr>
-											<tr class="detail_li">
-												<th class="type">이름 <span class="info-text">*</span></th>
-												<td class="input_wrap">
-													<div>
-														<input class="btn" name="lastname" type="text" maxlength="30" placeholder="성(Last Name)">
-														<input class="btn" name="firstname" type="text" maxlength="30" placeholder="이름(First Name)">
-													</div>
-												</td>
-											</tr>
+										<div class="info_detail">
+											<table>
+												<tr class="detail_li">
+													<th class="type">성별 <span class="info-text">*</span></th>
+													<td class="input_wrap"><input type="radio" name="gender"> 남 <input type="radio" name="gender"> 여</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">국적</th>
+													<td class="input_wrap">
+														<div>
+															<input type="text" value="대한민국" readonly>
+															<button class="btn" type="button">국적 검색</button>
+														</div>
+													</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">이름 <span class="info-text">*</span></th>
+													<td class="input_wrap">
+														<div>
+															<input class="btn" name="lastname" type="text" maxlength="30" placeholder="성(Last Name)">
+															<input class="btn" name="firstname" type="text" maxlength="30" placeholder="이름(First Name)">
+														</div>
+													</td>
+												</tr>
 
-											<tr class="detail_li">
-												<th class="type">생년월일</th>
-												<td class="input_wrap">
-													<div>
-														<select class="w170">
-															<option value="">YYYY</option>
-															<option value="2009">2009</option>
-															<option value="2009">2008</option>
-														</select>
-														<select class="w150">
-															<option value="">MM</option>
-															<option value="01">01</option>
-															<option value="02">02</option>
-															<option value="03">03</option>
-															<option value="04">04</option>
-															<option value="05">05</option>
-															<option value="06">06</option>
-															<option value="07">07</option>
-															<option value="08">08</option>
-															<option value="09">09</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-														</select>
-														<select class="w150">
-															<option value="">DD</option>
-															<option value="01">01</option>
-															<option value="02">02</option>
-															<option value="03">03</option>
-															<option value="04">04</option>
-															<option value="05">05</option>
-															<option value="06">06</option>
-															<option value="07">07</option>
-															<option value="08">08</option>
-															<option value="09">09</option>
-															<option value="10">10</option>
-															<option value="11">11</option>
-															<option value="12">12</option>
-															<option value="13">13</option>
-															<option value="14">14</option>
-															<option value="15">15</option>
-															<option value="16">16</option>
-															<option value="17">17</option>
-															<option value="18">18</option>
-															<option value="19">19</option>
-															<option value="20">20</option>
-															<option value="21">21</option>
-															<option value="22">22</option>
-															<option value="23">23</option>
-															<option value="24">24</option>
-															<option value="25">25</option>
-															<option value="26">26</option>
-															<option value="27">27</option>
-															<option value="28">28</option>
-															<option value="29">29</option>
-															<option value="30">30</option>
-															<option value="31">31</option>
-														</select>
-													</div>
-												</td>
-											</tr>
-											<tr class="detail_li">
-												<th class="type">이메일 <span class="info-text">*</span></th>
-												<td class="input_wrap">
-													<div>
-														<input class="btn w490" name="email" type="email" maxlength="30" placeholder="이메일 주소">
-													</div>
-												</td>
-											</tr>
-											<tr class="detail_li">
-												<th class="type">휴대전화 <span class="info-text">*</span></th>
-												<td class="input_wrap">
-													<div>
-														<select class="country_code">
-															<option value="82">대한민국(+82)</option>
-														</select>
-														<input class="btn" name="phone" type="text" maxlength="30" placeholder="휴대전화 번호 입력">
-													</div>
-												</td>
-											</tr>
-										</table>
+												<tr class="detail_li">
+													<th class="type">생년월일</th>
+													<td class="input_wrap">
+														<div>
+															<select class="w170">
+																<option value="">YYYY</option>
+																<option value="2009">2009</option>
+																<option value="2009">2008</option>
+															</select> <select class="w150">
+																<option value="">MM</option>
+																<option value="01">01</option>
+																<option value="02">02</option>
+																<option value="03">03</option>
+																<option value="04">04</option>
+																<option value="05">05</option>
+																<option value="06">06</option>
+																<option value="07">07</option>
+																<option value="08">08</option>
+																<option value="09">09</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+															</select> <select class="w150">
+																<option value="">DD</option>
+																<option value="01">01</option>
+																<option value="02">02</option>
+																<option value="03">03</option>
+																<option value="04">04</option>
+																<option value="05">05</option>
+																<option value="06">06</option>
+																<option value="07">07</option>
+																<option value="08">08</option>
+																<option value="09">09</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+																<option value="13">13</option>
+																<option value="14">14</option>
+																<option value="15">15</option>
+																<option value="16">16</option>
+																<option value="17">17</option>
+																<option value="18">18</option>
+																<option value="19">19</option>
+																<option value="20">20</option>
+																<option value="21">21</option>
+																<option value="22">22</option>
+																<option value="23">23</option>
+																<option value="24">24</option>
+																<option value="25">25</option>
+																<option value="26">26</option>
+																<option value="27">27</option>
+																<option value="28">28</option>
+																<option value="29">29</option>
+																<option value="30">30</option>
+																<option value="31">31</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">이메일 <span class="info-text">*</span></th>
+													<td class="input_wrap">
+														<div>
+															<input class="btn w490" name="email" type="email" maxlength="30" placeholder="이메일 주소">
+														</div>
+													</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">휴대전화 <span class="info-text">*</span></th>
+													<td class="input_wrap">
+														<div>
+															<select class="country_code">
+																<option value="82">대한민국(+82)</option>
+															</select>
+															<input class="btn" name="phone" type="text" maxlength="30" placeholder="휴대전화 번호 입력">
+														</div>
+													</td>
+												</tr>
+											</table>
+										</div>
+										<div class="next_btn_area">
+											<button class="nextBtn" type="button">다음 승객 입력</button>
+										</div>
 									</div>
-									<div class="next_btn_area">
-										<button class="nextBtn" type="button">다음 승객 입력</button>
+								</div>
+							</li>
+							<li class="p_list">
+								<a class="person" th:onclick="toggle(this)">
+									<span> 성인 2 : 곰수이</span>
+								</a>
+								<div>
+									<div id="p_info_wrap" class="p_info_wrap">
+										<div class="info-top">
+										</div>
+										<div class="info_detail">
+											<table>
+												<tr class="detail_li">
+													<th class="type">성별 <span class="info-text">*</span></th>
+													<td class="input_wrap"><input type="radio" name="gender"> 남 <input type="radio" name="gender"> 여</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">국적</th>
+													<td class="input_wrap">
+														<div>
+															<input type="text" value="대한민국" readonly>
+															<button class="btn" type="button">국적 검색</button>
+														</div>
+													</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">이름 <span class="info-text">*</span></th>
+													<td class="input_wrap">
+														<div>
+															<input class="btn" name="lastname" type="text" maxlength="30" placeholder="성(Last Name)">
+															<input class="btn" name="firstname" type="text" maxlength="30" placeholder="이름(First Name)">
+														</div>
+													</td>
+												</tr>
+
+												<tr class="detail_li">
+													<th class="type">생년월일</th>
+													<td class="input_wrap">
+														<div>
+															<select class="w170">
+																<option value="">YYYY</option>
+																<option value="2009">2009</option>
+																<option value="2009">2008</option>
+															</select> <select class="w150">
+																<option value="">MM</option>
+																<option value="01">01</option>
+																<option value="02">02</option>
+																<option value="03">03</option>
+																<option value="04">04</option>
+																<option value="05">05</option>
+																<option value="06">06</option>
+																<option value="07">07</option>
+																<option value="08">08</option>
+																<option value="09">09</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+															</select> <select class="w150">
+																<option value="">DD</option>
+																<option value="01">01</option>
+																<option value="02">02</option>
+																<option value="03">03</option>
+																<option value="04">04</option>
+																<option value="05">05</option>
+																<option value="06">06</option>
+																<option value="07">07</option>
+																<option value="08">08</option>
+																<option value="09">09</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+																<option value="13">13</option>
+																<option value="14">14</option>
+																<option value="15">15</option>
+																<option value="16">16</option>
+																<option value="17">17</option>
+																<option value="18">18</option>
+																<option value="19">19</option>
+																<option value="20">20</option>
+																<option value="21">21</option>
+																<option value="22">22</option>
+																<option value="23">23</option>
+																<option value="24">24</option>
+																<option value="25">25</option>
+																<option value="26">26</option>
+																<option value="27">27</option>
+																<option value="28">28</option>
+																<option value="29">29</option>
+																<option value="30">30</option>
+																<option value="31">31</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+											</table>
+										</div>
+										<div class="next_btn_area">
+											<button class="nextBtn" type="button">다음 승객 입력</button>
+										</div>
 									</div>
 								</div>
 							</li>
@@ -151,9 +251,25 @@
 					</div>
 				</form>
 			</div>
+
+			<div class="notice_wrap on">
+				<a class="tit" th:onclick="toggle(this)">
+					<span>알아두세요!</span>
+				</a>
+				<div class="notice_cont">
+					<ul class="ul_dot">
+						<li>탑승자명은 신분증(여권)과 동일하게 입력하여 주시기 바랍니다.</li>
+						<li>국내선을 예약하는 외국인(외국 여권)의 경우 영문 성명으로 입력하여 주시기 바랍니다.</li>
+						<li>여권상의 성함에 하이픈(-)이 있는 경우, 띄어쓰기로 대체하여 입력해주시기 바랍니다.</li>
+						<li>개인 정보 입력이 잘못되었을 시 정보 전달에 어려움이 생길 수 있습니다. 입력하신 개인 정보를 다시 한번 확인해주세요.</li>
+						<li>성인 1명당 유아 1명만 동반 가능하며, 항공기 내 유아 탑승인원의 제한이 있을 수 있으므로 사전에 예약해 주시기 바랍니다.</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 
 	<footer id="footer" th:include="/footerNav"></footer>
+	<script src="/js/reservation/passenger_list.js"></script>
 </body>
 </html>

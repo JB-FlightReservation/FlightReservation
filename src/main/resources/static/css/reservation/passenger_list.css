@@ -15,7 +15,7 @@ ul, ol, li {
 	/* background-color: #f4f4f4; */
 }
 
-#footer{
+#footer {
 	margin-top: 100px;
 }
 
@@ -48,11 +48,39 @@ ul, ol, li {
 	margin-top: 20px;
 }
 
-.passenger_info ul li a {
+.p_info-list ul li:not(:first-of-type) {
+	border-top: 1px solid #ccc;
+}
+
+.p_info-list ul li:last-child .info_detail {
+	margin-bottom: 60px;
+}
+
+.p_info-list ul li:last-child .next_btn_area {
+	display: none;
+}
+
+.passenger_info .person {
 	display: block;
 	padding: 30px 40px;
 	position: relative;
 	height: 22px;
+}
+
+.passenger_info .on .person {
+	font-size: 18px;
+	color: rgb(26, 26, 26);
+	font-weight: 700;
+	background-color: rgb(254, 244, 243);
+}
+
+.passenger_info ul li a {
+	cursor: pointer;
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .passenger_info ul li a span {
@@ -61,9 +89,25 @@ ul, ol, li {
 	background: url(//contents-image.twayair.com/homepage/images/common/ico_arrow_gray.png) no-repeat right center;
 }
 
+.p_list.on .person span {
+	display: block;
+	padding-right: 30px;
+	background: url(https://contents-image.twayair.com/homepage/images/common/ico_arrow_red.png) no-repeat right center;
+}
+
 .passenger_info .p_info_wrap {
-	padding: 39px 39px;
+	/* overflow: hidden;
+	transition: max-height 1000ms;
+	max-height: 0; */
+	display: none;
+}
+
+.p_list.on .p_info_wrap {
 	box-sizing: border-box;
+	padding: 39px;
+	display: block;
+	/* max-height: 1000px;
+	transition: max-height 1000ms; */
 }
 
 .p_info_wrap .info-top {
@@ -180,10 +224,12 @@ select::-ms-expand {
 .detail_li .input_wrap select.country_code {
 	width: 240px;
 }
-.next_btn_area{
+
+.next_btn_area {
 	text-align: center;
 	margin-top: 60px;
 }
+
 .next_btn_area .nextBtn {
 	padding: 15px 40px;
 	min-width: 150px;
@@ -196,4 +242,48 @@ select::-ms-expand {
 	border: 1px solid rgb(176, 176, 176);
 	border-radius: 3px;
 	box-sizing: border-box;
+}
+
+/* ------- notice -------*/
+.notice_wrap {
+	border: 1px solid #ccc;
+	margin-top: 100px;
+}
+
+.notice_wrap .tit {
+	display: block;
+	padding: 30px 40px 30px 65px;
+	font-size: 18px;
+	font-weight: 700;
+	color: #1a1a1a;
+	background: url(//contents-image.twayair.com/homepage/images/ico/ico_notice.png) no-repeat 40px 30px;
+}
+
+.notice_wrap a span {
+	display: block;
+	padding-right: 30px;
+	background: url(//contents-image.twayair.com/homepage/images/common/ico_arrow_gray.png) no-repeat right center;
+}
+
+.notice_wrap.on span {
+	display: block;
+	padding-right: 30px;
+	background: url(https://contents-image.twayair.com/homepage/images/common/ico_arrow_red.png) no-repeat right center;
+}
+
+.notice_wrap .notice_cont {
+	display: none;
+}
+
+.notice_wrap.on .notice_cont {
+	display: block;
+	padding: 40px;
+	border-top: 1px solid #ccc;
+}
+
+.ul_dot li {
+	padding: 0.15em 0 0.15rem 12px;
+	color: #4d4d4d;
+	line-height: 1.5;
+	background: url(//contents-image.twayair.com/homepage/images/common/ul_dot.png) no-repeat 0 14px;
 }
