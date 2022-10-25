@@ -930,6 +930,7 @@ select {
     flex-flow: row;
     box-shadow: 2px 7px 20px 4px #878787;
     background-color: #f5f5f5;
+
 }
 
 .navbar .container-fluid {
@@ -937,21 +938,26 @@ select {
     flex:4;
     display: flex;
     justify-content: left;
+
 }
 
-.navbar .container-fluid .unit {
+.navbar .container{
+    width: 1100px;
+}
+
+.navbar .container .container-fluid .unit {
     font-size: 12px;
     font-weight: normal;
     color: #d22c26;
 }
 
-.navbar .container-fluid .price-info{
+.navbar .container .container-fluid .price-info{
     font-size: 24px;
     font-weight: bold;
     color: #d22c26;
 }
 
-.navbar .container-fluid .navbar-brand {
+.navbar .container .container-fluid .navbar-brand {
     height:39px;
     font-weight: bold;
     font-size: 18px;
@@ -968,3 +974,132 @@ select {
     flex:1;
 }
 /* EOL: FOOTER */
+
+/* SOL: research modal window */
+.sel_service_section .service_section_wrap .modal{
+    --bs-modal-width:100%;
+}
+
+.modal .modal-dialog .modal-content .modal-header{
+    justify-content: center;
+    border-bottom: none;
+}
+
+.modal-header .tit_container{
+    width: 1100px;
+    text-align: left;
+}
+
+.layer_plan_research .tit_booking_wrap{
+    margin: 0;
+}
+
+.layer_plan_research .tit_booking_wrap .pg_tit{
+    font-size: 25px;
+}
+
+.modal-body{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.modal-body .research_option_container{
+    display: inline;
+    width: 1100px;
+    padding: 10px 0;
+}
+
+.option_selector{
+    outline: 1px solid rgba(124, 124, 124, 0.6);
+    border-radius: 25px;
+    width: 300px;
+    max-width: 30%;
+    height: 50px;
+    display: flex;
+}
+
+.option_selector .btn-check:checked + .btn{
+    background-color: #d22c26;
+    color: white;
+    font-weight: bold;
+}
+
+.option_selector .btn-check + .btn{
+    background-color: #ffffff;
+    border-radius: 25px;
+    color: #000000;
+    font-weight: normal;
+    line-height: 38px;
+    margin: 0;
+    flex: 1;
+    border: none;
+}
+
+.modal-body .research_plan_container{
+    padding-top: 30px;
+    width: 1100px;
+    display: flex;
+    max-width: 100%;
+}
+
+.research_plan_container .research_plan{
+    display: flex;
+    flex-direction: row;
+    width: 1100px;
+    max-width: 100%;
+}
+
+.research_plan_container .research_plan form{
+    width: 100%;
+}
+
+.research_plan_container .research_plan .airport_selector{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.airport_selector .selector_option{
+    width: 300px;
+    max-width: 100%;
+}
+
+.airport_selector .sub-airport-tit{
+    width: 100%;
+    text-align: left;
+}
+
+.plan_date .depart_date{
+    width: 100%;
+}
+
+.airport_selector .selector_box{
+    border: none;
+    border-bottom: 1px solid #000000;
+    border-radius: 0;
+    padding: 0;
+}
+
+.airport_selector .plan_date{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.depart_date.selector_box:focus{
+    outline: none;
+}
+.research_plan .passenger_count{
+    padding-top: 45px;
+}
+
+.passenger_count .sub-passenger-tit{
+    width: 100%;
+    text-align: left;
+}
+
+.research_plan .btn-group{
+    width: 100%;
+}
+
+/* EOL: research modal window */
