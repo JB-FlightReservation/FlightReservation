@@ -77,4 +77,5 @@ public class LoginController {
 	public String finishChangePw() {
 		return "/login/finishChangePw";
 	}
+
 }

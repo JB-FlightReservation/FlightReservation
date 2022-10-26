@@ -17,7 +17,7 @@ public class SignupDto {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date ctBirth;
 	private String ctGender;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "HH:mm:ss yyyy-MM-dd")
 	private Date ctCreate;
 	private int ocNo; 
 	

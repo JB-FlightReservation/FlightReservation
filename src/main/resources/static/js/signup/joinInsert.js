@@ -1,4 +1,43 @@
+userInsertForm.ctId.addEventListener("change",checkUserId)
 
+async function checkUserId(){
+	userInsertForm.ctId.classList.remove("is-invalid");
+	userInsertForm.ctId.classList.remove("is-valid");
+
+	var reg = /^[0-9]+/g; //숫자만 입력하는 정규식
+  
+	let ctId=userInsertForm.ctId.value;
+	let url="/signup/checkUserId.do?ctId="+ctId;
+	
+
+	if(ctId.length>7){
+		 if (!reg.test(ctId)){
+		userIdInvalid.innerText="숫자가 포함되어 있지 않습니다."; }
+	
+		let resp=await fetch(url);
+		if(resp.status==200){
+			let json=await resp.json();		
+			if(json.check==1){
+				userIdInvalid.innerText="사용 중인 아이디입니다.";
+				userInsertForm.ctId.classList.add("is-invalid");
+			}else if(json.check==0){
+				userInsertForm.ctId.classList.add("is-valid");
+			}else if(json.check==-1){
+				alert("db 조회 실패(다시시도)");
+			}
+		}else{
+			alert("통신 장애(다시시도)"+resp.status);
+		}
+	} 
+	
+	else{
+		userIdInvalid.innerText="8글자 이상 작성하세요.";
+		userInsertForm.ctId.classList.add("is-invalid");
+	}
+	
+	
+
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -37,7 +76,7 @@
   					target.disabled = false;
 				
                 }
-                else  {
+                else {
 					userPWInvalid2.innerText="비밀번호가 일치하지 않습니다.";
 					userInsertForm.userPW2.classList.add("is-invalid");
 				
