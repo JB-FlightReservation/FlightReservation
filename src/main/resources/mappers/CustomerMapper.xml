@@ -7,4 +7,8 @@
   		select *,ct_id ctId from customer
   		where ct_id=#{ctId} and ct_pw=#{ctPw}
   	</select>
+  	<select id="find" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
+  		select ct_id ctId from customer
+  		where ct_name=#{ctName} and ct_email=#{ctEmail}
+  	</select>
   </mapper>

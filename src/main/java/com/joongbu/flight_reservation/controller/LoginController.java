@@ -53,7 +53,23 @@ public class LoginController {
 	
 	//아이디 찾기
 	@GetMapping("/findId.do")
-	public String findId() {
+	public void findId() {}
+	@PostMapping("/findId.do")
+	public String findId(
+			@RequestParam(required = true)String ctName,
+			@RequestParam(required = true)String ctEmail
+			) {
+		System.out.println(ctName+"/"+ctEmail); 
+		CustomerDto find=null;
+		try {
+			find=customerMapper.find(ctName, ctEmail);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(find!=null) {
+			return "/login/findUserId";
+		}
 		return "/login/findId";
 	}
 	//아이디 찾기완료
