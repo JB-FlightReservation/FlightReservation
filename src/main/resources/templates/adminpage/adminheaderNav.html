@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<style>
+a {
+    text-decoration: none;
+    color: #222;
+}
+li {
+	list-style:none;
+	padding-left: 0px;
+}
+nav {
+    width: 1100px;
+    margin: auto;
+}
+.head {
+    height: 70px;
+     line-height: 70px;
+}
+.logo {
+	font-size: 24px;
+	color: skyblue;
+}
+.mypage {
+	float: right;
+}
+#sidebar {
+	padding: 3px;
+}
+#sidebar > ul > li {
+	margin-top: 40px;
+}
+</style>
 <nav>
-	<div>
-		<a href="">Home</a>
+	<div class="head">
+		<a class="logo" href="/">JB항공</a>
+		<th:block th:unless="${session.loginAdmin==null}">
+			<div class="mypage">
+				<!--<a th:href="@{/adminpage/detail.do(adminId=${admin.adminId})}">관리자 정보</a>-->
+			</div>
+		</th:block>
 	</div>
-	<ul>
-		<th:block th:if="${}">
-			<li>
-				<a>Login</a>
-			</li>
-		</th:block>
-		<th:block th:unless="${}">
-			<li>
-				<a th:href="@{}">
-					<th:block></th:block>
-					(<th:block></th:block>)
-				</a>
-			</li>
-			<li>
-				<a href="">Logout</a>
-			</li>
-		</th:block>
-	</ul>
 </nav>
 <div id="sidebar">
 	<ul>
@@ -40,6 +58,24 @@
 		<li>
 			<a href="/counselling.do">1:1 문의</a>
 		</li>
+	</ul>
+	<ul>
+		<th:block th:if="${session.loginAdmin==null}">
+			<li>
+				<a href="/adminpage/loginpage.do">Login</a>
+			</li>
+		</th:block>
+		<th:block th:unless="${session.loginAdmin==null}">
+			<!--<li>
+				 <a>
+					<th:block th:text="${session.loginAdmin.adminId}"></th:block>
+					(<th:block th:text="${session.loginAdmin.adminName}"></th:block>)
+				</a>
+			</li> -->
+			<li>
+				<a href="/adminpage/logout.do">Logout</a>
+			</li>
+		</th:block>
 	</ul>
 </div>
 

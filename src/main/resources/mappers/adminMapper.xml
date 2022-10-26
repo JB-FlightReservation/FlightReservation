@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -12,5 +13,17 @@
 <!--        UPDATE CUSTOMER SET ct_Name = ct_id = #{ctId}, ct_pw = #{ctPw}, #{ctName}, ct_phone = #{ctPhone}-->
 <!--        , ct_email = #{ctEamil}, ct_birth = #{ctBirth} , ct_gender = #{ctGender} WHERE ct_no = #{ctNo]-->
 <!--    </update>-->
-
+	<select id="login" resultType="com.joongbu.flight_reservation.dto.AdminDto">
+		SELECT *,admin_id adminId from ADMIN
+ 		WHERE admin_id=#{adminId} AND admin_pw=#{adminPw}
+	</select>
+	<select id="Adetail" resultType="com.joongbu.flight_reservation.dto.AdminDto">
+		SELECT *,admin_id adminId FROM ADMIN 
+		WHERE admin_id=#{adminId}
+	</select>
+	<select id="Aupdate" parameterType="com.joongbu.flight_reservation.dto.AdminDto">
+		UPDATE ADMIN SET 
+		admin_name=#{adminName}, admin_pw=#{adminPw}, admin_email=#{adminEmail}, admin_eno=#{adminEno} 
+		WHERE admin_id=#{adminId}
+	</select>
 </mapper>
