@@ -39,8 +39,8 @@
         ORDER BY ct_no ASC
         LIMIT #{startRow}, #{rows}
     </select>
-<!-- 여기 코드 안쓰는거 맞나요? 헷갈려서 일단은 주석처리 해놨습니다 -->
-    <!-- <delete id="customerDelete">
+
+    <delete id="customerDelete">
         DELETE FROM CUSTOMER WHERE ct_no = #{ctNo}
     </delete>
 
@@ -56,7 +56,7 @@
 
     <select id="reservationDetail" resultMap="ReservationMap">
 
-    </select> -->
+    </select>
 
 <!--    <select id="customerDetail" resultType="com.joongbu.flight_reservation.dto.CustomerDto">-->
 <!--        SELECT * FROM CUSTOMER WHERE ct_name = #{ctNAME}-->
