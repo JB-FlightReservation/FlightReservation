@@ -4,94 +4,102 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
-	<div>
-		<div>
-			<section class="discount_coupon_wrap cpnPaymentEventInfo" id="couponInfo">
-		        <div class="con_tit_wrap">
-		            <h3 class="con_tit">할인 혜택</h3>
-		        </div>
-		        <div class="flex_wrap">
-		        <!-- 회원 -->
-		            <div class="flex_con coupon_con couponInfo">
-		                <div class="coupon_available">
-	                        <div class="coupon_about">
-	                            <span class=" vertical_middle">쿠폰 사용</span>
-	                            
-	                        </div>
-	                        <button class="btn_small layer_focus" date-id="layer_cp_benefit" date-type="layer" onclick="controlLayer('#layer_cp_benefit', '1');">쿠폰 선택</button>
-	                    </div>
-	                	<div class="coupon_select select">
-	                    	<select name="coupon" tabindex="0" title="쿠폰을 선택하세요.">
-								<option data-cpnamt="0" value="">쿠폰을 선택하세요.</option>
-								<option data-smilecashuseyn="Y" data-kakaopointuseyn="Y" data-cpnamt="1000.0" data-payment="CCEB|CCEC|CCED|CCES^016,901,029,026,031,006,008,047,018,027,022,021,002,017,010,011,058,226,902|CCEW|CCPL|EPAP|EPKP^SHINHAN,KB,HYUNDAI,LOTTE,SAMSUNG,NH,BC,HANA,CITI,KAKAOBANK,KAKAOPAY|EPLP|EPNP|EPPB|EPPC|EPPP|EPSP^30002,30003,30004,30005,30006,30007,30008,30009,30010,30028,30039,30040,30041,30042,30043,30044,30045,30046,30051,30052,30058,30081,30084,30085,30089,30059,30060|EPSS|EPTP|EPTS|EPUP|EPWC|ETAT" data-cpntypediv="REDO3" data-curr="KRW" data-cpnseq="1tD4QlBwirFTQMnJIKfvYg==" value="L/RTlzyIDOv2UhX1inWgUP1Zv02fWBfteIrZKQBjMuw=">10월 신규 회원 쿠폰(국내선 1천원)(최소 결제 금액 : KRW 30,000)</option>
-								<option data-smilecashuseyn="Y" data-kakaopointuseyn="Y" data-cpnamt="2000.0" data-payment="CCEB|CCEC|CCED|CCES^016,901,029,026,031,006,008,047,018,027,022,021,002,017,010,011,058,226,902|CCEW|CCPL|EPAP|EPKP^SHINHAN,KB,HYUNDAI,LOTTE,SAMSUNG,NH,BC,HANA,CITI,KAKAOBANK,KAKAOPAY|EPLP|EPNP|EPPB|EPPC|EPPP|EPSP^30002,30003,30004,30005,30006,30007,30008,30009,30010,30028,30039,30040,30041,30042,30043,30044,30045,30046,30051,30052,30058,30081,30084,30085,30089,30059,30060|EPSS|EPTP|EPTS|EPUP|EPWC|ETAT" data-cpntypediv="REDO2" data-curr="KRW" data-cpnseq="3oFXYscXcmdkIhZFTNcPcg==" value="4zNeezUZngQnas2hquitmXe5CruBPwbpbeehWq9Jp/Y=">10월 신규 회원 쿠폰(국내선 2천원)(최소 결제 금액 : KRW 50,000)</option>
-								<option data-smilecashuseyn="Y" data-kakaopointuseyn="Y" data-cpnamt="5000.0" data-payment="CCEB|CCEC|CCED|CCES^016,901,029,026,031,006,008,047,018,027,022,021,002,017,010,011,058,226,902|CCEW|CCPL|EPAP|EPKP^SHINHAN,KB,HYUNDAI,LOTTE,SAMSUNG,NH,BC,HANA,CITI,KAKAOBANK,KAKAOPAY|EPLP|EPNP|EPPB|EPPC|EPPP|EPSP^30002,30003,30004,30005,30006,30007,30008,30009,30010,30028,30039,30040,30041,30042,30043,30044,30045,30046,30051,30052,30058,30081,30084,30085,30089,30059,30060|EPSS|EPTP|EPTS|EPUP|EPWC|ETAT" data-cpntypediv="REDO" data-curr="KRW" data-cpnseq="A66vQp0Pp5Vo25uLzwCKvg==" disabled="disabled" value="UHlwHJlEhuch8BUKwyIzfd0hFRLR8ne3DedjKEEUP5M=">10월 신규 회원 쿠폰(국내선 5천원)(최소 결제 금액 : KRW 100,000)</option>
-							</select>
-	                     </div>
+	<div class="container mt-5 p-2">
+		<h6>쿠폰 사용</h6>
+		<button type="button" class="btn btn-dark px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		  쿠폰 선택
+		</button>
+	</div>
+<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      			</div>
+      			<div class="modal-body">
+        			<div class="form-check">
+			  			<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+			  			<label class="form-check-label" for="flexRadioDefault1">
+					    	쿠폰 1
+					  	</label>
 					</div>
-				</div>
-			</section>
+					<div class="form-check">
+		  				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		  				<label class="form-check-label" for="flexRadioDefault1">
+		    				쿠폰 2
+		  				</label>
+					</div>
+					<div class="form-check">
+		  				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		  				<label class="form-check-label" for="flexRadioDefault1">
+		    				쿠폰 3
+		  				</label>
+					</div>
+					<div class="form-check">
+		  				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		  				<label class="form-check-label" for="flexRadioDefault1">
+		    				쿠폰 4
+		  				</label>
+					</div>
+      			</div>
+      			<div class="modal-footer d-flex justify-content-center">
+        			<button type="button" class="btn btn-dark" data-bs-dismiss="modal">사용하기</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+<!-- pay쿠폰 -->
+
+<!-- 결제 정보 -->
+	
+	<div class="container mt-5">
+		<h6>결제 정보</h6>
+		<div class="d-flex justify-content-between">
+			<p class=" ps-3"><strong>주문 금액</strong></p>
+			<p class="pe-3">KRW 93,700</p>
 		</div>
-		<div>
-			<section class="payment_info_wrap paymentInfo">
-                <div class="con_tit_wrap">
-                    <h3 class="con_tit">결제 정보</h3>
-                </div>
-                <div class="price_detail_wrap">
-                    <!-- 운임 및 할인리스트: calc_list -->
-                    <dl class="calc_list">
-                        <dt>주문 금액</dt>
-                        <dd>KRW 93,700</dd>
-                    </dl>
-                    <dl class="calc_list">
-                        <dt>쿠폰 할인 금액</dt>
-                        <dd class="cpnAmt"> KRW 0</dd>
-                    </dl>
-                    <dl class="calc_list" style="display:none;">
-                        <dt></dt>
-                        <dd class="ecardAmt"> KRW 0</dd>
-                    </dl>
-					
-                    <!-- //운임 및 할인리스트 -->
-                    <!-- 총 결제금액: price_sum -->
-                    <dl class="price_sum">
-                        <dt>총 결제 금액</dt>
-                        <dd class="totalAmt">KRW 93,700</dd>
-                    </dl>
-                    <!-- 총 결제금액 -->
-                </div>
-            </section>
-       	</div>
-       	
-       	<div>
-       		<table class="tb_row">
-				<colgroup>
-					<col style="width:200px">
-					<col style="width:auto">
-				</colgroup>
-				<tbody>
-				
+		<div class="d-flex justify-content-between">
+			<p class=" ps-3"><strong>쿠폰 할인 금액</strong></p>
+			<p class="pe-3">KRW 0</p>
+		</div>
+		<div class="d-flex justify-content-between text-center" style="color: red; background: #F08080;">
+			<p class="ps-3"><strong>총 결제 금액</strong></p>
+			<p class="pe-3">KRW 93,700</p>
+		</div>
+	</div>
+	
+	<!--  -->
+	
+	<div class="container mt-5">
+   		<table class="tb_row">
+			<colgroup>
+				<col style="width:300px">
+			</colgroup>
+			<tbody>
 				<tr>
 					<th scope="row">
 						입금자명
 					</th>
 					<td>
-						<div class="font_wrap">
-							<span class="inline mr10">
+						<div>
+							<span>
 								<input class="w240 passenger_meta_info" maxlength="50" name="name" onkeyup="onlyHanEngSpaceToUpper(this);" type="text" >
 							</span>
-							
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row">입금 은행</th>
+					<th >입금 은행</th>
 					<td>
-						<div class="font_wrap">
-							<span class="select mr10">
-								<select class="w305" id="slt4" name="paxsubtype" tabindex="0" title="개인신분 할인">
+						<div >
+							<span >
+								<select>
 									<option value="">입금 은행 선택</option>
 									<option>은행 1</option>
 									<option>은행 2</option>
@@ -107,45 +115,23 @@
 						</div>
 					</td>
 				</tr>
-				<script type="text/javascript">
-					/* $('.font_wrap .btn_small').on('click', function() {
-						alert($(this).data('paxType'));
-					}); */
-					var setPaxTypeDiscount = function(paxType) {
-						controlLayer('#discount_layer', '1');
-						if(paxType == 'ADULT') {
-							$('#discountInfoAdt').show();
-							$('#discountInfoChd').hide();
-						} else {
-							$('#discountInfoAdt').hide();
-							$('#discountInfoChd').show();
-						}
-					};
-				</script>
-
-
-				
-				
 				<tr>
 					<th scope="row">
 						계좌번호
 					</th>
 					<td>
-						<span class="inline">
+						<span>
 							<input class="w490" name="acount" title="계좌번호 입력" type="text">
 						</span>
 					</td>
 				</tr>
-				
-				</tbody>
-			</table>
-       	</div>
-       	
-       	<div>
-       		<div class="button_wrap btn_payment" id="paymentBtnSet" style="display: block;">
-                <button class="btn_type1 totalAmtBtn" id="paymentBtn" name="paymentBtn" type="button">KRW 93,700 결제하기</button>
-            </div>
-       	</div>    
-	</div>
+			</tbody>
+		</table>
+   	</div>
+   	<div class="d-flex justify-content-center container m-5">
+   		<div>
+            <button class="btn btn-danger px-5" id="paymentBtn" name="paymentBtn" type="button">KRW 93,700 결제하기</button>
+        </div>
+   	</div>
 </body>
 </html>
