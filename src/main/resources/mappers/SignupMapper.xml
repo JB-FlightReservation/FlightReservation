@@ -7,10 +7,20 @@
 	
 	<insert id="insert" parameterType="com.joongbu.flight_reservation.dto.SignupDto">
 		INSERT INTO customer
-			(ct_no, ct_id,ct_pw,ct_name,ct_email,ct_phone,ct_birth,ct_gender,ct_create,oc_no)
+			(ct_no, ct_id,ct_pw,ct_name,ct_email,ct_phone,ct_birth,ct_gender,ct_create)
 			VALUES
-			(#{ctNo}, #{ctId},#{ctPw},#{ctName}, #{ctEmail}, #{ctPhone},#{ctBirth},#{ctGender},#{ctCreate},#{ocNo})
+			(#{ctNo}, #{ctId},#{ctPw},#{ctName}, #{ctEmail}, #{ctPhone},#{ctBirth},#{ctGender},#{ctCreate})
 	</insert>
+	
+	<select id="detail" resultType="com.joongbu.flight_reservation.dto.SignupDto">
+  			SELECT *,ct_id ctId, ct_email ctEmail  FROM customer 
+  			WHERE ct_Id=#{ctId} AND ct_email=#{ctEmail}
+  	</select>
+  		
+  	<select id="login" resultType="com.joongbu.flight_reservation.dto.SignupDto">
+  			SELECT *,ct_name ctName, ct_id ctId  FROM customer 
+  			WHERE ct_name=#{ctName}  AND ct_id=#{ctId}
+  		</select>
 	
   		
 </mapper>
