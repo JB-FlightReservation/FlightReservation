@@ -1,17 +1,25 @@
 package com.joongbu.flight_reservation.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/reservation")
 @Controller
 public class ReservationController {
-	@GetMapping("/stage1.do")
-	public String stage1() {
-		System.out.println("Reservation page connected");
+	@GetMapping("/booking.do")
+	public String booking() {
 		return "reservation/reservationSearch";
 	}
+
+
+	/*@GetMapping("/booking.do")
+	@ResponseBody
+	public String booking(
+			@RequestParam int depart_ap_no,
+			@RequestParam int landingAriport){
+		return "reservation/reservationSearch"+"?";
+	}*/
+
 
 	@GetMapping("/passenger_list.do")
 	public void pList() {

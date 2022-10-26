@@ -495,6 +495,10 @@ button {
     overflow: hidden;
 }
 
+.form-select:focus{
+    box-shadow:none;
+}
+
 .select.small {
     min-width: 84px;
 }
@@ -699,6 +703,7 @@ select {
     font-size: 0px;
     display: flex;
     justify-content: stretch;
+    flex-direction: row;
 }
 
 .section_list .detail_info .rate_box_index {
@@ -775,29 +780,26 @@ select {
 }
 
 .section_list .detail_info .rate_box .select_rate label {
-    max-width: calc(100% - 62px);
+    max-width: 100%;
     height: auto;
-    line-height: 1;
-    margin-right: 0px;
+    line-height: 1.2;
+    margin-right: 0;
     font-size: 18px;
     font-weight: 700;
     color: rgb(26, 26, 26);
     letter-spacing: -0.5px;
     position: relative;
-    padding-left: 32px;
 }
 
-.section_list .detail_info input[type="radio"]:disabled + .rate_box .select_rate .icon {
-    background: url("//contents-image.twayair.com/homepage/images/ico/ico_radio.png") 0px -44px no-repeat;
-}
-
-.section_list .detail_info .rate_box .select_rate .btn_tooltip.alert {
-    top: 17px;
+.section_list .detail_info .rate_box .select_rate .btn_tooltip.alertIcon {
+    top: 15px;
     position: absolute;
     margin-left: 5px;
 }
 
-.btn_tooltip.alert {
+.btn_tooltip.alertIcon {
+    margin: 0;
+    padding: 0;
     width: 22px;
     height: 22px;
     background: url("//contents-image.twayair.com/homepage/images/ico/ico_tooltip_alert.png") 0px 0px no-repeat;
@@ -928,6 +930,7 @@ select {
     flex-flow: row;
     box-shadow: 2px 7px 20px 4px #878787;
     background-color: #f5f5f5;
+
 }
 
 .navbar .container-fluid {
@@ -935,21 +938,26 @@ select {
     flex:4;
     display: flex;
     justify-content: left;
+
 }
 
-.navbar .container-fluid .unit {
+.navbar .container{
+    width: 1100px;
+}
+
+.navbar .container .container-fluid .unit {
     font-size: 12px;
     font-weight: normal;
     color: #d22c26;
 }
 
-.navbar .container-fluid .price-info{
+.navbar .container .container-fluid .price-info{
     font-size: 24px;
     font-weight: bold;
     color: #d22c26;
 }
 
-.navbar .container-fluid .navbar-brand {
+.navbar .container .container-fluid .navbar-brand {
     height:39px;
     font-weight: bold;
     font-size: 18px;
@@ -966,3 +974,199 @@ select {
     flex:1;
 }
 /* EOL: FOOTER */
+
+/* SOL: research modal window */
+.sel_service_section .service_section_wrap .modal{
+    --bs-modal-width:100%;
+}
+
+.modal .modal-dialog .modal-content .modal-header{
+    justify-content: center;
+    border-bottom: none;
+}
+
+.modal-header .tit_container{
+    width: 1100px;
+    text-align: left;
+}
+
+.layer_plan_research .tit_booking_wrap{
+    margin: 0;
+}
+
+.layer_plan_research .tit_booking_wrap .pg_tit{
+    font-size: 25px;
+}
+
+.modal-body{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.modal-body .research_option_container{
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.research_option_container .option_container{
+    width: 1100px;
+    max-width: 100%;
+}
+
+.option_selector{
+    outline: 1px solid rgba(124, 124, 124, 0.6);
+    border-radius: 25px;
+    width: 300px;
+    max-width: 30%;
+    height: 50px;
+    display: flex;
+}
+
+.option_selector .btn-check:checked + .btn{
+    background-color: #d22c26;
+    color: white;
+    font-weight: bold;
+}
+
+.option_selector .btn-check + .btn{
+    background-color: #ffffff;
+    border-radius: 25px;
+    color: #000000;
+    font-weight: normal;
+    line-height: 38px;
+    margin: 0;
+    flex: 1;
+    border: none;
+}
+
+.modal-body .research_plan_container{
+    padding-top: 30px;
+    width: 1100px;
+    display: flex;
+    max-width: 100%;
+}
+
+.research_plan_container .research_plan{
+    display: flex;
+    flex-direction: row;
+    width: 1100px;
+    max-width: 100%;
+}
+
+.research_plan_container .research_plan form{
+    width: 100%;
+}
+
+.research_plan_container .research_plan .airport_selector{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.airport_selector .selector_option{
+    width: 300px;
+    max-width: 100%;
+}
+
+.airport_selector .sub-airport-tit{
+    width: 100%;
+    text-align: left;
+}
+
+.plan_date .depart_date{
+    width: 100%;
+}
+
+.airport_selector .selector_box{
+    border: none;
+    border-bottom: 1px solid #000000;
+    border-radius: 0;
+    padding: 0;
+}
+
+.airport_selector .plan_date{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.depart_date.selector_box:focus{
+    outline: none;
+}
+.research_plan .passenger_count{
+    padding-top: 45px;
+    display: flex;
+}
+
+.passenger_count .sub-passenger-tit{
+    width: 100%;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.passenger_count .count_box{
+    max-width: 100%;
+    padding-right: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.count_box .btn-group{
+    width: 130px;
+    max-width: 100%;
+    height: 35px;
+}
+
+.count_box .btn-group .btn{
+    background-color: #fff;
+    color: #000000;
+    border: none;
+    outline: 1px solid #a7a7a7;
+    flex: 1;
+}
+
+.count_box .input_container{
+    height: 100%;
+    outline: 1px solid #a7a7a7;
+    line-height: 35px;
+}
+
+.count_box .btn-group input{
+    width: 80%;
+    text-align: center;
+    vertical-align: middle;
+    border-color: rgba(167, 167, 167, 0);
+    flex: 3;
+}
+
+.count_box .btn-group input:focus{
+    border-color: rgba(167, 167, 167, 255);
+    border-radius: 0;
+}
+
+.modal-footer{
+    justify-content: center;
+}
+
+.modal-footer .btn_group{
+    width: 1100px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer .btn_group .btn{
+    margin: 0 8px;
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    line-height: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 2px;
+}
+/* EOL: research modal window */
