@@ -5,11 +5,11 @@
     <title>회원 관리</title>
 </head>
 <body>
-<header th:include="/headerNav"></header>
+<header th:include="/adminpage/headerNav"></header>
 <main class="container mx-auto mt-5" style="max-width: 80%;">
     <h1>회원 목록</h1>
-    <form class="d-flex mb-3 mt-5" role="search" method="get" action="#" style="max-width: 250px;">
-        <input class="form-control me-2 " type="search" placeholder="사용자 검색" aria-label="Search">
+    <form class="d-flex mb-3 mt-5" role="search" method="get" action="" style="max-width: 250px;">
+        <input class="form-control me-2 " type="search" placeholder="사용자 검색" name="ctName" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     <table class="table table-hover mx-auto border-dark">
@@ -25,108 +25,7 @@
             <th>Setting</th>
         </tr>
         </thead>
-        <tbody class="table-striped">
-        <tr th:each="customer: ${customerList}">
-            <td th:text="${customer.ctNo}"></td>
-            <td th:text="${customer.ctName}"></td>
-            <td th:text="${customer.ctId}"></td>
-            <td th:text="${customer.ctBirth}"></td>
-            <td th:text="${customer.ctEmail}"></td>
-            <td th:text="${customer.ctPhone}"></td>
-            <td th:text="${customer.ctGender}"></td>
-            <td>
-                <p class="col-auto">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                            data-bs-target="#userUpModal">
-                        수정
-                    </button>
-
-                    <!-- Modal -->
-                <div class="modal fade" id="userUpModal" tabindex="-1" aria-labelledby="userUpModal" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exModalLabel">회원 수정</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form action="#" method="post">
-                                    <div class="mb-3 input-group ">
-                                        <label class=" input-group-text col-sm-2 ">아이디</label>
-                                        <input class="col-sm-10 form-control" type="text" name="ctId"
-                                               value="">
-                                    </div>
-                                    <div class="mb-3 input-group ">
-                                        <label class=" input-group-text col-sm-2 ">비밀번호</label>
-                                        <input class="col-sm-10 form-control" type="password" name="ctPw"
-                                               value="">
-                                    </div>
-                                    <div class="mb-3 input-group"><label
-                                            class="input-group-text col-sm-2">이름</label><input
-                                            class="form-control col-sm-10" type="text" name="ctName"
-                                            value=""></div>
-                                    <div class="mb-3 input-group"><label
-                                            class="input-group-text col-sm-2">휴대전화</label> <input
-                                            class="form-control col-sm-10" type="text" name="ctPhone"
-                                            value=""></div>
-                                    <div class="mb-3 input-group"><label
-                                            class="input-group-text col-sm-2">이메일</label><input
-                                            class="form-control col-sm-10" type="email" name="ctEmail"
-                                            value=""></div>
-                                    <div class="mb-3 input-group"><label
-                                            class="input-group-text col-sm-2">생일</label><input
-                                            class="form-control col-sm-10" type="date" name="ctBirth"
-                                            value="">
-                                    </div>
-                                    <div class="mb-3 input-group"><label
-                                            class="input-group-text col-sm-2">성별</label><input
-                                            class="form-control col-sm-10" type="text" name="ctGender"
-                                            value=""></div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                                <button class="btn btn-primary m-lg-2">수정</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
-                        data-bs-target="#userDelModal">
-                    삭제
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="userDelModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">삭제 확인</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                삭제 하겠습니까?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                                <a class="btn btn-danger" href="#">삭제</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </p>
-            </td>
-        </tr>
-        </tbody>
+        <th:block th:include="/adminpage/customerList"></th:block>
     </table>
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">

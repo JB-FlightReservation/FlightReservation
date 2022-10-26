@@ -3,6 +3,7 @@ package com.joongbu.flight_reservation.dto;
 import java.util.Date;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /*
 +-----------+--------------+------+-----+---------+----------------+
@@ -28,6 +29,7 @@ public class CustomerDto {
 	private String ctName;
 	private String ctEmail;
 	private String ctPhone;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date ctBirth;
 	private char ctGender;
 	private Date ctCreate;
