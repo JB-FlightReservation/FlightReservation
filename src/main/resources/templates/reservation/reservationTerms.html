@@ -4,427 +4,366 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
-	<div id="container">
-		<div class="content" id="content">
-		<!-- 여정정보 : 시작 -->
-			<div class="reservation_section">
-				<ul>
-					<li>
-						<div class="section_tit">
-						<span class="num">구간1</span>
-						</div>
-						<dl class="reservation_detail" data-segmentid="500" data-segindex="1">
-							<dt>
-								<span class="date">2022-10-31(월)</span>
-							</dt>
-							<dd>
-								<!-- 구간정보 -->
-								<div class="service_section_box type02">
-									<!-- 출발 -->
-									<div class="service_name first">
-										<strong class="tit">GMP</strong>
-											<span class="addition">서울/김포</span>
-									</div>
-									<!-- 출발 -->
-									<!-- 설명 -->
-									<div class="service_exp">
-										<p class="top">
-											06:40 ~ 07:50
-			                				<!-- <th:block th:if="${pnrBaseInfo.isGdsPnr != null and !pnrBaseInfo.isGdsPnr}">
-												<th:block th:if="${flightSegmentDetails.fareType != null}">
-													<span th:text="${' | ' + @codeManager.getFrontCodeLang('FARE_TYPE',flightSegmentDetails.fareType).getLangTitle()}">이벤트운임</span>
-												</th:block>
-											</th:block> -->
-										</p>
-										<p class="bttm">
-											<span class="divide">이코노미</span>
-											<a date-id="aircraft_info_layer" date-type="layer" href="javascript:;void(0)" onclick="aircraftInfoLayer('B737-800');">
-												<span class="air_model">B737-800</span>
-											</a>
-										</p>
-									</div>
-									<!--// 설명 -->
-									<!-- 도착 -->
-									<div class="service_name last">
-										<strong class="tit">CJU</strong>
-										<span class="addition">제주</span>
-									</div>
-									<!-- 도착 -->
-								</div>
-								<!--// 구간정보 -->
-							</dd>
-						</dl>
-					</li>
-					<li>
-						<div class="section_tit">
-							<span class="num">구간2</span>
-						</div>
-						<dl class="reservation_detail" data-segmentid="501" data-segindex="2">
-							<dt>
-								<span class="date">2022-11-02(수)</span>
-							</dt>
-							<dd>
-								<!-- 구간정보 -->
-								<div class="service_section_box type02">
-									<!-- 출발 -->
-									<div class="service_name first">
-										<strong class="tit">CJU</strong>
-										<span class="addition">제주</span>
-									</div>
-									<!-- 출발 -->
-									<!-- 설명 -->
-									<div class="service_exp">
-										<p class="top">
-											07:55 ~ 09:05
-			                				<!-- <th:block th:if="${pnrBaseInfo.isGdsPnr != null and !pnrBaseInfo.isGdsPnr}">
-												<th:block th:if="${flightSegmentDetails.fareType != null}">
-													<span th:text="${' | ' + @codeManager.getFrontCodeLang('FARE_TYPE',flightSegmentDetails.fareType).getLangTitle()}">이벤트운임</span>
-												</th:block>
-											</th:block> -->
-										</p>
-										<p class="bttm">
-											<span class="divide">이코노미</span>
-											<a date-id="aircraft_info_layer" date-type="layer" href="javascript:;void(0)" onclick="aircraftInfoLayer('B737-800');">
-												<span class="air_model">B737-800</span>
-											</a>
-										</p>
-									</div>
-									<!--// 설명 -->
-									<!-- 도착 -->
-									<div class="service_name last">
-										<strong class="tit">GMP</strong>
-										<span class="addition">서울/김포</span>
-									</div>
-									<!-- 도착 -->
-								</div>
-								<!--// 구간정보 -->
-							</dd>
-						</dl>
-					</li>
-				</ul>
+<!-- 항공권 정보 -->
+	<h3 class="container">항공권 예매</h3>
+	<div class="border border-secondary justify-content-center text-center container mt-5" >
+		구간1
+	</div>
+	<div class="d-flex border border-secondary container" >
+		<div class="d-flex align-items-center ms-5">2022-10-31(월)</div>
+		<div class="d-inline-block" style="margin:auto;">
+			<div class="d-inline-block justify-content-center text-center p-3">
+				<strong class="fs-3">GMP</strong>
+				<div class="addition">서울/김포</div>
 			</div>
-				<!-- 여정정보 : 끝 -->
-
-				<!-- 운임정보 -->
-			<div class="con_tit_wrap mt60">
-				<h3 class="con_tit">운임 정보</h3>
-				<span class="con_tit_decs">
-					성인1
-				</span>
-			</div>
-			<div class="table_round">
-				<table class="tb_col">
-					<caption>운임정보 - 항공 운임, 유류할증료, 공항시설사용료, 부가서비스, 결제 내역 정보 표 입니다.</caption>
-					<colgroup>
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-						<col style="width:20%">
-					</colgroup>
-					<thead>
-						<tr>
-							<th scope="col">항공 운임</th>
-							<th scope="col">유류할증료</th>
-							<th scope="col">공항시설 사용료</th>
-							<th scope="col">부가서비스</th>
-							<th scope="col">결제 내역</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!-- loop -->
-						<tr>
-							<td>KRW 54,900</td>
-							<td>KRW 30,800</td>
-							<td>KRW 8,000</td>
-							<td>KRW 0</td>
-							<td>KRW 93,700</td>
-						</tr>
-						<!-- // loop -->
-					</tbody>
-				</table>
-			</div>
-				<!-- //운임정보 -->
-
-				<!-- 예약 규정(필수) -->
-			<div class="con_tit_wrap mt60" id="ruleBooking">
-				<h3 class="con_tit">예약 규정(필수)</h3>
-			</div>
-			<div class="right_input mb20">
-				<p class="s_txt_guide fl">예약에 대해 통보된 규정을 정확히 확인하시기 바랍니다.</p>
-				<!-- 전체 동의 기능 주석 2019-06-03, jebaek -->
-				<div class="right">
-					<input class="allCheck" id="allCheck" type="checkbox">
-					<label for="allCheck">
-						<span class="icon">예약 규정 전체동의 체크박스</span>
-						전체 동의합니다.
-					</label>
-				</div>
-			</div>
-			<div class="passenger_info_list toggle_list list_tit_check">
-				<ul>
-				<li class="">
-					<a class="type" href="#none" role="button">
-						<span class="block">항공 운임 규정</span>
-					</a>
-					<div class="check_position">
-						<input class="ruleChk" id="FARE_TERMS_CHK" type="checkbox" value="항공 운임 규정">
-						<label for="FARE_TERMS_CHK"><span class="icon">항공 운임 규정 동의 체크박스</span>
-							<p>동의하기</p>
-						</label>
+				<div class="d-inline-block text-center p-3">
+					<div>06:40 ~ 07:50</div>
+					<div>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+			  				<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+						</svg>
 					</div>
-					<div class="passenger_info_wrap terms_txt" tabindex="0">
-						<div class="pc_web">
-							<div class="tab_wrap">
-								<ul class="tab n2 added2">
-									<li class="active on"><a role="tab" href="#cont_tab01" title="선택됨" aria-selected="true" class="">구간1</a></li>
-									<li class="active"><a role="tab" href="#cont_tab02" title="" aria-selected="false" class="">구간2</a></li>
-								</ul><h3 class="hidden">구간1</h3>
-									<!-- <ul class="tab n4">
-										<th:block th:each="flightFareList, status : ${flightFareList}">
-											<li><a th:href="'#cont_tab0'+${status.count}" role="tab" th:text="${contents.get('label.text.sectioin') + ' ' + status.count}">구간 1</a></li>
-										</th:block>
-									</ul> -->
-								<div class="tab_cont" id="cont_tab01" tabindex="0" style="display: block;">
-									<h4 class="blind">구간 1</h4>
-									<div class="s_txt mb20 f24">운임 종류 : 스마트운임</div>
-									<div class="stab_wrap ">
-										<div id="stab1_1">
-											<h5 class="blind">온라인</h5>
-												<div class="box_dual">
-													<div class="left">
-														<h3>취소 수수료</h3>
-														<table class="tb_col">
-															<caption>취소 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
-															<colgroup>
-																<col style="width:50%">
-																<col style="width:50%">
-															</colgroup>
-															<thead>
-																<tr>
-																	<th scope="col">기준일</th>
-																	<th scope="col">수수료</th>
-																</tr>
-															</thead>
-															<tbody>
-																<tr>
-																	<td class="fst">　 ~ 출발 61 일 전</td>
-																	<td class="red">
-																		KRW 2,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 60 일 전 ~ 출발 31 일 전</td>
-																	<td class="red">
-																		KRW 4,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 30 일 전 ~ 출발 8 일 전</td>
-																	<td class="red">
-																		KRW 7,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 7 일 전 ~ 출발 2 일 전</td>
-																	<td class="red">
-																		KRW 12,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 1 일 전 ~ 출발 0 일 전</td>
-																	<td class="red">
-																		KRW 14,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발후 ~ </td>
-																	<td class="red">
-																		KRW 15,000
-																	</td>
-																</tr>
-															</tbody>
-														</table>
-													</div>
-													<div class="right">
-														<h3>변경 수수료</h3>
-														<table class="tb_col">
-															<caption>변경 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
-															<colgroup>
-																<col style="width:50%">
-																<col style="width:50%">
-															</colgroup>
-															<thead>
-																<tr>
-																	<th>기준일</th>
-																	<th>수수료</th>
-																</tr>
-															</thead>
-															<tbody>
-																<tr>
-																	<td class="fst">　 ~ 출발 61 일 전</td>
-																	<td class="red">
-																		KRW 2,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 60 일 전 ~ 출발 31 일 전</td>
-																	<td class="red">
-																		KRW 4,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 30 일 전 ~ 출발 8 일 전</td>
-																	<td class="red">
-																		KRW 7,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 7 일 전 ~ 출발 2 일 전</td>
-																	<td class="red">
-																		KRW 12,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 1 일 전 ~ 출발 0 일 전</td>
-																	<td class="red">
-																		KRW 14,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발후 ~ </td>
-																	<td class="red">
-																		KRW 15,000
-																	</td>
-																</tr>
-															</tbody>
-														</table>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="tab_cont" id="cont_tab02" tabindex="-1" style="display: none;">
-										<h4 class="blind">구간 2</h4>
-										<div class="s_txt mb20 f24">운임 종류 : 스마트운임</div>
-										<div class="stab_wrap ">
-											<div id="stab2_1">
-												<h5 class="blind">온라인</h5>
-												<div class="box_dual">
-													<div class="left">
-														<h3>취소 수수료</h3>
-														<table class="tb_col">
-															<caption>취소 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
-															<colgroup>
-																<col style="width:50%">
-																<col style="width:50%">
-															</colgroup>
-															<thead>
-																<tr>
-																	<th scope="col">기준일</th>
-																	<th scope="col">수수료</th>
-																</tr>
-															</thead>
-															<tbody>
-																<tr>
-																	<td class="fst">　 ~ 출발 61 일 전</td>
-																	<td class="red">
-																		KRW 2,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 60 일 전 ~ 출발 31 일 전</td>
-																	<td class="red">
-																		KRW 4,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 30 일 전 ~ 출발 8 일 전</td>
-																	<td class="red">
-																		KRW 7,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 7 일 전 ~ 출발 2 일 전</td>
-																	<td class="red">
-																		KRW 12,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 1 일 전 ~ 출발 0 일 전</td>
-																	<td class="red">
-																		KRW 14,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발후 ~ </td>
-																	<td class="red">
-																		KRW 15,000
-																	</td>
-																</tr>
-															</tbody>
-														</table>
-													</div>
-													<div class="right">
-														<h3>변경 수수료</h3>
-														<table class="tb_col">
-															<caption>변경 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
-															<colgroup>
-																<col style="width:50%">
-																<col style="width:50%">
-															</colgroup>
-															<thead>
-																<tr>
-																	<th>기준일</th>
-																	<th>수수료</th>
-																</tr>
-															</thead>
-															<tbody>
-																<tr>
-																	<td class="fst">　 ~ 출발 61 일 전</td>
-																	<td class="red">
-																		KRW 2,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 60 일 전 ~ 출발 31 일 전</td>
-																	<td class="red">
-																		KRW 4,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 30 일 전 ~ 출발 8 일 전</td>
-																	<td class="red">
-																		KRW 7,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 7 일 전 ~ 출발 2 일 전</td>
-																	<td class="red">
-																		KRW 12,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발 1 일 전 ~ 출발 0 일 전</td>
-																	<td class="red">
-																		KRW 14,000
-																	</td>
-																</tr>
-																<tr>
-																	<td class="fst">출발후 ~ </td>
-																	<td class="red">
-																		KRW 15,000
-																	</td>
-																</tr>
-															</tbody>
-														</table>
+					<div class="d-inline-block pe-2">이코노미</div>
+					<div class="d-inline-block ps-2">B737-800</div>
+				</div>
+			<div class="d-inline-block justify-content-center text-center p-3">
+				<strong class="fs-3">CJU</strong>
+				<div class="addition">제주</div>
+			</div>
+		</div>
+	</div>
+	<div class="border border-secondary justify-content-center text-center container" >
+		구간2
+	</div>
+	<div class="d-flex border border-secondary container" >
+		<div class="d-flex align-items-center ms-5">2022-11-02(수)</div>
+		<div class="d-inline-block" style="margin:auto;">
+			<div class="d-inline-block justify-content-center text-center p-3">
+				<strong class="fs-3">CJU</strong>
+				<div class="addition">제주</div>
+			</div>
+			<div class="d-inline-block text-center p-3">
+				<div>07:55 ~ 09:05</div>
+				<div>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+		  				<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+					</svg>
+					
+				</div>
+				<div class="d-inline-block pe-2">이코노미</div>
+				<div class="d-inline-block ps-2">B737-800</div>
+			</div>
+			<div class="d-inline-block justify-content-center text-center p-3">
+				<strong class="fs-3">GMP</strong>
+				<div class="addition">서울/김포</div>
+			</div>
+		</div>
+	</div>
+<!-- 항공권 정보 -->
+<!-- 운임정보  -->
+<div class="container mt-5">
+<h3>운임 정보</h3>
+<table class="table table-bordered text-center">
+  <thead>
+    <tr>
+     	<th scope="col">항공 운임</th>
+		<th scope="col">유류할증료</th>
+		<th scope="col">공항시설 사용료</th>
+		<th scope="col">부가서비스</th>
+		<th scope="col">결제 내역</th>
+    </tr>
+  </thead>
+  <tbody>
+		<tr>
+			<td>KRW 54,900</td>
+			<td>KRW 30,800</td>
+			<td>KRW 8,000</td>
+			<td>KRW 0</td>
+			<td>KRW 93,700</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<!-- 운임정보  -->
+
+
+<!-- 규정동의  -->
+	<div class="container mt-5" >
+		<div class="d-flex justify-content-between container">
+			<h3>예약 규정(필수)</h3>
+   			<div class="form-check">
+  				<input class="form-check-input" type="checkbox" value="" id="reservate">
+  				<label class="form-check-label" for="reservate">
+   					전체 동의
+  				</label>
+			</div>
+		</div>
+		<div class=" accordion" id="accordionExample" >
+			<!-- 항공 운임 규정  -->
+			<div class="accordion-item">
+			    <div class="accordion-header" id="headingOne">
+			    	<div class="btn btn-primary accordion-button"  data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+			        	
+			        	<div class="d-flex justify-content-between container">
+							<div>
+						    	항공 운임 규정
+						   	</div>
+					    	<div class="form-check">
+						  		<input class="form-check-input" type="checkbox" value="" id="ruleFare">
+						  		<label class="form-check-label" for="ruleFare">
+						   			동의하기
+						  		</label>
+							</div>
+						</div>
+			    	</div>
+			    </div>
+    			<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+	     				<div class="accordion-body">
+	       					<div class="passenger_info_wrap terms_txt" tabindex="0">
+								<div class="pc_web">
+									<div class="tab_wrap">
+										<ul class="tab n2 added2">
+											<li class="active "><a role="tab" href="#cont_tab01" title="선택됨" aria-selected="true" class="">구간1</a></li>
+											<li class="active on"><a role="tab" href="#cont_tab02" title="" aria-selected="false" class="">구간2</a></li>
+										</ul>
+										<div class="d-inline-block border border-secondary" id="cont_tab01" tabindex="0" style="width: 49%; margin: 0;">
+											<h4 class="text-center">구간 1</h4>
+											<div class="stab_wrap ">
+												<div id="stab1_1">
+													<div class="box_dual">
+														<div class="left">
+															<h3>취소 수수료</h3>
+															<table class="text-center">
+																<caption>취소 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
+																<colgroup>
+																	<col style="width:50%">
+																	<col style="width:50%">
+																</colgroup>
+																<thead>
+																	<tr>
+																		<th scope="col">기준일</th>
+																		<th scope="col">수수료</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td class="fst">　 ~ 출발 61 일 전</td>
+																		<td class="red">
+																			KRW 2,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 60 일 전 ~ 출발 31 일 전</td>
+																		<td class="red">
+																			KRW 4,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 30 일 전 ~ 출발 8 일 전</td>
+																		<td class="red">
+																			KRW 7,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 7 일 전 ~ 출발 2 일 전</td>
+																		<td class="red">
+																			KRW 12,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 1 일 전 ~ 출발 0 일 전</td>
+																		<td class="red">
+																			KRW 14,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발후 ~ </td>
+																		<td class="red">
+																			KRW 15,000
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+														<div class="right">
+															<h3>변경 수수료</h3>
+															<table class="tb_col">
+																<caption>변경 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
+																<colgroup>
+																	<col style="width:50%">
+																	<col style="width:50%">
+																</colgroup>
+																<thead>
+																	<tr>
+																		<th>기준일</th>
+																		<th>수수료</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td class="fst">　 ~ 출발 61 일 전</td>
+																		<td class="red">
+																			KRW 2,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 60 일 전 ~ 출발 31 일 전</td>
+																		<td class="red">
+																			KRW 4,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 30 일 전 ~ 출발 8 일 전</td>
+																		<td class="red">
+																			KRW 7,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 7 일 전 ~ 출발 2 일 전</td>
+																		<td class="red">
+																			KRW 12,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 1 일 전 ~ 출발 0 일 전</td>
+																		<td class="red">
+																			KRW 14,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발후 ~ </td>
+																		<td class="red">
+																			KRW 15,000
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-									</div>
+										<div class="d-inline-block border border-secondary" id="cont_tab02" tabindex="-1" style="width: 49%; margin: 0;">
+											<h4 class="text-center">구간 2</h4>
+											<div class="stab_wrap ">
+												<div id="stab2_1">
+													<div class="box_dual">
+														<div class="left">
+															<h3>취소 수수료</h3>
+															<table class="text-center">
+																<caption>취소 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
+																<colgroup>
+																	<col style="width:50%">
+																	<col style="width:50%">
+																</colgroup>
+																<thead>
+																	<tr>
+																		<th scope="col">기준일</th>
+																		<th scope="col">수수료</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td class="fst">　 ~ 출발 61 일 전</td>
+																		<td class="red">
+																			KRW 2,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 60 일 전 ~ 출발 31 일 전</td>
+																		<td class="red">
+																			KRW 4,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 30 일 전 ~ 출발 8 일 전</td>
+																		<td class="red">
+																			KRW 7,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 7 일 전 ~ 출발 2 일 전</td>
+																		<td class="red">
+																			KRW 12,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 1 일 전 ~ 출발 0 일 전</td>
+																		<td class="red">
+																			KRW 14,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발후 ~ </td>
+																		<td class="red">
+																			KRW 15,000
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+														<div class="right">
+															<h3>변경 수수료</h3>
+															<table class="tb_col">
+																<caption>변경 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
+																<colgroup>
+																	<col style="width:50%">
+																	<col style="width:50%">
+																</colgroup>
+																<thead>
+																	<tr>
+																		<th>기준일</th>
+																		<th>수수료</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	<tr>
+																		<td class="fst">　 ~ 출발 61 일 전</td>
+																		<td class="red">
+																			KRW 2,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 60 일 전 ~ 출발 31 일 전</td>
+																		<td class="red">
+																			KRW 4,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 30 일 전 ~ 출발 8 일 전</td>
+																		<td class="red">
+																			KRW 7,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 7 일 전 ~ 출발 2 일 전</td>
+																		<td class="red">
+																			KRW 12,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발 1 일 전 ~ 출발 0 일 전</td>
+																		<td class="red">
+																			KRW 14,000
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="fst">출발후 ~ </td>
+																		<td class="red">
+																			KRW 15,000
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
 									<div class="notice_box sub">
 										<strong>기타</strong>
 										<ul class="ul_dot">
@@ -446,107 +385,125 @@
 											</ul>
 										</ul>
 									</div>
-									<!--
-									<div class="terms_bttm">
-										<input type="checkbox" id="FARE_TERMS_CHK" />
-										<label for="FARE_TERMS_CHK" class="mr15">
-											<span class="icon"></span>
-											<th:block th:text="${contents.get('guide.ruleAgrre.info1')}">상기 운임 규정 내용을 확인하였으며 동의합니다.</th:block>
-										</label>
-									</div>
-									 -->
 								</div>
-								<!-- as-is -->
 							</div>
 						</div>
-					</li>
-					<li class="INFO_OFFER_AGREE_liTag">
-						<a class="type" href="#none" role="button">
-							<span class="block">제3자 정보 제공 동의</span>
-						</a>
-						<div class="check_position">
-							<input class="ruleChk" type="checkbox" id="INFO_OFFER_AGREE_CHK" value="제3자 정보 제공 동의">
-							<label for="INFO_OFFER_AGREE_CHK">
-								<span class="icon">제3자 정보 제공 동의 동의 체크박스</span>
-								<p>동의하기</p>
-							</label>
-						</div>
-						<div tabindex="0" class="passenger_info_wrap terms_txt INFO_OFFER_AGREE_DIV">
+					</div>
+				</div>
+			</div>
+			<!-- 항공 운임 규정  -->
+			
+			<!-- 제 3자 정보 제공 동의  -->
+	  		<div class="accordion-item">
+	    		<div class="accordion-header" id="headingTwo">
+	    		
+		    		<div class="btn btn-primary accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+			        	<div class="d-flex justify-content-between container">
+			        		<div>
+				        		제3자 정보 제공 동의
+			        		</div>
+			    			<div class="form-check">
+					  			<input class="form-check-input" type="checkbox" value="" id="ruleAgree">
+					  			<label class="form-check-label" for="ruleAgree">
+					   				동의하기
+					  			</label>
+							</div>
+			    		</div>
+					</div>
+		    	</div>
+	    		<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+	      			<div class="accordion-body">
+	        			<div tabindex="0" class="passenger_info_wrap terms_txt INFO_OFFER_AGREE_DIV">
 							<div class="terms">
-							    <ol class="root">
+						    	<ol class="root">
+						       		<ol class="d1">
+							            <strong>1. 제공받는 자</strong>
+						                <ol class="d2">
+						                    <li>한국공항공사</li>
+						                    <li>인천공항공사</li>
+						                </ol>
+						        	</ol>
 							        <ol class="d1">
-							            <li><strong>1. 제공받는 자</strong>
-							                <ol class="d2">
-							                    <li>한국공항공사</li>
-							                    <li>인천공항공사</li>
-							                    <li><br></li>
-							                </ol>
-							            </li>
+							            <strong>2. 제공받는 자의 이용 목적</strong>
+						                <ol class="d2">
+						                    <li>탑승객 신원 확인</li>
+						                </ol>
 							        </ol>
 							        <ol class="d1">
-							            <li><strong>2. 제공받는 자의 이용 목적</strong>
-							                <ol class="d2">
-							                    <li>탑승객 신원 확인</li>
-							                    <li><br></li>
-							                </ol>
-							            </li>
+							            <strong>3. 제공하는 항목</strong>
+						                <ol class="d2">
+						                    <li>(국내선) 탑승자 성명, 성별, 생년월일, 전화번호, 국적, 내/외국인 구분, 좌석번호, 예약번호</li>
+						                    <li>(국제선) 탑승자 성명, 국적, 여권번호, 예약번호</li>
+						                </ol>
 							        </ol>
 							        <ol class="d1">
-							            <li><strong>3. 제공하는 항목</strong>
-							                <ol class="d2">
-							                    <li>(국내선) 탑승자 성명, 성별, 생년월일, 전화번호, 국적, 내/외국인 구분, 좌석번호, 예약번호</li>
-							                    <li>(국제선) 탑승자 성명, 국적, 여권번호, 예약번호</li>
-							                    <li><br></li>
-							                </ol>
-							            </li>
+							            <strong>4. 제공받는 자의 보유 및 이용 기간</strong>
+						                <ol class="d2">
+						                    <li>서비스 제공 및 관계법령에 따른 보존기간<br>(탑승수속 시 제공되며, 개인정보는 항공기 출발 즉시 폐기)</li>
+						                </ol>
 							        </ol>
 							        <ol class="d1">
-							            <li><strong>4. 제공받는 자의 보유 및 이용 기간</strong>
-							                <ol class="d2">
-							                    <li>서비스 제공 및 관계법령에 따른 보존기간<br>(탑승수속 시 제공되며, 개인정보는 항공기 출발 즉시 폐기)</li>
-							                    <li><br></li>
-							                </ol>
-							            </li>
+							            <strong>5. 동의 거부권 및 거부 시 불이익 사항</strong>
+						                <ol class="d2">
+						                    <li>개인정보 주체자는 개인정보 제3자 제공에 대한 동의를 거부할 권리가 있습니다. 다만, 동의를 거부할 경우 서비스 수행에 필수적인 정보제공이 이뤄지지 않으므로 항공권 예매 서비스 이용이 불가합니다.</li>
+						                </ol>
 							        </ol>
-							        <ol class="d1">
-							            <li><strong>5. 동의 거부권 및 거부 시 불이익 사항</strong>
-							                <ol class="d2">
-							                    <li>개인정보 주체자는 개인정보 제3자 제공에 대한 동의를 거부할 권리가 있습니다. 다만, 동의를 거부할 경우 서비스 수행에 필수적인 정보제공이 이뤄지지 않으므로 항공권 예매 서비스 이용이 불가합니다.</li>
-							                </ol>
-							            </li>
-							        </ol>
-							    </ol>
+						    	</ol>
 							</div>
 						</div>
-					</li>
-					<li class="ROUTE_TERMS_liTag">
-						<a class="type" href="#none" role="button">
-							<span class="block">노선별 주의사항</span>
-						</a>
-						<div class="check_position">
-							<input class="ruleChk" type="checkbox" id="ROUTE_TERMS_CHK" value="노선 별 주의 사항">
-							<label for="ROUTE_TERMS_CHK">
-								<span class="icon">노선 별 주의 사항 동의 체크박스</span>
-								<p>동의하기</p>
-							</label>
+					</div>
+				</div>
+			</div>
+		  	<!-- 제 3자 정보 제공 동의  -->
+		  	
+		  	<!-- 노선별 주의사항  -->
+		  	<div class="accordion-item">
+			    <h2 class="accordion-header" id="headingThree">
+			      <div class="btn btn-primary accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+			        <div class="d-flex justify-content-between container">
+				        <div>
+					        노선별 주의사항
+				        </div>
+			        	<div class="form-check">
+				  			<input class="form-check-input" type="checkbox" value="" id="ruleRoute">
+				  			<label class="form-check-label" for="ruleRoute">
+				   				동의하기
+				  			</label>
 						</div>
-						<div tabindex="0" class="passenger_info_wrap terms_txt ROUTE_TERMS_DIV">
+			        </div>
+			      </div>
+			      
+			    </h2>
+			    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+			    	<div class="accordion-body">
+			        	<div tabindex="0" class="passenger_info_wrap terms_txt ROUTE_TERMS_DIV">
 							<h4 class="terms_tit">김포 -제주</h4>
 							<p>국내선 탑승 시 신분증을 반드시 지참하세요. 신분증 미소지 시 탑승이 불가합니다.</p>
 						</div>
-					</li>
-					<!-- 주의사항 -->
-					<li>
-						<a class="type" href="#none" role="button">
-							<span class="block">주의사항</span>
-						</a>
-						<div class="check_position">
-							<input class="ruleChk" id="NOTE_CHK" type="checkbox">
-							<label for="NOTE_CHK">
-								<span class="icon">주의사항 동의 체크박스</span>
-								동의하기
-							</label>
-						</div>
+		        	</div>
+		    	</div>
+			</div>
+		  	<!-- 노선별 주의사항  -->
+		  
+		  	<!-- 주의사항  -->
+		  	<div class="accordion-item">
+		    	<h2 class="accordion-header" id="headingFour">
+			    	<div class="btn btn-primary accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+					      	<div class="d-flex justify-content-between container">
+						      	<div>
+							      	주의사항
+						      	</div>
+					      		<div class="form-check">
+									<input class="form-check-input" type="checkbox" value="" id="ruleCaution">
+					  				<label class="form-check-label" for="ruleCaution">
+					   					동의하기
+					  				</label>
+								</div>
+					      	</div>
+				    </div>
+		    	</h2>
+		    	<div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+		    		<div class="accordion-body">
 						<div class="passenger_info_wrap">
 							<ul class="ul_dot">
 								<li>항공권은 명시된 여정 순서대로 사용해야 하며 왕복 여정 중 첫 구간 미탑승 시 리턴 구간 사용은 불가합니다.</li>
@@ -565,275 +522,257 @@
 								<li>기내 안전을 위하여 당일 공항 현장 상황에 따라 반려동물 동반 고객의 좌석이 변경될 수 있으며(구매하신 사전 좌석과 인접한 가능 좌석으로 배정) 환불되지 않습니다.</li>
 							</ul>
 						</div>
-							<!-- passenger_info_wrap -->
-					</li>
-						<!-- //주의사항 -->
-				</ul><h3 class="hidden">구간1</h3>
-			</div>
-				<!-- //예약 규정(필수) -->
-				<!-- 위험물 규정 안내   -->
-			<div class="con_tit_wrap mt70">
-				<h3 class="con_tit">위험물 안내 규정 동의 (필수)</h3>
-				<div class="chk_wrap">
-					<!-- 부가서비스 규정 동의 여부 -->
-					<input id="dangerousInfoChkYN" name="dangerousInfoChkYN" type="hidden" value="N">
-					<!-- //부가서비스 규정 동의 여부 -->
-					<input class="layer_focus focus" date-id="retrieve_rule_layer" date-type="layer" id="dangerousInfoChk" name="dangerousInfoChk" type="checkbox">
-					<label for="dangerousInfoChk">
-						<span class="icon">위험물 안내 규정 동의(필수) 체크박스</span>
-						위탁 수하물 운송 시 금지된 위험 물품에 대한 내용을 확인 하였으며 이에 동의 합니다.
-						<button class="sbtn_cont" onclick="retrieveDangerous('DANGEROUS_THING_INFO');">위험물 안내</button>
-					</label>
-				</div>
-			</div>
-				<!-- //위험물 규정 안내  -->
-
-				<!--// 컨텐츠 영역 -->
+		     		</div>
+		    	</div>
+		  	</div>
+			<!-- 주의사항  -->
 		</div>
-		
-		<div id="layer_area">
-			<div class="layer type02" id="retrieve_rule_layer" style="display: block; top: 9px; left: 118px;" tabindex="0">
-			<div class="layer_header">
-				<h2>위험물 안내</h2>
-			</div>
-			<div class="layer_content scroll" tabindex="0">	 
-				<div class="terms_list_wrap section t3 danger_pop">
-		        	<ol class="root">
-		            	<li>위험물로 분류된 폭발성 또는 연소성이 높은 물건 및 물질 등의 항공운송은 국제민간항공기구(ICAO) 및 국내 항공안전법에서 정한대로 위험물 포장, 표기, 신고, 및 접수 등의 절차에 따라 항공운송을 하여야 합니다. 또한 위험물을 기내 휴대 수하물 또는 위탁수하물에 넣거나 항공기내 반입은 법으로 금지되어 있습니다.</li>
-		               	<ol class="d1">
-		                   	<li>
-								<strong>[기내 반입 또는 위탁 수하물 운송 제한품목]</strong>
-		                           <table class="tb_col">
-		                               <colgroup>
-		                                   <col style="width:50%">
-		                                   <col style="width:50%">
-		                               </colgroup>
-		                               <thead>
-		                                   <tr>
-		                                       <th>폭발성, 인화성 물질</th>
-		                                       <th>1L 이하 액체류</th>
-		                                   </tr>
-		                               </thead>
-		                               <tbody>
-		                                   <tr>
-		                                       <td>
-		                                           <div class="icon_box">
-		                                               <!-- 20220920 위험물 안내 레이어팝업 수정: 무기류에서 이동 : 클래스추가(multi_element3) -->
-		                                               <ul class="multi_element3">
-		                                                   <li class="spra"></li>
-		                                                   <li class="sair"></li>
-		                                                   <!-- 20220920 위험물 안내 레이어팝업 수정: 무기류에서 이동 -->
-		                                                   <li class="dyna"></li>
-		                                                   <!-- //20220920 위험물 안내 레이어팝업 수정 -->
-		                                               </ul>
-		                                           </div>
-		                                           <div class="cont_bx">
-		                                               <ul>
-		                                                   <!-- 20220920 위험물 안내 레이어팝업 수정 -->
-		                                                   <li>
-		                                                       - 다량의 라이터 또는 성냥, 라이터용 연료, 페인트 시너, 고압가스 용기 (휴대용 부탄가스통, 각종 스프레이, 수중 스쿠버 공기통, 압축산소통 등), 폭죽, 화약, 호신용 최루가스 분사기 등
-		                                                   </li>
-		                                                   <!-- //20220920 위험물 안내 레이어팝업 수정 -->
-		                                               </ul>
-		                                               <span class="red">※ 기내 반입 및 위탁 불가</span>
-		                                           </div>
-		                                       </td>
-		                                       <td>
-		                                           <div class="icon_box">
-		                                               <ul>
-		                                                   <li class="wart"></li>
-		                                                   <li class="cosm"></li>
-		                                               </ul>
-		                                           </div>
-		                                           <div class="cont_bx">
-		                                               <ul>
-		                                                   <li>- 물·음료·식품·화장품 등 액체·분무(스프
-		                                                       레이)·겔류(젤 또는 크림)로 된 물품은
-		                                                       용량이 표기된 100ml 이하의 개별 용기
-		                                                       에 담아, 1인당 1L 투명 비닐 지퍼백 1개
-		                                                       에 한해 반입 가능
-		                                                   </li>
-		                                               </ul>
-		                                               <span class="red">※ 국내선은 국내 법령을 따릅니다.</span>
-		                                           </div>
-		                                       </td>
-		                                   </tr>
-		                               </tbody>
-		                           </table>
-		                       </li>
-		                   </ol>
-		                   <ol class="d2">
-		                       <table class="tb_col">
-		                           <colgroup>
-		                               <col style="width:50%">
-		                               <col style="width:50%">
-		                           </colgroup>
-		                           <thead>
-		                               <tr>
-		                                   <!-- 20220920 위험물 안내 레이어팝업 수정 -->
-		                                   <th>무기류</th>
-		                                   <!-- //20220920 위험물 안내 레이어팝업 수정 -->
-		                                   <th>전자담배</th>
-		                               </tr>
-		                           </thead>
-		                           <tbody>
-		                               <tr>
-		                                   <td>
-		                                       <div class="icon_box">
-		                                           <ul>
-		                                               <li class="guns"></li>
-		                                               <!-- 20220920 위험물 안내 레이어팝업 수정 : 폭발성, 인화성 물질로 이동 -->
-		                                               <!-- <li class="dyna"></li> -->
-		                                               <!-- //20220920 위험물 안내 레이어팝업 수정 -->
-		                                           </ul>
-		                                       </div>
-		                                       <div class="cont_bx">
-		                                           <ul>
-		                                               <li>- 총기 및 도검류, 무술 호신용품 등
-		                                               </li>
-		                                           </ul>
-		                                           <span class="red">※ 위탁만 가능</span>
-		                                       </div>
-		                                   </td>
-		                                   <td>
-		                                       <div class="icon_box">
-		                                           <ul>
-		                                               <li class="ciga"></li>
-		                                           </ul>
-		                                       </div>
-		                                       <div class="cont_bx">
-		                                           <ul>
-		                                               <li>- 기내 반입만 가능</li>
-		                                           </ul>
-		                                           <span class="red">※ 대만 노선은 기내 반입 및 위탁 불가</span>
-		                                       </div>
-		                                   </td>
-		                               </tr>
-		                           </tbody>
-		                       </table>
-		                   </ol>
-		                   <ol class="d3">
-		                       <table class="tb_col">
-		                           <colgroup>
-		                               <col style="width:50%">
-		                               <col style="width:50%">
-		                           </colgroup>
-		                           <thead>
-		                               <tr>
-		                                   <th>드라이 아이스</th>
-		                                   <th>가스라이터</th>
-		                               </tr>
-		                           </thead>
-		                           <tbody>
-		                               <tr>
-		                                   <td>
-		                                       <div class="icon_box">
-		                                           <ul>
-		                                               <li class="dice"></li>
-		                                           </ul>
-		                                       </div>
-		                                       <div class="cont_bx">
-		                                           <ul>
-		                                               <li>- 단독 반입 불가</li>
-		                                               <li>(1인당 2.5kg까지 항공사 승인 하에
-		                                                   반입 가능)</li>
-		                                           </ul>
-		                                           <span></span>
-		                                       </div>
-		                                   </td>
-		                                   <td>
-		                                       <div class="icon_box">
-		                                           <ul>
-		                                               <li class="lite"></li>
-		                                               <li class="matc"></li>
-		                                           </ul>
-		                                       </div>
-		                                       <div class="cont_bx">
-		                                           <ul>
-		                                               <li>- 기내 반입만 가능</li>
-		                                               <li>- 라이터 및 성냥 (개인용도 1개)</li>
-		                                           </ul>
-		                                           <span class="red">※ 라이터, 성냥반입은 국가별 규정이 다를 수 있습니다.</span>
-		                                       </div>
-		                                   </td>
-		                               </tr>
-		                           </tbody>
-		                       </table>
-		                   </ol>
-		                   <ol class="d4">
-		                       <table class="tb_col">
-		                           <colgroup>
-		                               <col style="width:50%">
-		                               <col style="width:50%">
-		                           </colgroup>
-		                           <thead>
-		                               <tr>
-		                                   <th>전자기기용 여분의 리튬 배터리</th>
-		                                   <th>기타</th>
-		                               </tr>
-		                           </thead>
-		                           <tbody>
-		                               <tr>
-		                                   <td>
-		                                       <div class="icon_box">
-		                                           <ul>
-		                                               <li class="batt"></li>
-		                                           </ul>
-		                                       </div>
-		                                       <div class="cont_bx">
-		                                           <ul>
-		                                               <li>- 여분의 리튬 배터리는 기내 반입만
-		                                                   가능 하며, 파손이나 단락을 방지하기
-		                                                   위해 적절한 포장이 되어 있어야 함
-		                                               </li>
-		                                           </ul>
-		                                           <span class="red">※ 기내 반입만 가능</span>
-		                                       </div>
-		           
-		                                   </td>
-		                                   <td>
-		                                       <div class="icon_box">
-		                                           <ul>
-		                                               <li class="pill"></li>
-		                                               <li class="bfoo"></li>
-		                                           </ul>
-		                                       </div>
-		                                       <div class="cont_bx">
-		                                           <ul>
-		                                               <li>- 항공 여행 중 필요한 의약품 (처방전
-		                                                   소지 권장), 유아식은 안전성 입증의
-		                                                   경우 기내 휴대 가능
-		                                               </li>
-		                                           </ul>
-		                                           <span class="red"></span>
-		                                       </div>
-		                                   </td>
-		                               </tr>
-		                           </tbody>
-		                       </table>
-		                   </ol>
-		            </ol>
-		            <li class="foot_notice">자세한 내용은 당사 홈페이지 [서비스 안내&gt; 수하물 안내&gt; 운송 제한 물품] 페이지를 확인하시기 바랍니다.</li>
-		        </div>
-				<div class="terms type03">
-					<input id="chkDangerRule" name="chkDangerRule" type="checkbox">
-					<label class="mr15" for="chkDangerRule">
-						<span class="icon"></span>
-						위 ‘위험물 안내 규정’에 동의하십니까?
-					</label>
-				</div>
-			</div>
-			<div class="btn_wrap">
-				<button class="btn_large red" onclick="dangerousAgree();" type="button">확인</button>
-				</div>
-		
-				<a class="btn_layer_close" href="javascript:closeSelf();">레이어 닫기</a>
-			</div>
-		
-				
-		</div>
-		
-		
 	</div>
+<!-- 운임정보  -->
+<!-- 위험물 안내 규정 -->
+	<div class="container mt-5">
+		<h3>위험물 안내 규정 동의(필수)</h3>
+		<div class="form-check">
+  			<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  			<label class="form-check-label" for="defaultCheck1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    			위탁 수하물 운송 시 금지된 위험 물품에 대한 내용을 확인 하였으며 이에 동의 합니다. 
+   				<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+ 					위험물 안내
+				</button>
+ 			</label>
+		</div>
+	</div>
+
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false">
+		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h1 class="modal-title fs-5" id="staticBackdropLabel">위험물 안내</h1>
+        			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      			</div>
+      			<div class="modal-body">
+      				<div id="layer_area">
+						<div class="layer type02" id="retrieve_rule_layer" style="display: block; top: 9px; left: 118px;" tabindex="0">
+							<div class="layer_header">
+								<h2>위험물 안내</h2>
+							</div>
+							<div class="layer_content scroll" tabindex="0">	 
+								<div class="terms_list_wrap section t3 danger_pop">
+		        					<ol class="root">
+		            					<li class="">위험물로 분류된 폭발성 또는 연소성이 높은 물건 및 물질 등의 항공운송은 국제민간항공기구(ICAO) 및 국내 항공안전법에서 정한대로 위험물 포장, 표기, 신고, 및 접수 등의 절차에 따라 항공운송을 하여야 합니다. 또한 위험물을 기내 휴대 수하물 또는 위탁수하물에 넣거나 항공기내 반입은 법으로 금지되어 있습니다.</li>
+		               					<ol class="">
+		                   					<li>
+												<strong>[기내 반입 또는 위탁 수하물 운송 제한품목]</strong>
+		                           				<table class="container">
+					                               <colgroup>
+					                                   <col style="width:50%">
+					                                   <col style="width:50%">
+					                               </colgroup>
+			                               			<thead>
+					                                	<tr>
+					                                       <th>폭발성, 인화성 물질</th>
+					                                       <th>1L 이하 액체류</th>
+					                                   </tr>
+					                            	</thead>
+			                               			<tbody>
+			                                   			<tr>
+			                                       			<td>
+			                                          			
+			                                           			<div class="cont_bx">
+					                                               	<ul>
+					                                                   <li>
+					                                                       - 다량의 라이터 또는 성냥, 라이터용 연료, 페인트 시너, 고압가스 용기 (휴대용 부탄가스통, 각종 스프레이, 수중 스쿠버 공기통, 압축산소통 등), 폭죽, 화약, 호신용 최루가스 분사기 등
+					                                                   </li>
+					                                               	</ul>
+			                                               			<span class="red">※ 기내 반입 및 위탁 불가</span>
+			                                           			</div>
+			                                       			</td>
+			                                       			<td>
+					                                          
+					                                           <div class="cont_bx">
+					                                               <ul>
+					                                                   <li>- 물·음료·식품·화장품 등 액체·분무(스프
+					                                                       레이)·겔류(젤 또는 크림)로 된 물품은
+					                                                       용량이 표기된 100ml 이하의 개별 용기
+					                                                       에 담아, 1인당 1L 투명 비닐 지퍼백 1개
+					                                                       에 한해 반입 가능
+					                                                   </li>
+					                                               </ul>
+					                                               <span class="red">※ 국내선은 국내 법령을 따릅니다.</span>
+					                                           </div>
+			                                       			</td>
+			                                   			</tr>
+			                               			</tbody>
+		                           				</table>
+		                       				</li>
+		                   				</ol>
+		                   				<ol class="d2">
+		                       				<table class="tb_col">
+					                           <colgroup>
+					                               <col style="width:50%">
+					                               <col style="width:50%">
+					                           </colgroup>
+					                           <thead>
+					                               <tr>
+					                                   <th>무기류</th>
+					                                   <th>전자담배</th>
+					                               </tr>
+					                           </thead>
+					                           <tbody>
+					                               <tr>
+					                                   <td>
+					                                       
+					                                       <div class="cont_bx">
+					                                           <ul>
+					                                               <li>- 총기 및 도검류, 무술 호신용품 등
+					                                               </li>
+					                                           </ul>
+					                                           <span class="red">※ 위탁만 가능</span>
+					                                       </div>
+					                                   </td>
+					                                   <td>
+					                                       
+					                                       <div class="cont_bx">
+					                                           <ul>
+					                                               <li>- 기내 반입만 가능</li>
+					                                           </ul>
+					                                           <span class="red">※ 대만 노선은 기내 반입 및 위탁 불가</span>
+					                                       </div>
+					                                   </td>
+					                               </tr>
+					                           </tbody>
+		                       				</table>
+		                   				</ol>
+		                   				<ol class="d3">
+		                       				<table class="tb_col">
+					                            <colgroup>
+					                               <col style="width:50%">
+					                               <col style="width:50%">
+					                            </colgroup>
+					                            <thead>
+					                               <tr>
+					                                   <th>드라이 아이스</th>
+					                                   <th>가스라이터</th>
+					                               </tr>
+					                            </thead>
+				                           		<tbody>
+				                                <tr>
+				                                   <td>
+				                                       
+				                                       <div class="cont_bx">
+				                                           <ul>
+				                                               <li>- 단독 반입 불가</li>
+				                                               <li>(1인당 2.5kg까지 항공사 승인 하에
+				                                                   반입 가능)</li>
+				                                           </ul>
+				                                       </div>
+				                                   </td>
+				                                   <td>
+				                                       
+				                                       <div class="cont_bx">
+				                                           <ul>
+				                                               <li>- 기내 반입만 가능</li>
+				                                               <li>- 라이터 및 성냥 (개인용도 1개)</li>
+				                                           </ul>
+				                                           <span class="red">※ 라이터, 성냥반입은 국가별 규정이 다를 수 있습니다.</span>
+				                                       </div>
+				                                   </td>
+				                               </tr>
+				                           </tbody>
+		                       			</table>
+		                   			</ol>
+		                   			<ol class="d4">
+		                       			<table class="tb_col">
+				                           <colgroup>
+				                               <col style="width:50%">
+				                               <col style="width:50%">
+				                           </colgroup>
+				                           <thead>
+				                               <tr>
+				                                   <th>전자기기용 여분의 리튬 배터리</th>
+				                                   <th>기타</th>
+				                               </tr>
+				                           </thead>
+				                           <tbody>
+				                               <tr>
+				                                   <td>
+				                                      
+				                                       <div class="cont_bx">
+				                                           <ul>
+				                                               <li>- 여분의 리튬 배터리는 기내 반입만
+				                                                   가능 하며, 파손이나 단락을 방지하기
+				                                                   위해 적절한 포장이 되어 있어야 함
+				                                               </li>
+				                                           </ul>
+				                                           <span class="red">※ 기내 반입만 가능</span>
+				                                       </div>
+				           
+				                                   </td>
+				                                   <td>
+				                                      
+				                                       <div class="cont_bx">
+				                                           <ul>
+				                                               <li>- 항공 여행 중 필요한 의약품 (처방전
+				                                                   소지 권장), 유아식은 안전성 입증의
+				                                                   경우 기내 휴대 가능
+				                                               </li>
+				                                           </ul>
+				                                           <span class="red"></span>
+				                                       </div>
+				                                   </td>
+				                               </tr>
+				                           </tbody>
+		                       			</table>
+		                   			</ol>
+		            			</ol>
+		            			<li class="foot_notice">자세한 내용은 당사 홈페이지 [서비스 안내&gt; 수하물 안내&gt; 운송 제한 물품] 페이지를 확인하시기 바랍니다.</li>
+		        			</div>
+							<div class="text-bg-dark text-center">
+								<input id="chkDangerRule" name="chkDangerRule" type="checkbox">
+								<label class="mr15" for="chkDangerRule">
+									<span class=""></span>
+									위 ‘위험물 안내 규정’에 동의하십니까?
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger d-grid gap-2 col-4 mx-auto" data-bs-dismiss="modal">확인</button>
+			</div>
+    	</div>
+	</div>
+</div>
+<!-- 위험물 안내 규정 -->
+<!--  -->
+	<div class="d-flex container mt-2 mb-3">
+		<span class="me-auto p-2">항공운임 등 총액</span>
+		
+			<a class="d-flex text-center btn btn-light p-2 me-1" href="#" role="button">
+				<div class="me-1">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+		  			<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+					</svg>
+				</div>
+				<div>
+					다시예약 
+				</div>
+			</a>
+		
+			<a class="d-flex text-center btn btn-danger p-2 ms-1" href="#" role="button">
+				<div>
+					다시예약 
+				</div>
+				<div class="ms-1">
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+	  				<path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+					</svg>
+				</div>
+				
+			</a>
+	</div>
+	
+<!--  -->
 </body>
 </html>
