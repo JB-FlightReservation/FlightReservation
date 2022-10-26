@@ -30,7 +30,7 @@ ul, ol, li {
 }
 
 /*------- body -------*/
-.text h3 {
+.body h3 {
 	vertical-align: middle;
 	font-size: 30px;
 	color: #1a1a1a;
@@ -46,6 +46,7 @@ ul, ol, li {
 .passenger_info {
 	border: 1px solid #ccc;
 	margin-top: 20px;
+	margin-bottom: 60px;
 }
 
 .p_info-list ul li:not(:first-of-type) {
@@ -242,6 +243,11 @@ select::-ms-expand {
 	border: 1px solid rgb(176, 176, 176);
 	border-radius: 3px;
 	box-sizing: border-box;
+}
+/* ------- pet -------*/
+
+.pet_check h3{
+	margin-bottom: 25px;
 }
 
 /* ------- notice -------*/

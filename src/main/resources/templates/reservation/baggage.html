@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/reservation/baggage.css}">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:include="/headerNav"></header>
+	<div class="container">
+		<div class="head">
+			<h2>항공권 예매</h2>
+		</div>
+
+		<div class="body">
+			<div class="sel_service_section">
+
+				<div class="service_section_wrap service_section_wrap--simple">
+
+					<!-- 구간선택 슬라이드 -->
+					<div class="service_section_slide swiper-container swiper-container-horizontal">
+
+						<ul class="swiper-wrapper" id="routeSlider">
+							<li class="swiper-slide swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev" id="route_1">
+								<!-- 구간선택 박스 -->
+								<div class="service_section_box">
+									<!-- 구간 -->
+									<span class="bul_section">구간1</span>
+									<!--// 구간 -->
+									<!-- 출발 -->
+									<div class="service_name first">
+										<strong class="tit airport departure">GMP</strong> <span class="addition">서울/김포</span>
+									</div>
+									<!-- 출발 -->
+									<!-- 설명 -->
+									<div class="service_exp"></div>
+									<!--// 설명 -->
+									<!-- 도착 -->
+									<div class="service_name last">
+										<strong class="tit airport arrival">CJU</strong> <span class="addition">제주</span>
+									</div>
+									<!-- 도착 -->
+								</div>
+							</li>
+							<!--// 구간선택 박스 -->
+						</ul>
+					</div>
+					<!--// 구간선택 슬라이드 -->
+
+
+					<!-- 여정 재검색 -->
+					<div class="btn_refresh">
+						<button class="btn_small refresh red">재검색</button>
+					</div>
+					<!--// 여정 재검색 -->
+
+					<!-- 슬라이드 버튼 -->
+					<a class="btn_slide_prev" href="#">이전</a>
+					<a class="btn_slide_next" href="#">다음</a>
+					<!--// 슬라이드 버튼 -->
+					<!-- 구간 더보기 -->
+					<div class="swiper-pagination-wrapper">
+						<div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+							<span class="swiper-pagination-bullet swiper-pagination-bullet-active" role="button"></span>
+						</div>
+					</div>
+					<!--// 구간 더보기 -->
+				</div>
+			</div>
+			<div class="person_choice">
+				<h3>수하물</h3>
+			</div>
+		</div>
+	</div>
+	<footer id="footer" th:include="/footerNav"></footer>
+</body>
+</html>

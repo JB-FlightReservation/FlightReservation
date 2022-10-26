@@ -12,26 +12,30 @@ public class ReservationController {
 		System.out.println("Reservation page connected");
 		return "reservation/reservationSearch";
 	}
-	
 
 	@GetMapping("/passenger_list.do")
 	public void pList() {
-		
+
 	}
-	
+
+	@GetMapping("/baggage.do")
+	public void baggage() {
+
+	}
+
 	@GetMapping("/terms.do")
 	public String terms() {
 		return "reservation/reservationTerms";
 	}
-	
+
 	@GetMapping("/pay.do")
 	public String pay() {
-		return	"reservation/reservationPay";
+		return "reservation/reservationPay";
 	}
-	
+
 	@GetMapping("/payComplete.do")
 	public String payComplete() {
-		return	"reservation/reservationPayComplete";
+		return "reservation/reservationPayComplete";
 	}
 
 }
