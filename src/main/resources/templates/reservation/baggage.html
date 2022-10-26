@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" th:href="@{/css/reservation/baggage.css}">
+<link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css}" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -69,9 +70,29 @@
 			</div>
 			<div class="person_choice">
 				<h3>수하물</h3>
+				<!-- Slider main container -->
+				<div class="swiper2">
+					<!-- Additional required wrapper -->
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide">Slide 1</div>
+						<div class="swiper-slide">Slide 2</div>
+						<div class="swiper-slide">Slide 3</div>
+						...
+					</div>
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+
+					<!-- If we need navigation buttons -->
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+
+				</div>
 			</div>
 		</div>
 	</div>
 	<footer id="footer" th:include="/footerNav"></footer>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+	<script src="/js/reservation/baggage.js"></script>
 </body>
 </html>

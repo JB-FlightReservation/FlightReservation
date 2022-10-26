@@ -272,3 +272,11 @@ ul, ol, li {
 	color: #1a1a1a;
 	margin: 25px 0;
 }
+
+.swiper {
+  height: 100px;
+  overflow: hidden;
+}
+.swiper-wrapper{
+	display: flex;
+}
