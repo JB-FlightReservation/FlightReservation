@@ -22,24 +22,85 @@
 
 
 	<header th:include="/headerNav"></header>
-	<div class="main_text">
-		<div class="image"></div>
-		<div class="reserve"></div>
+	<div class="main_content">
+		<div class="image">
+			<div class="image1">광고 or 이미지</div>
+		</div>
+		<div class="reserve_main">
+			<div class="reserve">
+				<div class="reserve_contents">
+					<div class="reserve_name">예매</div>
+						<form>
+							<!-- 왕복, 편도 -->
+							<div class="triptypeselect">
+								<a href="#trip1">왕복</a>
+								<a href="#trip2">편도</a>
+							</div>
+							<!-- 출발, 도착 -->
+							<div class="singledestcontrols_places">
+								<div class="locationselector">
+									<label for="st" class="start_label">출발지</label><br> 
+									<input type="text" name="place" id="st" placeholder="국가, 도시 또는 공항">
+								</div>
+								<!-- 출발지, 도착지 바꾸는 버튼 -->
+								<div class="switch_button">
+									<button id=destination_switch type="button">바꾸기</button>
+								</div>
+								<div class="locationselector">
+									<label for="de" class="destination_label">도착지</label><br> 
+									<input type="text" name="place" id="de" placeholder="국가, 도시 또는 공항">
+								</div>
+							</div>
+							<!-- 가는날, 오는날 -->
+							<div class="daterangeselector">
+								<div class="date-st">
+									<label for="dateStart" class="daterange_label">가는날</label>
+									<input type="date" name="dateRange" id="dateStart">
+								</div>
+								<div class="date-de">
+									<label for="dateDestination" class="daterange_label">오는날</label>
+									<input type="date" name="dateRange" id="dateDestination">
+								</div>
+							</div>
+							<!-- 승객 수 -->
+							<div class="section_passenger">
+								<label for="passenger" class="section_passenger_label">승객선택</label>
+								<button id="passenger" name="section_passenger_btn" type="button">
+									<span>1 성인</span>
+								</button>
+							</div>
+							<!-- 검색 -->
+							<div>
+								<button class="tripselect_btn" type="submit">검색</button>
+							</div>
+						</form>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="discount">
 		<ul class="icons">
 			<li>
+				<a href="#"><img alt="부산-제주" src="/imges/img1.jpg" width="250" height="250"></a>
+				<div class="discount_contents">부산-제주</div>	
+				<div class="discount_contents">편도총액 34,600원~</div>	
 			</li>
 			<li>
+				<a href="#"><img alt="김포-제주" src="/imges/img2.jpg" width="250" height="250"></a>
+				<div class="discount_contents">김포-제주</div>	
+				<div class="discount_contents">편도총액 31,600원~</div>
 			</li>
 			<li>
+				<a href="#"><img alt="김포-부산" src="/imges/img3.jpg" width="250" height="250"></a>
+				<div class="discount_contents">김포-부산</div>	
+				<div class="discount_contents">편도총액 33,600원~</div>
 			</li>
 		</ul>
 	</div>
 	<div class="member">
-		<p>회원혜택</p>
-		<div class="mbox">
-			<p>VIP 회원혜택, 항공운임 5% + 5% 적립</p>
+		<h4>회원혜택</h4>
+		<div class="member-box">
+			<div>VIP 회원혜택, 항공운임 5% + 5% 적립</div>
 		</div>
 	</div>
 	<footer th:include="/footerNav"></footer>
