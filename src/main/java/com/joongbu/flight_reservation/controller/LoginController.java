@@ -1,5 +1,8 @@
 package com.joongbu.flight_reservation.controller;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
@@ -12,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.mapper.CustomerMapper;
+import com.joongbu.flight_reservation.service.SendMailService;
+
+import lombok.RequiredArgsConstructor;
 @RequestMapping("/login")
+@RequiredArgsConstructor
 @Controller
 public class LoginController {
 	@Autowired
@@ -52,6 +59,8 @@ public class LoginController {
 	
 	
 	//아이디 찾기
+	@Autowired
+	SendMailService emailservice;
 	@GetMapping("/findId.do")
 	public void findId() {}
 	@PostMapping("/findId.do")
@@ -68,7 +77,18 @@ public class LoginController {
 			e.printStackTrace();
 		}
 		if(find!=null) {
-			return "/login/findUserId";
+			String toEmail = ctEmail;
+			String otpNum;
+			try {
+				otpNum = emailservice.sendEmail(toEmail);
+				System.out.println(otpNum);
+				
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+			
 		}
 		return "/login/findId";
 	}
