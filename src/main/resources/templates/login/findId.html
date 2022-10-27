@@ -18,10 +18,10 @@
 			<div class="input-group input-group-lg mb-3">
 				<span class="input-group-text" id="inputEmail">이메일</span>
 			  	<input name="ctEmail" type="email" class="form-control" placeholder="이메일을 입력하세요" id="inputEmail" >
-			  	<button class="btn btn-outline-secondary" type="submit" name="btnOtp" id="btnOtp">인증번호 받기</button>
+			  	<button onclick="btnOtp()" type="button" class="btn btn-outline-secondary" name="btnOtp" id="btnOtp">인증번호 받기</button>
 			</div>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" name="otpNum" placeholder="인증번호 입력">
+				<input type="text" class="form-control" name="otpNum" id="otpNum" placeholder="인증번호 입력" disabled>
 			</div>
 			<div class="d-grid gap-2 col-6 mx-auto">
 				<button type="submit" class="btn btn-primary mt-4">아이디 찾기</button>
