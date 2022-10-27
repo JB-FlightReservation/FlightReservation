@@ -6,19 +6,6 @@
 <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-
-	<th:block th:if="${session.loginCt==null}">
-		<h2>
-			<a href="/login/loginPage.do">로그인하기</a>
-		</h2>
-	</th:block>
-	<th:block th:unless="${session.loginCt==null}">
-		<h2>
-			<a href="/login/logout.do">로그아웃</a>
-		</h2>
-	</th:block>
-
-	<a href="/">메인 페이지</a>
 	<header th:include="/headerNav"></header>
 	<div class="main_content">
 		<div class="image">
@@ -28,51 +15,50 @@
 			<div class="reserve">
 				<div class="reserve_contents">
 					<div class="reserve_name">예매</div>
-					<form>
-						<!-- 왕복, 편도 -->
-						<div class="triptypeselect">
-							<a href="#trip1">왕복</a>
-							<a href="#trip2">편도</a>
-						</div>
-						<!-- 출발, 도착 -->
-						<div class="singledestcontrols_places">
-							<div class="locationselector">
-								<label for="st" class="start_label">출발지</label>
-								<br>
-								<input type="text" name="place" id="st" placeholder="국가, 도시 또는 공항">
+						<form class="reserve_selector">
+							<!-- 왕복, 편도 -->
+							<div class="triptypeselect">
+								<a href="#trip1">왕복</a>
+								<a href="#trip2">편도</a>
 							</div>
-							<!-- 출발지, 도착지 바꾸는 버튼 -->
-							<div class="switch_button">
-								<button id=destination_switch type="button">바꾸기</button>
+							<!-- 출발, 도착 -->
+							<div class="singledestcontrols_places">
+								<div class="locationselector">
+									<label for="st" class="start_label">출발지</label><br> 
+									<input type="text" name="place" id="st" placeholder="국가, 도시 또는 공항">
+								</div>
+								<!-- 출발지, 도착지 바꾸는 버튼 -->
+								<div class="switch_button">
+									<label for="destination_switch">&nbsp;</label><br>
+									<button id=destination_switch type="button">바꾸기</button>
+								</div>
+								<div class="locationselector">
+									<label for="de" class="destination_label">도착지</label><br>
+									<input type="text" name="place" id="de" placeholder="국가, 도시 또는 공항">
+								</div>
 							</div>
-							<div class="locationselector">
-								<label for="de" class="destination_label">도착지</label>
-								<br>
-								<input type="text" name="place" id="de" placeholder="국가, 도시 또는 공항">
+							<!-- 가는날, 오는날 -->
+							<div class="daterangeselector">
+								<div class="date-st">
+									<label for="dateStart" class="daterange_label">가는날</label>
+									<input type="date" name="dateRange" id="dateStart">
+								</div>
+								<div class="date-de">
+									<label for="dateDestination" class="daterange_label">오는날</label>
+									<input type="date" name="dateRange" id="dateDestination">
+								</div>
 							</div>
-						</div>
-						<!-- 가는날, 오는날 -->
-						<div class="daterangeselector">
-							<div class="date-st">
-								<label for="dateStart" class="daterange_label">가는날</label>
-								<input type="date" name="dateRange" id="dateStart">
+							<!-- 승객 수 -->
+							<div class="section_passenger">
+								<label for="passenger" class="section_passenger_label">승객선택</label>
+								<button id="passenger" name="section_passenger_btn" type="button">
+									<span>1 성인</span>
+								</button>
 							</div>
-							<div class="date-de">
-								<label for="dateDestination" class="daterange_label">오는날</label>
-								<input type="date" name="dateRange" id="dateDestination">
+							<!-- 검색 -->
+							<div>
+								<button class="tripselect_btn" type="submit">검색</button>
 							</div>
-						</div>
-						<!-- 승객 수 -->
-						<div class="section_passenger">
-							<label for="passenger" class="section_passenger_label">승객선택</label>
-							<button id="passenger" name="section_passenger_btn" type="button">
-								<span>1 성인</span>
-							</button>
-						</div>
-						<!-- 검색 -->
-						<div>
-							<button class="tripselect_btn" type="submit">검색</button>
-						</div>
 					</form>
 				</div>
 			</div>

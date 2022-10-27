@@ -8,10 +8,11 @@
 <body>
 	<div id="container">
 		<div class="content" id="content">
-			<div class="tit">
+			<div class="tit_booking_wrap">
 				<h2 class="pg_tit">항공권 예매</h2>
-			<div class="input_section">
-				<div class="option">
+			</div>
+			<div class="input_booking_wrap">
+				<div class="booking_option">
 					<ul class="sel_section">
                 		<li class="on">
                     		<a href="#booking01">
@@ -31,13 +32,13 @@
 		                <ul class="booking_form">
 		                    <li>
 		                        <div class="sel_route">
-		                            <div class="input_wrap start">
+		                            <div class="input_wrap start focus">
 		                                <label>출발지</label>
 		                                <input class="booking start focus_start1" readonly="" title="출발지 입력" type="text" value="" placeholder="도시/공항">
 		                                <a class="btn_pin focus_start2" href="#none" title="출발지 선택 레이어 열림">출발지 선택</a>
 		
 		                                <!-- 선택 레이어 -->
-		                                <div class="selected_area start">
+		                                <div class="selected_area start focus on">
 		                                	<a href="#">
 			                                    <span class="eng">GMP</span>
 			                                    <span class="area">서울/김포</span>
@@ -168,16 +169,16 @@
 		                        <!--// 유아 -->
 		                    </div>
 		            	</li>
-		            	<!-- 좌석등급 넣어야함 -->
 		        	</ul>
                 </div>
+		        <!-- 좌석등급 -->
 				</div>
 			</div>
-			</div>
-		<div class="btn_wrap">
-			<button class="btn_large red">항공편 검색</button>
-		</div>	
+			<div class="btn_wrap">
+				<button class="btn_large red">항공편 검색</button>
+			</div>	
 		</div>
 	</div>
+
 </body>
 </html>
