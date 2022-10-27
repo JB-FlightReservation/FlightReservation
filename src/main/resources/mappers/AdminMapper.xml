@@ -17,13 +17,13 @@
 		SELECT *,admin_id adminId from ADMIN
  		WHERE admin_id=#{adminId} AND admin_pw=#{adminPw}
 	</select>
-	<select id="Adetail" resultType="com.joongbu.flight_reservation.dto.AdminDto">
+	<select id="adminDetail" resultType="com.joongbu.flight_reservation.dto.AdminDto">
 		SELECT *,admin_id adminId FROM ADMIN 
 		WHERE admin_id=#{adminId}
 	</select>
-	<select id="Aupdate" parameterType="com.joongbu.flight_reservation.dto.AdminDto">
+	<update id="Aupdate" parameterType="com.joongbu.flight_reservation.dto.AdminDto">
 		UPDATE ADMIN SET 
-		admin_name=#{adminName}, admin_pw=#{adminPw}, admin_email=#{adminEmail}, admin_eno=#{adminEno} 
+		admin_name=#{admin_name}, admin_pw=#{admin_pw}, admin_email=#{admin_email}, admin_no=#{admin_no} 
 		WHERE admin_id=#{adminId}
-	</select>
+	</update>
 </mapper>

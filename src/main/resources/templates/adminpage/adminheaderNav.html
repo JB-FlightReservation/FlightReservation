@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <style>
 a {
     text-decoration: none;
@@ -36,7 +39,7 @@ nav {
 		<a class="logo" href="/">JB항공</a>
 		<th:block th:unless="${session.loginAdmin==null}">
 			<div class="mypage">
-				<!--<a th:href="@{/adminpage/detail.do(adminId=${admin.adminId})}">관리자 정보</a>-->
+				<a th:href="@{/adminpage/adminDetail.do(adminId=${session.loginAdmin.adminId})}">관리자 정보</a>
 			</div>
 		</th:block>
 	</div>

@@ -11,15 +11,13 @@ import lombok.Data;
 | admin_pw    | varchar(45)  | NO   |     | NULL    |                |
 | admin_name  | varchar(45)  | NO   |     | NULL    |                |
 | admin_email | varchar(45)  | NO   |     | NULL    |                |
-| admin_eno   | int unsigned | NO   | UNI | NULL    |                |
 +-------------+--------------+------+-----+---------+----------------+
  * */
 @Data
 public class AdminDto {
-	private int adminNo;
+	private int admin_no;
 	private String adminId;
-	private String adminPw;
-	private String adminName;
-	private String adminEmail;
-	private int adminEno;
+	private String admin_pw;
+	private String admin_name;
+	private String admin_email;
 }
