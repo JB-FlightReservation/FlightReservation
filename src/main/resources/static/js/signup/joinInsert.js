@@ -11,17 +11,17 @@ async function checkUserId(){
 	let url="/signup/checkUserId.do?ctId="+ctId;
 
 	if(ctId.length<8){
-		id2.innerText="8글자 이상 작성하세요.";
+		userIdInvalid.innerText="8글자 이상 작성하세요.";
 		userInsertForm.ctId.classList.add("is-invalid");
 		}
 		
 	if (!pattern1.test(ctId)){
-		id2.innerText="숫자가 포함되어 있지 않습니다."; 
+		userIdInvalid.innerText="숫자가 포함되어 있지 않습니다."; 
 		userInsertForm.ctId.classList.add("is-invalid");
 		}
 		
 	if(!pattern2.test(ctId)){
-		id2.innerText="영어가 포함 되어 잇지 않습니다.";
+		userIdInvalid.innerText="영어가 포함 되어 잇지 않습니다.";
 		userInsertForm.ctId.classList.add("is-invalid");
 		}
 		
@@ -30,10 +30,10 @@ async function checkUserId(){
 		if(resp.status==200){
 			let json=await resp.json();		
 			if(json.check==1){
-				re2.innerHTML='사용중인 아아디 입니다.';
+				userIdInvalid.innerHTML='사용중인 아아디 입니다.';
 				userInsertForm.ctId.classList.add("is-invalid");
 			}else if(json.check==0){
-				re1.innerHTML='사용가능한 아이디 입니다.';
+				userIdInvalid.innerHTML='사용가능한 아이디 입니다.';
 				userInsertForm.ctId.classList.add("is-valid");
 			}else if(json.check==-1){
 				alert("db 조회 실패(다시시도)");
@@ -48,7 +48,7 @@ async function checkUserId(){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   function check_pw(){
+    function check_pw(){
 	   		userInsertForm.userPW2.classList.remove("is-invalid");
 			userInsertForm.userPW2.classList.remove("is-valid");
 			userInsertForm.ctPw.classList.remove("is-invalid");
@@ -75,11 +75,11 @@ async function checkUserId(){
 				userInsertForm.ctPw.classList.add("is-invalid");
             }
             if( !pattern2.test(ctPw)){
-				  check2.innerHTML='영어가 들어가 있지 않습니다. ';
+				  check2.innerHTML='영어가 포함되어 있지 않습니다. ';
 					userInsertForm.ctPw.classList.add("is-invalid");
 			}
 			if(!pattern1.test(ctPw)){
-				  check2.innerHTML='숫자가가 들어가 있지 않습니다. ';
+				  check2.innerHTML='숫자가 포함되어 있지 않습니다. ';
 					userInsertForm.ctPw.classList.add("is-invalid");
 			}
             if(pw.length > 6 && pw.length <16 && check_SC != 0 ) {
@@ -97,8 +97,6 @@ async function checkUserId(){
                 else {
 					userPWInvalid2.innerText="비밀번호가 일치하지 않습니다.";
 					userInsertForm.userPW2.classList.add("is-invalid");
-				
-					
                    
                 }
             }
@@ -216,7 +214,6 @@ function joinform_check() {
 
 
   //입력 값 전송
-  
+  
   document.userInsertForm.submit(); //유효성 검사의 포인트   
 }
-

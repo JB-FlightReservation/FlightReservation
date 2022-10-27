@@ -28,8 +28,6 @@ import lombok.Setter;
 @RequestMapping("/adminpage")
 @Controller
 public class AdminController {
-	@Autowired
-	DataSource dataSource;
 
 	@Autowired
 	AdminMapper adminMapper;

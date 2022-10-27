@@ -81,9 +81,6 @@ public class JoinController {
 			return checkUser;
 		}
 		
-		
-	
-	
 	@GetMapping("/joinPage3.do")
 	public void joinPage3() {} 
 	
