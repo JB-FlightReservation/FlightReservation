@@ -11,12 +11,6 @@ body {
 	margin: 0 auto;
     font-size: 15px;
 }
-
-header {
-    font-weight: normal;
-    background: #fff;
-}
-
 ul{
    list-style:none;
 }
@@ -41,19 +35,55 @@ ul{
 	height: 500px;
 	float: right;
 	box-sizing: border-box;
-	background: cornflowerblue;
+	background: #91B9F5;
+}
+.reserve_contents{
+	text-align: center;
+	margin: 23px;
 }
 .reserve_name{
 	border: 1px solid black;
+	height: 35px;
+	padding-top: 10px;
+	border-radius: 20px;
 	background: darkblue;
 	color: white;
 }
-form{
-	border: 1px solid black;
-	background: white;
+.triptypeselect, 
+.singledestcontrols_places, 
+.daterangeselector, .section_passenger{
+	margin: 35px 30px 30px;
 }
+.triptypeselect a{
+	margin-left: 5px;
+}
+.reserve_selector{
+	border: 1px solid black;
+	border-radius: 20px;
+	background: white;
+	height: 350px;
+	padding: 20px;
+	margin-top: 10px;
+}
+.singledestcontrols_places{
+	display: flex;
+}
+.locationselector, .switch_button{
+	flex: 1;
+}
+.daterangeselector{
+	display: flex;
+}
+.date-st, .date-de{
+	flex: 1;
+}
+
 .tripselect_btn{
 	width: 50%;
+	height: 40px;
+	border-radius: 20px;
+	background: darkblue;
+	color: white;
 }
 
 /* 할인 */

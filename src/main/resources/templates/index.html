@@ -15,7 +15,7 @@
 			<div class="reserve">
 				<div class="reserve_contents">
 					<div class="reserve_name">예매</div>
-						<form>
+						<form class="reserve_selector">
 							<!-- 왕복, 편도 -->
 							<div class="triptypeselect">
 								<a href="#trip1">왕복</a>
@@ -29,10 +29,11 @@
 								</div>
 								<!-- 출발지, 도착지 바꾸는 버튼 -->
 								<div class="switch_button">
+									<label for="destination_switch">&nbsp;</label><br>
 									<button id=destination_switch type="button">바꾸기</button>
 								</div>
 								<div class="locationselector">
-									<label for="de" class="destination_label">도착지</label><br> 
+									<label for="de" class="destination_label">도착지</label><br>
 									<input type="text" name="place" id="de" placeholder="국가, 도시 또는 공항">
 								</div>
 							</div>
