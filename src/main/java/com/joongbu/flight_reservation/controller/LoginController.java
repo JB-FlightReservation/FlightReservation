@@ -1,5 +1,8 @@
 package com.joongbu.flight_reservation.controller;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
@@ -12,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.mapper.CustomerMapper;
+import com.joongbu.flight_reservation.service.SendMailService;
+
+import lombok.RequiredArgsConstructor;
 @RequestMapping("/login")
+@RequiredArgsConstructor
 @Controller
 public class LoginController {
 	@Autowired
@@ -52,12 +59,16 @@ public class LoginController {
 	
 	
 	//아이디 찾기
+	@Autowired
+	SendMailService emailservice;
+	String EmailotpNum;
 	@GetMapping("/findId.do")
 	public void findId() {}
 	@PostMapping("/findId.do")
 	public String findId(
 			@RequestParam(required = true)String ctName,
-			@RequestParam(required = true)String ctEmail
+			@RequestParam(required = true)String ctEmail,
+			String otpNum
 			) {
 		System.out.println(ctName+"/"+ctEmail); 
 		CustomerDto find=null;
@@ -68,12 +79,25 @@ public class LoginController {
 			e.printStackTrace();
 		}
 		if(find!=null) {
-			return "/login/findUserId";
+			String toEmail = ctEmail;
+			
+			try {
+				EmailotpNum = emailservice.sendEmail(toEmail);
+				System.out.println(EmailotpNum);
+				
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+			System.out.println(otpNum);
+			if(otpNum == EmailotpNum)
+				return "/login/findUserId";
 		}
 		return "/login/findId";
 	}
 	//아이디 찾기완료
-	@GetMapping("/findUserId.do")
+	@PostMapping("/findUserId.do")
 	public String findUserId() {
 		return "/login/findUserId";
 	}
