@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joongbu.flight_reservation.mapper.AirflightMapper">
+
+    <resultMap type="AirflightDto" id="AirflightMap">
+        <id column="af_no" property="afNo"/>
+        <result column="af_name" property="afName"/>
+        <result column="al_no" property="alNo"/>
+        <result column="af_depart_time" property="afDepartTime"/>
+        <result column="af_land_time" property="afLandTime"/>
+        <result column="af_economy" property="afEconomy"/>
+        <result column="af_business" property="afBusiness"/>
+        <result column="af_depart_ap" property="afDepartAp"/>
+        <result column="af_land_ap" property="afLandAp"/>
+    </resultMap>
+
+    <select id="airflightList" resultMap="AirflightMap">
+        select * from airflight_info
+        where af_depart_ap=#{afDepartAp} and af_land_ap=#{afLandAp}
+    </select>
+
+    <select id="airflightDetail" resultMap="AirflightMap">
+        select * from airflight_info
+        where af_no=#{afNo}
+    </select>
+
+    <insert id="insert" parameterType="AirflightDto">
+        insert into airflight_info
+        values(
+        #{afNo},
+        #{afName},
+        #{alNo},
+        #{afDepartTime},
+        #{afLandTime},
+        #{afEconomy},
+        #{afBusiness},
+        #{afDepartAp},
+        #{afLandAp}
+        )
+    </insert>
+
+    <update id="update" parameterType="AirflightDto">
+        update airflight_info set
+        af_no = #{afNo},
+        af_name = #{afName},
+        al_no = #{alNo},
+        af_depart_time = #{afDepartTime},
+        af_land_time = #{afLandTime},
+        af_economy = #{afEconomy},
+        af_business = #{afBusiness},
+        af_depart_ap = #{afDepartAp},
+        af_land_ap = #{afLandAp}
+    </update>
+
+    <delete id="delete">
+        delete from airflight_info
+        where af_no=#{afNo}
+    </delete>
+
+
+</mapper>
