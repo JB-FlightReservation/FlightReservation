@@ -26,14 +26,15 @@
 		<div class="input-container">
 				<label class="joinp">아아디</label>
 				<div class="form-floating mb-3">
-						<input  class="form-control is-valid" placeholder=""  id="uid" type="text" name="ctId" value="">
+						<input  class="form-control is-valid" placeholder=""  id="Id" type="text" name="ctId" value="">
 						<label  for="inputUserId">8자 영문,숫자를 조합해서 입력해주세요.</label>
-						
 						<div class="valid-feedback">
-							      사용할 수 있는 아이디입니다.
+							   	<span id="id1"></span>
+							   	<span id="re1"></span>
 						</div>
-						 <div class="invalid-feedback" id="userIdInvalid">
-					       			사용 중인 아이디입니다.
+						 <div class="invalid-feedback">
+					       			<span id="id2"></span>
+					       			<span id="re2"></span>
 					      </div>
 						</div>
 		</div>
@@ -80,7 +81,7 @@
 		
 		<div class="input-container"><label class="joinp">이메일</label>
 			<div class="form-floating mb-3">
-			   <input id="email"  type="text" class="form-control is-valid" placeholder="happy1234@naver.com" name="ctEmail" value="">
+			   <input id="email"  type="text" class="form-control" placeholder="happy1234@naver.com" name="ctEmail" value="">
 				  <label for="inputUserId">@@</label>
 			</div>		
 			
