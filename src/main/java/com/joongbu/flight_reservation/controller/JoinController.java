@@ -65,13 +65,11 @@ public class JoinController {
 		@GetMapping("/checkUserId.do")
 		public @ResponseBody CheckUser checkUserId(
 				SignupDto user,
-					@RequestParam(required =true) String ctId,
-					@RequestParam(required =true) String ctEmail
-					
+					@RequestParam(required =true) String ctId
 				) {
 			CheckUser checkUser = new CheckUser();
 			try {
-				user = signupMapper.detail(ctId,ctEmail);
+				user = signupMapper.detail(ctId);
 				if(user!=null) {
 					checkUser.setCheck(1);
 					checkUser.setUser(user);
@@ -83,9 +81,6 @@ public class JoinController {
 			return checkUser;
 		}
 		
-		
-	
-	
 	@GetMapping("/joinPage3.do")
 	public void joinPage3() {} 
 	
