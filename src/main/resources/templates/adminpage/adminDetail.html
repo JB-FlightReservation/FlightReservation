@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>관리자 정보 페이지</title>
 </head>
 <body>
 	<header th:include="/adminpage/adminheaderNav"></header>
@@ -12,22 +12,26 @@
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label">아이디</label>
 				<div  class="col-sm-10">
-					<input class="form-control-plaintext" readonly type="text" name="adminId" th:value="${}">
+					<input class="form-control-plaintext" readonly type="text" name="adminId" th:value="${adminDto.adminId}">
 				</div>
 			</div>
 			<div class="mb-3 row">
 				<label class="col-sm-2 col-form-label">패스워드</label>
 				<div  class="col-sm-10">
-					<input class="form-control" type="password" name="adminPw" th:value="${}">
+					<input class="form-control" type="password" name="admin_pw" th:value="${adminDto.admin_pw}">
 				</div>
 			</div>
 			<div class="mb-3 input-group">
 				<label class="input-group-text">이름 </label>
-				<input class="form-control" type="text" name="adminName" th:value="${}">
+				<input class="form-control" type="text" name="admin_name" th:value="${adminDto.admin_name}">
 			</div>
 			<div class="mb-3 input-group">
 				<label class="input-group-text">이메일 </label>
-				<input class="form-control" type="text" name="adminEmail" th:value="${}">
+				<input class="form-control" type="text" name="admin_email" th:value="${adminDto.admin_email}">
+			</div>
+			<div class="mb-3 input-group">
+				<label class="input-group-text">번호 </label>
+				<input class="form-control" readonly type="text" name="admin_no" th:value="${adminDto.admin_no}">
 			</div>
 			<div>
 				<button type="reset" class="btn btn-outline-secondary">초기화 </button>

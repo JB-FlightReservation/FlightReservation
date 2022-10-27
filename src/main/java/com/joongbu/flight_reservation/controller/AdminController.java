@@ -132,8 +132,10 @@ public class AdminController {
 			@RequestParam(required = true) String adminPw, HttpSession session,
 			@SessionAttribute(required = false) String redirectPage) {
 		AdminDto loginAdmin = null;
+		System.out.println(adminId+adminPw);
 		try {
 			loginAdmin = adminMapper.login(adminId, adminPw);
+			System.out.println(loginAdmin);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -165,6 +167,16 @@ public class AdminController {
 	@GetMapping("/detail.do")
 	public AdminDto Adetail(String adminId) {
 		AdminDto adminDto = adminMapper.Adetail(adminId);
+
+	@GetMapping("/management.do")
+	public String management() {
+
+		return "/adminpage/management";
+	}
+	@GetMapping("/adminDetail.do")
+	public AdminDto adminDetail(String adminId) {
+		AdminDto adminDto = adminMapper.adminDetail(adminId);
+
 		return adminDto;
 	}
 
@@ -173,7 +185,7 @@ public class AdminController {
 		int update = 0;
 		try {
 			update = adminMapper.Aupdate(admin);
-			System.out.println(admin.getAdminId());
+			System.out.println(admin);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -184,9 +196,31 @@ public class AdminController {
 		}
 	}
 
+
 	@Getter
 	@Setter
 	class CheckAdmin {
+
+	@GetMapping("/findPassword.do")
+	public void findPassword() {}
+	@PostMapping("/findPassword.do")
+	public String findPassword(AdminDto admin) {
+		int findPassword = 0;
+		try {
+			findPassword = adminMapper.Aupdate(admin);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(findPassword>0) {
+			return "redirect:/adminpage/management.do";
+		}else {
+			return "redirect:/adminpage/findPassword.do";
+		}
+	}
+
+	@Getter@Setter
+	class CheckAdmin{
+
 		private int check;
 		private AdminDto admin;
 	}
@@ -196,10 +230,13 @@ public class AdminController {
 		CheckAdmin checkAdmin = new CheckAdmin();
 		AdminDto admin = null;
 		try {
-			admin = adminMapper.Adetail(adminId);
-			if (admin != null) {
-				checkAdmin.setCheck(1);
+			admin = adminMapper.adminDetail(adminId);
+			if(admin!=null) {
+				checkAdmin.setCheck(0);
 				checkAdmin.setAdmin(admin);
+			}else {
+				checkAdmin.setCheck(1);
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -10,6 +10,7 @@ import com.joongbu.flight_reservation.dto.ReservationDto;
 
 @Mapper
 public interface AdminMapper {
+
 	List<CustomerDto> customerList(int startRow, int rows, String ctName);
 
 	List<CustomerDto> customerList(int startRow, int rows);
@@ -21,15 +22,19 @@ public interface AdminMapper {
 
     List<ReservationDto> reservationList(int startRow, int rows, Integer ctNo);
 
-	AdminDto login(String adminId, String adminPw);
-
-	AdminDto Adetail(String adminId);
-
-	int Aupdate(AdminDto admin);
 
 	int update(CustomerDto customer);
 
 	int delete(int ctNo);
 
 	int insert(CustomerDto customer);
+
+
+    List<AdminDto> adminList ();
+
+    AdminDto login(String adminId,String adminPw);
+    AdminDto adminDetail(String adminId);
+    int Aupdate(AdminDto admin);
+
+
 }
