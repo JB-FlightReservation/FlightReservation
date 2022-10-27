@@ -17,7 +17,8 @@
 			</div>
 
 			<div class="passenger_info">
-				<form action="/passenger/pList.do" method="post">
+				<form action="/passenger/pList.do">
+				<!-- <input type="hidden" th:name="customerNo" th:value="${session.loginUser.userId}"> -->
 					<div class="p_info-list">
 						<ul>
 							<li class="p_list on">

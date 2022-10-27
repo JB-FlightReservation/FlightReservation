@@ -1,11 +1,17 @@
 package com.joongbu.flight_reservation.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import com.joongbu.flight_reservation.mapper.ReservationMapper;
 
 @RequestMapping("/reservation")
 @Controller
 public class ReservationController {
+	@Autowired
+	ReservationMapper reservationMapper;
+	
 	@GetMapping("/booking.do")
 	public String booking() {
 		return "reservation/reservationSearch";

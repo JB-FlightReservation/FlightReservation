@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joongbu.flight_reservation.mapper.ReservationMapper">
+	
+	<resultMap type="ReservationDto" id="ReservationMap">
+		<id column="rv_no" property="rvNo" />
+		<result column="ct_no" property="ctNo" />
+		<result column="rv_pet_accompanying" property="rvPetAccompanying" />
+		<result column="rv_phone" property="rvPhone" />
+		<result column="rv_email" property="rvEmail" />
+		<result column="rv_is_ticketed" property="rvIsTicketed" />
+		<result column="rv_date" property="rvDate" />
+		<result column="rv_mature_adult" property="rvMatureAdult" />
+		<result column="rv_mature_teen" property="rvMatureTeen" />
+		<result column="rv_mature_baby" property="rvMatureBaby" />
+		<result column="rv_depart_ap" property="rvDepartAp" />
+		<result column="rv_land_ap" property="rvLandAp" />
+		<result column="next_rv_no" property="nextRvNo" />
+	</resultMap>
+</mapper>
