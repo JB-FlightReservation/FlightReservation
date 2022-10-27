@@ -1,0 +1,295 @@
+@charset "UTF-8";
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+ul, ol, li {
+	list-style: none;
+}
+
+.container {
+	width: 1100px;
+	margin: 0 auto;
+	/* background-color: #f4f4f4; */
+}
+
+#footer {
+	margin-top: 100px;
+}
+
+.head {
+	margin: 60px 0;
+}
+
+.head h2 {
+	font-size: 41px;
+	color: #1a1a1a;
+	text-align: left;
+}
+
+/*------- body -------*/
+.body h3 {
+	vertical-align: middle;
+	font-size: 30px;
+	color: #1a1a1a;
+	margin-bottom: 3px;
+}
+
+.text .text-sub {
+	margin: 8px 0 0 0;
+	font-size: 14px;
+	color: #1a1a1a;
+}
+
+.passenger_info {
+	border: 1px solid #ccc;
+	margin-top: 20px;
+	margin-bottom: 60px;
+}
+
+.p_info-list ul li:not(:first-of-type) {
+	border-top: 1px solid #ccc;
+}
+
+.p_info-list ul li:last-child .info_detail {
+	margin-bottom: 60px;
+}
+
+.p_info-list ul li:last-child .next_btn_area {
+	display: none;
+}
+
+.passenger_info .person {
+	display: block;
+	padding: 30px 40px;
+	position: relative;
+	height: 22px;
+}
+
+.passenger_info .on .person {
+	font-size: 18px;
+	color: rgb(26, 26, 26);
+	font-weight: 700;
+	background-color: rgb(254, 244, 243);
+}
+
+.passenger_info ul li a {
+	cursor: pointer;
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.passenger_info ul li a span {
+	display: block;
+	padding-right: 30px;
+	background: url(//contents-image.twayair.com/homepage/images/common/ico_arrow_gray.png) no-repeat right center;
+}
+
+.p_list.on .person span {
+	display: block;
+	padding-right: 30px;
+	background: url(https://contents-image.twayair.com/homepage/images/common/ico_arrow_red.png) no-repeat right center;
+}
+
+.passenger_info .p_info_wrap {
+	/* overflow: hidden;
+	transition: max-height 1000ms;
+	max-height: 0; */
+	display: none;
+}
+
+.p_list.on .p_info_wrap {
+	box-sizing: border-box;
+	padding: 39px;
+	display: block;
+	/* max-height: 1000px;
+	transition: max-height 1000ms; */
+}
+
+.p_info_wrap .info-top {
+	padding-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid;
+}
+
+.p_info_wrap .info-text {
+	font-size: 14px;
+	color: #d22c26;
+	line-height: 21px;
+}
+/* ------- table ------- */
+input {
+	vertical-align: middle;
+}
+
+input[type="text"], input[type="number"], input[type="email"], input[type="date"], input[type="search"], input[type="tel"], input[type="time"], input[type="password"] {
+	padding: 0px 20px;
+	height: 46px;
+	font-size: 16px;
+	color: rgb(26, 26, 26);
+	border: 1px solid rgb(204, 204, 204);
+	background-color: rgb(255, 255, 255);
+	box-sizing: border-box;
+	margin-left: -6px;
+	margin-right: 10px;
+	width: 240px;
+	/* line-height: 46px; */
+}
+
+select {
+	padding: 0px 30px 0px 15px;
+	width: 150px;
+	height: 46px;
+	font-size: 16px;
+	color: rgb(26, 26, 26);
+	border: 1px solid rgb(204, 204, 204);
+	background-color: rgb(255, 255, 255);
+	box-sizing: border-box;
+	-webkit-appearance: none; /* 크롬 화살표 없애기 */
+	-moz-appearance: none; /* 파이어폭스 화살표 없애기 */
+	appearance: none; /* 화살표 없애기 */
+	margin-right: 10px;
+	margin-left: -6px;
+	width: 154.5px;
+	vertical-align: middle;
+}
+
+select::-ms-expand {
+	display: none; /* IE 10, 11 네이티브 화살표 없애기*/
+}
+
+.info_detail .detail_li {
+	height: 75px;
+}
+
+.info_detail table {
+	border-collapse: collapse;
+}
+
+.info_detail table tr {
+	border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.info_detail .detail_li .type {
+	padding: 20px 30px;
+	font-size: 16px;
+	font-weight: normal;
+	color: #4d4d4d;
+	width: 140px;
+}
+
+.detail_li .type .info-text {
+	font-weight: 600;
+	font-size: large;
+}
+
+.info_detail .detail_li .input_wrap {
+	padding: 14px 20px;
+	font-size: 16px;
+	color: #1a1a1a;
+	width: 880px;
+}
+
+.detail_li .input_wrap button.btn {
+	padding: 12px 20px;
+	min-width: 80px;
+	min-height: 46px;
+	font-size: 16px;
+	color: rgb(26, 26, 26);
+	text-align: center;
+	line-height: 1.1;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(128, 128, 128);
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.detail_li .input_wrap select.w170 {
+	width: 170px;
+}
+
+.detail_li .input_wrap select.w150 {
+	width: 150px;
+}
+
+.detail_li .input_wrap input.w490 {
+	width: 490px;
+}
+
+.detail_li .input_wrap select.country_code {
+	width: 240px;
+}
+
+.next_btn_area {
+	text-align: center;
+	margin-top: 60px;
+}
+
+.next_btn_area .nextBtn {
+	padding: 15px 40px;
+	min-width: 150px;
+	min-height: 50px;
+	font-size: 18px;
+	text-align: center;
+	line-height: 1.1;
+	background-color: rgb(125, 117, 109);
+	color: white;
+	border: 1px solid rgb(176, 176, 176);
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+/* ------- pet -------*/
+
+.pet_check h3{
+	margin-bottom: 25px;
+}
+
+/* ------- notice -------*/
+.notice_wrap {
+	border: 1px solid #ccc;
+	margin-top: 100px;
+}
+
+.notice_wrap .tit {
+	display: block;
+	padding: 30px 40px 30px 65px;
+	font-size: 18px;
+	font-weight: 700;
+	color: #1a1a1a;
+	background: url(//contents-image.twayair.com/homepage/images/ico/ico_notice.png) no-repeat 40px 30px;
+}
+
+.notice_wrap a span {
+	display: block;
+	padding-right: 30px;
+	background: url(//contents-image.twayair.com/homepage/images/common/ico_arrow_gray.png) no-repeat right center;
+}
+
+.notice_wrap.on span {
+	display: block;
+	padding-right: 30px;
+	background: url(https://contents-image.twayair.com/homepage/images/common/ico_arrow_red.png) no-repeat right center;
+}
+
+.notice_wrap .notice_cont {
+	display: none;
+}
+
+.notice_wrap.on .notice_cont {
+	display: block;
+	padding: 40px;
+	border-top: 1px solid #ccc;
+}
+
+.ul_dot li {
+	padding: 0.15em 0 0.15rem 12px;
+	color: #4d4d4d;
+	line-height: 1.5;
+	background: url(//contents-image.twayair.com/homepage/images/common/ul_dot.png) no-repeat 0 14px;
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>예약 목록</title>
+</head>
+<body>
+<header th:include="/adminpage/headerNav"></header>
+<main class="container mx-auto mt-5" style="max-width: 80%;">
+    <h1>정욱채님의 예약 현황</h1>
+    <h3>진행중인 예약 목록</h3>
+    <form class="d-flex mb-3 mt-5" role="search" method="post" action="#" style="max-width: 250px;">
+        <input class="form-control me-2 " type="search" placeholder="예약코드 검색" aria-label="Search" >
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <table class="table table-hover mx-auto border-dark" style="text-align: center;">
+        <thead>
+        <tr class="table-dark">
+            <th>#</th>
+            <th>예약번호</th>
+            <th>승객이름</th>
+            <th>성별</th>
+            <th>가격</th>
+            <th>성인 / 아동</th>
+            <th>출발일</th>
+            <th>도착일</th>
+            <th>출발지</th>
+            <th>도착지</th>
+            <th>출발시간</th>
+            <th>도착시간</th>
+            <th>좌석등급</th>
+            <th>휴대전화</th>
+            <th>이메일</th>
+            <th>반려동물</th>
+            <th>항공사</th>
+            <th>항공기번호</th>
+            <th>발권여부</th>
+        </tr>
+        </thead>
+        <tbody class="table-striped">
+        <tr>
+            <td>1</td>
+            <td>133442</td>
+            <td><a href="#">정욱채</a></td>
+            <td>남자</td>
+            <td>성인</td>
+            <td>35904</td>
+            <td>2022-10-20</td>
+            <td>2022-10-21</td>
+            <td>서울</td>
+            <td>부산</td>
+            <td>11:00</td>
+            <td>12:00</td>
+            <td>비즈니스석</td>
+            <td>010-1234-1234</td>
+            <td>qwer123@naver.com</td>
+            <td>포함</td>
+            <td>제주항공</td>
+            <td>K7-2034</td>
+            <td>발권</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>133443</td>
+            <td><a href="#">정욱채</a></td>
+            <td>남자</td>
+            <td>성인</td>
+            <td>35904</td>
+            <td>2022-10-23</td>
+            <td>2022-10-24</td>
+            <td>서울</td>
+            <td>부산</td>
+            <td>11:00</td>
+            <td>12:00</td>
+            <td>비즈니스석</td>
+            <td>010-1234-1234</td>
+            <td>qwer123@naver.com</td>
+            <td>미포함</td>
+            <td>진에어</td>
+            <td>JIE-3953</td>
+            <td>미발권</td>
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1>지난 예약 목록</h1>
+    <table class="table table-hover mx-auto border-dark" style="text-align: center;">
+        <thead>
+        <tr class="table-dark">
+            <th>#</th>
+            <th>예약번호</th>
+            <th>승객이름</th>
+            <th>성별</th>
+            <th>가격</th>
+            <th>성인 / 아동</th>
+            <th>출발일</th>
+            <th>도착일</th>
+            <th>출발지</th>
+            <th>도착지</th>
+            <th>출발시간</th>
+            <th>도착시간</th>
+            <th>좌석등급</th>
+            <th>휴대전화</th>
+            <th>이메일</th>
+            <th>반려동물</th>
+            <th>항공사</th>
+            <th>항공기번호</th>
+            <th>발권여부</th>
+        </tr>
+        </thead>
+        <tbody class="table-striped">
+        <tr>
+            <td>1</td>
+            <td>133442</td>
+            <td><a href="#">정욱채</a></td>
+            <td>남자</td>
+            <td>성인</td>
+            <td>35904</td>
+            <td>2022-10-20</td>
+            <td>2022-10-21</td>
+            <td>서울</td>
+            <td>부산</td>
+            <td>11:00</td>
+            <td>12:00</td>
+            <td>비즈니스석</td>
+            <td>010-1234-1234</td>
+            <td>qwer123@naver.com</td>
+            <td>포함</td>
+            <td>제주항공</td>
+            <td>K7-2034</td>
+            <td>발권</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>133443</td>
+            <td><a href="#">정욱채</a></td>
+            <td>남자</td>
+            <td>성인</td>
+            <td>35904</td>
+            <td>2022-10-23</td>
+            <td>2022-10-24</td>
+            <td>서울</td>
+            <td>부산</td>
+            <td>11:00</td>
+            <td>12:00</td>
+            <td>비즈니스석</td>
+            <td>010-1234-1234</td>
+            <td>qwer123@naver.com</td>
+            <td>미포함</td>
+            <td>진에어</td>
+            <td>JIE-3953</td>
+            <td>미발권</td>
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="mb-3" style="max-width: 300px;">
+        <div class="input-group">
+            <label class="input-group-text">총 예약 개수</label>
+            <input class="form-control text-end" type="text" value="4" readonly>
+            <label class="input-group-text">개</label>
+        </div>
+        <div class="input-group mt-3">
+            <label class="input-group-text">예약된 총 결제 금액</label>
+            <input class="form-control text-end" type="text" value="160304" readonly>
+            <label class="input-group-text">원</label>
+        </div>
+    </div>
+</main>
+</body>
+</html>

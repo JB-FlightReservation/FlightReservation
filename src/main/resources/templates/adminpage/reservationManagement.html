@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>예약 목록</title>
+</head>
+<body>
+<header th:include="/adminpage/headerNav"></header>
+<main class="container mx-auto mt-5" style="max-width: 80%;">
+    <h1>진행중인 예약 목록</h1>
+    <form class="d-flex mb-3 mt-5" role="search" method="GET" action="" style="max-width: 250px;">
+        <input class="form-control me-2 " type="search" placeholder="고객번호 검색" aria-label="Search" name="ctNo">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <table class="table table-hover mx-auto border-dark" style="text-align: center;">
+        <thead>
+        <tr class="table-dark">
+            <th>예약번호</th>
+            <th>고객번호</th>
+            <th>반려동물</th>
+            <th>예약 전화번호</th>
+            <th>예약 이메일</th>
+            <th>예약날짜</th>
+            <th>성인</th>
+            <th>청소년</th>
+            <th>유아</th>
+            <th>이륙 시간</th>
+            <th>착륙 시간</th>
+            <th>발권 여부</th>
+        </tr>
+        </thead>
+        <th:block th:include="/adminpage/reservationManagementList"></th:block>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1>지난 예약 목록</h1>
+    <table class="table table-hover mx-auto border-dark" style="text-align: center;">
+        <thead>
+        <tr class="table-dark">
+            <th>예약번호</th>
+            <th>고객번호</th>
+            <th>반려동물</th>
+            <th>예약 전화번호</th>
+            <th>예약 이메일</th>
+            <th>예약날짜</th>
+            <th>성인</th>
+            <th>청소년</th>
+            <th>유아</th>
+            <th>이륙 시간</th>
+            <th>착륙 시간</th>
+            <th>발권 여부</th>
+        </tr>
+        </thead>
+        <th:block th:include="/adminpage/reservationManagementAfterList"></th:block>
+    </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="mb-3" style="max-width: 300px;">
+        <div class="input-group">
+            <label class="input-group-text">총 예약 개수</label>
+            <input class="form-control text-end" type="text" value="4" readonly>
+            <label class="input-group-text">개</label>
+        </div>
+        <!--<div class="input-group mt-3">
+            <label class="input-group-text">예약된 총 결제 금액</label>
+            <input class="form-control text-end" type="text" value="160304" readonly>
+            <label class="input-group-text">원</label>
+        </div>-->
+    </div>
+</main>
+</body>
+</html>

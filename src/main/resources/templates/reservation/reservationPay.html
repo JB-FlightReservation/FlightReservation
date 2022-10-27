@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+	<div class="container mt-5 p-2">
+		<h6>쿠폰 사용</h6>
+		<button type="button" class="btn btn-dark px-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+		  쿠폰 선택
+		</button>
+	</div>
+<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+    		<div class="modal-content">
+      			<div class="modal-header">
+        			<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      			</div>
+      			<div class="modal-body">
+        			<div class="form-check">
+			  			<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+			  			<label class="form-check-label" for="flexRadioDefault1">
+					    	쿠폰 1
+					  	</label>
+					</div>
+					<div class="form-check">
+		  				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		  				<label class="form-check-label" for="flexRadioDefault1">
+		    				쿠폰 2
+		  				</label>
+					</div>
+					<div class="form-check">
+		  				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		  				<label class="form-check-label" for="flexRadioDefault1">
+		    				쿠폰 3
+		  				</label>
+					</div>
+					<div class="form-check">
+		  				<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+		  				<label class="form-check-label" for="flexRadioDefault1">
+		    				쿠폰 4
+		  				</label>
+					</div>
+      			</div>
+      			<div class="modal-footer d-flex justify-content-center">
+        			<button type="button" class="btn btn-dark" data-bs-dismiss="modal">사용하기</button>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+<!-- pay쿠폰 -->
+
+<!-- 결제 정보 -->
+	
+	<div class="container mt-5">
+		<h6>결제 정보</h6>
+		<div class="d-flex justify-content-between">
+			<p class=" ps-3"><strong>주문 금액</strong></p>
+			<p class="pe-3">KRW 93,700</p>
+		</div>
+		<div class="d-flex justify-content-between">
+			<p class=" ps-3"><strong>쿠폰 할인 금액</strong></p>
+			<p class="pe-3">KRW 0</p>
+		</div>
+		<div class="d-flex justify-content-between text-center" style="color: red; background: #F08080;">
+			<p class="ps-3"><strong>총 결제 금액</strong></p>
+			<p class="pe-3">KRW 93,700</p>
+		</div>
+	</div>
+	
+	<!--  -->
+	
+	<div class="container mt-5">
+   		<table class="tb_row">
+			<colgroup>
+				<col style="width:300px">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th scope="row">
+						입금자명
+					</th>
+					<td>
+						<div>
+							<span>
+								<input class="w240 passenger_meta_info" maxlength="50" name="name" onkeyup="onlyHanEngSpaceToUpper(this);" type="text" >
+							</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th >입금 은행</th>
+					<td>
+						<div >
+							<span >
+								<select>
+									<option value="">입금 은행 선택</option>
+									<option>은행 1</option>
+									<option>은행 2</option>
+									<option>은행 3</option>
+									<option>은행 4</option>
+									<option>은행 5</option>
+									<option>은행 6</option>
+									<option>은행 7</option>
+									<option>은행 8</option>
+									<option>은행 9</option>
+								</select>
+							</span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						계좌번호
+					</th>
+					<td>
+						<span>
+							<input class="w490" name="acount" title="계좌번호 입력" type="text">
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+   	</div>
+   	<div class="d-flex justify-content-center container m-5">
+   		<div>
+            <button class="btn btn-danger px-5" id="paymentBtn" name="paymentBtn" type="button">KRW 93,700 결제하기</button>
+        </div>
+   	</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>관리자 로그인 페이지</title>
+<style>
+	body {
+	margin: 0;
+	}
+	h1{
+	margin: 25px;
+	}
+	.box{
+	width: 400px;
+	height: 200px;
+	border-radius: 5px;
+	background-color: #eeeff1;
+	padding: 20px;
+	margin: 50px auto;
+	}
+	.box2{
+	font-size: 14px;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	border: none;
+	width: 100%;
+	box-sizing: border-box;
+	}
+	.box3{
+	font-size: 14px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #87ceeb;
+	border: none;
+	width: 100%;
+	}
+	.box3:hover {
+	cursor: pointer;
+	background-color: rgb(135, 170, 190);
+	}
+	.links{
+	text-align: center;
+	margin: 30px;
+	}
+	.links a {
+	text-decoration: none;
+	font-size: 12px;
+	color: black;
+	}
+</style>
+</head>
+<body>
+	<main>
+	<h1>관리자 로그인</h1>
+		<div class="box">
+			<form action="/adminpage/loginpage.do" method="post">
+				<input class="box2" type="text" name="adminId" id="inputAdminId" placeholder="아이디를 입력하세요">
+				<input class="box2" type="password" name="adminPw" id="inputAdminPw" placeholder="비밀번호를 입력하세요">
+				<input class="box3" type="submit" value="로그인">
+			</form>
+			<div class="links">
+				<a href="/findPassword.do">비밀번호 찾기</a>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

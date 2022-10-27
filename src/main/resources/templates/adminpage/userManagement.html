@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>회원 관리</title>
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<main class="container mx-auto" style="max-width: 1100px;">
-    <h1>회원 관리</h1>
-    <table class="table table-hover mx-auto border-dark" style="text-align: center;">
+<header th:include="/adminpage/headerNav"></header>
+<main class="container mx-auto mt-5" style="max-width: 80%;">
+    <h1>회원 목록</h1>
+    <form class="d-flex mb-3 mt-5" role="search" method="get" action="" style="max-width: 250px;">
+        <input class="form-control me-2 " type="search" placeholder="사용자 검색" name="ctName" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <table class="table table-hover mx-auto border-dark">
         <thead>
         <tr class="table-dark">
+            <th>#</th>
             <th>이름</th>
             <th>아이디</th>
             <th>생년월일</th>
@@ -21,17 +25,7 @@
             <th>Setting</th>
         </tr>
         </thead>
-        <tbody class="table-striped">
-        <tr>
-            <td>정욱채</td>
-            <td>qwer1234</td>
-            <td>1998-07-14</td>
-            <td>aqwer123@naver.com</td>
-            <td>010-1234-1234</td>
-            <td>남자</td>
-            <td><p><a class="btn btn-primary" href="#">수정</a><a class="btn btn-outline-danger" href="#">삭제</a></p></td>
-        </tr>
-        </tbody>
+        <th:block th:include="/adminpage/customerList"></th:block>
     </table>
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
