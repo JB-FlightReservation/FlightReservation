@@ -1,12 +1,13 @@
 
 package com.joongbu.flight_reservation.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+import com.github.pagehelper.PageInfo;
+import com.joongbu.flight_reservation.dto.SearchDto;
+import com.joongbu.flight_reservation.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,19 +35,24 @@ public class AdminController {
 	@Autowired
 	AdminMapper adminMapper;
 
+	@Autowired
+	AdminService adminService;
+
 	/* 회원 관리 시작 */
 	@GetMapping("/userManagement.do")
 	public String userManagement(Model model, @RequestParam(defaultValue = "1") int page,
-			@RequestParam(required = false) String ctName) {
+								 @RequestParam(required = false) String ctName,
+								 SearchDto search) {
 		final int ROWS = 10;
-		int startRow = (page - 1) * ROWS;
-		List<CustomerDto> customerList = null;
+
+		PageInfo<CustomerDto> paging = null;
 		try {
-			customerList = adminMapper.customerList(startRow, ROWS, ctName);
+			if (search.getOrderBy() == null) search.setOrderBy("ct_no ASC");
+			paging = adminService.customerPaging(search, ctName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("customerList", customerList);
+		model.addAttribute("paging", paging);
 		return "/adminpage/userManagement";
 	}
 
@@ -84,18 +90,19 @@ public class AdminController {
 
 	/* 예약 관리 시작 */
 	@GetMapping("/reservationManagement.do")
-	public String reservationManagement(Model model, @RequestParam(defaultValue = "1") int page,
-			@RequestParam(required = false) Integer ctNo) {
+	public String reservationManagement(Model model,
+			@RequestParam(required = false) Integer ctNo,
+										SearchDto search) {
 
 		final int ROWS = 10;
-		int startRow = (page - 1) * ROWS;
-		List<ReservationDto> reservationList = null;
+		PageInfo<ReservationDto> reservation = null;
 		try {
-			reservationList = adminMapper.reservationList(startRow, ROWS, ctNo);
+			if (search.getOrderBy() == null) search.setOrderBy("ct_no ASC");
+			reservation = adminService.reservationPaging(search, ctNo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("reservationList", reservationList);
+		model.addAttribute("reservation", reservation);
 		return "/adminpage/reservationManagement";
 	}
 

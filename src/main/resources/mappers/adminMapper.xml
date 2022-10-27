@@ -36,10 +36,11 @@
         <if test="ctName!=null">
             WHERE ct_name LIKE CONCAT('%',#{ctName},'%')
         </if>
-        ORDER BY ct_no ASC
-        LIMIT #{startRow}, #{rows}
     </select>
-
+    <update id="customerUpdate" parameterType="com.joongbu.flight_reservation.dto.CustomerDto">
+        UPDATE CUSTOMER SET ct_name = #{ctName}, ct_id = #{ctId}, ct_birth = #{ctBirth}, ct_email = #{ctEmail},
+        ct_phone = #{ctPhone}, ct_gender = #{ctGender} WHERE ct_no = #{ctNo}
+    </update>
     <delete id="customerDelete">
         DELETE FROM CUSTOMER WHERE ct_no = #{ctNo}
     </delete>
@@ -50,21 +51,13 @@
         <if test="ctNo != null">
             WHERE ct_no = #{ctNo}
         </if>
-        ORDER BY rv_no ASC
-        LIMIT #{startRow}, #{rows}
     </select>
 
-    <select id="reservationDetail" resultMap="ReservationMap">
-
+    <select id="reservationAllCount" resultMap="ReservationMap">
+        SELECT COUNT(*) FROM reservation
     </select>
 
-<!--    <select id="customerDetail" resultType="com.joongbu.flight_reservation.dto.CustomerDto">-->
-<!--        SELECT * FROM CUSTOMER WHERE ct_name = #{ctNAME}-->
-<!--    </select>-->
-<!--    <update id="customerUpdate" parameterType="com.joongbu.flight_reservation.dto.CustomerDto">-->
-<!--        UPDATE CUSTOMER SET ct_Name = ct_id = #{ctId}, ct_pw = #{ctPw}, #{ctName}, ct_phone = #{ctPhone}-->
-<!--        , ct_email = #{ctEamil}, ct_birth = #{ctBirth} , ct_gender = #{ctGender} WHERE ct_no = #{ctNo]-->
-<!--    </update>-->
+
 	<select id="login" resultType="com.joongbu.flight_reservation.dto.AdminDto">
 		SELECT *,admin_id adminId from ADMIN
  		WHERE admin_id=#{adminId} AND admin_pw=#{adminPw}
