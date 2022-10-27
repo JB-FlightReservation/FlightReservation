@@ -22,10 +22,15 @@ public class ReservationController {
 
 
 	@GetMapping("/passenger_list.do")
-	public void pList() {
+	public void passenger() {
 
 	}
-
+	
+	@PostMapping("/pList.do")
+	public void pList() {
+		
+	}
+	
 	@GetMapping("/baggage.do")
 	public void baggage() {
 
