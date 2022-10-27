@@ -18,6 +18,7 @@
     <resultMap id="ReservationMap" type="ReservationDto">
         <id column="rv_no" property="rvNo"/>
         <result column="ct_no" property="ctNo"/>
+        <result column="rv_pet_accompanying" property="rvPetAccompanying" />
         <result column="rv_phone" property="rvPhone"/>
         <result column="rv_email" property="rvEmail"/>
         <result column="rvIsTicketed" property="rvIsTicketed"/>

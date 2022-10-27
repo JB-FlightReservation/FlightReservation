@@ -39,13 +39,13 @@ public class AdminController {
 	/* 회원 관리 시작 */
 	@GetMapping("/userManagement.do")
 	public String userManagement(Model model, @RequestParam(defaultValue = "1") int page,
-								 @RequestParam(required = false) String ctName,
-								 SearchDto search) {
+			@RequestParam(required = false) String ctName, SearchDto search) {
 		final int ROWS = 10;
 
 		PageInfo<CustomerDto> paging = null;
 		try {
-			if (search.getOrderBy() == null) search.setOrderBy("ct_no ASC");
+			if (search.getOrderBy() == null)
+				search.setOrderBy("ct_no ASC");
 			paging = adminService.customerPaging(search, ctName);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,14 +88,13 @@ public class AdminController {
 
 	/* 예약 관리 시작 */
 	@GetMapping("/reservationManagement.do")
-	public String reservationManagement(Model model,
-			@RequestParam(required = false) Integer ctNo,
-										SearchDto search) {
+	public String reservationManagement(Model model, @RequestParam(required = false) Integer ctNo, SearchDto search) {
 
 		final int ROWS = 10;
 		PageInfo<ReservationDto> reservation = null;
 		try {
-			if (search.getOrderBy() == null) search.setOrderBy("ct_no ASC");
+			if (search.getOrderBy() == null)
+				search.setOrderBy("ct_no ASC");
 			reservation = adminService.reservationPaging(search, ctNo);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -137,7 +136,7 @@ public class AdminController {
 			@RequestParam(required = true) String adminPw, HttpSession session,
 			@SessionAttribute(required = false) String redirectPage) {
 		AdminDto loginAdmin = null;
-		System.out.println(adminId+adminPw);
+		System.out.println(adminId + adminPw);
 		try {
 			loginAdmin = adminMapper.login(adminId, adminPw);
 			System.out.println(loginAdmin);
@@ -169,15 +168,12 @@ public class AdminController {
 //		return "/adminpage/management";
 //	}
 
-	@GetMapping("/detail.do")
-	public AdminDto Adetail(String adminId) {
-		AdminDto adminDto = adminMapper.Adetail(adminId);
+//	@GetMapping("/management.do")
+//	public String management() {
+//
+//		return "/adminpage/management";
+//	}
 
-	@GetMapping("/management.do")
-	public String management() {
-
-		return "/adminpage/management";
-	}
 	@GetMapping("/adminDetail.do")
 	public AdminDto adminDetail(String adminId) {
 		AdminDto adminDto = adminMapper.adminDetail(adminId);
@@ -201,53 +197,52 @@ public class AdminController {
 		}
 	}
 
-
-	@Getter
-	@Setter
-	class CheckAdmin {
-
-	@GetMapping("/findPassword.do")
-	public void findPassword() {}
-	@PostMapping("/findPassword.do")
-	public String findPassword(AdminDto admin) {
-		int findPassword = 0;
-		try {
-			findPassword = adminMapper.Aupdate(admin);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		if(findPassword>0) {
-			return "redirect:/adminpage/management.do";
-		}else {
-			return "redirect:/adminpage/findPassword.do";
-		}
-	}
-
-	@Getter@Setter
-	class CheckAdmin{
-
-		private int check;
-		private AdminDto admin;
-	}
-
-	@GetMapping("/checkAdminId.do")
-	public @ResponseBody CheckAdmin checkAdminId(@RequestParam(required = true) String adminId) {
-		CheckAdmin checkAdmin = new CheckAdmin();
-		AdminDto admin = null;
-		try {
-			admin = adminMapper.adminDetail(adminId);
-			if(admin!=null) {
-				checkAdmin.setCheck(0);
-				checkAdmin.setAdmin(admin);
-			}else {
-				checkAdmin.setCheck(1);
-
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			checkAdmin.setCheck(-1);
-		}
-		return checkAdmin;
-	}
+//	@Getter
+//	@Setter
+//	class CheckAdmin {
+//
+//	@GetMapping("/findPassword.do")
+//	public void findPassword() {}
+//	@PostMapping("/findPassword.do")
+//	public String findPassword(AdminDto admin) {
+//		int findPassword = 0;
+//		try {
+//			findPassword = adminMapper.Aupdate(admin);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		if(findPassword>0) {
+//			return "redirect:/adminpage/management.do";
+//		}else {
+//			return "redirect:/adminpage/findPassword.do";
+//		}
+//	}
+//
+//	@Getter
+//	@Setter
+//	class CheckAdmin{
+//		private int check;
+//		private AdminDto admin;
+//	}
+//
+//	@GetMapping("/checkAdminId.do")
+//	public @ResponseBody CheckAdmin checkAdminId(@RequestParam(required = true) String adminId) {
+//		CheckAdmin checkAdmin = new CheckAdmin();
+//		AdminDto admin = null;
+//		try {
+//			admin = adminMapper.adminDetail(adminId);
+//			if(admin!=null) {
+//				checkAdmin.setCheck(0);
+//				checkAdmin.setAdmin(admin);
+//			}else {
+//				checkAdmin.setCheck(1);
+//
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			checkAdmin.setCheck(-1);
+//		}
+//		return checkAdmin;
+//	}
 
 }

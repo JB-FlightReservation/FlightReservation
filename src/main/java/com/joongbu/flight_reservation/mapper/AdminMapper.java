@@ -11,26 +11,22 @@ import com.joongbu.flight_reservation.dto.ReservationDto;
 
 @Mapper
 public interface AdminMapper {
-	/* 			회원 관리 		*/
+	/* 회원 관리 */
 	Page<CustomerDto> customerList(String ctName);
-
 
 	int customerUpdate(CustomerDto customer);
 
 	int customerDelete(int ctNo);
 
-	/* 			예약 관리 		*/
-    Page<ReservationDto> reservationList(Integer ctNo);
+	/* 예약 관리 */
+	Page<ReservationDto> reservationList(Integer ctNo);
 
+	List<AdminDto> adminList();
 
+	AdminDto login(String adminId, String adminPw);
 
+	AdminDto adminDetail(String adminId);
 
-
-    List<AdminDto> adminList ();
-
-    AdminDto login(String adminId,String adminPw);
-    AdminDto adminDetail(String adminId);
-    int Aupdate(AdminDto admin);
-
+	int Aupdate(AdminDto admin);
 
 }
