@@ -18,7 +18,9 @@ public class ReservationController {
 
 	@Autowired
 	AirflightMapper afMapper;
+	ReservationMapper rMapper;
 
+	// ------------- 예매 1 ------------------
 	@GetMapping("/booking.do")
 	public String booking(Model model) {
 		List<AirflightDto> airflightList = null;
@@ -32,6 +34,7 @@ public class ReservationController {
 		return "reservation/reservationSearch";
 	}
 
+	// ------------- 예매 2 ------------------
 	@GetMapping("/passenger_list.do")
 	public void passenger() {
 
@@ -42,16 +45,40 @@ public class ReservationController {
 
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// ------------- 예매 3 ------------------
 	@GetMapping("/baggage.do")
 	public void baggage() {
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
+	// ------------- 예매 4 ------------------
 	@GetMapping("/terms.do")
 	public String terms() {
 		return "reservation/reservationTerms";
 	}
 
+	// ------------- 예매 5 ------------------
 	@GetMapping("/pay.do")
 	public String pay() {
 		return "reservation/reservationPay";
