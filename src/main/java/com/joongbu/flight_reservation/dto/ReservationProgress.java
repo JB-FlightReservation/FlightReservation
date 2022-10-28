@@ -14,7 +14,6 @@ public class ReservationProgress {
 
 	private List<PassengerRP> pList; // 탑승자 리스트 (PassengerRP)
 
-	private int rvPetAccompanying; // 반려동물 여부
 	private String rvPhone; // 예약 대표자 전화번호
 	private String rvEmail; // 예약 대표자 이메일
 	private int rvIsTicketed; // 예약여부 (0이면 예약 실패, 1이면 예약 성공)
@@ -27,7 +26,7 @@ public class ReservationProgress {
 	private String afDepart; // 출발 항공사
 	private String afLand; // 도착 항공사
 	private String afName; // 항공편명 (항공기명)
-	private String afSeatGrade; // 좌석등급
+	private int rvSeatGrade; // 좌석등급
 	private int nextRvNo; // 편도면 null, 왕복이면
 	private int prAirfare; // 항공 운임
 	private int prFuelSurcharge; // 유류할증료
