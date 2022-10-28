@@ -1,4 +1,218 @@
 @charset "UTF-8";
-/* .tit_booking_wrap{
-	
-} */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    min-width: 1100px;
+    background: rgb(255, 255, 255);
+    color: rgb(49, 49, 49);
+    font-size: 16px;
+    font-weight: normal;
+    word-break: break-word;
+    line-height: normal;
+}
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--bs-modal-zindex);
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+}
+
+.container .modal-dialog .modal-content .modal-header{
+    justify-content: center;
+    border-bottom: none;
+}
+
+.modal-header .tit_container{
+    width: 1100px;
+    text-align: left;
+}
+
+.layer_plan_research .tit_booking_wrap{
+    margin: 0;
+}
+
+.layer_plan_research .tit_booking_wrap .pg_tit{
+    font-size: 25px;
+}
+
+.modal-body{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.modal-body .research_option_container{
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: center;
+}
+
+.research_option_container .option_container{
+    width: 1100px;
+    max-width: 100%;
+}
+
+.option_selector{
+    outline: 1px solid rgba(124, 124, 124, 0.6);
+    border-radius: 25px;
+    width: 300px;
+    max-width: 30%;
+    height: 50px;
+    display: flex;
+}
+
+.option_selector .btn-check:checked + .btn{
+    background-color: #d22c26;
+    color: white;
+    font-weight: bold;
+}
+
+.option_selector .btn-check + .btn{
+    background-color: #ffffff;
+    border-radius: 25px;
+    color: #000000;
+    font-weight: normal;
+    line-height: 38px;
+    margin: 0;
+    flex: 1;
+    border: none;
+}
+
+.modal-body .research_plan_container{
+    padding-top: 30px;
+    width: 1100px;
+    display: flex;
+    max-width: 100%;
+}
+
+.research_plan_container .research_plan{
+    display: flex;
+    flex-direction: row;
+    width: 1100px;
+    max-width: 100%;
+}
+
+.research_plan_container .research_plan form{
+    width: 100%;
+}
+
+.research_plan_container .research_plan .airport_selector{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.airport_selector .selector_option{
+    width: 300px;
+    max-width: 100%;
+}
+
+.airport_selector .sub-airport-tit{
+    width: 100%;
+    text-align: left;
+}
+
+.plan_date .depart_date{
+    width: 100%;
+}
+
+.airport_selector .selector_box{
+    border: none;
+    border-bottom: 1px solid #000000;
+    border-radius: 0;
+    padding: 0;
+}
+
+.airport_selector .plan_date{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.depart_date.selector_box:focus{
+    outline: none;
+}
+.research_plan .passenger_count{
+    padding-top: 45px;
+    display: flex;
+}
+
+.passenger_count .sub-passenger-tit{
+    width: 100%;
+    font-weight: bold;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.passenger_count .count_box{
+    max-width: 100%;
+    padding-right: 20px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.count_box .btn-group{
+    width: 130px;
+    max-width: 100%;
+    height: 35px;
+}
+
+.count_box .btn-group .btn{
+    background-color: #fff;
+    color: #000000;
+    border: none;
+    outline: 1px solid #a7a7a7;
+    flex: 1;
+}
+
+.count_box .input_container{
+    height: 100%;
+    outline: 1px solid #a7a7a7;
+    line-height: 35px;
+}
+
+.count_box .btn-group input{
+    width: 80%;
+    text-align: center;
+    vertical-align: middle;
+    border-color: rgba(167, 167, 167, 0);
+    flex: 3;
+}
+
+.count_box .btn-group input:focus{
+    border-color: rgba(167, 167, 167, 255);
+    border-radius: 0;
+}
+
+.modal-footer{
+    justify-content: center;
+}
+
+.modal-footer .btn_group{
+    width: 1100px;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer .btn_group .btn{
+    margin: 0 8px;
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    line-height: 50px;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 2px;
+}
+/* EOL: research modal window */
