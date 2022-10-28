@@ -25,7 +25,7 @@ import lombok.Data;
  */
 
 @Data
-public class ReservationDto {
+public class ReservationDto implements DTO{
 	private int rvNo;
 	private int ctNo;
 	private int rvPetAccompanying;
