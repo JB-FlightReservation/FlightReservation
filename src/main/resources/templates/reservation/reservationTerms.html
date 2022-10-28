@@ -6,10 +6,12 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script defer="defer" src="/js/reservation/terms.js"></script>
 </head>
 <body>
+<!-- <header th:include="/headerNav"></header> -->
 <!-- 항공권 정보 -->
-	<h3 class="container">항공권 예매</h3>
+	<h3 class="container mt-4">항공권 예매</h3>
 	<div class="border border-secondary justify-content-center text-center container mt-5" >
 		구간1
 	</div>
@@ -95,12 +97,12 @@
 	<div class="container mt-5" >
 		<div class="d-flex justify-content-between container">
 			<h3>예약 규정(필수)</h3>
-   			<div class="form-check">
-  				<input class="form-check-input" type="checkbox" value="" id="reservate">
-  				<label class="form-check-label" for="reservate">
+   			<form name="frm">
+  				<input class="form-check-input chkAll" type="checkbox" value="" id="chkAll" name="chkAll">
+  				<label class="form-check-label" for="chkAll">
    					전체 동의
   				</label>
-			</div>
+			</form>
 		</div>
 		<div class=" accordion" id="accordionExample" >
 			<!-- 항공 운임 규정  -->
@@ -108,16 +110,16 @@
 			    <div class="accordion-header" id="headingOne">
 			    	<div class="btn btn-primary accordion-button"  data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 			        	
-			        	<div class="d-flex justify-content-between container">
-							<div>
+			        	<div id="flightrule" class="d-flex justify-content-between container">
+							<div >
 						    	항공 운임 규정
 						   	</div>
-					    	<div class="form-check">
-						  		<input class="form-check-input" type="checkbox" value="" id="ruleFare">
-						  		<label class="form-check-label" for="ruleFare">
+					    	<form name="frm1">
+						  		<input class="form-check-input ck" type="checkbox" value="" id="chk1" name="check">
+						  		<label for="chk1">
 						   			동의하기
 						  		</label>
-							</div>
+							</form>
 						</div>
 			    	</div>
 			    </div>
@@ -127,17 +129,17 @@
 								<div class="pc_web">
 									<div class="tab_wrap">
 										<ul class="tab n2 added2">
-											<li class="active "><a role="tab" href="#cont_tab01" title="선택됨" aria-selected="true" class="">구간1</a></li>
-											<li class="active on"><a role="tab" href="#cont_tab02" title="" aria-selected="false" class="">구간2</a></li>
+											<li class="active "><a role="tab" href="#cont_tab01" >구간1</a></li>
+											<li class="active on"><a role="tab" href="#cont_tab02">구간2</a></li>
 										</ul>
-										<div class="d-inline-block border border-secondary" id="cont_tab01" tabindex="0" style="width: 49%; margin: 0;">
+										<div class="d-inline-block border border-secondary " id="cont_tab01" tabindex="0" style="width: 49%; margin: 0;">
 											<h4 class="text-center">구간 1</h4>
 											<div class="stab_wrap ">
 												<div id="stab1_1">
 													<div class="box_dual">
 														<div class="left">
 															<h3>취소 수수료</h3>
-															<table class="text-center">
+															<table class="table table-bordered text-center">
 																<caption>취소 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
 																<colgroup>
 																	<col style="width:50%">
@@ -191,7 +193,7 @@
 														</div>
 														<div class="right">
 															<h3>변경 수수료</h3>
-															<table class="tb_col">
+															<table class="table table-bordered text-center">
 																<caption>변경 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
 																<colgroup>
 																	<col style="width:50%">
@@ -247,22 +249,22 @@
 												</div>
 											</div>
 										</div>
-										<div class="d-inline-block border border-secondary" id="cont_tab02" tabindex="-1" style="width: 49%; margin: 0;">
+										<div class="d-inline-block border border-secondary " id="cont_tab02" tabindex="-1" style="width: 49%; margin: 0;">
 											<h4 class="text-center">구간 2</h4>
 											<div class="stab_wrap ">
 												<div id="stab2_1">
 													<div class="box_dual">
 														<div class="left">
 															<h3>취소 수수료</h3>
-															<table class="text-center">
+															<table class="table table-bordered text-center">
 																<caption>취소 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
 																<colgroup>
 																	<col style="width:50%">
 																	<col style="width:50%">
 																</colgroup>
 																<thead>
-																	<tr>
-																		<th scope="col">기준일</th>
+																	<tr >
+																		<th  scope="col">기준일</th>
 																		<th scope="col">수수료</th>
 																	</tr>
 																</thead>
@@ -308,7 +310,7 @@
 														</div>
 														<div class="right">
 															<h3>변경 수수료</h3>
-															<table class="tb_col">
+															<table class="table table-bordered text-center">
 																<caption>변경 수수료 - 기준일, 수수료 정보 표 입니다.</caption>
 																<colgroup>
 																	<col style="width:50%">
@@ -402,12 +404,12 @@
 			        		<div>
 				        		제3자 정보 제공 동의
 			        		</div>
-			    			<div class="form-check">
-					  			<input class="form-check-input" type="checkbox" value="" id="ruleAgree">
-					  			<label class="form-check-label" for="ruleAgree">
+			    			<form name="frm2">
+					  			<input class="form-check-input ck" type="checkbox" value="" id="chk2" name="check">
+					  			<label class="form-check-label" for="chk2">
 					   				동의하기
 					  			</label>
-							</div>
+							</form>
 			    		</div>
 					</div>
 		    	</div>
@@ -464,12 +466,12 @@
 				        <div>
 					        노선별 주의사항
 				        </div>
-			        	<div class="form-check">
-				  			<input class="form-check-input" type="checkbox" value="" id="ruleRoute">
-				  			<label class="form-check-label" for="ruleRoute">
+			        	<form name="frm3">
+				  			<input class="form-check-input ck" type="checkbox" value="" id="chk3" name="check">
+				  			<label for="chk3">
 				   				동의하기
 				  			</label>
-						</div>
+						</form>
 			        </div>
 			      </div>
 			      
@@ -493,12 +495,12 @@
 						      	<div>
 							      	주의사항
 						      	</div>
-					      		<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="ruleCaution">
-					  				<label class="form-check-label" for="ruleCaution">
+					      		<form name="frm4">
+									<input class="form-check-input ck" type="checkbox" value="" id="chk4" name="check">
+					  				<label for="chk4">
 					   					동의하기
 					  				</label>
-								</div>
+								</form>
 					      	</div>
 				    </div>
 		    	</h2>
@@ -528,27 +530,28 @@
 			<!-- 주의사항  -->
 		</div>
 	</div>
-<!-- 운임정보  -->
 <!-- 위험물 안내 규정 -->
 	<div class="container mt-5">
 		<h3>위험물 안내 규정 동의(필수)</h3>
-		<div class="form-check">
-  			<input class="form-check-input" type="checkbox" value="" id="defaultCheck1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  			<label class="form-check-label" for="defaultCheck1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+		<div class="d-flex form-check">
+		<form name="frmDanger" class="d-flex">
+  			<input class="form-check-input mt-2 ckD" type="checkbox" value="" name="frmDanger" id="defaultCheck1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  			<label class="form-check-label ms-2" for="defaultCheck1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     			위탁 수하물 운송 시 금지된 위험 물품에 대한 내용을 확인 하였으며 이에 동의 합니다. 
-   				<button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+   				<button type="button" id="infobtn" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
  					위험물 안내
 				</button>
  			</label>
-		</div>
+		</form>
+ 		</div>
 	</div>
 
 	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false">
 		<div class="modal-dialog">
     		<div class="modal-content">
-      			<div class="modal-header">
+      			<div class="d-flex justify-content-center modal-header">
         			<h1 class="modal-title fs-5" id="staticBackdropLabel">위험물 안내</h1>
-        			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        			
       			</div>
       			<div class="modal-body">
       				<div id="layer_area">
@@ -727,19 +730,19 @@
 		            			</ol>
 		            			<li class="foot_notice">자세한 내용은 당사 홈페이지 [서비스 안내&gt; 수하물 안내&gt; 운송 제한 물품] 페이지를 확인하시기 바랍니다.</li>
 		        			</div>
-							<div class="text-bg-dark text-center">
-								<input id="chkDangerRule" name="chkDangerRule" type="checkbox">
+							<form name="frmDanger1" class="text-bg-dark text-center">
+								<input class="inchk" id="chkDangerRule" name="chkDangerRule" type="checkbox">
 								<label class="mr15" for="chkDangerRule">
 									<span class=""></span>
 									위 ‘위험물 안내 규정’에 동의하십니까?
 								</label>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-danger d-grid gap-2 col-4 mx-auto" data-bs-dismiss="modal">확인</button>
+				<button type="button" class="btn btn-danger d-grid gap-2 col-4 mx-auto" data-bs-dismiss="modal" id="btn1" onclick="fn_chkDanger()" disabled>확인</button>
 			</div>
     	</div>
 	</div>
@@ -749,7 +752,7 @@
 	<div class="d-flex container mt-2 mb-3">
 		<span class="me-auto p-2">항공운임 등 총액</span>
 		
-			<a class="d-flex text-center btn btn-light p-2 me-1" href="#" role="button">
+			<a class="d-flex text-center btn btn-light p-2 me-1" href="javascript:void(0)" onclick="info()" role="button" id="prevPage">
 				<div class="me-1">
 					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
 		  			<path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
@@ -760,9 +763,9 @@
 				</div>
 			</a>
 		
-			<a class="d-flex text-center btn btn-danger p-2 ms-1" href="#" role="button">
+			<a class="d-flex text-center btn btn-danger p-2 ms-1" href="javascript:void(0)" onclick="chk()" role="button" id="nextPage">
 				<div>
-					다시예약 
+					결제하기 
 				</div>
 				<div class="ms-1">
 					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
@@ -774,5 +777,6 @@
 	</div>
 	
 <!--  -->
+<footer th:include="/footerNav"></footer>
 </body>
 </html>
