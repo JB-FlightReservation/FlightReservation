@@ -22,7 +22,7 @@
     </select>
 
     <select id="airflightDetail" resultMap="AirflightMap">
-        select * from airflight_info
+        select af.* from airflight_info af
         where af_no=#{afNo}
     </select>
 
