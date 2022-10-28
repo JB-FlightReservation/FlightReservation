@@ -62,6 +62,7 @@ public class LoginController {
 	@Autowired
 	SendMailService emailservice;
 	String EmailotpNum;
+	
 	@GetMapping("/findId.do")
 	public void findId() {}
 	@PostMapping("/findId.do")
