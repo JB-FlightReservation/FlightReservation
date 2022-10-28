@@ -5,11 +5,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.joongbu.flight_reservation.dto.AirflightDto;
@@ -32,10 +34,11 @@ public class ReservationController {
 
 	// ------------- 예매 1 ------------------
 	@GetMapping("/booking.do")
-	public String booking(Model model) {
+	public String booking(@RequestBody JSONObject getAirlineInfo, Model model) {
 		List<AirflightDto> airflightList = null;
 		try {
 			airflightList = afMapper.airflightList();
+			System.out.println(getAirlineInfo.get("item"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
