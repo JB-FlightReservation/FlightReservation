@@ -6,6 +6,20 @@
 <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+
+	<th:block th:if="${session.loginCt==null}">
+		<h2>
+			<a href="/login/loginPage.do">로그인하기</a>
+		</h2>
+	</th:block>
+	<th:block th:unless="${session.loginCt==null}">
+		<h2>
+			<a href="/login/logout.do">로그아웃</a>
+		</h2>
+	</th:block>
+
+	<a href="/">메인 페이지</a>
+
 	<header th:include="/headerNav"></header>
 	<div class="main_content">
 		<div class="image">
@@ -24,7 +38,7 @@
 							<!-- 출발, 도착 -->
 							<div class="singledestcontrols_places">
 								<div class="locationselector">
-									<label for="st" class="start_label">출발지</label><br> 
+									<label for="st" class="start_label">출발지</label><br>
 									<input type="text" name="place" id="st" placeholder="국가, 도시 또는 공항">
 								</div>
 								<!-- 출발지, 도착지 바꾸는 버튼 -->
