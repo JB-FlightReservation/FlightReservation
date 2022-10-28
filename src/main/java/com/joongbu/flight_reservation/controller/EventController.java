@@ -3,11 +3,11 @@ package com.joongbu.flight_reservation.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-@RequestMapping("/search") //이 파일안에 예매
+@RequestMapping("/event")
 @Controller
-public class SearchController {
-	@GetMapping("/flightsearch.do")
-	public String flightsearch() {
-		return "/search/flightsearch";
+public class EventController {
+	@GetMapping("/eventPage.do")
+	public String eventPage() {
+		return "/event/eventPage";
 	}
 }
