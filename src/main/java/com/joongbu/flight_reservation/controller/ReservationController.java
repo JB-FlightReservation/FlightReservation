@@ -59,7 +59,7 @@ public class ReservationController {
 		prp.setPgLastName(req.getParameter("pgLastName"));
 		pList.add(prp);
 		
-		System.out.println(pList);
+		System.out.println(prp.getPgLastName());
 
 	}
 
