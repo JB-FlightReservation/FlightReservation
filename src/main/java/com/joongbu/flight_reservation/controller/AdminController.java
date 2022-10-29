@@ -28,6 +28,8 @@ import com.joongbu.flight_reservation.mapper.AdminMapper;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @RequestMapping("/adminpage")
 @Controller
 public class AdminController {
@@ -94,14 +96,17 @@ public class AdminController {
 
 		final int ROWS = 10;
 		PageInfo<ReservationDto> reservation = null;
+		PageInfo<ReservationDto> reservationAfter = null;
 		try {
 			if (search.getOrderBy() == null)
 				search.setOrderBy("ct_no ASC");
 			reservation = adminService.reservationPaging(search, ctNo);
+			reservationAfter = adminService.reservationPaging(search, ctNo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("reservation", reservation);
+		model.addAttribute("reservationAfter", reservationAfter);
 		return "/adminpage/reservationManagement";
 	}
 
@@ -153,6 +158,7 @@ public class AdminController {
 		model.addAttribute("cpList", cpList);
 		return "/adminpage/couponList";
 	}
+
 	//쿠폰페이지- 삭제
 		@GetMapping("/cpDelete.do")
 		public String couponDelete(int cpNo) {
@@ -283,5 +289,25 @@ public class AdminController {
 		}
 		return checkAdmin;
 	}
+	
+	@GetMapping("/checkAdminName.do")  // 관리자 이름 체크
+	public @ResponseBody CheckAdmin checkAdminName(@RequestParam(required = true) String admin_name) {
+		CheckAdmin checkAdmin = new CheckAdmin();
+		AdminDto admin = null;
+		try {
+			admin = adminMapper.adminDetail(admin_name);
+			if(admin!=null) {
+				checkAdmin.setCheck(0);
+				checkAdmin.setAdmin(admin);
+			}else {
+				checkAdmin.setCheck(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			checkAdmin.setCheck(-1);
+		}
+		return checkAdmin;
+	}
 
 }
+

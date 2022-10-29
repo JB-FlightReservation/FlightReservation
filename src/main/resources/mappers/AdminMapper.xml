@@ -6,16 +6,19 @@
 <mapper namespace="com.joongbu.flight_reservation.mapper.AdminMapper">
 
     <select id="customerList1" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
+<<<<<<< HEAD
         SELECT * FROM CUSTOMER 
+=======
+        SELECT * FROM CUSTOMER
+>>>>>>> 43302ea56038b78f83727ec6b5cbf07bd2b10d6d
     </select>
-<!--    <select id="customerDetail" resultType="com.joongbu.flight_reservation.dto.CustomerDto">-->
-<!--        SELECT * FROM CUSTOMER WHERE ct_name = #{ctNAME}-->
-<!--    </select>-->
-<!--    <update id="customerUpdate" parameterType="com.joongbu.flight_reservation.dto.CustomerDto">-->
-<!--        UPDATE CUSTOMER SET ct_Name = ct_id = #{ctId}, ct_pw = #{ctPw}, #{ctName}, ct_phone = #{ctPhone}-->
-<!--        , ct_email = #{ctEamil}, ct_birth = #{ctBirth} , ct_gender = #{ctGender} WHERE ct_no = #{ctNo]-->
-<!--    </update>-->
-
+    <!--    <select id="customerDetail" resultType="com.joongbu.flight_reservation.dto.CustomerDto">-->
+    <!--        SELECT * FROM CUSTOMER WHERE ct_name = #{ctNAME}-->
+    <!--    </select>-->
+    <!--    <update id="customerUpdate" parameterType="com.joongbu.flight_reservation.dto.CustomerDto">-->
+    <!--        UPDATE CUSTOMER SET ct_Name = ct_id = #{ctId}, ct_pw = #{ctPw}, #{ctName}, ct_phone = #{ctPhone}-->
+    <!--        , ct_email = #{ctEamil}, ct_birth = #{ctBirth} , ct_gender = #{ctGender} WHERE ct_no = #{ctNo]-->
+    <!--    </update>-->
 
     <resultMap type="CustomerDto" id="CustomerMap">
         <id column="ct_no" property="ctNo"/>
@@ -29,10 +32,10 @@
         <result column="ct_create" property="ctCreate"/>
         <result column="oc_no" property="ocNo"/>
     </resultMap>
+
     <resultMap id="ReservationMap" type="ReservationDto">
         <id column="rv_no" property="rvNo"/>
         <result column="ct_no" property="ctNo"/>
-        <result column="rv_pet_accompanying" property="rvPetAccompanying" />
         <result column="rv_phone" property="rvPhone"/>
         <result column="rv_email" property="rvEmail"/>
         <result column="rvIsTicketed" property="rvIsTicketed"/>
@@ -43,21 +46,47 @@
         <result column="rv_depart_ap" property="rvDepartAp"/>
         <result column="rv_land_ap" property="rvLandAp"/>
         <result column="next_rv_no" property="nextRvNo"/>
+        <result column="rv_seat_grade" property="rvSeatGrade"/>
+        <collection property="customer" column="ct_no" fetchType="lazy"
+                    select="com.joongbu.flight_reservation.mapper.AdminMapper.customerDetail"/>
     </resultMap>
+<<<<<<< HEAD
     <!-- 회원 관리   -->
+=======
+
+    <resultMap id="CouponMap" type="CouponDto">
+        <id column="cp_no" property="cpNo"/>
+        <id column="admin_no" property="adminNo"/>
+        <id column="cp_name" property="cpName"/>
+        <id column="cp_start" property="cpStart"/>
+        <id column="cp_end" property="cpEnd"/>
+        <id column="cp_discount" property="cpDiscount"/>
+    </resultMap>
+    <!-- 회원 관리 -->
+>>>>>>> 43302ea56038b78f83727ec6b5cbf07bd2b10d6d
     <select id="customerList" resultMap="CustomerMap">
         SELECT * FROM customer
         <if test="ctName!=null">
             WHERE ct_name LIKE CONCAT('%',#{ctName},'%')
         </if>
     </select>
-    <update id="customerUpdate" parameterType="com.joongbu.flight_reservation.dto.CustomerDto">
+    <select id="customerCheckId" resultMap="CustomerMap">
+        SELECT * FROM CUSTOMER WHERE ct_id = #{ctId}
+    </select>
+    <select id="customerCheckName" resultMap="CustomerMap">
+        SELECT * FROM CUSTOMER WHERE ct_name = #{ctName}
+    </select>
+    <update id="customerUpdate" parameterType="CustomerDto">
         UPDATE CUSTOMER SET ct_name = #{ctName}, ct_id = #{ctId}, ct_birth = #{ctBirth}, ct_email = #{ctEmail},
         ct_phone = #{ctPhone}, ct_gender = #{ctGender} WHERE ct_no = #{ctNo}
     </update>
     <delete id="customerDelete">
         DELETE FROM CUSTOMER WHERE ct_no = #{ctNo}
     </delete>
+    <select id="customerDetail" resultMap="CustomerMap">
+        SELECT * FROM CUSTOMER WHERE ct_no = #{ctNo}
+    </select>
+    <!-- 회원 관리 끝 -->
 
     <!--  예약 관리  -->
     <select id="reservationList" resultMap="ReservationMap">
@@ -70,8 +99,19 @@
     <select id="reservationAllCount" resultMap="ReservationMap">
         SELECT COUNT(*) FROM reservation
     </select>
+    <!--  예약 관리 끝 -->
+
+    <!--  쿠폰 관리  -->
+    <!--<insert id="couponInsert" >
+        INSERT INTO coupon(admin_no, cp_name, cp_start, cp_end, cp_discount) VALUES(#{adminNo}, #{cpStart}, #{cpEnd}, #{cpDiscount})
+    </insert>-->
+    <select id="couponList" resultMap="CouponMap">
+        SELECT * FROM coupon
+    </select>
+    <!--  쿠폰 관리 끝 -->
 
 
+<<<<<<< HEAD
    <select id="login" resultType="com.joongbu.flight_reservation.dto.AdminDto">
       SELECT *,admin_id adminId from ADMIN
        WHERE admin_id=#{adminId} AND admin_pw=#{adminPw}
@@ -85,4 +125,43 @@
       admin_name=#{admin_name}, admin_pw=#{admin_pw}, admin_email=#{admin_email}, admin_no=#{admin_no}
       WHERE admin_id=#{adminId}
    </update>
+=======
+    <select id="login" resultType="com.joongbu.flight_reservation.dto.AdminDto">
+        SELECT *,admin_id adminId from ADMIN
+        WHERE admin_id=#{adminId} AND admin_pw=#{adminPw}
+    </select>
+    <select id="adminDetail" resultType="com.joongbu.flight_reservation.dto.AdminDto">
+        SELECT *,admin_id adminId FROM ADMIN
+        WHERE admin_id=#{adminId}
+    </select>
+    <update id="Aupdate" parameterType="com.joongbu.flight_reservation.dto.AdminDto">
+        UPDATE ADMIN SET
+        admin_name=#{admin_name}, admin_pw=#{admin_pw}, admin_email=#{admin_email}, admin_no=#{admin_no}
+        WHERE admin_id=#{adminId}
+    </update>
+
+    <insert id="cpInsert" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
+        INSERT INTO coupon
+        ( cp_name,cp_start,cp_end,cp_discount)
+        VALUES
+        (#{cpName},#{cpStart},#{cpEnd}, #{cpDiscount})
+    </insert>
+
+    <select id="cpList" resultType="com.joongbu.flight_reservation.dto.CouponDto">
+        SELECT *,cp_name cpName FROM coupon
+        LIMIT #{startRow}, #{rows}
+    </select>
+    <delete id="cpDelete">
+        DELETE FROM coupon WHERE cp_no = #{cPNo}
+    </delete>
+
+    <update id="cpUpdate" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
+        UPDATE coupon SET
+        cp_name=#{cpName},
+        cp_start=#{cpStart},cp_end=#{cpEnd},cp_discount=#{cpDiscount}
+        WHERE cp_no = #{cPNo}
+    </update>
+
+
+>>>>>>> 43302ea56038b78f83727ec6b5cbf07bd2b10d6d
 </mapper>

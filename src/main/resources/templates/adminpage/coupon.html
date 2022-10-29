@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>쿠폰 관리</title>
 </head>
 <body>
 	
 	<main>
-		<h1>쿠폰 지급 하기</h1>
+		<h1>쿠폰 관리 하기</h1>
 		<table>
 			<thead>
 				<tr>
@@ -15,11 +15,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="" th:onclick="" th:each="coupon:${couponList}">
-					<th th:text="${coupon.cpName}"></th>
-					<th th:text="${coupon.cpDiscount}"></th>
-					<th th:text="${#dates.postTime(coupon.cpStart,YYYY년MM월dd일 HH시mm분)}"></th>
-					<th th:text="${#dates.postTime(coupon.cpEnd,YYYY년MM월dd일 HH시mm분)}"></th>
+				<tr class="" th:onclick="" th:each="coupon:${paging.list}">
+					<td th:text="${coupon.cpName}"></td>
+					<td th:text="${coupon.cpDiscount}"></td>
+					<td th:text="${#dates.format(coupon.cpStart,'YYYY년MM월dd일')}"></td>
+					<td th:text="${#dates.format(coupon.cpEnd,'YYYY년MM월dd일')}"></td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ko">
-<tbody class="table-striped">
-<tr th:each="rv : ${reservation.list}" th:if="${#dates.format(rv.rvDate, 'yyyy-MM-dd')} >= ${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}">
-    <td th:text="${rv.rvNo}"></td>
-    <td th:text="${rv.ctNo}"></td>
-    <td th:text="${rv.rvPetAccompanying}"></td>
-    <td th:text="${rv.rvPhone}"></td>
-    <td th:text="${rv.rvEmail}"></td>
-    <td th:text="${#dates.format(rv.rvDate, 'yyyy-MM-dd')}"></td>
-    <td th:text="${rv.rvMatureAdult}"></td>
-    <td th:text="${rv.rvMatureTeen}"></td>
-    <td th:text="${rv.rvMatureBaby}"></td>
-    <td th:text="${rv.rvDepartAp}"></td>
-    <td th:text="${rv.rvLandAp}"></td>
-    <td th:text="${rv.rvIsTicketed}"></td>
-</tr>
-</tbody>
-
+<table class="table table-hover mx-auto border-dark" style="text-align: center;">
+    <thead>
+    <tr class="table-dark">
+        <th>예약번호</th>
+        <th>이름</th>
+        <th>좌석등급</th>
+        <th>예약 전화번호</th>
+        <th>예약 이메일</th>
+        <th>예약날짜</th>
+        <th>성인</th>
+        <th>청소년</th>
+        <th>유아</th>
+        <th>이륙 시간</th>
+        <th>착륙 시간</th>
+        <th>발권 여부</th>
+    </tr>
+    </thead>
+    <tbody class="table-striped">
+    <tr th:each="rv : ${reservation.list}"
+        th:if="${#dates.format(rv.rvDate, 'yyyy-MM-dd')} >= ${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}">
+        <td th:text="${rv.rvNo}"></td>
+        <td th:text="${rv.customer.ctName}"></td>
+        <td th:text="${rv.rvSeatGrade}"></td>
+        <td th:text="${rv.rvPhone}"></td>
+        <td th:text="${rv.rvEmail}"></td>
+        <td th:text="${#dates.format(rv.rvDate, 'yyyy-MM-dd')}"></td>
+        <td th:text="${rv.rvMatureAdult}"></td>
+        <td th:text="${rv.rvMatureTeen}"></td>
+        <td th:text="${rv.rvMatureBaby}"></td>
+        <td th:text="${rv.rvDepartAp}"></td>
+        <td th:text="${rv.rvLandAp}"></td>
+        <td th:text="${rv.rvIsTicketed}"></td>
+    </tr>
+    </tbody>
+</table>
+    <nav aria-label="Page navigation example" th:include="/adminpage/reservationPagingNav">
+    </nav>
 </html>
