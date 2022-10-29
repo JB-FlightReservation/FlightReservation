@@ -79,8 +79,8 @@
 								<div class="p_box">
 									<i class="num">1</i>
 									<div class="name">
-										<p class="first">박</p>
-										<p class="last">소현</p>
+										<p class="last" th:text="${session.pSession.p[0].pgLastName}"></p>
+										<p class="first" th:text="${session.pSession.p[0].pgFirstName}"></p>
 									</div>
 									<div class="add_price">
 										<p>15kg</p>
@@ -105,8 +105,8 @@
 								<div class="p_box">
 									<i class="num">3</i>
 									<div class="name">
-										<p class="first">박</p>
-										<p class="last">소현</p>
+										<p class="last" th:text="${session.pSession.p[1].pgLastName}"></p>
+										<p class="first" th:text="${session.pSession.p[1].pgFirstName}"></p>
 									</div>
 									<div class="add_price">
 										<p>15kg</p>

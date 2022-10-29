@@ -1,4 +1,4 @@
-package com.joongbu.flight_reservation.dto;
+	package com.joongbu.flight_reservation.dto;
 
 import java.util.Date;
 import java.util.List;
@@ -21,7 +21,7 @@ import lombok.Data;
 +---------------+------------------+------+-----+---------+----------------+
  */
 @Data
-public class PassengerInfoDto implements DTO{
+public class PassengerInfoDto{
 	
 	private int pgNo;
 	private String pgFirstName;

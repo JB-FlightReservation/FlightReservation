@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="passenger_info">
-				<form action="/reservation/passenger_list.do" method="post">
+				<form id="rform" action="/reservation/passenger" method="post">
 					<div class="p_info-list">
 						<ul>
 							<li class="p_list on">
@@ -55,8 +55,8 @@
 													<th class="type">이름 <span class="info-text">*</span></th>
 													<td class="input_wrap">
 														<div>
-															<input class="btn" name="pgLastName" type="text" maxlength="30" placeholder="성(Last Name)">
-															<input class="btn" name="pgFirstName" type="text" maxlength="30" placeholder="이름(First Name)">
+															<input class="btn" name="p[0].pgLastName" type="text" maxlength="30" placeholder="성(Last Name)">
+															<input class="btn" name="p[0].pgFirstName" type="text" maxlength="30" placeholder="이름(First Name)">
 														</div>
 													</td>
 												</tr>
@@ -143,9 +143,9 @@
 												</tr>
 											</table>
 										</div>
-										<div class="next_btn_area">
+										<!-- <div class="next_btn_area">
 											<button class="nextBtn" type="submit">다음 승객 입력</button>
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</li>
@@ -166,7 +166,7 @@
 													<th class="type">국적</th>
 													<td class="input_wrap">
 														<div>
-															<input type="text" name="pgCountry" value="대한민국" readonly>
+															<input type="text" name="p[1].pgCountry" value="대한민국" readonly>
 															<button class="btn" type="button">국적 검색</button>
 														</div>
 													</td>
@@ -175,8 +175,8 @@
 													<th class="type">이름 <span class="info-text">*</span></th>
 													<td class="input_wrap">
 														<div>
-															<input class="btn" name="pgLastName" type="text" maxlength="30" placeholder="성(Last Name)">
-															<input class="btn" name="pgFirstName" type="text" maxlength="30" placeholder="이름(First Name)">
+															<input class="btn" name="p[1].pgLastName" type="text" maxlength="30" placeholder="성(Last Name)">
+															<input class="btn" name="p[1].pgFirstName" type="text" maxlength="30" placeholder="이름(First Name)">
 														</div>
 													</td>
 												</tr>
@@ -259,12 +259,12 @@
 				<ul class="ul_dot">
 					<li>나의 반려동물 이름을 입력하시면 출발 당일 반려동물용 기념 탑승권을 발급해드립니다.</li>
 				</ul>
-				<div style="height: 50px; margin-top: 20px;">
+			<!-- 	<div style="height: 50px; margin-top: 20px;">
 					<label>
 						반려동물 탑승 여부
 						<input type="checkbox" name="rvPetAccompanying">
 					</label>
-				</div>
+				</div> -->
 			</div>
 			<div class="notice_wrap on">
 				<a class="tit" th:onclick="toggle(this)">
