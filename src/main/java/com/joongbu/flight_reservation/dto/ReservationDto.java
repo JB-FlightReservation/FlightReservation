@@ -25,10 +25,9 @@ import lombok.Data;
  */
 
 @Data
-public class ReservationDto {
+public class ReservationDto{
 	private int rvNo;
 	private int ctNo;
-	private int rvPetAccompanying;
 	private String rvPhone;
 	private String rvEmail;
 	private int rvIsTicketed;

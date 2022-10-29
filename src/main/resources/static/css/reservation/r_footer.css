@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+.bottom_wrap {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	background-color: rgb(255, 255, 255);
+	z-index: 101;
+	box-shadow: rgb(0 0 0/ 30%) 0px 0px 15px;
+	box-sizing: border-box;
+}
+
+.bottom_wrap .b_container {
+	width: 1100px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.bottom_wrap .price_wrap {
+	padding: 15px 0px;
+	height: 33px;
+}
+
+.bottom_wrap .price_wrap>span {
+	vertical-align: top;
+}
+
+.bottom_wrap .price_wrap .total {
+	line-height: 33px;
+	margin-right: 25px;
+	font-size: 18px;
+}
+
+.bottom_wrap .price_wrap .unit {
+	margin-right: 5px;
+	font-size: 14px;
+	color: rgb(210, 44, 38);
+	line-height: 45px;
+}
+
+.bottom_wrap .price_wrap .price {
+	font-size: 30px;
+	font-weight: bold;
+	color: rgb(210, 44, 38);
+}
+
+.bottom_wrap .btn_wrap button.btn {
+	border: none;
+	border-radius: 0px;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 17px 50px;
+	min-width: 170px;
+	min-height: 62px;
+	text-align: center;
+	line-height: 1.1;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.bottom_wrap .btn_wrap .b_prev {
+	background-image: url(//contents-image.twayair.com/homepage/images/ico/ico_prev_arrow.png);
+	background-repeat: no-repeat;
+	background-size: 9px 16px;
+	background-position: left 20px center;
+	color: rgb(26, 26, 26);
+	background-color: rgb(245, 245, 245);
+	margin-right: -6px;
+}
+.bottom_wrap .btn_wrap .b_next{
+	background-image: url(//contents-image.twayair.com/homepage/images/ico/ico_next_arrow.png);
+    background-repeat: no-repeat;
+    background-size: 9px 16px;
+    background-position: right 20px center;
+    background-color: rgb(210, 44, 38);
+    color: rgb(255, 255, 255) !important;
+}

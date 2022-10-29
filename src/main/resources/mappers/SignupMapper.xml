@@ -13,8 +13,8 @@
 	</insert>
 	
 	<select id="detail" resultType="com.joongbu.flight_reservation.dto.SignupDto">
-  			SELECT *,ct_id ctId, ct_email ctEmail  FROM customer 
-  			WHERE ct_Id=#{ctId} AND ct_email=#{ctEmail}
+  			SELECT *,ct_id ctId FROM customer 
+  			WHERE ct_Id=#{ctId} 
   	</select>
   		
   	<select id="login" resultType="com.joongbu.flight_reservation.dto.SignupDto">

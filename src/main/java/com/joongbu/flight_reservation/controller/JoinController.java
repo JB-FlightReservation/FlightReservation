@@ -3,8 +3,9 @@ package com.joongbu.flight_reservation.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,12 @@ import lombok.Setter;
 public class JoinController {
 	@Autowired //객체를 주입받겠다
 	SignupMapper signupMapper; 
+
+	PasswordEncoder passwordEncoder;
+	@Autowired
+    public JoinController( PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 	
 	@GetMapping("/joinPage.do")
 	public void joinPage() {
@@ -38,13 +45,18 @@ public class JoinController {
 			HttpSession session
 			) {
 		int insert=0;
+		
 		try {
+			passwordEncoder = new BCryptPasswordEncoder();
+	        signupDto.setCtPw(passwordEncoder.encode(signupDto.getCtPw()));
 			insert=signupMapper.insert(signupDto);
+			//userService.saveUserData(signupDto);
 			signupDto=signupMapper.login(ctName, ctId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println(signupDto);
+//		return "redirect:/signup/joinPage3.do";
 		if(insert>0) {
 			
 			session.setAttribute("signupDto",signupDto);
@@ -65,13 +77,11 @@ public class JoinController {
 		@GetMapping("/checkUserId.do")
 		public @ResponseBody CheckUser checkUserId(
 				SignupDto user,
-					@RequestParam(required =true) String ctId,
-					@RequestParam(required =true) String ctEmail
-					
+					@RequestParam(required =true) String ctId
 				) {
 			CheckUser checkUser = new CheckUser();
 			try {
-				user = signupMapper.detail(ctId,ctEmail);
+				user = signupMapper.detail(ctId);
 				if(user!=null) {
 					checkUser.setCheck(1);
 					checkUser.setUser(user);
@@ -83,9 +93,6 @@ public class JoinController {
 			return checkUser;
 		}
 		
-		
-	
-	
 	@GetMapping("/joinPage3.do")
 	public void joinPage3() {} 
 	

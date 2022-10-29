@@ -12,7 +12,7 @@
 	}
 	.box{
 	width: 400px;
-	height: 200px;
+	height: 250px;
 	border-radius: 5px;
 	background-color: #eeeff1;
 	padding: 20px;
@@ -51,6 +51,7 @@
 </style>
 </head>
 <body>
+	<header th:include="/adminpage/headerNav"></header>
 	<main>
 	<h1>관리자 로그인</h1>
 		<div class="box">
@@ -60,7 +61,7 @@
 				<input class="box3" type="submit" value="로그인">
 			</form>
 			<div class="links">
-				<a href="/findPassword.do">비밀번호 찾기</a>
+				<a href="/adminpage/findPassword.do">비밀번호 찾기</a>
 			</div>
 		</div>
 	</main>
