@@ -4,10 +4,13 @@ package com.joongbu.flight_reservation.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
-import com.joongbu.flight_reservation.dto.SearchDto;
+import com.joongbu.flight_reservation.dto.*;
 import com.joongbu.flight_reservation.service.AdminService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +22,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.joongbu.flight_reservation.dto.AdminDto;
-import com.joongbu.flight_reservation.dto.CouponDto;
-import com.joongbu.flight_reservation.dto.CustomerDto;
-import com.joongbu.flight_reservation.dto.ReservationDto;
 import com.joongbu.flight_reservation.mapper.AdminMapper;
 
 import lombok.Getter;
@@ -42,9 +41,8 @@ public class AdminController {
 
 	/* 회원 관리 시작 */
 	@GetMapping("/userManagement.do")
-	public String userManagement(Model model, @RequestParam(defaultValue = "1") int page,
+	public String userManagement(Model model,
 			@RequestParam(required = false) String ctName, SearchDto search) {
-		final int ROWS = 10;
 
 		PageInfo<CustomerDto> paging = null;
 		try {
@@ -87,6 +85,49 @@ public class AdminController {
 		} else {
 			return "redirect:/adminpage/management.do";
 		}
+	}
+
+	@Data
+	class CheckCustomer {
+		private int check;        // 0:없음, 1:존재함, -1:통신오류
+		private CustomerDto customer;
+	}
+	@GetMapping("/checkCustomerId.do")
+	public @ResponseBody CheckCustomer checkCustomerId(
+			CustomerDto customer,
+			@RequestParam(required =true) String ctId
+	) {
+		CheckCustomer checkCustomer = new CheckCustomer();
+		try {
+			customer = adminMapper.customerCheckName(ctId);
+			if(customer!=null) {
+				checkCustomer.setCheck(1);
+				checkCustomer.setCustomer(customer);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			checkCustomer.setCheck(-1);
+		}
+		return checkCustomer;
+	}
+
+	@GetMapping("/checkCustomerName.do")
+	public @ResponseBody CheckCustomer checkCustomerName(
+			CustomerDto customer,
+			@RequestParam(required =true) String ctName
+	) {
+		CheckCustomer checkCustomer = new CheckCustomer();
+		try {
+			customer = adminMapper.customerCheckName(ctName);
+			if(customer!=null) {
+				checkCustomer.setCheck(1);
+				checkCustomer.setCustomer(customer);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			checkCustomer.setCheck(-1);
+		}
+		return checkCustomer;
 	}
 	/* 회원 관리 끝 */
 
@@ -145,17 +186,15 @@ public class AdminController {
 	@GetMapping("/couponList.do")
 	public String couponList(
 			Model model,
-			@RequestParam(defaultValue="1") int page
+			SearchDto search
 			) {
-		final int ROWS=10;
-		int startRow = (page - 1) * ROWS;
-		List<CouponDto> cpList = null;
+		PageInfo<CouponDto> cpList = null;
 		try {
-			cpList = adminMapper.cpList(startRow, ROWS);
+			cpList = adminService.couponPaging(search);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("cpList", cpList);
+		model.addAttribute("paging", cpList);
 		return "/adminpage/couponList";
 	}
 
