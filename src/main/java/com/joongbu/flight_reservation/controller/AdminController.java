@@ -124,9 +124,9 @@ public class AdminController {
 	}
 	System.out.println(couponDto);
 	if(insert>0) {
-		return "redirect:/adminpage/createCoupon.do";
+		return "redirect:/adminpage/couponList.do";
 	} else {
-		return "redirect:/adminpage/coupon.do";
+		return "redirect:/adminpage/createCoupon.do";
 	}
 	}
 	
@@ -162,6 +162,11 @@ public class AdminController {
 				return "redirect:/adminpage/couponList.do";
 			}
 		}
+		@GetMapping("/cpUpdate.do")
+		public void cpUpdate() {
+		}
+		
+		
 	
 
 	@GetMapping("/coupon.do")

@@ -45,7 +45,7 @@
               <th scope="col" class="cplist">
               		쿠폰 이름
               </th>
-              <th scope="col" class="cplist">할인율</th>
+              <th scope="col" class="cplist">할인율(%)</th>
               <th scope="col" class="cplist">시작 날짜</th>
               <th scope="col" class="cplist">종료 날짜</th>
               <th scope="col" class="cplist">삭제/수정</th>
@@ -70,8 +70,8 @@
 					<td style="text-align:center;"th:text="${coupon.cpEnd}"></td>
 					  <td>
       				  <div class="find-btn">
-        			<button class="btn btn-danger pull-right find-btn1">삭제</button>
-        			<button class="btn btn-warning pull-right  find-btn1" th:onclick="location.href=''#">수정</button>
+        			<a class="btn btn-danger pull-right find-btn1">삭제</a>
+        			<a class="btn btn-warning pull-right  find-btn1" th:onclick="location.href=''#">수정</a>
       				</div>
       				</td>
       				  <td>

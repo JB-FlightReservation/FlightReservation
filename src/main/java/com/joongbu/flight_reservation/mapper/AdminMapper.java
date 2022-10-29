@@ -35,7 +35,10 @@ public interface AdminMapper {
 	int insert(CustomerDto customer);
 	
 	int cpInsert(CouponDto couponDto);
+	
 	List<CouponDto> cpList (int startRow, int rows);
 	
 	int cpDelete(int cpNo);
+	
+	int cpUpdate(CouponDto couponDto);
 }

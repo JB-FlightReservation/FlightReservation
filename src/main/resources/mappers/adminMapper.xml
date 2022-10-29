@@ -93,5 +93,12 @@
  	 <delete id="cpDelete">
         DELETE FROM coupon WHERE cp_no = #{cPNo}
     </delete>
+    
+    <update id="cpUpdate" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
+		UPDATE  coupon SET 
+			 cp_name=#{cpName},
+			 cp_start=#{cpStart},cp_end=#{cpEnd},cp_discount=#{cpDiscount}
+		WHERE cp_no = #{cPNo}
+	</update>
 
 </mapper>

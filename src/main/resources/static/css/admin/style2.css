@@ -54,6 +54,7 @@ h2 {
 }
 .find-btn1{
 	display :inline-block;
+	color:white !important;
 }
 
 .button:hover {
