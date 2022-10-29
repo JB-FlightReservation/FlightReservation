@@ -111,8 +111,6 @@ function onlyKorFunc(t){
   }
 }
 function checkReg(event) {
-	
-
  const regExp = /[^ㄱ-ㅎ|가-힣]/g; // 한글만 허용
   const del = event.target;
   if (regExp.test(del.value)) {

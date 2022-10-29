@@ -1,8 +1,11 @@
 package com.joongbu.flight_reservation.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import com.github.pagehelper.Page;
+import com.joongbu.flight_reservation.dto.CouponDto;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.joongbu.flight_reservation.dto.AdminDto;
@@ -18,9 +21,17 @@ public interface AdminMapper {
 
 	int customerDelete(int ctNo);
 
+	CustomerDto customerCheckId(String ctId);
+	CustomerDto customerCheckName(String ctName);
+
+	CustomerDto customerDetail(int ctNo);
 	/* 예약 관리 */
 	Page<ReservationDto> reservationList(Integer ctNo);
 
+	/* 쿠폰 관리 */
+	Page<CouponDto> couponList();
+
+	/* 관리자 */
 	List<AdminDto> adminList();
 
 	AdminDto login(String adminId, String adminPw);

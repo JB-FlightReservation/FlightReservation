@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class SearchDto {
-    private int page = 1;
+    private int page=1;
     private int rows = 10;  //  한 페이지에 출력될 rows
     private int navSize = 5;    //  페이지 네비의 수
     private String orderBy;

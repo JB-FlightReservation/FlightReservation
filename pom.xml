@@ -53,6 +53,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>com.vaadin.external.google</groupId>
+					<artifactId>android-json</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- mail -->
 		<dependency>
@@ -65,6 +71,12 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>1.4.5</version>
 		</dependency>
+		<!--<dependency>
+			<groupId>com.vaadin.external.google</groupId>
+			<artifactId>android-json</artifactId>
+			<version>0.0.20131108.vaadin1</version>
+			<scope>compile</scope>
+		</dependency>-->
 
 
 	</dependencies>
