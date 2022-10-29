@@ -1,7 +1,9 @@
 package com.joongbu.flight_reservation.api;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
@@ -18,11 +20,12 @@ public class ApiController {
     private final String DECODE_KEY = "D3j1vRFzobgXWnqUIARqQGVsV9YEe0KK6GVqIpdNGb8hF9hfUtvp9bddjYyda+oXJ/Q0bCyPxeZJk1hvOsLSQA==";
 
     @GetMapping("/airflightJson/{airlineId}/{depAirportId}/{arrAirportId}/{depPlandTime}")
-    public  JSONObject airflightInfo(@PathVariable("airlineId") String airlineId, @PathVariable("depAirportId")String depAirportId, @PathVariable("arrAirportId") String arrAirportId, @PathVariable("depPlandTime") String depPlandTime) throws IOException {
+    public String airflightInfo(@PathVariable("airlineId") String airlineId, @PathVariable("depAirportId")String depAirportId, @PathVariable("arrAirportId") String arrAirportId, @PathVariable("depPlandTime") String depPlandTime) throws IOException {
 
         StringBuffer result = new StringBuffer();
         HttpURLConnection conn = null;
         BufferedReader rd = null;
+
         JSONObject resultJson = null;
 
         try {
@@ -54,6 +57,8 @@ public class ApiController {
 
             JSONParser parser = new JSONParser();
             resultJson = (JSONObject) parser.parse(result.toString());
+            JSONArray dataArr = (JSONArray) resultJson.get("item");
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -64,17 +69,18 @@ public class ApiController {
         }
 
 
-        return resultJson;
+        return result.toString();
     }
 
-    @RequestMapping("/airlineJson")
-    public  JSONObject airlineInfo() throws IOException {
+    @GetMapping("/airlineJson")
+    public JSONArray airlineInfo() throws IOException {
 
         StringBuffer result = new StringBuffer();
         HttpURLConnection conn = null;
         BufferedReader rd = null;
         JSONObject resultJson = null;
 
+        JSONArray airlineJsonArr = null;
         try {
             StringBuilder urlBuilder = new StringBuilder(END_POINT);
             urlBuilder.append("/getAirmanList");
@@ -98,6 +104,11 @@ public class ApiController {
 
             JSONParser parser = new JSONParser();
             resultJson = (JSONObject) parser.parse(result.toString());
+            resultJson = (JSONObject) resultJson.get("response");
+            resultJson = (JSONObject) resultJson.get("body");
+            resultJson = (JSONObject) resultJson.get("items");
+            airlineJsonArr = (JSONArray) resultJson.get("item");
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -107,16 +118,15 @@ public class ApiController {
                 conn.disconnect();
         }
 
-        return resultJson;
+        return airlineJsonArr;
     }
 
     @GetMapping("/airportJson")
-    public  JSONObject airportInfo() throws IOException {
+    public  String airportInfo() throws IOException {
 
         StringBuffer result = new StringBuffer();
         HttpURLConnection conn = null;
         BufferedReader rd = null;
-        JSONObject resultJson = null;
 
         try {
             StringBuilder urlBuilder = new StringBuilder(END_POINT);
@@ -138,8 +148,6 @@ public class ApiController {
             while ((line = rd.readLine()) != null) {
                 result.append(line);
             }
-            JSONParser parser = new JSONParser();
-            resultJson = (JSONObject) parser.parse(result.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -150,6 +158,6 @@ public class ApiController {
                 conn.disconnect();
         }
 
-        return resultJson;
+        return result.toString();
     }
 }

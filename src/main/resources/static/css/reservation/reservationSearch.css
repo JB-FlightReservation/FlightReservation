@@ -1051,8 +1051,6 @@ select {
 }
 
 .research_plan_container .research_plan{
-    display: flex;
-    flex-direction: row;
     width: 1100px;
     max-width: 100%;
 }
