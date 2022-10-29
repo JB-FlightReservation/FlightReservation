@@ -328,5 +328,25 @@ public class AdminController {
 		}
 		return checkAdmin;
 	}
+	
+	@GetMapping("/checkAdminName.do")  // 관리자 이름 체크
+	public @ResponseBody CheckAdmin checkAdminName(@RequestParam(required = true) String admin_name) {
+		CheckAdmin checkAdmin = new CheckAdmin();
+		AdminDto admin = null;
+		try {
+			admin = adminMapper.adminDetail(admin_name);
+			if(admin!=null) {
+				checkAdmin.setCheck(0);
+				checkAdmin.setAdmin(admin);
+			}else {
+				checkAdmin.setCheck(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			checkAdmin.setCheck(-1);
+		}
+		return checkAdmin;
+	}
 
 }
+

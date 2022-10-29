@@ -21,11 +21,12 @@ import lombok.Data;
 | rv_land_ap      | varchar(45)  | NO   |     | NULL    |       |
 | next_rv_no      | int unsigned | YES  |     | NULL    |       |
 | rv_seat_grade   | varchar(45)  | NO   |     | NULL    |       |
-+-----------------+--------------+------+-----+---------+-------+
++-----------------+--------------+------+-----+---------+-------+ 
+
  */
 
 @Data
-public class ReservationDto implements DTO{
+public class ReservationDto{
 	private int rvNo;
 	private int ctNo;
 	private String rvPhone;
@@ -39,7 +40,9 @@ public class ReservationDto implements DTO{
 	private String rvLandAp;
 	private int nextRvNo;
 	private String rvSeatGrade;
+
 	private CustomerDto customer;
+
 	
 	
 }

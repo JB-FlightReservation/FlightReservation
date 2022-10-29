@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <link href="/css/reservation/reservationSearch.css" rel="stylesheet">
+</head>
+<body class="booking">
+<div id="container">
+    <div class="content" id="content">
+        <div class="sel_service_section">
+            <div class="service_section_wrap service_section_wrap--simple">
+                <form action="/reservation/temp.do" method="post">
+                    <div class="airport_selector">
+                        <div class="depart_airport_selector selector_option">
+                            <label class="depart_airport_tit sub-airport-tit"
+                                   for="depart_airport">출발지
+                            </label>
+                            <select class="form-select selector_box" id="depart_airport"
+                                    name="depAprt">
+                                <option th:each="i : ${airportList}"
+                                        th:text="${i.airportId}"
+                                        th:value="${i.airportId}">DAN1
+                                </option>
+                            </select>
+                        </div>
+                        <div class="land_airport_selector selector_option">
+                            <label class="land_airport_tit sub-airport-tit"
+                                   for="land_airport">도착지
+                            </label>
+                            <select class="form-select selector_box" id="land_airport"
+                                    name="landAprt">
+                                <option th:each="i : ${airportList}"
+                                        th:text="${i.airportId}"
+                                        th:value="${i.airportId}">DAN1
+                                </option>
+                            </select>
+                        </div>
+                        <div class="plan_date selector_option">
+                            <label class="sub-airport-tit" for="depart_date">탑승일</label>
+                            <input class="depart_date selector_box" id="depart_date"
+                                   name="depDate" type="date" pattern="yyyymmdd">
+                        </div>
+                    </div>
+                    <div class="passenger_count">
+                        <div class="adult_count count_box">
+                            <label class="sub-passenger-tit" for="adult_count">성인</label>
+                            <div aria-label="Basic example" class="btn-group" role="group">
+                                <button class="btn btn-primary" type="button">-</button>
+                                <div class="input_container">
+                                    <input id="adult_count" name="adultCnt" type="text"
+                                           value="1">
+                                </div>
+                                
+                                <button class="btn btn-primary" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="teen_count count_box">
+                            <label class="sub-passenger-tit" for="teen_count">소아</label>
+                            <div aria-label="Basic example" class="btn-group" role="group">
+                                <button class="btn btn-primary" type="button">-</button>
+                                <div class="input_container">
+                                    <input id="teen_count" name="teenCnt" type="text"
+                                           value="0">
+                                </div>
+                                
+                                <button class="btn btn-primary" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="baby_count count_box">
+                            <label class="sub-passenger-tit" for="baby_count">유아</label>
+                            <div aria-label="Basic example" class="btn-group" role="group">
+                                <button class="btn btn-primary" type="button">-</button>
+                                <div class="input_container">
+                                    <input id="baby_count" name="babyCnt" type="text"
+                                           value="0">
+                                </div>
+                                <button class="btn btn-primary" type="button">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn_group">
+                            <div class="cancel_research btn btn-outline-secondary" data-bs-dismiss="modal">
+                                취소
+                            </div>
+                            <button class="submit_research btn btn-outline-danger" id="submit_research"
+                                    type="submit">조회
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

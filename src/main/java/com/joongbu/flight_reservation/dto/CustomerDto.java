@@ -31,7 +31,8 @@ public class CustomerDto {
 	private String ctPhone;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date ctBirth;
-	private char ctGender;
+	private String ctGender;
+	@DateTimeFormat(pattern = "HH:mm:ss yyyy-MM-dd")
 	private Date ctCreate;
 	private int ocNo;
 }
