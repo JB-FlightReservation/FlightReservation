@@ -18,7 +18,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 | ct_birth  | date         | NO   |     | NULL    |                |
 | ct_gender | char(1)      | NO   |     | NULL    |                |
 | ct_create | date         | NO   |     | NULL    |                |
-| oc_no     | int unsigned | NO   | UNI | NULL    |                |
+| oc_no     | int unsigned | YES  | UNI | NULL    |                |
 +-----------+--------------+------+-----+---------+----------------+
  */
 @Data
@@ -31,7 +31,7 @@ public class CustomerDto {
 	private String ctPhone;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date ctBirth;
-	private char ctGender;
-	private Date ctCreate;
+	private String ctGender;
+	@DateTimeFormat(pattern = "HH:mm:ss yyyy-MM-dd")
 	private int ocNo;
 }

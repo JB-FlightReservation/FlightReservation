@@ -56,8 +56,7 @@
 					<!--// 여정 재검색 -->
 
 					<!-- 슬라이드 버튼 -->
-					<a class="btn_slide_prev" href="#">이전</a>
-					<a class="btn_slide_next" href="#">다음</a>
+					<a class="btn_slide_prev" href="#">이전</a> <a class="btn_slide_next" href="#">다음</a>
 					<!--// 슬라이드 버튼 -->
 					<!-- 구간 더보기 -->
 					<div class="swiper-pagination-wrapper">
@@ -79,11 +78,13 @@
 								<div class="p_box">
 									<i class="num">1</i>
 									<div class="name">
-										<p class="first">박</p>
-										<p class="last">소현</p>
+										<p class="last" th:text="${session.pSession.p[0].pgLastName}"></p>
+										<p class="first" th:text="${session.pSession.p[0].pgFirstName}"></p>
 									</div>
 									<div class="add_price">
-										<p>15kg</p>
+										<p>
+											<span id="p_bweight">15</span>kg
+										</p>
 										<p>KRW 0</p>
 									</div>
 								</div>
@@ -105,8 +106,8 @@
 								<div class="p_box">
 									<i class="num">3</i>
 									<div class="name">
-										<p class="first">박</p>
-										<p class="last">소현</p>
+										<p class="last" th:text="${session.pSession.p[1].pgLastName}"></p>
+										<p class="first" th:text="${session.pSession.p[1].pgFirstName}"></p>
 									</div>
 									<div class="add_price">
 										<p>15kg</p>
@@ -116,8 +117,7 @@
 							</li>
 						</ul>
 					</div>
-					<a class="btn_slide_prev">이전</a>
-					<a class="btn_slide_next">다음</a>
+					<a class="btn_slide_prev">이전</a> <a class="btn_slide_next">다음</a>
 				</div>
 			</div>
 			<div class="baggage_area">
@@ -125,10 +125,10 @@
 					<div class="range_slider_info">
 						<dl class="weight">
 							<dt>
-								<span class="blind">선택한 수하물 무게</span>
+								<span class="blind"></span>
 							</dt>
 							<dd>
-								<span>15KG</span>
+								<span id="b_weight">15</span>KG
 							</dd>
 						</dl>
 						<dl class="price">
@@ -140,7 +140,18 @@
 							</dd>
 						</dl>
 					</div>
-					
+					<div class="slidecontainer">
+						<form id="rform" action="/reservation/baggage" method="post">
+							<input type="range" min="15" max="30" step="5" value="15" class="slider" id="myRange">
+							<input type="text" name="p[0].pgBaggage" id="b_value">
+							<div class="kgInfo">
+								<div>15kg</div>
+								<div>20kg</div>
+								<div>25kg</div>
+								<div>30kg</div>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -148,8 +159,7 @@
 	<footer id="r_footer" th:include="/reservation/rFooter"></footer>
 	<footer id="footer" th:include="/footerNav"></footer>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-	<script src="jquery.min.js"></script>
-	<script src=https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.0.0/rangeslider.min.js></script>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<script src="/js/reservation/baggage.js"></script>
 </body>
 </html>

@@ -17,10 +17,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.joongbu.flight_reservation.dto.AirflightDto;
+import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.PassengerInfoDto;
-import com.joongbu.flight_reservation.dto.PassengerRP;
 import com.joongbu.flight_reservation.dto.ReservationDto;
-import com.joongbu.flight_reservation.dto.ReservationProgress;
 import com.joongbu.flight_reservation.mapper.AirflightMapper;
 import com.joongbu.flight_reservation.mapper.ReservationMapper;
 
@@ -31,9 +30,6 @@ public class ReservationController {
     @Autowired
     AirflightMapper afMapper;
     ReservationMapper rMapper;
-
-    ReservationProgress rp = new ReservationProgress();
-    PassengerRP pList = new PassengerRP();
 
     // ------------- 예매 1 ------------------
 
@@ -126,40 +122,66 @@ public class ReservationController {
         return "reservation/reservationSearch";
     }
 
-    // ------------- 예매 2 ------------------
-    @GetMapping("/passenger_list.do")
-    public String passenger() {
-        return "reservation/passenger_list";
-    }
+	@PostMapping("/book")
+	public String firstBook(ReservationDto rDto, AirflightDto aDto, HttpSession session) {
+		
+		session.setAttribute("rSession", rDto); // ReservationDto session
+		session.setAttribute("aSession", aDto); // AirflightDto session
 
-    @PostMapping("/passenger_list.do")
-    public void passenger(PassengerInfoDto dto, @SessionAttribute PassengerInfoDto sdto, ReservationDto r, AirflightDto a, HttpSession session) {
-        sdto.setPgBirth(dto.getPgBirth());
-//		session.setAttribute("passenger", dto);
-    }
+		return "redirect:/reservation/passenger.do";
+	}
 
-    // ------------- 예매 3 ------------------
-    @GetMapping("/baggage.do")
-    public void baggage() {
+	// ------------- 예매 2 ------------------
+	@GetMapping("/passenger.do")
+	public String passenger() {
+		return "reservation/passenger";
+	}
 
-    }
+	@PostMapping("/passenger")
+	public String passengerInput(PassengerInfoDto pDto, ReservationDto rDto, HttpSession session,
+			@SessionAttribute(required = false) CustomerDto loginCt,
+			@SessionAttribute ReservationDto rSession) {
+		
+		rDto.setRvEmail(rDto.getRvEmail());
+		rDto.setRvPhone(rDto.getRvPhone());
+		
+		session.setAttribute("pSession", pDto);
+		
+		return "redirect:/reservation/baggage.do";
+	}
 
-    // ------------- 예매 4 ------------------
-    @GetMapping("/terms.do")
-    public String terms() {
-        return "reservation/reservationTerms";
-    }
+	// ------------- 예매 3 ------------------
+	@GetMapping("/baggage.do")
+	public String baggage() {
+				
+//		System.out.println(pSession);
+		return "reservation/baggage";
+	}
+	
+	@PostMapping("/baggage")
+	public String baggageInput(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
+		
+		
+		pDto.setPgBaggage(pDto.getPgBaggage());
+		System.out.println(pDto.getPgBaggage());
+		return "redirect:/reservation/terms.do";
+	}
 
-    // ------------- 예매 5 ------------------
-    @GetMapping("/pay.do")
-    public String pay() {
-        return "reservation/reservationPay";
-    }
+	// ------------- 예매 4 ------------------
+	@GetMapping("/terms.do")
+	public String terms(@SessionAttribute PassengerInfoDto pSession) {
+		System.out.println(pSession);
+		return "reservation/reservationTerms";
+	}
 
-    @GetMapping("/payComplete.do")
-    public String payComplete() {
-        return "reservation/reservationPayComplete";
-    }
+	// ------------- 예매 5 ------------------
+	@GetMapping("/pay.do")
+	public String pay() {
+		return "reservation/reservationPay";
+	}
 
-
+	@GetMapping("/payComplete.do")
+	public String payComplete() {
+		return "reservation/reservationPayComplete";
+	}
 }

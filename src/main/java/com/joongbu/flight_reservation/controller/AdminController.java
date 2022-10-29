@@ -3,7 +3,6 @@ package com.joongbu.flight_reservation.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
 
 import com.github.pagehelper.PageInfo;
 import com.joongbu.flight_reservation.dto.SearchDto;
@@ -18,13 +17,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.joongbu.flight_reservation.dto.AdminDto;
+import com.joongbu.flight_reservation.dto.CouponDto;
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.ReservationDto;
 import com.joongbu.flight_reservation.mapper.AdminMapper;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @RequestMapping("/adminpage")
 @Controller
@@ -92,14 +96,17 @@ public class AdminController {
 
 		final int ROWS = 10;
 		PageInfo<ReservationDto> reservation = null;
+		PageInfo<ReservationDto> reservationAfter = null;
 		try {
 			if (search.getOrderBy() == null)
 				search.setOrderBy("ct_no ASC");
 			reservation = adminService.reservationPaging(search, ctNo);
+			reservationAfter = adminService.reservationPaging(search, ctNo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("reservation", reservation);
+		model.addAttribute("reservationAfter", reservationAfter);
 		return "/adminpage/reservationManagement";
 	}
 
@@ -112,12 +119,69 @@ public class AdminController {
 	@GetMapping("management.do")
 	public void managemen() {
 	}
-
-	@GetMapping("createCoupon.do")
+	//쿠폰 페이지 - 발급
+	@GetMapping("/createCoupon.do")
 	public void createCoupon() {
 	}
+	@PostMapping("/createCoupon.do")
+	public String createCoupon(
+		CouponDto couponDto
+		) {
+	int insert=0;
+	try {
+		insert=adminMapper.cpInsert(couponDto);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	System.out.println(couponDto);
+	if(insert>0) {
+		return "redirect:/adminpage/couponList.do";
+	} else {
+		return "redirect:/adminpage/createCoupon.do";
+	}
+	}
+	
+	//쿠폰페이지- 리스트
+	@GetMapping("/couponList.do")
+	public String couponList(
+			Model model,
+			@RequestParam(defaultValue="1") int page
+			) {
+		final int ROWS=10;
+		int startRow = (page - 1) * ROWS;
+		List<CouponDto> cpList = null;
+		try {
+			cpList = adminMapper.cpList(startRow, ROWS);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("cpList", cpList);
+		return "/adminpage/couponList";
+	}
 
-	@GetMapping("coupon.do")
+	//쿠폰페이지- 삭제
+		@GetMapping("/cpDelete.do")
+		public String couponDelete(int cpNo) {
+			int delete = 0;
+			try {
+				delete = adminMapper.cpDelete(cpNo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			if (delete > 0) {
+				return "redirect:/adminpage/couponList.do";
+			} else {
+				return "redirect:/adminpage/couponList.do";
+			}
+		}
+		@GetMapping("/cpUpdate.do")
+		public void cpUpdate() {
+		}
+		
+		
+	
+
+	@GetMapping("/coupon.do")
 	public void coupon() {
 	}
 
@@ -225,5 +289,25 @@ public class AdminController {
 		}
 		return checkAdmin;
 	}
+	
+	@GetMapping("/checkAdminName.do")  // 관리자 이름 체크
+	public @ResponseBody CheckAdmin checkAdminName(@RequestParam(required = true) String admin_name) {
+		CheckAdmin checkAdmin = new CheckAdmin();
+		AdminDto admin = null;
+		try {
+			admin = adminMapper.adminDetail(admin_name);
+			if(admin!=null) {
+				checkAdmin.setCheck(0);
+				checkAdmin.setAdmin(admin);
+			}else {
+				checkAdmin.setCheck(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			checkAdmin.setCheck(-1);
+		}
+		return checkAdmin;
+	}
 
 }
+
