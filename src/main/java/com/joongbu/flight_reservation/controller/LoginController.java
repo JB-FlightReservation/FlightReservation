@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,7 @@ public class LoginController {
 	private DataSource dataSource;
 	@Autowired
 	CustomerMapper customerMapper;
+	PasswordEncoder passwordEncoder;
 	
 	//로그인
 	@GetMapping("/loginPage.do")
@@ -37,9 +39,10 @@ public class LoginController {
 			HttpSession session
 			) {
 		System.out.println(ctId+"/"+ctPw);
+		String aactPw = passwordEncoder.encode(ctPw) ;
 		CustomerDto loginCt=null;
 		try {
-			loginCt=customerMapper.login(ctId, ctPw);
+			loginCt=customerMapper.login(ctId, aactPw);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
