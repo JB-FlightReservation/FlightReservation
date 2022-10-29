@@ -3,9 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <title>이벤트 페이지</title>
-<link rel="stylesheet" href="css/eventPage.css">
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="/css/event/eventPage.css">
 </head>
 <body>
-	
+	<header th:include="/headerNav"></header>
+	<div class="container">
+		<div class="container_main">
+			<div class="section_event">
+				<div class="main_tit_wrap">
+					<h2 class="main_tit">이벤트</h2>
+				</div>
+				<div class="event_list">
+					<div class="event_list_area">
+						<div class="slick-list">
+							<div class="slick-slide1">광고1</div>
+							<div class="slick-slide1">광고2</div>
+						</div>
+					</div>
+					<a class="btn_prev slick-arrow" href="#none" style="display: block;">이벤트 이전보기</a>
+					<a class="btn_next slick-arrow" href="#none" style="display: block;">이벤트 다음보기</a>
+				</div>
+			</div>
+			<div class="tab_wrap" id="tab_wrap_id">
+				<ul id="tabUl" class="tab n2">
+					<li id="tabHead1" class="on">
+						<a href="#" id="tabHead1" title="선택됨">
+							<span>진행중인 이벤트</span>
+						</a>
+					</li>
+					<li id="tabHead2">
+						<a href="#" id="tabHead2" title="">
+							<span>종료된 이벤트</span>
+						</a>
+					</li>
+				</ul>
+				<div class="evt_wrap">
+					<ul class="evt_list">
+						<li>
+							<a href="">
+								<div class="img"><img alt="주말 특가" src=""></div>
+								<strong><span>국내선 주말 특가</span></strong>
+								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
+								<p>2022-10-28 ~ 2022-10-30</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="img"><img alt="주말 특가" src=""></div>
+								<strong><span>국내선 주말 특가</span></strong>
+								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
+								<p>2022-10-28 ~ 2022-10-30</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<div class="img"><img alt="주말 특가" src=""></div>
+								<strong><span>국내선 주말 특가</span></strong>
+								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
+								<p>2022-10-28 ~ 2022-10-30</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer th:include="/footerNav"></footer>
 </body>
 </html>

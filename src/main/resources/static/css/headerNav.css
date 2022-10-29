@@ -17,14 +17,14 @@ nav {
 }
 
 .gnb {
-    width: 660px;
+    width: 590px;
     display: inline-block;
     text-align: center;
 }
 
 .lnb {
     float: right;
-    width: 333px;
+    width: 403px;
     text-align: center;
 }
 
