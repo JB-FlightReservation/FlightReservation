@@ -45,7 +45,7 @@
         <result column="next_rv_no" property="nextRvNo"/>
     </resultMap>
     <!-- 회원 관리   -->
-    <select id="customerList" resultMap="CustomerMap">
+    <select id="customerLists" resultMap="CustomerMap">
         SELECT * FROM customer
         <if test="ctName!=null">
             WHERE ct_name LIKE CONCAT('%',#{ctName},'%')
