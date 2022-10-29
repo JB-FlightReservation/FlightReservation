@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.joongbu.flight_reservation.mapper.AdminMapper">
+
+    <select id="customerList" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
+        SELECT * FROM CUSTOMER
+    </select>
+<!--    <select id="customerDetail" resultType="com.joongbu.flight_reservation.dto.CustomerDto">-->
+<!--        SELECT * FROM CUSTOMER WHERE ct_name = #{ctNAME}-->
+<!--    </select>-->
+<!--    <update id="customerUpdate" parameterType="com.joongbu.flight_reservation.dto.CustomerDto">-->
+<!--        UPDATE CUSTOMER SET ct_Name = ct_id = #{ctId}, ct_pw = #{ctPw}, #{ctName}, ct_phone = #{ctPhone}-->
+<!--        , ct_email = #{ctEamil}, ct_birth = #{ctBirth} , ct_gender = #{ctGender} WHERE ct_no = #{ctNo]-->
+<!--    </update>-->
+
+
     <resultMap type="CustomerDto" id="CustomerMap">
         <id column="ct_no" property="ctNo"/>
         <result column="ct_id" property="ctId"/>
@@ -103,4 +117,31 @@
 		admin_name=#{admin_name}, admin_pw=#{admin_pw}, admin_email=#{admin_email}, admin_no=#{admin_no}
 		WHERE admin_id=#{adminId}
 	</update>
+
+	</select>
+	
+	<insert id="cpInsert" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
+		INSERT INTO coupon
+			( cp_name,cp_start,cp_end,cp_discount)
+			VALUES
+			(#{cpName},#{cpStart},#{cpEnd}, #{cpDiscount})
+	</insert>
+	
+	<select id="cpList" resultType="com.joongbu.flight_reservation.dto.CouponDto" >
+ 		SELECT *,cp_name cpName FROM coupon 
+ 		LIMIT #{startRow}, #{rows}
+ 	</select>
+ 	 <delete id="cpDelete">
+        DELETE FROM coupon WHERE cp_no = #{cPNo}
+    </delete>
+    
+    <update id="cpUpdate" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
+		UPDATE  coupon SET 
+			 cp_name=#{cpName},
+			 cp_start=#{cpStart},cp_end=#{cpEnd},cp_discount=#{cpDiscount}
+		WHERE cp_no = #{cPNo}
+	</update>
+
+
 </mapper>
+

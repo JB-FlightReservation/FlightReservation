@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.joongbu.flight_reservation.dto.AdminDto;
+import com.joongbu.flight_reservation.dto.CouponDto;
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.ReservationDto;
 
@@ -37,5 +38,19 @@ public interface AdminMapper {
 	AdminDto adminDetail(String adminId);
 
 	int Aupdate(AdminDto admin);
+
+	int update(CustomerDto customer);
+
+	int delete(int ctNo);
+
+	int insert(CustomerDto customer);
+	
+	int cpInsert(CouponDto couponDto);
+	
+	List<CouponDto> cpList (int startRow, int rows);
+	
+	int cpDelete(int cpNo);
+	
+	int cpUpdate(CouponDto couponDto);
 
 }

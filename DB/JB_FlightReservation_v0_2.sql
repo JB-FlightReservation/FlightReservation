@@ -123,3 +123,28 @@ add constraint rv_pg_rv_no foreign key(rv_no)
 references jb_flight_reservation.reservation(rv_no)   
 on delete cascade on update cascade;                  
 
+alter table passenger_info
+change pg_birth pg_birth date not null;
+
+alter table reservation
+drop column rv_pet_accompanying;
+
+alter table reservation
+add column rv_seat_grade varchar(45) not null;
+
+alter table customer
+drop constraint ct_oc_no;
+
+alter table customer
+drop oc_no;
+
+alter table owned_coupon
+add column ct_no int unsinged not null;
+
+alter table owned_coupon
+add constraint oc_ct_no foreign key(ct_no)
+references jb_flight_reservation.customer(ct_no)
+on update cascade on delete cascade;
+
+alter table customer
+modify column ct_pw varchar(100);

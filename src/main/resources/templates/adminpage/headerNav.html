@@ -43,6 +43,23 @@
                     <a class="nav-link" href="/adminpage/jsonApi.do">관리자정보</a>
                 </li>
             </ul>
+            <ul class="navbar-nav">
+		<th:block th:if="${session.loginAdmin==null}">
+			<li class="nav-item">
+				<a class="nav-link" href="/adminpage/loginpage.do">Login</a>
+			</li>
+		</th:block>
+		<th:block th:unless="${session.loginAdmin==null}">
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/adminpage/adminDetail.do(adminId=${session.loginAdmin.adminId})}">
+					<th:block th:text="${session.loginAdmin.adminId}"></th:block>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/adminpage/logout.do">Logout</a>
+			</li>
+		</th:block>
+	</ul>
         </div>
     </div>
 </nav>

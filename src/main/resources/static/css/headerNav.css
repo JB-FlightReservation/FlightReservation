@@ -1,35 +1,44 @@
+@charset "UTF-8";
 nav {
     width: 1100px;
-    margin: auto;
+    margin: 0 auto;
+    font-size: 15px;
 }
+
 .logo, .gnb, .lnb{
     height: 80px;
     line-height: 80px;
 }
+
 .logo {
     float: left;
     width: 100px;
     font-size: 25px;
 }
+
 .gnb {
     width: 660px;
     display: inline-block;
     text-align: center;
 }
+
 .lnb {
     float: right;
     width: 333px;
     text-align: center;
 }
+
 .logo a {
     text-decoration: none;
     color: #222;
 }
+
 .gnb a {
     margin: 40px;
     text-decoration: none;
     color: #222;
 }
+
 .lnb a {
     margin: 8px;
     text-decoration: none;

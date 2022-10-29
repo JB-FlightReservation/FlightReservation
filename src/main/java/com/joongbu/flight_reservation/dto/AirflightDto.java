@@ -16,20 +16,20 @@ import java.sql.Timestamp;
     | af_land_time   | datetime     | NO   |     | NULL    |       |
     | af_economy     | int unsigned | YES  |     | NULL    |       |
     | af_business    | int unsigned | YES  |     | NULL    |       |
-    | af_depart_ap   | varchar(45)  | NO   |     | NULL    |       |
-    | af_land_ap     | varchar(45)  | NO   |     | NULL    |       |
+    | af_depart_ap   | int unsigned | NO   |     | NULL    |       |
+    | af_land_ap     | int unsigned | NO   |     | NULL    |       |
     +----------------+--------------+------+-----+---------+-------+
 */
 
 @Data
 public class AirflightDto {
-    int af_no;
-    String af_name;
-    int al_no;
-    String af_depart;
-    String af_land;
-    Integer af_economy;
-    Integer af_business;
-    Timestamp af_depart_ap;
-    Timestamp af_land_ap;
+    int afNo;
+    String afName;
+    int alNo;
+    Timestamp afDepartTime;
+    Timestamp afLandTime;
+    Integer afEconomy;
+    Integer afBusiness;
+    int afDepartAp;
+    int afLandAp;
 }
