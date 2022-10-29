@@ -1,5 +1,10 @@
 package com.joongbu.flight_reservation.dto;
 
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 
 /*
@@ -10,19 +15,21 @@ import lombok.Data;
 | pg_first_name | varchar(45)      | NO   |     | NULL    |                |
 | pg_last_name  | varchar(45)      | NO   |     | NULL    |                |
 | pg_gender     | tinyint unsigned | NO   |     | NULL    |                |
-| pg_birth      | varchar(45)      | NO   |     | NULL    |                |
+| pg_birth      | date             | NO   |     | NULL    |                |
 | pg_country    | varchar(45)      | NO   |     | NULL    |                |
 | pg_baggage    | int unsigned     | NO   |     | NULL    |                |
 +---------------+------------------+------+-----+---------+----------------+
  */
 @Data
-public class PassengerInfoDto {
+public class PassengerInfoDto implements DTO{
 	
 	private int pgNo;
 	private String pgFirstName;
 	private String pgLastName;
 	private int pgGender;
-	private String pgBirth;  // Date로 바꿀 예정
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date pgBirth;  // Date로 바꿀 예정
 	private String pgCountry;
 	private int pgBaggage;
+	private List<PassengerInfoDto> p;
 }

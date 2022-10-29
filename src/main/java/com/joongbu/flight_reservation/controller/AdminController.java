@@ -125,21 +125,19 @@ public class AdminController {
 	public void counselling() {
 	}
 
-	@GetMapping("/loginpage.do")
+	@GetMapping("/loginpage.do")  // 관리자 로그인
 	public void loginpage(HttpServletRequest req, HttpSession session) {
 		String refererPage = req.getHeader("Referer");
 		session.setAttribute("redirectPage", refererPage);
 	}
 
-	@PostMapping("/loginpage.do")
+	@PostMapping("/loginpage.do")  // 관리자 로그인
 	public String loginpage(@RequestParam(required = true) String adminId,
 			@RequestParam(required = true) String adminPw, HttpSession session,
 			@SessionAttribute(required = false) String redirectPage) {
 		AdminDto loginAdmin = null;
-		System.out.println(adminId + adminPw);
 		try {
 			loginAdmin = adminMapper.login(adminId, adminPw);
-			System.out.println(loginAdmin);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -156,37 +154,24 @@ public class AdminController {
 
 	}
 
-	@GetMapping("/logout.do")
+	@GetMapping("/logout.do")  // 관리자 로그아웃
 	public String logout(HttpSession session) {
 		session.removeAttribute("loginAdmin");
 		return "redirect:/adminpage/management.do";
 	}
 
-//	@GetMapping("/management.do")
-//	public String management() {
-//
-//		return "/adminpage/management";
-//	}
-
-//	@GetMapping("/management.do")
-//	public String management() {
-//
-//		return "/adminpage/management";
-//	}
-
-	@GetMapping("/adminDetail.do")
+	@GetMapping("/adminDetail.do")  // 관리자 아이디 상세정보
 	public AdminDto adminDetail(String adminId) {
 		AdminDto adminDto = adminMapper.adminDetail(adminId);
 
 		return adminDto;
 	}
 
-	@PostMapping("/update.do")
+	@PostMapping("/update.do")  // 관지라 정보 수정 (비밀번호, 이름, 이메일)
 	public String Aupdate(AdminDto admin) {
 		int update = 0;
 		try {
 			update = adminMapper.Aupdate(admin);
-			System.out.println(admin);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -197,52 +182,48 @@ public class AdminController {
 		}
 	}
 
-//	@Getter
-//	@Setter
-//	class CheckAdmin {
-//
-//	@GetMapping("/findPassword.do")
-//	public void findPassword() {}
-//	@PostMapping("/findPassword.do")
-//	public String findPassword(AdminDto admin) {
-//		int findPassword = 0;
-//		try {
-//			findPassword = adminMapper.Aupdate(admin);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		if(findPassword>0) {
-//			return "redirect:/adminpage/management.do";
-//		}else {
-//			return "redirect:/adminpage/findPassword.do";
-//		}
-//	}
-//
-//	@Getter
-//	@Setter
-//	class CheckAdmin{
-//		private int check;
-//		private AdminDto admin;
-//	}
-//
-//	@GetMapping("/checkAdminId.do")
-//	public @ResponseBody CheckAdmin checkAdminId(@RequestParam(required = true) String adminId) {
-//		CheckAdmin checkAdmin = new CheckAdmin();
-//		AdminDto admin = null;
-//		try {
-//			admin = adminMapper.adminDetail(adminId);
-//			if(admin!=null) {
-//				checkAdmin.setCheck(0);
-//				checkAdmin.setAdmin(admin);
-//			}else {
-//				checkAdmin.setCheck(1);
-//
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			checkAdmin.setCheck(-1);
-//		}
-//		return checkAdmin;
-//	}
+	@GetMapping("/findPassword.do")  // 관리자비밀번호 찾기
+	public void findPassword() {}
+
+	@PostMapping("/findPassword.do")  // 관리자비밀번호 찾기
+	public String findPassword(AdminDto admin) {
+		int findPassword = 0;
+		try {
+			findPassword = adminMapper.Aupdate(admin);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(findPassword>0) {
+			return "redirect:/adminpage/loginpage.do";
+		}else {
+			return "redirect:/adminpage/findPassword.do";
+		}
+	}
+
+	@Getter
+	@Setter
+	class CheckAdmin{  // 관리자 정보 체크
+		private int check;
+		private AdminDto admin;
+	}
+
+	@GetMapping("/checkAdminId.do")  // 관리자 아이디 체크
+	public @ResponseBody CheckAdmin checkAdminId(@RequestParam(required = true) String adminId) {
+		CheckAdmin checkAdmin = new CheckAdmin();
+		AdminDto admin = null;
+		try {
+			admin = adminMapper.adminDetail(adminId);
+			if(admin!=null) {
+				checkAdmin.setCheck(0);
+				checkAdmin.setAdmin(admin);
+			}else {
+				checkAdmin.setCheck(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			checkAdmin.setCheck(-1);
+		}
+		return checkAdmin;
+	}
 
 }

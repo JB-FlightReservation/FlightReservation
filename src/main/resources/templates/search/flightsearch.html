@@ -2,183 +2,109 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="css/flightsearch.css">
+<title>예매 페이지</title>
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/css/flightsearch.css" rel="stylesheet">
 </head>
 <body>
-	<div id="container">
-		<div class="content" id="content">
-			<div class="tit_booking_wrap">
-				<h2 class="pg_tit">항공권 예매</h2>
-			</div>
-			<div class="input_booking_wrap">
-				<div class="booking_option">
-					<ul class="sel_section">
-                		<li class="on">
-                    		<a href="#booking01">
-                        		<input  id="display_tripType_RT" name="tripTypeButton"  type="radio" value="RT">
-                        		<label for="display_tripType_RT">왕복</label>
-                    		</a>
-                		</li>
-                		<li>
-                    		<a href="#booking02">
-                        		<input  id="display_tripType_OW" name="tripTypeButton"  type="radio" value="OW">
-                        		<label for="display_tripType_OW">편도</label>
-                    		</a>
-                		</li>
-                	</ul>
-                <div class="tab_cont fixed schedule_box" id="booking01" style="display: block;">
-		            <div class="booking_input">
-		                <ul class="booking_form">
-		                    <li>
-		                        <div class="sel_route">
-		                            <div class="input_wrap start focus">
-		                                <label>출발지</label>
-		                                <input class="booking start focus_start1" readonly="" title="출발지 입력" type="text" value="" placeholder="도시/공항">
-		                                <a class="btn_pin focus_start2" href="#none" title="출발지 선택 레이어 열림">출발지 선택</a>
-		
-		                                <!-- 선택 레이어 -->
-		                                <div class="selected_area start focus on">
-		                                	<a href="#">
-			                                    <span class="eng">GMP</span>
-			                                    <span class="area">서울/김포</span>
-		                                    </a>
-		                                </div>
-		                                <!--// 선택 레이어 -->
-		                            </div>
-		                            <a class="btn_change" href="#none">출발지/도착지 바꾸기</a>
-		                            <div class="input_wrap end">
-		                                <label>도착지</label>
-		                                <input class="booking end focus_end1" title="도착지 선택" type="text" value="" placeholder="도시/공항">
-		                                <a class="btn_pin end focus_end2" href="#none" readonly="" title="도착지 선택 레이어 열림">도착지 선택</a>
-		                                <!-- 선택 레이어 -->
-		                                <div class="selected_area end">
-		                                	<a href="#">
-			                                    <span class="eng">CJU</span>
-			                                    <span class="area">제주</span>
-		                                    </a>
-		                                </div>
-		                                <!--// 선택 레이어 -->
-		                            </div>
-		                        </div>
-		                    </li>
-		                    <li>
-		                        <div class="input_wrap date">
-		                            <label>탑승일</label>
-		                            <input class="booking date focus_date1" id="lostFlightDate1_1" placeholder="YYYY-MM-DD" readonly="readonly" title="출발일 선택" type="text" value="">
-		                            <span class="space">~</span>
-		                            <input class="booking date focus_date2" id="lostFlightDate1_2" placeholder="YYYY-MM-DD" readonly="readonly" title="도착일 선택" type="text" value="">
-		                            <a class="btn_date focus_date3" href="#none">날짜선택</a>
-		                        </div>
-		                    </li>
-		                </ul>
-		            </div>
-        		</div>
-        		
-        		<div class="pax booking_input section_passenger">
-		            <ul class="booking_form">
-		                <li>
-		                    <div class="input_wrap passenger focus">
-		                        <!-- 성인 -->
-		                        <dl>
-		                            <dt>
-		                                <label for="adult">성인</label>
-		                            </dt>
-		                            <dd class="sel_passenger">
-		                                <a class="btn_minus" href="#none">성인 인원감소</a>
-		                                <input class="booking passenger ADULT" data-div="ADULT" id="adult" title="성인 인원수" type="text" value="1">
-		                                <a class="btn_plus" href="#none">성인 인원증가</a>
-		                            </dd>
-		                        </dl>
-		                        <!--// 성인 -->
-		                        <!-- 소아 -->
-		                        <dl>
-		                            <dt>
-		                                <label for="kid">
-		                                        소아
-		                                    <a class="btn_tooltip gray" href="#none">
-		                                        <span class="blind">툴팁</span>
-		                                        <div class="tooltip_layer" style="display: none;">
-		                                            <div class="tooltip_tit">
-		                                                <img alt="" src="">
-		                                                <h5>소아기준</h5>
-		                                            </div>
-		                                            <div class="tooltip_cont">
-		                                                <dl>
-		                                                    <dt>국내선</dt>
-		                                                    <dd>만 2세~<span class="red">13세</span> 미만</dd>
-		                                                </dl>
-		                                                <dl>
-		                                                    <dt>국제선</dt>
-		                                                    <dd>만 2세~<span class="red">12세</span> 미만</dd>
-		                                                </dl>
-		                                                <ul class="info"><li>※ 소아/유아 기준</li>
-															<li>&nbsp; &nbsp; - 국내선 : 각 항공편의 탑승일 기준</li>
-															<li>&nbsp; &nbsp; - 국제선 : 최초 출발일 기준</li>
-															<li>※ 탑승 수속 시 생년월일 확인 가능한 서류 지참 필수</li>
-														</ul>
-		                                            </div>
-		                                        </div>
-		                                    </a>
-		                                </label>
-		                            </dt>
-		                            <dd class="sel_passenger">
-		                                <a class="btn_minus" href="#none">소아 인원감소</a>
-		                                <input class="booking passenger CHILD" data-div="CHILD" id="kid" title="소아 인원수" type="text" value="0">
-		                                <a class="btn_plus" href="#none">소아 인원증가</a>
-		                            </dd>
-		                        </dl>
-		                        <!--// 소아 -->
-		                        <!-- 유아 -->
-		                        <dl>
-		                            <dt>
-		                                <label for="baby">
-		                                        유아
-		                                    <a class="btn_tooltip gray" href="#none">
-		                                        <span class="blind">툴팁</span>
-		                                        <div class="tooltip_layer" style="display: none;">
-		                                            <div class="tooltip_tit">
-		                                                <img alt="" src="">
-		                                                <h5>유아기준</h5>
-		                                            </div>
-		                                            <div class="tooltip_cont">
-		                                                <dl>
-		                                                    <dt>국내선</dt>
-		                                                    <dd>생후 <span class="red">7일</span>~ 만 2세 미만</dd>
-		                                                </dl>
-		                                                <dl>
-		                                                    <dt>국제선</dt>
-		                                                    <dd>생후 <span class="red">14일</span>~ 만 2세 미만</dd>
-		                                                </dl>
-		                                                <ul class="info"><li>※ 소아/유아 기준</li>
-															<li>&nbsp; &nbsp; - 국내선 : 각 항공편의 탑승일 기준</li>
-															<li>&nbsp; &nbsp; - 국제선 : 최초 출발일 기준</li>
-															<li>※ 탑승 수속 시 생년월일 확인 가능한 서류 지참 필수</li>
-														</ul>
-		                                            </div>
-		                                        </div>
-		                                    </a>
-		                                </label>
-		                            </dt>
-		                            <dd class="sel_passenger">
-		                                <a class="btn_minus" href="#none">유아 인원감소</a>
-		                                <input class="booking passenger INFANT" data-div="INFANT" id="baby" title="유아 인원수" type="text" value="0">
-		                                <a class="btn_plus" href="#none">유아 인원증가</a>
-		                            </dd>
-		                        </dl>
-		                        <!--// 유아 -->
-		                    </div>
-		            	</li>
-		        	</ul>
-                </div>
-		        <!-- 좌석등급 -->
+	<div class="container">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="tit_container">
+						<h2 class="pg_tit">항공권 예매</h2>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="research_option_container">
+						<div class="option_container">
+							<div class="option_selector">
+								<input type="radio" class="btn-check" name="options"
+									id="round-trip-option" autocomplete="off"> <label
+									for="round-trip-option" class="btn btn-danger">왕복</label>
+								<input type="radio" class="btn-check" name="options"
+									id="one-way-option" autocomplete="off" checked> <label
+									for="one-way-option" class="btn btn-danger">편도</label> 
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="research_plan_container">
+						<div class="research_plan">
+							<form action="">
+								<div class="airport_selector">
+									<div class="depart_airport_selector selector_option">
+										<label for="depart_airport"
+											class="depart_airport_tit sub-airport-tit">출발지</label> <select
+											class="form-select selector_box" id="depart_airport">
+											<option value="1">DAN1</option>
+											<option value="2">DAN2</option>
+											<option value="2">DAN3</option>
+											<option value="2">DAN4</option>
+										</select>
+									</div>
+									<div class="land_airport_selector selector_option">
+										<label for="land_airport"
+											class="land_airport_tit sub-airport-tit">도착지</label> <select
+											class="form-select selector_box" id="land_airport">
+											<option value="1">LAN1</option>
+											<option value="2">LAN2</option>
+											<option value="2">LAN3</option>
+											<option value="2">LAN4</option>
+										</select>
+									</div>
+									<div class="plan_date selector_option">
+										<label for="depart_date" class="sub-airport-tit">탑승일</label> <input
+											type="date" id="depart_date" class="depart_date selector_box">
+									</div>
+								</div>
+								<div class="passenger_count">
+									<div class="adult_count count_box">
+										<label for="adult_count" class="sub-passenger-tit">성인</label>
+										<div class="btn-group" role="group" aria-label="Basic example">
+											<button type="button" class="btn btn-primary">-</button>
+											<div class="input_container">
+												<input type="text" id="adult_count" value="1">
+											</div>
+
+											<button type="button" class="btn btn-primary">+</button>
+										</div>
+									</div>
+									<div class="teen_count count_box">
+										<label for="teen_count" class="sub-passenger-tit">소아</label>
+										<div class="btn-group" role="group" aria-label="Basic example">
+											<button type="button" class="btn btn-primary">-</button>
+											<div class="input_container">
+												<input type="text" id="teen_count" value="0">
+											</div>
+
+											<button type="button" class="btn btn-primary">+</button>
+										</div>
+									</div>
+									<div class="baby_count count_box">
+										<label for="baby_count" class="sub-passenger-tit">유아</label>
+										<div class="btn-group" role="group" aria-label="Basic example">
+											<button type="button" class="btn btn-primary">-</button>
+											<div class="input_container">
+												<input type="text" id="baby_count" value="0">
+											</div>
+											<button type="button" class="btn btn-primary">+</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="btn_group">
+						<div class="cancel_research btn btn-outline-secondary">취소</div>
+						<div class="submit_research btn btn-outline-danger">조회</div>
+					</div>
 				</div>
 			</div>
-			<div class="btn_wrap">
-				<button class="btn_large red">항공편 검색</button>
-			</div>	
 		</div>
 	</div>
-
 </body>
 </html>

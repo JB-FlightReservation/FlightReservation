@@ -1,9 +1,11 @@
 package com.joongbu.flight_reservation.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.joongbu.flight_reservation.dto.AirflightDto;
+import com.joongbu.flight_reservation.dto.PassengerInfoDto;
 import com.joongbu.flight_reservation.dto.PassengerRP;
+import com.joongbu.flight_reservation.dto.ReservationDto;
 import com.joongbu.flight_reservation.dto.ReservationProgress;
 import com.joongbu.flight_reservation.mapper.AirflightMapper;
 import com.joongbu.flight_reservation.mapper.ReservationMapper;
@@ -29,8 +34,7 @@ public class ReservationController {
 	ReservationMapper rMapper;
 
 	ReservationProgress rp = new ReservationProgress();
-	PassengerRP prp = new PassengerRP();
-	List<PassengerRP> pList = new ArrayList<PassengerRP>();
+	PassengerRP pList = new PassengerRP();
 
 	// ------------- 예매 1 ------------------
 	@GetMapping("/booking.do")
@@ -49,21 +53,14 @@ public class ReservationController {
 
 	// ------------- 예매 2 ------------------
 	@GetMapping("/passenger_list.do")
-	public void passenger() {
-
+	public String passenger() {
+		return "reservation/passenger_list";
 	}
 
 	@PostMapping("/passenger_list.do")
-	public void passenger(HttpServletRequest req) {
-
-//		System.out.println(req.getParameter("pgCountry"));
-		
-		prp.setPgFirstName(req.getParameter("pgFirstName"));
-		prp.setPgLastName(req.getParameter("pgLastName"));
-		pList.add(prp);
-		
-		System.out.println(pList);
-
+	public void passenger(PassengerInfoDto dto, @SessionAttribute PassengerInfoDto sdto,  ReservationDto r, AirflightDto a, HttpSession session) {
+		sdto.setPgBirth(dto.getPgBirth());
+//		session.setAttribute("passenger", dto);
 	}
 
 	// ------------- 예매 3 ------------------
@@ -88,5 +85,6 @@ public class ReservationController {
 	public String payComplete() {
 		return "reservation/reservationPayComplete";
 	}
+	
 
 }

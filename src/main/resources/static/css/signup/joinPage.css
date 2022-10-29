@@ -8,6 +8,11 @@ width: 1100px;
 margin: 0 auto;
 
 }
+#joinbox {
+	line-height: 30px;
+	font-size:20px;
+}
+
 #result{
 	font-size:25px;
 	
