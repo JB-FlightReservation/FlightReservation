@@ -7,9 +7,9 @@
 	
 	<insert id="insert" parameterType="com.joongbu.flight_reservation.dto.SignupDto">
 		INSERT INTO customer
-			(ct_no, ct_id,ct_pw,ct_name,ct_email,ct_phone,ct_birth,ct_gender,ct_create)
+			(ct_no,ct_id,ct_pw,ct_name,ct_email,ct_phone,ct_birth,ct_gender,ct_create)
 			VALUES
-			(#{ctNo}, #{ctId},#{ctPw},#{ctName}, #{ctEmail}, #{ctPhone},#{ctBirth},#{ctGender},#{ctCreate})
+			(#{ct_no},#{ctId},#{ctPw},#{ctName}, #{ctEmail}, #{ctPhone},#{ctBirth},#{ctGender},#{ctCreate})
 	</insert>
 	
 	<select id="detail" resultType="com.joongbu.flight_reservation.dto.SignupDto">

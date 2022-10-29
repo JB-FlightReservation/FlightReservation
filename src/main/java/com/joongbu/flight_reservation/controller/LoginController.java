@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,31 +29,35 @@ public class LoginController {
 	@Autowired
 	CustomerMapper customerMapper;
 	PasswordEncoder passwordEncoder;
-	
 	//로그인
-	@GetMapping("/loginPage.do")
-	public void loginPage() {}
-	@PostMapping("/loginPage.do")
-	public String loginPage(
-			@RequestParam(required = true) String ctId,
-			@RequestParam(required = true) String ctPw,
-			HttpSession session
-			) {
-		System.out.println(ctId+"/"+ctPw);
-		String aactPw = passwordEncoder.encode(ctPw) ;
-		CustomerDto loginCt=null;
-		try {
-			loginCt=customerMapper.login(ctId, aactPw);
-		} catch (Exception e) {
-			e.printStackTrace();
+		@Autowired
+		  public LoginController( PasswordEncoder passwordEncoder) {
+	        this.passwordEncoder = passwordEncoder;
+	    }
+		
+		@GetMapping("/loginPage.do")
+		public void loginPage() {}
+		@PostMapping("/loginPage.do")
+		public String loginPage(
+				@RequestParam(required = true) String ctId,
+				@RequestParam(required = true) String ctPw,
+				HttpSession session
+				) {
+			System.out.println(ctId+"/"+ctPw);
+			CustomerDto loginCt=null;
+			try {
+				loginCt=customerMapper.login(ctId, ctPw);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			passwordEncoder = new BCryptPasswordEncoder();
+			boolean result=passwordEncoder.matches(ctPw,ctPw);//첫번째 평문, 두번째 암호화
+			if(result == true) {
+				return "redirect:/";
+			}else {
+				return "redirect:/login/loginPage.do";
+			}
 		}
-		if(loginCt!=null) {
-			session.setAttribute("loginCt", loginCt);
-			return "redirect:/";
-		}else {
-			return "redirect:/login/loginPage.do";
-		}
-	}
 	//로그아웃
 	@GetMapping("/logout.do")//세션삭제
 	public String logout(HttpSession session) {

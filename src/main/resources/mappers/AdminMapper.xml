@@ -5,8 +5,8 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.joongbu.flight_reservation.mapper.AdminMapper">
 
-    <select id="customerList" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
-        SELECT * FROM CUSTOMER
+    <select id="customerList1" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
+        SELECT * FROM CUSTOMER 
     </select>
 <!--    <select id="customerDetail" resultType="com.joongbu.flight_reservation.dto.CustomerDto">-->
 <!--        SELECT * FROM CUSTOMER WHERE ct_name = #{ctNAME}-->
