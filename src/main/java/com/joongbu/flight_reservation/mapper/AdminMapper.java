@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.github.pagehelper.Page;
-import com.joongbu.flight_reservation.dto.CouponDto;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -29,6 +28,9 @@ public interface AdminMapper {
 	/* 예약 관리 */
 	Page<ReservationDto> reservationList(Integer ctNo);
 
+
+	/* 쿠폰 관리 */
+	Page<CouponDto> couponList();
 
 	/* 관리자 */
 	List<AdminDto> adminList();
