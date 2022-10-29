@@ -16,7 +16,6 @@
 <!--        , ct_email = #{ctEamil}, ct_birth = #{ctBirth} , ct_gender = #{ctGender} WHERE ct_no = #{ctNo]-->
 <!--    </update>-->
 
-</mapper>
 
     <resultMap type="CustomerDto" id="CustomerMap">
         <id column="ct_no" property="ctNo"/>
