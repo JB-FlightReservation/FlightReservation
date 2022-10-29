@@ -49,7 +49,7 @@ public interface AdminMapper {
 	
 	int cpInsert(CouponDto couponDto);
 	
-	List<CouponDto> cpList (int startRow, int rows);
+	Page<CouponDto> cpList ();
 	
 	int cpDelete(int cpNo);
 	
