@@ -28,8 +28,6 @@ public interface AdminMapper {
 	/* 예약 관리 */
 	Page<ReservationDto> reservationList(Integer ctNo);
 
-	/* 쿠폰 관리 */
-	Page<CouponDto> couponList();
 
 	/* 관리자 */
 	List<AdminDto> adminList();

@@ -169,21 +169,6 @@ public class AdminController {
     /* 예약 관리 끝 */
 
     /* 쿠폰 관리 */
-    @GetMapping("couponManagement.do")
-    public String couponManagement(Model model, SearchDto search) {
-        PageInfo<CouponDto> coupon = null;
-        try {
-            if (search.getOrderBy() == null) search.setOrderBy("cp_no ASC");
-            coupon = adminService.couponPaging(search);
-            System.out.println(coupon);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        model.addAttribute("paging", coupon);
-
-        return "adminpage/coupon";
-
-    }
 
     /* 쿠폰 관리 끝 */
     @GetMapping("management.do")

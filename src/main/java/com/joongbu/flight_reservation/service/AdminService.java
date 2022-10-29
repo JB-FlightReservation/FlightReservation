@@ -31,9 +31,5 @@ public class AdminService {
         return  PageInfo.of(adminMapper.reservationList(ctNo), search.getNavSize());
     }
 
-    public PageInfo<CouponDto> couponPaging(SearchDto search) {
-        PageHelper.startPage(search.getPage(), search.getRows(), search.getOrderBy());
-        return PageInfo.of(adminMapper.couponList(), search.getNavSize());
-    }
 
 }
