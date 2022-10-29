@@ -187,181 +187,181 @@
 			</div>
 			<!--// 구간선택 -->
 			<div id="layer_availability_list">
-				<form id="rform" action="/reservation/book" method="post"></form>
-				<div class="sel_date_wrap">
-					<!--날짜 선택 슬라이드 -->
-					<div class="sel_date_slide swiper-container route_all route_1 swiper-container-horizontal" id="price_slider_1" style="display: block;">
-						<ul class="swiper-wrapper">
-							<li class="swiper-slide lowestFare swiper-slide-duplicate swiper-slide-prev">
-								<a class="sel_date_box" href="#" title="여정 선택하기"> <span class="date">MM-dd(요일)</span> <span class="price">xx,xxx</span>
-								</a>
-							</li>
-							<li class="swiper-slide lowestFare on swiper-slide-active">
-								<a class="sel_date_box" href="#" title="여정 선택됨"> <span class="date">MM-dd(요일)</span> <span class="price">xx,xxx</span>
-								</a>
-							</li>
-							<li class="swiper-slide lowestFare swiper-slide-next">
-								<a class="sel_date_box" href="#" title="여정 선택하기"> <span class="date">MM-dd(요일)</span> <span class="price">xx,xxx</span>
-								</a>
-							</li>
-						</ul>
+				<form id="rform" action="/reservation/book" method="post">
+					<div class="sel_date_wrap">
+						<!--날짜 선택 슬라이드 -->
+						<div class="sel_date_slide swiper-container route_all route_1 swiper-container-horizontal" id="price_slider_1" style="display: block;">
+							<ul class="swiper-wrapper">
+								<li class="swiper-slide lowestFare swiper-slide-duplicate swiper-slide-prev">
+									<a class="sel_date_box" href="#" title="여정 선택하기"> <span class="date">MM-dd(요일)</span> <span class="price">xx,xxx</span>
+									</a>
+								</li>
+								<li class="swiper-slide lowestFare on swiper-slide-active">
+									<a class="sel_date_box" href="#" title="여정 선택됨"> <span class="date">MM-dd(요일)</span> <span class="price">xx,xxx</span>
+									</a>
+								</li>
+								<li class="swiper-slide lowestFare swiper-slide-next">
+									<a class="sel_date_box" href="#" title="여정 선택하기"> <span class="date">MM-dd(요일)</span> <span class="price">xx,xxx</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<a class="btn_slide_prev price_slider_1" href="#" style="display: block;">이전</a> <a class="btn_slide_next price_slider_1" href="#" style="display: block;">다음</a>
 					</div>
-					<a class="btn_slide_prev price_slider_1" href="#" style="display: block;">이전</a> <a class="btn_slide_next price_slider_1" href="#" style="display: block;">다음</a>
-				</div>
-				<!-- 구간 리스트 -->
+					<!-- 구간 리스트 -->
 
-				<div class="section_list_wrap">
-					<!--  정렬 옵션 -->
-					<div class="list_opt">
-						<span class="select small" id="filter_route_1" style="margin-right: 12px; display: inline-block;"> <select class="form-select form-select-sm" id="filter_price_1" name="filter_price" title="항공편 정렬 기준 옵션">
-								<option selected value="1">이른 시간 순</option>
-								<option value="2">늦은 시간 순</option>
-								<option value="3">낮은 가격순</option>
-								<option value="4">높은 가격순</option>
-						</select>
-						</span>
-					</div>
-					<!-- // 정렬 옵션 -->
+					<div class="section_list_wrap">
+						<!--  정렬 옵션 -->
+						<div class="list_opt">
+							<span class="select small" id="filter_route_1" style="margin-right: 12px; display: inline-block;"> <select class="form-select form-select-sm" id="filter_price_1" name="filter_price" title="항공편 정렬 기준 옵션">
+									<option selected value="1">이른 시간 순</option>
+									<option value="2">늦은 시간 순</option>
+									<option value="3">낮은 가격순</option>
+									<option value="4">높은 가격순</option>
+								</select>
+							</span>
+						</div>
+						<!-- // 정렬 옵션 -->
 
-					<!-- 항공편 리스트 -->
-					<div class="section_list" id="price_list_route_1">
-						<ul>
-							<li class="section price_list modify route_all route_1" id="msg_filter_route_1_not" style="display: none">
-								<div class="non_service_wrap mt10 mb70">
-									<div class="con_box">
-										<p class="note">해당 시간에 조회된 여정이 없습니다.</p>
-									</div>
-								</div>
-							</li>
-							<li class="price_list route_all route_1 section_list_item on" th:each="af : ${airflightList}">
-								<a class="btn section_list_box on" data-bs-toggle="collapse" href="#booking_info" role="button" aria-expanded="false" aria-controls="booking_info" title="구간리스트 열기">
-									<div class="section_info">
-										<div class="service_section_box">
-											<div class="plan_type">
-												<button class="bul_air_info jb" title="편명 보기">JB123</button>
-												<button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
-											</div>
-											<div class="service_name first">
-												<strong class="tit">HH:mm</strong> <span class="addition">출발지</span>
-											</div>
-											<div class="service_exp">
-												<p class="top">(HH)h (mm)m</p>
-												<p class="bttm">
-													<span>직항</span>
-												</p>
-											</div>
-											<div class="service_name last">
-												<strong class="tit">HH:mm</strong> <span class="addition">도착지</span>
-											</div>
-
-										</div>
-										<div class="price_info fareInfo">
-											<div class="class normal">이코노미</div>
-											<span class="unit">KRW</span> <strong class="price">xx,xxx</strong>
-											<p class="empty_seats">x석</p>
-										</div>
-										<div class="price_info fareInfo">
-											<div class="class business">비즈니스</div>
-											<span class="unit">KRW</span> <strong class="price">xx,xxx</strong>
-											<p class="empty_seats">x석</p>
+						<!-- 항공편 리스트 -->
+						<div class="section_list" id="price_list_route_1">
+							<ul>
+								<li class="section price_list modify route_all route_1" id="msg_filter_route_1_not" style="display: none">
+									<div class="non_service_wrap mt10 mb70">
+										<div class="con_box">
+											<p class="note">해당 시간에 조회된 여정이 없습니다.</p>
 										</div>
 									</div>
-								</a>
-								<div class="collapse" id="booking_info">
-									<div class="detail_info fix s4 card card-body">
-										<div class="rate_box_index">
-											<div class="select_rate"></div>
-											<div class="rate_list">
-												<p class="service_index icon_seat">좌석</p>
-												<p class="service_index icon_carryon">기내 수하물</p>
-												<p class="service_index icon_free_bag">무료 위탁수하물</p>
-												<p class="service_index icon_food">무료 기내식</p>
-												<p class="service_index icon_business">비즈니스 혜택</p>
+								</li>
+								<li class="price_list route_all route_1 section_list_item on" th:each="af : ${airflightList}">
+									<a class="btn section_list_box on" data-bs-toggle="collapse" href="#booking_info" role="button" aria-expanded="false" aria-controls="booking_info" title="구간리스트 열기">
+										<div class="section_info">
+											<div class="service_section_box">
+												<div class="plan_type">
+													<button class="bul_air_info jb" title="편명 보기">JB123</button>
+													<button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
+												</div>
+												<div class="service_name first">
+													<strong class="tit">HH:mm</strong> <span class="addition">출발지</span>
+												</div>
+												<div class="service_exp">
+													<p class="top">(HH)h (mm)m</p>
+													<p class="bttm">
+														<span>직항</span>
+													</p>
+												</div>
+												<div class="service_name last">
+													<strong class="tit">HH:mm</strong> <span class="addition">도착지</span>
+												</div>
+
+											</div>
+											<div class="price_info fareInfo">
+												<div class="class normal">이코노미</div>
+												<span class="unit">KRW</span> <strong class="price">xx,xxx</strong>
+												<p class="empty_seats">x석</p>
+											</div>
+											<div class="price_info fareInfo">
+												<div class="class business">비즈니스</div>
+												<span class="unit">KRW</span> <strong class="price">xx,xxx</strong>
+												<p class="empty_seats">x석</p>
 											</div>
 										</div>
-										<div class="rate_box fareType normal">
-											<div class="select_rate">
-												<label class="float_item">
-													<span class="form-check"> <input type="radio" class="form-check-input" id="seatGrade1" name="afEconomy"> <label class="form-check-label" for="seatGrade1">이벤트 운임</label>
-													</span>
-												</label>
-												<a class="btn_tooltip alertIcon" href="#"></a>
+									</a>
+									<div class="collapse" id="booking_info">
+										<div class="detail_info fix s4 card card-body">
+											<div class="rate_box_index">
+												<div class="select_rate"></div>
+												<div class="rate_list">
+													<p class="service_index icon_seat">좌석</p>
+													<p class="service_index icon_carryon">기내 수하물</p>
+													<p class="service_index icon_free_bag">무료 위탁수하물</p>
+													<p class="service_index icon_food">무료 기내식</p>
+													<p class="service_index icon_business">비즈니스 혜택</p>
+												</div>
 											</div>
-											<div class="rate_list">
-												<p class="service icon_seat">
-													<span class="hidden">좌석: </span> 이코노미 좌석
-												</p>
-												<p class="service icon_carryon">
-													<span class="hidden">기내 수하물: </span> 10KG
-												</p>
-												<p class="service icon_free_bag">
-													<span class="hidden">무료 위탁 수하물: </span> 없음
-												</p>
+											<div class="rate_box fareType normal">
+												<div class="select_rate">
+													<label class="float_item">
+														<span class="form-check"> <input type="radio" class="form-check-input" id="seatGrade1" name="afEconomy"> <label class="form-check-label" for="seatGrade1">이벤트 운임</label>
+														</span>
+													</label>
+													<a class="btn_tooltip alertIcon" href="#"></a>
+												</div>
+												<div class="rate_list">
+													<p class="service icon_seat">
+														<span class="hidden">좌석: </span> 이코노미 좌석
+													</p>
+													<p class="service icon_carryon">
+														<span class="hidden">기내 수하물: </span> 10KG
+													</p>
+													<p class="service icon_free_bag">
+														<span class="hidden">무료 위탁 수하물: </span> 없음
+													</p>
+												</div>
+												<div class="rate_price">
+													<span class="unit">KRW</span> <strong class="price">xx,xxx</strong> <span class="empty_seats">9석</span>
+												</div>
 											</div>
-											<div class="rate_price">
-												<span class="unit">KRW</span> <strong class="price">xx,xxx</strong> <span class="empty_seats">9석</span>
+											<div class="rate_box fareType normal">
+												<div class="select_rate">
+													<label class="float_item">
+														<input type="radio" class="form-check-input" name="rvSeatGrade" value="이코노미" id="seatGrade2">
+														<label class="form-check-label" for="seatGrade2">일반 운임</label>
+													</label>
+													<a class="btn_tooltip alertIcon" href="#"></a>
+												</div>
+												<div class="rate_list">
+													<p class="service icon_seat">
+														<span class="hidden">좌석: </span> 이코노미 좌석
+													</p>
+													<p class="service icon_carryon">
+														<span class="hidden">기내 수하물: </span> 10KG
+													</p>
+													<p class="service icon_free_bag">
+														<span class="hidden">무료 위탁 수하물: </span> 없음
+													</p>
+												</div>
+												<div class="rate_price">
+													<span class="soldout">매진</span>
+												</div>
 											</div>
-										</div>
-										<div class="rate_box fareType normal">
-											<div class="select_rate">
-												<label class="float_item">
-													<input type="radio" class="form-check-input" name="rvSeatGrade" value="이코노미" id="seatGrade2">
-													<label class="form-check-label" for="seatGrade2">일반 운임</label>
-												</label>
-												<a class="btn_tooltip alertIcon" href="#"></a>
-											</div>
-											<div class="rate_list">
-												<p class="service icon_seat">
-													<span class="hidden">좌석: </span> 이코노미 좌석
-												</p>
-												<p class="service icon_carryon">
-													<span class="hidden">기내 수하물: </span> 10KG
-												</p>
-												<p class="service icon_free_bag">
-													<span class="hidden">무료 위탁 수하물: </span> 없음
-												</p>
-											</div>
-											<div class="rate_price">
-												<span class="soldout">매진</span>
-											</div>
-										</div>
-										<div class="rate_box fareType business">
-											<div class="select_rate">
-												<label class="float_item">
-													<input type="radio" class="form-check-input" name="rvSeatGrade" value="비즈니스" id="seatGrade3">
-													<label class="form-check-label" for="seatGrade3">비즈니스 운임</label>
-												</label>
-												<a class="btn_tooltip alertIcon" href="#"></a>
-											</div>
-											<div class="rate_list">
-												<p class="service icon_seat_bsn">
-													<span class="hidden">좌석: </span> 비즈니스 좌석
-												</p>
-												<p class="service icon_carries">
-													<span class="hidden">기내 수하물: </span> 10KG
-												</p>
-												<p class="service icon_free_bag">
-													<span class="hidden">무료 위탁 수하물: </span> 없음
-												</p>
-												<p class="service icon_food">
-													<span class="hidden">기내식: </span> 1회 제공
-												</p>
-												<p class="service icon_business">
-													무료제공 <a class="btn_tooltip alertIcon businessBenefitLayer" href="#"> </a>
-												</p>
-											</div>
-											<div class="rate_price">
-												<span class="unit">KRW</span> <strong class="price">xx,xxx</strong> <span class="empty_seats">9석</span>
+											<div class="rate_box fareType business">
+												<div class="select_rate">
+													<label class="float_item">
+														<input type="radio" class="form-check-input" name="rvSeatGrade" value="비즈니스" id="seatGrade3">
+														<label class="form-check-label" for="seatGrade3">비즈니스 운임</label>
+													</label>
+													<a class="btn_tooltip alertIcon" href="#"></a>
+												</div>
+												<div class="rate_list">
+													<p class="service icon_seat_bsn">
+														<span class="hidden">좌석: </span> 비즈니스 좌석
+													</p>
+													<p class="service icon_carries">
+														<span class="hidden">기내 수하물: </span> 10KG
+													</p>
+													<p class="service icon_free_bag">
+														<span class="hidden">무료 위탁 수하물: </span> 없음
+													</p>
+													<p class="service icon_food">
+														<span class="hidden">기내식: </span> 1회 제공
+													</p>
+													<p class="service icon_business">
+														무료제공 <a class="btn_tooltip alertIcon businessBenefitLayer" href="#"> </a>
+													</p>
+												</div>
+												<div class="rate_price">
+													<span class="unit">KRW</span> <strong class="price">xx,xxx</strong> <span class="empty_seats">9석</span>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>
 
-							</li>
-						</ul>
-						<!-- // 항공편 리스트 -->
+								</li>
+							</ul>
+							<!-- // 항공편 리스트 -->
+						</div>
 					</div>
-				</div>
 				</form>
 			</div>
 		</div>
