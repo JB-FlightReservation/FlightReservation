@@ -54,6 +54,8 @@ public class AdminController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		// TODO: 삭제하세요
+		System.out.println("Paging: " + paging);
 		model.addAttribute("paging", paging);
 		return "/adminpage/userManagement";
 	}

@@ -33,5 +33,6 @@ public class CustomerDto {
 	private Date ctBirth;
 	private String ctGender;
 	@DateTimeFormat(pattern = "HH:mm:ss yyyy-MM-dd")
+	private Date ctCreate;
 	private int ocNo;
 }
