@@ -7,4 +7,17 @@
   		select *,ct_id ctId from customer
   		where ct_id=#{ctId} and ct_pw=#{ctPw}
   	</select>
+  	<select id="find" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
+  		select ct_id ctId from customer
+  		where ct_name=#{ctName} and ct_email=#{ctEmail}
+  	</select>
+  	<select id="findPassword" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
+		select * from customer 
+		where ct_id=#{ctId} and ct_name=#{ctName} and ct_email=#{ctEmail}
+	</select>
+	
+	<update id="newPassword">
+		update customer set ct_pw=#{ctPw} 
+		where ct_id=#{ctId}
+	</update>
   </mapper>

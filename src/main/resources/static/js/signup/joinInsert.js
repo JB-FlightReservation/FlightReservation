@@ -1,15 +1,64 @@
+userInsertForm.ctId.addEventListener("change",checkUserId)
 
+async function checkUserId(){
+	userInsertForm.ctId.classList.remove("is-invalid");
+	userInsertForm.ctId.classList.remove("is-valid");
+	
+	let ctId=userInsertForm.ctId.value;
+	var pattern1 = /[0-9]/; 
+	var pattern2 = /[a-zA-Z]/; //영어
+	
+	let url="/signup/checkUserId.do?ctId="+ctId;
+
+	if(ctId.length<8){
+		userIdInvalid.innerText="8글자 이상 작성하세요.";
+		userInsertForm.ctId.classList.add("is-invalid");
+		}
+		
+	if (!pattern1.test(ctId)){
+		userIdInvalid.innerText="숫자가 포함되어 있지 않습니다."; 
+		userInsertForm.ctId.classList.add("is-invalid");
+		}
+		
+	if(!pattern2.test(ctId)){
+		userIdInvalid.innerText="영어가 포함 되어 잇지 않습니다.";
+		userInsertForm.ctId.classList.add("is-invalid");
+		}
+		
+	if(ctId.length>7&&pattern1.test(ctId) && pattern2.test(ctId)) {
+		let resp=await fetch(url);
+		if(resp.status==200){
+			let json=await resp.json();		
+			if(json.check==1){
+				userIdInvalid.innerHTML='사용중인 아아디 입니다.';
+				userInsertForm.ctId.classList.add("is-invalid");
+			}else if(json.check==0){
+				userIdInvalid.innerHTML='사용가능한 아이디 입니다.';
+				userInsertForm.ctId.classList.add("is-valid");
+			}else if(json.check==-1){
+				alert("db 조회 실패(다시시도)");
+			}
+		}else{
+			alert("통신 장애(다시시도)"+resp.status);
+		}
+	} 
+	}
+		
+	
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-   function check_pw(){
+    function check_pw(){
 	   		userInsertForm.userPW2.classList.remove("is-invalid");
 			userInsertForm.userPW2.classList.remove("is-valid");
 			userInsertForm.ctPw.classList.remove("is-invalid");
 			userInsertForm.ctPw.classList.remove("is-valid");
-
+			
+			let ctPw=userInsertForm.ctPw.value;
             var pw = document.getElementById('pw').value;
             var SC = ["!","@","#","$","%"];
+            var pattern1 = /[0-9]/; 
+            var pattern2 = /[a-zA-Z]/; //영어
             var check_SC = 0;
  
             if(pw.length < 6 || pw.length>16){
@@ -21,15 +70,23 @@
                     check_SC = 1;
                 }
             }
-            if(check_SC == 0){
+            if(check_SC == 0 ){
 				check2.innerHTML='!,@,#,$,% 의 특수문자가 들어가 있지 않습니다.';
 				userInsertForm.ctPw.classList.add("is-invalid");
             }
+            if( !pattern2.test(ctPw)){
+				  check2.innerHTML='영어가 포함되어 있지 않습니다. ';
+					userInsertForm.ctPw.classList.add("is-invalid");
+			}
+			if(!pattern1.test(ctPw)){
+				  check2.innerHTML='숫자가 포함되어 있지 않습니다. ';
+					userInsertForm.ctPw.classList.add("is-invalid");
+			}
             if(pw.length > 6 && pw.length <16 && check_SC != 0 ) {
 				check1.innerHTML='사용할 수 있는 비밀번호입니다.';
 				userInsertForm.ctPw.classList.add("is-valid");
 			}
-            if(pw.length > 6 && pw.length <16 && check_SC != 0 && document.getElementById('pw').value !='' && document.getElementById('pw2').value!=''){
+            if(pattern2.test(ctPw) && pattern1.test(ctPw) && pw.length > 6 && pw.length <16 && check_SC != 0 && document.getElementById('pw').value !='' && document.getElementById('pw2').value!=''){
                 if(document.getElementById('pw').value==document.getElementById('pw2').value){
 					userPWInvalid1.innerText="비밀번호가 일치합니다.";
 					userInsertForm.userPW2.classList.add("is-valid");
@@ -37,11 +94,9 @@
   					target.disabled = false;
 				
                 }
-                else  {
+                else {
 					userPWInvalid2.innerText="비밀번호가 일치하지 않습니다.";
 					userInsertForm.userPW2.classList.add("is-invalid");
-				
-					
                    
                 }
             }
@@ -159,7 +214,6 @@ function joinform_check() {
 
 
   //입력 값 전송
-  
+  
   document.userInsertForm.submit(); //유효성 검사의 포인트   
 }
-

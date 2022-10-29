@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="css/headerNav.css">
+<title>headerNav</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/headerNav.css}">
 </head>
 <body>
+<!-- 예매, 이벤트, 고객센터, 항공편현황, 마이페이지, 삼단바 -->
+<!-- 삼단메뉴: 항공권예매, 나의 예약조회, 이벤트, 고객센터, 항공편현황, 마이페이지 해야함-->
 	<nav>
 		<div class="logo">
 			<a href="#">JB항공</a>
@@ -16,6 +18,7 @@
 		<div class="lnb">
 			<a href="#">마이페이지</a> <a href="#">전체메뉴</a>
 		</div>
+			
 	</nav>
 </body>
 </html>

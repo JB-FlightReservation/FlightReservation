@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>예매 페이지</title>
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="/bootstrap/js/bootstrap.min.js"></script>
+	<link href="/css/flightsearch.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="tit_container">
+						<h2 class="pg_tit">항공권 예매</h2>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="research_option_container">
+						<div class="option_container">
+							<div class="option_selector">
+								<input type="radio" class="btn-check" name="options"
+									id="round-trip-option" autocomplete="off"> <label
+									for="round-trip-option" class="btn btn-danger">왕복</label>
+								<input type="radio" class="btn-check" name="options"
+									id="one-way-option" autocomplete="off" checked> <label
+									for="one-way-option" class="btn btn-danger">편도</label> 
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="research_plan_container">
+						<div class="research_plan">
+							<form action="">
+								<div class="airport_selector">
+									<div class="depart_airport_selector selector_option">
+										<label for="depart_airport"
+											class="depart_airport_tit sub-airport-tit">출발지</label> <select
+											class="form-select selector_box" id="depart_airport">
+											<option value="1">DAN1</option>
+											<option value="2">DAN2</option>
+											<option value="2">DAN3</option>
+											<option value="2">DAN4</option>
+										</select>
+									</div>
+									<div class="land_airport_selector selector_option">
+										<label for="land_airport"
+											class="land_airport_tit sub-airport-tit">도착지</label> <select
+											class="form-select selector_box" id="land_airport">
+											<option value="1">LAN1</option>
+											<option value="2">LAN2</option>
+											<option value="2">LAN3</option>
+											<option value="2">LAN4</option>
+										</select>
+									</div>
+									<div class="plan_date selector_option">
+										<label for="depart_date" class="sub-airport-tit">탑승일</label> <input
+											type="date" id="depart_date" class="depart_date selector_box">
+									</div>
+								</div>
+								<div class="passenger_count">
+									<div class="adult_count count_box">
+										<label for="adult_count" class="sub-passenger-tit">성인</label>
+										<div class="btn-group" role="group" aria-label="Basic example">
+											<button type="button" class="btn btn-primary">-</button>
+											<div class="input_container">
+												<input type="text" id="adult_count" value="1">
+											</div>
+
+											<button type="button" class="btn btn-primary">+</button>
+										</div>
+									</div>
+									<div class="teen_count count_box">
+										<label for="teen_count" class="sub-passenger-tit">소아</label>
+										<div class="btn-group" role="group" aria-label="Basic example">
+											<button type="button" class="btn btn-primary">-</button>
+											<div class="input_container">
+												<input type="text" id="teen_count" value="0">
+											</div>
+
+											<button type="button" class="btn btn-primary">+</button>
+										</div>
+									</div>
+									<div class="baby_count count_box">
+										<label for="baby_count" class="sub-passenger-tit">유아</label>
+										<div class="btn-group" role="group" aria-label="Basic example">
+											<button type="button" class="btn btn-primary">-</button>
+											<div class="input_container">
+												<input type="text" id="baby_count" value="0">
+											</div>
+											<button type="button" class="btn btn-primary">+</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<div class="btn_group">
+						<div class="cancel_research btn btn-outline-secondary">취소</div>
+						<div class="submit_research btn btn-outline-danger">조회</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

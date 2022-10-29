@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<ul class="pagination justify-content-center">
+    <li class="page-item" th:classappend="${(reservation.isFirstPage)?'disabled':''}">
+        <a class="page-link" tH:href="@{''(page=1)}">First</a>
+    </li>
+    <li class="page-item" th:classappend="${(!reservation.hasPreviousPage)?'disabled':''}">
+        <a class="page-link" tH:href="@{''(page=${reservation.prePage})}">Prev</a>
+    </li>
+    <li class="page-item" th:each="page : ${reservation.navigatepageNums}">
+        <a class="page-link"
+           th:classappend="${(reservation.pageNum==page)?'active':''}"
+           th:href="@{''(page=${page})}"
+           th:text="${page}"></a>
+    </li>
+    <li class="page-item" th:classappend="${(!reservation.hasNextPage)?'disabled':''}">
+        <a class="page-link" tH:href="@{''(page=${reservation.nextPage})}">Next</a>
+    </li>
+    <li class="page-item" th:classappend="${(reservation.isLastPage)?'disabled':''}">
+        <a class="page-link" tH:href="@{''(page=${reservation.pages})}">Last</a>
+    </li>
+</ul>
+</html>

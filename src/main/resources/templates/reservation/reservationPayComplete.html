@@ -4,26 +4,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<script th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
-	<div>
-		<div>
-			<div class="result_msg complete fix mt60">
-		        <p class="tit">
-		        JB항공을 이용해 주시는 고객님! <br>
-		        항공권 발권이 완료되었습니다.
+	<div class="container mt-5">
+		<div class="d-flex ">
+			<div class="">
+		        <p class="">
+		        	JB항공을 이용해 주시는 고객님! <br>
+		        	<span class="fs-4">항공권 발권이 완료되었습니다.</span>
 		        </p>
-		        <div class="txt">
-			        <ul class="ul_dot txt_left pl40">
+		        <div class="">
+			        <ul class="">
 						<li>박윤찬 님의 발권이 완료되었습니다.</li>
 						<li>E-ticket의 경우 마이페이지에서 확인이 가능합니다.</li>
 					</ul>
 		        </div>
 		    </div>
+		    <div class="ps-5">
+		    	<img class="rounded-circle" alt="" src="/img/littledeep_illustration_airplane_style1.webp" style="width: 200px; height: 200px;">
+		    </div>
 		</div>
 		
-		<div>
-			<span>예약 번호 : TD5UA2</span>
+		<div class="border border-dark container mt-5 rounded p-2">
+			예약 번호 : TD5UA2
 			<p> 항공일정   | 김포->제주, 제주->김포</p>
 			<p> 예약상태   | 발권완료</p>
 			<p> 탑승객수   | 2명</p>
@@ -31,45 +36,47 @@
 		</div>
 		
 		<div>
-			<div class="table_round">
-				<table class="tb_col">
-					<h3>결제 금액</h3>
-					<colgroup>
-						<col style="width:14%">
-						<col style="width:14%">
-						<col style="width:14%">
-						<col style="width:14%">
-						<col style="width:14%">
-						<col style="width:14%">
-						<col style="width:14%">
-					</colgroup>
-					<thead>
-						<tr>
-							<th scope="col">구분</th>
-							<th scope="col">탑승객</th>
-							<th scope="col">항공 운임</th>
-							<th scope="col">유류할증료</th>
-							<th scope="col">공항시설 사용료</th>
-							<th scope="col">부가서비스</th>
-							<th scope="col">결제 내역</th>
-						</tr>
-					</thead>
-					<tbody>
-						<!-- loop -->
-						<tr>
-							<td>1</td>
-							<td>박윤찬</td>
-							<td>KRW 54,900</td>
-							<td>KRW 30,800</td>
-							<td>KRW 8,000</td>
-							<td>KRW 0</td>
-							<td>KRW 93,700</td>
-						</tr>
-						<!-- // loop -->
-					</tbody>
-				</table>
-			</div>
+			
+			<table class="table table-bordered text-center">
+				<h3>결제 금액</h3>
+				<colgroup>
+					<col style="width:14%">
+					<col style="width:14%">
+					<col style="width:14%">
+					<col style="width:14%">
+					<col style="width:14%">
+					<col style="width:14%">
+					<col style="width:14%">
+				</colgroup>
+				<thead>
+					<tr class="table-secondary">
+						<th scope="col">구분</th>
+						<th scope="col">탑승객</th>
+						<th scope="col">항공 운임</th>
+						<th scope="col">유류할증료</th>
+						<th scope="col">공항사용료</th>
+						<th scope="col">할인</th>
+						<th scope="col">요금 합계</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- loop -->
+					<tr>
+						<td>1</td>
+						<td>박윤찬</td>
+						<td>KRW 54,900</td>
+						<td>KRW 30,800</td>
+						<td>KRW 8,000</td>
+						<td>KRW 0</td>
+						<td>KRW 93,700</td>
+					</tr>
+					<!-- // loop -->
+				</tbody>
+			</table>
+			
 		</div>
 	</div>
+	<!-- footer -->
+   	<footer th:include="/footerNav"></footer>
 </body>
 </html>

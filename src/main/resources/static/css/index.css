@@ -1,74 +1,129 @@
-
-
-
-
+@charset "UTF-8";
 * {
 	padding: 0;
 	margin: 0;
+}
+
+body {
 	width: 1100px;
 	margin: 0 auto;
 }
-
-/* Google Web Font */
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap');
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.5em;
-    font-size: 15px;
-}
-
-header {
-    font-weight: normal;
-    background: #fff;
-}
-
 ul{
    list-style:none;
 }
-
- .agreedbox {
-        overflow: auto;
-      }
+   
    
 /* 광고, 예매 */
-.main_text{
+.main_content{
 	width: 100%;
 	height: 500px;
 	background: #f2f2f3;
+}
+.main_content .image{
+	border: 1px solid black;
+	width: 50%;
+	height: 500px;
+	float: left;
+	box-sizing: border-box;
+}
+.main_content .reserve{
+	/* border: 1px solid black; */
+	width: 50%;
+	height: 500px;
+	float: right;
+	box-sizing: border-box;
+	background: #91B9F5;
+}
+.reserve_contents{
+	text-align: center;
+	margin: 23px;
+}
+.reserve_name{
+	border: 1px solid black;
+	height: 35px;
+	padding-top: 10px;
+	border-radius: 20px;
+	background: darkblue;
+	color: white;
+}
+.triptypeselect, 
+.singledestcontrols_places, 
+.daterangeselector, .section_passenger{
+	margin: 35px 30px 30px;
+}
+.triptypeselect a{
+	margin-left: 5px;
+}
+.reserve_selector{
+	border: 1px solid black;
+	border-radius: 20px;
+	background: white;
+	height: 350px;
+	padding: 20px;
+	margin-top: 10px;
+}
+.singledestcontrols_places{
+	display: flex;
+}
+.locationselector, .switch_button{
+	flex: 1;
+}
+.daterangeselector{
+	display: flex;
+}
+.date-st, .date-de{
+	flex: 1;
+}
+
+.tripselect_btn{
+	width: 50%;
+	height: 40px;
+	border-radius: 20px;
+	background: darkblue;
+	color: white;
 }
 
 /* 할인 */
 .discount{
 	width: 100%;
-	height: 330px;
+	height: 370px;
+	margin: 45px 0 45px 0;
 }
 .icons{
 	display: flex;
 	margin: auto;
+	padding: 0;
 }
 .icons > li{
+	/* border: 1px solid black; */
 	flex: 1;
-	height: 330px;
+	height: 320px;
+	text-align: center;
+	margin: 30px;
 }
-/* .icons > li:not(:last-child){
-	margin-right: 20px; 
-} */
+.icons .discount_contents{
+	font-weight: bold;
+}
+img{
+	border-radius: 50%;
+}
 
 /* 회원해택 */
 .member{
 	width: 100%;
-	height: 250px;
+	height: 230px;
 }
-.member .mbox{
+.member .member-box{
 	width: 80%;
 	height: 110px;
+	margin-top: 25px;
+	margin-left: 105px;
 	background: #ffb6c1;
-	margin-top: 15px;
+	display : flex;
+ 	justify-content: center;
+  	align-items : center;
 }
-.mbox p{
-	width: 80%;
-	margin: 0 auto;
-	text-align: center;
-}
+
+
 
 
