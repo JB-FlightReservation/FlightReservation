@@ -82,7 +82,9 @@
 										<p class="first" th:text="${session.pSession.p[0].pgFirstName}"></p>
 									</div>
 									<div class="add_price">
-										<p><span id="p_bweight">15</span>kg</p>
+										<p>
+											<span id="p_bweight">15</span>kg
+										</p>
 										<p>KRW 0</p>
 									</div>
 								</div>
@@ -139,10 +141,16 @@
 						</dl>
 					</div>
 					<div class="slidecontainer">
-						<input type="range" min="15" max="30" step="5" value="15" class="slider" id="myRange">
-						<div class="kgInfo">
-							<div>15kg</div><div>20kg</div><div>25kg</div><div>30kg</div>
-						</div>
+						<form id="rform" action="/reservation/baggage" method="post">
+							<input type="range" min="15" max="30" step="5" value="15" class="slider" id="myRange">
+							<input type="text" name="p[0].pgBaggage" id="b_value">
+							<div class="kgInfo">
+								<div>15kg</div>
+								<div>20kg</div>
+								<div>25kg</div>
+								<div>30kg</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

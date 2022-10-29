@@ -11,6 +11,7 @@ var swiper = new Swiper("#secondSwiper", {
 var slider = document.getElementById("myRange");
 var output = document.getElementById("p_bweight");
 var output2 = document.getElementById("b_weight");
+
 output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)

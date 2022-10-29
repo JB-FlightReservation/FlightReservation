@@ -77,23 +77,24 @@ public class ReservationController {
 	// ------------- 예매 3 ------------------
 	@GetMapping("/baggage.do")
 	public String baggage() {
-		
-//		System.out.println(pDto);
-		
-		// pDto.setPgBaggage(pSession.getPgBaggage());
-		
+				
 //		System.out.println(pSession);
 		return "reservation/baggage";
 	}
 	
 	@PostMapping("/baggage")
-	public void baggageInput(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
+	public String baggageInput(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
 		
+		
+		pDto.setPgBaggage(pDto.getPgBaggage());
+		System.out.println(pDto.getPgBaggage());
+		return "redirect:/reservation/terms.do";
 	}
 
 	// ------------- 예매 4 ------------------
 	@GetMapping("/terms.do")
-	public String terms() {
+	public String terms(@SessionAttribute PassengerInfoDto pSession) {
+		System.out.println(pSession);
 		return "reservation/reservationTerms";
 	}
 
