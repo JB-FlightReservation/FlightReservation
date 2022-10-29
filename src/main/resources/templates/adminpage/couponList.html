@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<header th:include="adminpage/headerNav"></header>
   
 
 		
@@ -66,8 +67,8 @@
 					<td style="text-align:center; color:#0d6efd; font-weight:bold !important;" th:text="${coupon.cpName}"></td>
 					
 					<td style="text-align:center;" th:text="${coupon.cpDiscount}"></td>
-					<td style="text-align:center;"th:text="${coupon.cpStart}"></td>
-					<td style="text-align:center;"th:text="${coupon.cpEnd}"></td>
+					<td style="text-align:center;"th:text="${#dates.format(coupon.cpStart, 'yyyy-MM-dd')}"></td>
+					<td style="text-align:center;"th:text="${#dates.format(coupon.cpEnd, 'yyyy-MM-dd')}"></td>
 					  <td>
       				  <div class="find-btn">
         			<a class="btn btn-danger pull-right find-btn1">삭제</a>

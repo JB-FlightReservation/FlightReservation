@@ -22,6 +22,7 @@ import lombok.Data;
 | next_rv_no      | int unsigned | YES  |     | NULL    |       |
 | rv_seat_grade   | varchar(45)  | NO   |     | NULL    |       |
 +-----------------+--------------+------+-----+---------+-------+ 
+
  */
 
 @Data
@@ -39,6 +40,9 @@ public class ReservationDto{
 	private String rvLandAp;
 	private int nextRvNo;
 	private String rvSeatGrade;
+
+	private CustomerDto customer;
+
 	
 	
 }
