@@ -1,13 +1,22 @@
+$(document).on('click','#btnAuthNo',function(){
+	findIdChk();
+});
+function findIdChk(){
+	let name = $('#inputName').val();
+	let email = $('#inputEmail').val();
+	
+	$.ajax({
+		url: '/login/findId.do',
+		type: 'post',
+		data : {name : name , email :email },
+		dataType : 'json'
+	})
+}
 
-function sendbtnOtp(){
-	if($("#inputName").val()==null||$("#inputName").val()==""){
-		alert("이름을 입력해주세요.");
-		$("#inputName").focus();
-		return false;
-	}
-	if($("#inputEmail").val()==null||$("#inputEmail").val()==""){
-		alert("가입한 이메일을 입력해주세요.");
-		$("#inputEmail").focus();
-		return false;
-	}
+//$(document).on('click','#findId',function(){
+//	mainSbmit();
+//});
+function mainSubmit(){
+	let num=$('#auth').val();
+	console.log(num);
 }
