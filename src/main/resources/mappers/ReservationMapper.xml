@@ -19,4 +19,6 @@
 		<result column="rv_land_ap" property="rvLandAp" />
 		<result column="next_rv_no" property="nextRvNo" />
 	</resultMap>
+	
+	
 </mapper>
