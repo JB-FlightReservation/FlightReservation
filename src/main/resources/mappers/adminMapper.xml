@@ -85,8 +85,13 @@
 			VALUES
 			(#{cpName},#{cpStart},#{cpEnd}, #{cpDiscount})
 	</insert>
-	<select id="list" resultType="com.joongbu.flight_reservation.dto.CouponDto" >
+	
+	<select id="cpList" resultType="com.joongbu.flight_reservation.dto.CouponDto" >
  		SELECT *,cp_name cpName FROM coupon 
+ 		LIMIT #{startRow}, #{rows}
  	</select>
+ 	 <delete id="cpDelete">
+        DELETE FROM coupon WHERE cp_no = #{cPNo}
+    </delete>
 
 </mapper>

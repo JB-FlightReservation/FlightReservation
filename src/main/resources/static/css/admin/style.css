@@ -231,7 +231,7 @@ Form
   resize: vertical;
   overflow: auto;
 }
-.cd-form input[type="submit"] {
+.btbt{
   /* button style */
   border: none;
     background-color: #0d6efd;
@@ -239,7 +239,7 @@ Form
   border-radius: .25em;
   padding: 16px 20px;
   color: #ffffff;
-  
+  font-size:18px;
  float:right;
   cursor: pointer;
   -webkit-font-smoothing: antialiased;

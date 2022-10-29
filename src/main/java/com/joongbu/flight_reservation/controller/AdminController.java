@@ -112,7 +112,6 @@ public class AdminController {
 	@GetMapping("/createCoupon.do")
 	public void createCoupon() {
 	}
-
 	@PostMapping("/createCoupon.do")
 	public String createCoupon(
 		CouponDto couponDto
@@ -131,20 +130,38 @@ public class AdminController {
 	}
 	}
 	
-	//쿠폰 리스트
+	//쿠폰페이지- 리스트
 	@GetMapping("/couponList.do")
 	public String couponList(
 			Model model,
 			@RequestParam(defaultValue="1") int page
 			) {
 		final int ROWS=10;
-		PageHelper.startPage(page, ROWS);
-		List<CouponDto> userList=adminMapper.list();
-		PageInfo<CouponDto> paging=PageInfo.of(userList,5);
-		model.addAttribute("paging", paging);
+		int startRow = (page - 1) * ROWS;
+		List<CouponDto> cpList = null;
+		try {
+			cpList = adminMapper.cpList(startRow, ROWS);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("cpList", cpList);
 		return "/adminpage/couponList";
 	}
-	
+	//쿠폰페이지- 삭제
+		@GetMapping("/cpDelete.do")
+		public String couponDelete(int cpNo) {
+			int delete = 0;
+			try {
+				delete = adminMapper.cpDelete(cpNo);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			if (delete > 0) {
+				return "redirect:/adminpage/couponList.do";
+			} else {
+				return "redirect:/adminpage/couponList.do";
+			}
+		}
 	
 
 	@GetMapping("/coupon.do")
