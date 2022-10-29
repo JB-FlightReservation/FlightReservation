@@ -85,5 +85,31 @@
 		admin_name=#{admin_name}, admin_pw=#{admin_pw}, admin_email=#{admin_email}, admin_no=#{admin_no}
 		WHERE admin_id=#{adminId}
 	</update>
+
+	</select>
+	
+	<insert id="cpInsert" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
+		INSERT INTO coupon
+			( cp_name,cp_start,cp_end,cp_discount)
+			VALUES
+			(#{cpName},#{cpStart},#{cpEnd}, #{cpDiscount})
+	</insert>
+	
+	<select id="cpList" resultType="com.joongbu.flight_reservation.dto.CouponDto" >
+ 		SELECT *,cp_name cpName FROM coupon 
+ 		LIMIT #{startRow}, #{rows}
+ 	</select>
+ 	 <delete id="cpDelete">
+        DELETE FROM coupon WHERE cp_no = #{cPNo}
+    </delete>
+    
+    <update id="cpUpdate" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
+		UPDATE  coupon SET 
+			 cp_name=#{cpName},
+			 cp_start=#{cpStart},cp_end=#{cpEnd},cp_discount=#{cpDiscount}
+		WHERE cp_no = #{cPNo}
+	</update>
+
+
 </mapper>
 
