@@ -54,8 +54,8 @@
                                 <!--// 구간 -->
                                 <!-- 출발 -->
                                 <div class="service_name first">
-                                    <strong class="tit airport departure">DAN</strong>
-                                    <span class="addition">여기서 출발</span>
+                                    <strong class="tit airport departure" th:text="${depAprt}">DAN</strong>
+                                    <span class="addition" th:text="${airflightList[0].depAirportNm}">여기서 출발</span>
                                 </div>
                                 <!-- 출발 -->
                                 <!-- 설명 -->
@@ -63,8 +63,8 @@
                                 <!--// 설명 -->
                                 <!-- 도착 -->
                                 <div class="service_name last">
-                                    <strong class="tit airport arrival">LAN</strong>
-                                    <span class="addition">저기에 도착</span>
+                                    <strong class="tit airport arrival" th:text="${landAprt}">LAN</strong>
+                                    <span class="addition" th:text="${airflightList[0].arrAirportNm}">저기에 도착</span>
                                 </div>
                                 <!-- 도착 -->
                             </div>
@@ -81,8 +81,9 @@
                         재검색
                     </button>
                 </div>
-                <form action="booking.do" method="GET">
-                    <div aria-hidden="true" aria-labelledby="planResearchModal" class="modal fade" id="planResearchModal"
+                <form action="/reservation/temp.do" method="post">
+                    <div aria-hidden="true" aria-labelledby="planResearchModal" class="modal fade"
+                         id="planResearchModal"
                          tabindex="-1">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -109,71 +110,74 @@
                                     <hr>
                                     <div class="research_plan_container">
                                         <div class="research_plan">
-                                            <form action="">
-                                                <div class="airport_selector">
-                                                    <div class="depart_airport_selector selector_option">
-                                                        <label class="depart_airport_tit sub-airport-tit"
-                                                               for="depart_airport">출발지
-                                                        </label>
-                                                        <select class="form-select selector_box" id="depart_airport" name="depAprt">
-                                                            <option value="1">DAN1</option>
-                                                            <option value="2">DAN2</option>
-                                                            <option value="2">DAN3</option>
-                                                            <option value="2">DAN4</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="land_airport_selector selector_option">
-                                                        <label class="land_airport_tit sub-airport-tit"
-                                                               for="land_airport">도착지
-                                                        </label>
-                                                        <select class="form-select selector_box" id="land_airport" name="landAprt">
-                                                            <option value="1">LAN1</option>
-                                                            <option value="2">LAN2</option>
-                                                            <option value="2">LAN3</option>
-                                                            <option value="2">LAN4</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="plan_date selector_option">
-                                                        <label class="sub-airport-tit" for="depart_date">탑승일</label>
-                                                        <input class="depart_date selector_box" id="depart_date"
-                                                               type="date" name="depDate">
+                                            <div class="airport_selector">
+                                                <div class="depart_airport_selector selector_option">
+                                                    <label class="depart_airport_tit sub-airport-tit"
+                                                           for="depart_airport">출발지
+                                                    </label>
+                                                    <select class="form-select selector_box" id="depart_airport"
+                                                            name="depAprt">
+                                                        <option th:each="i : ${airportList}"
+                                                                th:text="${i.airportId}"
+                                                                th:value="${i.airportId}">DAN1
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="land_airport_selector selector_option">
+                                                    <label class="land_airport_tit sub-airport-tit"
+                                                           for="land_airport">도착지
+                                                    </label>
+                                                    <select class="form-select selector_box" id="land_airport"
+                                                            name="landAprt">
+                                                        <option th:each="i : ${airportList}"
+                                                                th:text="${i.airportId}"
+                                                                th:value="${i.airportId}">DAN1
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="plan_date selector_option">
+                                                    <label class="sub-airport-tit" for="depart_date">탑승일</label>
+                                                    <input class="depart_date selector_box" id="depart_date"
+                                                           name="depDate" pattern="yyyymmdd" type="date">
+                                                </div>
+                                            </div>
+                                            <div class="passenger_count">
+                                                <div class="adult_count count_box">
+                                                    <label class="sub-passenger-tit" for="adult_count">성인</label>
+                                                    <div aria-label="Basic example" class="btn-group" role="group">
+                                                        <button class="btn btn-primary" type="button">-</button>
+                                                        <div class="input_container">
+                                                            <input id="adult_count" name="adultCnt" type="text"
+                                                                   value="1">
+                                                        </div>
+                                                        
+                                                        <button class="btn btn-primary" type="button">+</button>
                                                     </div>
                                                 </div>
-                                                <div class="passenger_count">
-                                                    <div class="adult_count count_box">
-                                                        <label class="sub-passenger-tit" for="adult_count">성인</label>
-                                                        <div aria-label="Basic example" class="btn-group" role="group">
-                                                            <button class="btn btn-primary" type="button">-</button>
-                                                            <div class="input_container">
-                                                                <input id="adult_count" type="text" value="1" name="adultCnt">
-                                                            </div>
-                                                            
-                                                            <button class="btn btn-primary" type="button">+</button>
+                                                <div class="teen_count count_box">
+                                                    <label class="sub-passenger-tit" for="teen_count">소아</label>
+                                                    <div aria-label="Basic example" class="btn-group" role="group">
+                                                        <button class="btn btn-primary" type="button">-</button>
+                                                        <div class="input_container">
+                                                            <input id="teen_count" name="teenCnt" type="text"
+                                                                   value="0">
                                                         </div>
-                                                    </div>
-                                                    <div class="teen_count count_box">
-                                                        <label class="sub-passenger-tit" for="teen_count">소아</label>
-                                                        <div aria-label="Basic example" class="btn-group" role="group">
-                                                            <button class="btn btn-primary" type="button">-</button>
-                                                            <div class="input_container">
-                                                                <input id="teen_count" type="text" value="0" name="teenCnt">
-                                                            </div>
-                                                            
-                                                            <button class="btn btn-primary" type="button">+</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="baby_count count_box">
-                                                        <label class="sub-passenger-tit" for="baby_count">유아</label>
-                                                        <div aria-label="Basic example" class="btn-group" role="group">
-                                                            <button class="btn btn-primary" type="button">-</button>
-                                                            <div class="input_container">
-                                                                <input id="baby_count" type="text" value="0" nanme="babyCnt">
-                                                            </div>
-                                                            <button class="btn btn-primary" type="button">+</button>
-                                                        </div>
+                                                        
+                                                        <button class="btn btn-primary" type="button">+</button>
                                                     </div>
                                                 </div>
-                                            </form>
+                                                <div class="baby_count count_box">
+                                                    <label class="sub-passenger-tit" for="baby_count">유아</label>
+                                                    <div aria-label="Basic example" class="btn-group" role="group">
+                                                        <button class="btn btn-primary" type="button">-</button>
+                                                        <div class="input_container">
+                                                            <input id="baby_count" name="babyCnt" type="text"
+                                                                   value="0">
+                                                        </div>
+                                                        <button class="btn btn-primary" type="button">+</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +186,8 @@
                                         <div class="cancel_research btn btn-outline-secondary" data-bs-dismiss="modal">
                                             취소
                                         </div>
-                                        <button class="submit_research btn btn-outline-danger" id="submit_research" type="submit">조회
+                                        <button class="submit_research btn btn-outline-danger" id="submit_research"
+                                                type="submit">조회
                                         </button>
                                     </div>
                                 </div>
@@ -212,19 +217,7 @@
                 <div class="sel_date_slide swiper-container route_all route_1 swiper-container-horizontal"
                      id="price_slider_1" style="display: block;">
                     <ul class="swiper-wrapper">
-                        <li class="swiper-slide lowestFare swiper-slide-duplicate swiper-slide-prev">
-                            <a class="sel_date_box" href="#" title="여정 선택하기">
-                                <span class="date">MM-dd(요일)</span>
-                                <span class="price">xx,xxx</span>
-                            </a>
-                        </li>
-                        <li class="swiper-slide lowestFare on swiper-slide-active">
-                            <a class="sel_date_box" href="#" title="여정 선택됨">
-                                <span class="date">MM-dd(요일)</span>
-                                <span class="price">xx,xxx</span>
-                            </a>
-                        </li>
-                        <li class="swiper-slide lowestFare swiper-slide-next">
+                        <li class="swiper-slide lowestFare swiper-slide-duplicate swiper-slide-prev" th:each="i :${#numbers.sequence(-1, 1)}">
                             <a class="sel_date_box" href="#" title="여정 선택하기">
                                 <span class="date">MM-dd(요일)</span>
                                 <span class="price">xx,xxx</span>
@@ -263,48 +256,45 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="price_list route_all route_1 section_list_item on">
+                        <li class="price_list route_all route_1 section_list_item on" th:each="airflight, i: ${airflightList}">
                             <a aria-controls="booking_info" aria-expanded="false" class="btn section_list_box on"
-                               data-bs-toggle="collapse" href="#booking_info" role="button" title="구간리스트 열기">
+                               data-bs-toggle="collapse" th:href="@{'#booking_info_'+${i.index}}" role="button" title="구간리스트 열기">
                                 <div class="section_info">
                                     <div class="service_section_box">
                                         <div class="plan_type">
-                                            <button class="bul_air_info jb" title="편명 보기">JB123</button>
-                                            <button class="bul_air_info" title="항공기 정보 보기">K456-789</button>
+                                            <button class="bul_air_info jb" title="편명 보기" th:text="${airflight.vihicleId}">JB123</button>
+                                            <button class="bul_air_info" title="항공기 정보 보기" th:text="${airflight.airlineNm}">K456-789</button>
                                         </div>
                                         <div class="service_name first">
-                                            <strong class="tit">HH:mm</strong>
-                                            <span class="addition">출발지</span>
+                                            <strong class="tit" th:text="${airflight.depPlandTime}">HH:mm</strong>
+                                            <span class="addition" th:text="${airflight.depAirportNm}">출발지</span>
                                         </div>
                                         <div class="service_exp">
-                                            <p class="top">
+                                            <p class="top" >
                                                 (HH)h (mm)m
-                                            </p>
-                                            <p class="bttm">
-                                                <span>직항</span>
                                             </p>
                                         </div>
                                         <div class="service_name last">
-                                            <strong class="tit">HH:mm</strong>
-                                            <span class="addition">도착지</span>
+                                            <strong class="tit" th:text="${airflight.arrPlandTime}">HH:mm</strong>
+                                            <span class="addition" th:text="${airflight.arrAirportNm}">도착지</span>
                                         </div>
 
                                     </div>
                                     <div class="price_info fareInfo">
                                         <div class="class normal">이코노미</div>
-                                        <span class="unit">KRW</span>
-                                        <strong class="price">xx,xxx</strong>
-                                        <p class="empty_seats">x석</p>
+                                        <span class="unit" th:if="${airflight.economyCharge != '0'}">KRW</span>
+                                        <strong class="price" th:if="${airflight.economyCharge != '0'}" th:text="${airflight.economyCharge}">xx,xxx</strong>
+                                        <strong class="price" th:unless="${airflight.economyCharge != '0'}" th:text="매진">xx,xxx</strong>
                                     </div>
                                     <div class="price_info fareInfo">
                                         <div class="class business">비즈니스</div>
-                                        <span class="unit">KRW</span>
-                                        <strong class="price">xx,xxx</strong>
-                                        <p class="empty_seats">x석</p>
+                                        <span class="unit" th:if="${airflight.prestigeCharge != '0'}">KRW</span>
+                                        <strong class="price" th:if="${airflight.prestigeCharge != '0'}" th:text="${airflight.prestigeCharge}">xx,xxx</strong>
+                                        <strong class="price" th:unless="${airflight.prestigeCharge != '0'}" th:text="매진">xx,xxx</strong>
                                     </div>
                                 </div>
                             </a>
-                            <div class="collapse" id="booking_info">
+                            <div class="collapse" th:id="'booking_info_' + ${i.index}">
                                 <div class="detail_info fix s4 card card-body">
                                     <div class="rate_box_index">
                                         <div class="select_rate"></div>
@@ -316,37 +306,7 @@
                                             <p class="service_index icon_business">비즈니스 혜택</p>
                                         </div>
                                     </div>
-                                    <div class="rate_box fareType normal">
-                                        <div class="select_rate">
-                                            <label class="float_item">
-                                            <span class="form-check">
-                                                <input class="form-check-input" id="seatGrade1" name="seatGrade"
-                                                       type="radio">
-                                                <label class="form-check-label" for="seatGrade1">이벤트 운임</label>
-                                            </span>
-                                            </label>
-                                            <a class="btn_tooltip alertIcon" href="#"></a>
-                                        </div>
-                                        <div class="rate_list">
-                                            <p class="service icon_seat">
-                                                <span class="hidden">좌석: </span>
-                                                이코노미 좌석
-                                            </p>
-                                            <p class="service icon_carryon">
-                                                <span class="hidden">기내 수하물: </span>
-                                                10KG
-                                            </p>
-                                            <p class="service icon_free_bag">
-                                                <span class="hidden">무료 위탁 수하물: </span>
-                                                없음
-                                            </p>
-                                        </div>
-                                        <div class="rate_price">
-                                            <span class="unit">KRW</span>
-                                            <strong class="price">xx,xxx</strong>
-                                            <span class="empty_seats">9석</span>
-                                        </div>
-                                    </div>
+                                  
                                     <div class="rate_box fareType normal">
                                         <div class="select_rate">
                                             <label class="float_item">
@@ -371,7 +331,9 @@
                                             </p>
                                         </div>
                                         <div class="rate_price">
-                                            <span class="soldout">매진</span>
+                                            <span class="unit" th:if="${airflight.economyCharge != '0'}">KRW</span>
+                                            <strong class="price" th:if="${airflight.economyCharge != '0'}" th:text="${airflight.economyCharge}">xx,xxx</strong>
+                                            <span class="soldout" th:if="${airflight.economyCharge == '0'}">매진</span>
                                         </div>
                                     </div>
                                     <div class="rate_box fareType business">
@@ -407,9 +369,9 @@
                                             </p>
                                         </div>
                                         <div class="rate_price">
-                                            <span class="unit">KRW</span>
-                                            <strong class="price">xx,xxx</strong>
-                                            <span class="empty_seats">9석</span>
+                                            <span class="unit" th:if="${airflight.prestigeCharge != '0'}">KRW</span>
+                                            <strong class="price" th:if="${airflight.prestigeCharge != '0'}" th:text="${airflight.prestigeCharge}">xx,xxx</strong>
+                                            <span class="soldout" th:if="${airflight.prestigeCharge == '0'}">매진</span>
                                         </div>
                                     </div>
                                 </div>

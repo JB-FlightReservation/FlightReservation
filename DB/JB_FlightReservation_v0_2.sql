@@ -139,7 +139,7 @@ alter table customer
 drop oc_no;
 
 alter table owned_coupon
-add column ct_no int unsinged not null;
+add column ct_no int unsigned not null;
 
 alter table owned_coupon
 add constraint oc_ct_no foreign key(ct_no)
