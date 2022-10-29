@@ -8,13 +8,13 @@ var swiper = new Swiper("#secondSwiper", {
 	},
 });
 
-$('input[type="range"]').rangeslider();
+var slider = document.getElementById("myRange");
+var output = document.getElementById("p_bweight");
+var output2 = document.getElementById("b_weight");
+output.innerHTML = slider.value; // Display the default slider value
 
-// Destroy all plugin instances created from the
-// e.g. $('input[type="range"]') elements.
-$('input[type="range"]').rangeslider('destroy');
-
-// Update all rangeslider instances for all
-// e.g. $('input[type="range"]') elements.
-// Usefull if you changed some attributes e.g. `min` or `max` etc.
-$('input[type="range"]').rangeslider('update', true);
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  output2.innerHTML = this.value;
+}

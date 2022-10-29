@@ -28,7 +28,7 @@ public class PassengerInfoDto{
 	private String pgLastName;
 	private int pgGender;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date pgBirth;  // Date로 바꿀 예정
+	private Date pgBirth;
 	private String pgCountry;
 	private int pgBaggage;
 	private List<PassengerInfoDto> p;

@@ -22,8 +22,7 @@
 					<div class="p_info-list">
 						<ul>
 							<li class="p_list on">
-								<a class="person" th:onclick="toggle(this)">
-									<span> 성인 1 : 박소현</span>
+								<a class="person" th:onclick="toggle(this)"> <span> 성인 1 : 박소현</span>
 								</a>
 								<div>
 									<div class="p_info_wrap">
@@ -57,6 +56,126 @@
 														<div>
 															<input class="btn" name="p[0].pgLastName" type="text" maxlength="30" placeholder="성(Last Name)">
 															<input class="btn" name="p[0].pgFirstName" type="text" maxlength="30" placeholder="이름(First Name)">
+														</div>
+													</td>
+												</tr>
+
+												<tr class="detail_li">
+													<th class="type">생년월일</th>
+													<td class="input_wrap">
+														<div>
+														<input type="date" name="p[0].pgBirth" style="display:none;">
+															<select class="w170" name="selbox" th:onchange="selectDate(this)">
+																<option value="" >YYYY</option>
+																<option value="2009">2009</option>
+																<option value="2009">2008</option>
+															</select>
+															<select class="w150" name="selbox" onchange="selectDate(this)">
+																<option value="">MM</option>
+																<option value="01">01</option>
+																<option value="02">02</option>
+																<option value="03">03</option>
+																<option value="04">04</option>
+																<option value="05">05</option>
+																<option value="06">06</option>
+																<option value="07">07</option>
+																<option value="08">08</option>
+																<option value="09">09</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+															</select>
+															<select class="w150" name="selbox" onchange="selectDate(this)">
+																<option value="">DD</option>
+																<option value="01">01</option>
+																<option value="02">02</option>
+																<option value="03">03</option>
+																<option value="04">04</option>
+																<option value="05">05</option>
+																<option value="06">06</option>
+																<option value="07">07</option>
+																<option value="08">08</option>
+																<option value="09">09</option>
+																<option value="10">10</option>
+																<option value="11">11</option>
+																<option value="12">12</option>
+																<option value="13">13</option>
+																<option value="14">14</option>
+																<option value="15">15</option>
+																<option value="16">16</option>
+																<option value="17">17</option>
+																<option value="18">18</option>
+																<option value="19">19</option>
+																<option value="20">20</option>
+																<option value="21">21</option>
+																<option value="22">22</option>
+																<option value="23">23</option>
+																<option value="24">24</option>
+																<option value="25">25</option>
+																<option value="26">26</option>
+																<option value="27">27</option>
+																<option value="28">28</option>
+																<option value="29">29</option>
+																<option value="30">30</option>
+																<option value="31">31</option>
+															</select>
+														</div>
+													</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">이메일 <span class="info-text">*</span></th>
+													<td class="input_wrap">
+														<div>
+															<input class="btn w490" name="rvEmail" type="email" maxlength="30" placeholder="이메일 주소">
+														</div>
+													</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">휴대전화 <span class="info-text">*</span></th>
+													<td class="input_wrap">
+														<div>
+															<select class="country_code">
+																<option value="82">대한민국(+82)</option>
+															</select>
+															<input class="btn" name="rvPhone" type="text" maxlength="30" placeholder="휴대전화 번호 입력">
+														</div>
+													</td>
+												</tr>
+											</table>
+										</div>
+										<!-- <div class="next_btn_area">
+											<button class="nextBtn" type="submit">다음 승객 입력</button>
+										</div> -->
+									</div>
+								</div>
+							</li>
+							<li class="p_list">
+								<a class="person" th:onclick="toggle(this)"> <span> 성인 2 : 곰수이</span>
+								</a>
+								<div>
+									<div id="p_info_wrap" class="p_info_wrap">
+										<div class="info-top"></div>
+										<div class="info_detail">
+											<table>
+												<tr class="detail_li">
+													<th class="type">성별 <span class="info-text">*</span></th>
+													<td class="input_wrap"><input type="radio" name="p[1].pgGender" value="0"> 남 <input type="radio" name="p[1].pgGender" value="1"> 여</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">국적</th>
+													<td class="input_wrap">
+														<div>
+															<input type="text" name="p[1].pgCountry" value="대한민국" readonly>
+															<button class="btn" type="button">국적 검색</button>
+														</div>
+													</td>
+												</tr>
+												<tr class="detail_li">
+													<th class="type">이름 <span class="info-text">*</span></th>
+													<td class="input_wrap">
+														<div>
+															<input class="btn" name="p[1].pgLastName" type="text" maxlength="30" placeholder="성(Last Name)">
+															<input class="btn" name="p[1].pgFirstName" type="text" maxlength="30" placeholder="이름(First Name)">
 														</div>
 													</td>
 												</tr>
@@ -122,126 +241,6 @@
 														</div>
 													</td>
 												</tr>
-												<tr class="detail_li">
-													<th class="type">이메일 <span class="info-text">*</span></th>
-													<td class="input_wrap">
-														<div>
-															<input class="btn w490" name="rvEmail" type="email" maxlength="30" placeholder="이메일 주소">
-														</div>
-													</td>
-												</tr>
-												<tr class="detail_li">
-													<th class="type">휴대전화 <span class="info-text">*</span></th>
-													<td class="input_wrap">
-														<div>
-															<select class="country_code">
-																<option value="82">대한민국(+82)</option>
-															</select>
-															<input class="btn" name="rvPhone" type="text" maxlength="30" placeholder="휴대전화 번호 입력">
-														</div>
-													</td>
-												</tr>
-											</table>
-										</div>
-										<!-- <div class="next_btn_area">
-											<button class="nextBtn" type="submit">다음 승객 입력</button>
-										</div> -->
-									</div>
-								</div>
-							</li>
-							<li class="p_list">
-								<a class="person" th:onclick="toggle(this)">
-									<span> 성인 2 : 곰수이</span>
-								</a>
-								<div>
-									<div id="p_info_wrap" class="p_info_wrap">
-										<div class="info-top"></div>
-										<div class="info_detail">
-											<table>
-												<tr class="detail_li">
-													<th class="type">성별 <span class="info-text">*</span></th>
-													<td class="input_wrap"><input type="radio" name="p[1].pgGender" value="0"> 남 <input type="radio" name="p[1].pgGender" value="1"> 여</td>
-												</tr>
-												<tr class="detail_li">
-													<th class="type">국적</th>
-													<td class="input_wrap">
-														<div>
-															<input type="text" name="p[1].pgCountry" value="대한민국" readonly>
-															<button class="btn" type="button">국적 검색</button>
-														</div>
-													</td>
-												</tr>
-												<tr class="detail_li">
-													<th class="type">이름 <span class="info-text">*</span></th>
-													<td class="input_wrap">
-														<div>
-															<input class="btn" name="p[1].pgLastName" type="text" maxlength="30" placeholder="성(Last Name)">
-															<input class="btn" name="p[1].pgFirstName" type="text" maxlength="30" placeholder="이름(First Name)">
-														</div>
-													</td>
-												</tr>
-
-												<tr class="detail_li">
-													<th class="type">생년월일</th>
-													<td class="input_wrap">
-														<div>
-															<select class="w170" name="pgBirth">
-																<option value="">YYYY</option>
-																<option value="2009">2009</option>
-																<option value="2009">2008</option>
-															</select>
-															<select class="w150" name="pgBirth">
-																<option value="">MM</option>
-																<option value="01">01</option>
-																<option value="02">02</option>
-																<option value="03">03</option>
-																<option value="04">04</option>
-																<option value="05">05</option>
-																<option value="06">06</option>
-																<option value="07">07</option>
-																<option value="08">08</option>
-																<option value="09">09</option>
-																<option value="10">10</option>
-																<option value="11">11</option>
-																<option value="12">12</option>
-															</select>
-															<select class="w150" name="pgBirth">
-																<option value="">DD</option>
-																<option value="01">01</option>
-																<option value="02">02</option>
-																<option value="03">03</option>
-																<option value="04">04</option>
-																<option value="05">05</option>
-																<option value="06">06</option>
-																<option value="07">07</option>
-																<option value="08">08</option>
-																<option value="09">09</option>
-																<option value="10">10</option>
-																<option value="11">11</option>
-																<option value="12">12</option>
-																<option value="13">13</option>
-																<option value="14">14</option>
-																<option value="15">15</option>
-																<option value="16">16</option>
-																<option value="17">17</option>
-																<option value="18">18</option>
-																<option value="19">19</option>
-																<option value="20">20</option>
-																<option value="21">21</option>
-																<option value="22">22</option>
-																<option value="23">23</option>
-																<option value="24">24</option>
-																<option value="25">25</option>
-																<option value="26">26</option>
-																<option value="27">27</option>
-																<option value="28">28</option>
-																<option value="29">29</option>
-																<option value="30">30</option>
-																<option value="31">31</option>
-															</select>
-														</div>
-													</td>
-												</tr>
 											</table>
 										</div>
 										<div class="next_btn_area">
@@ -254,21 +253,20 @@
 					</div>
 				</form>
 			</div>
-			<div class="pet_check">
+			<!-- <div class="pet_check">
 				<h3>반려동물과 함께 여행가시나요?</h3>
 				<ul class="ul_dot">
 					<li>나의 반려동물 이름을 입력하시면 출발 당일 반려동물용 기념 탑승권을 발급해드립니다.</li>
 				</ul>
-			<!-- 	<div style="height: 50px; margin-top: 20px;">
+				<div style="height: 50px; margin-top: 20px;">
 					<label>
 						반려동물 탑승 여부
 						<input type="checkbox" name="rvPetAccompanying">
 					</label>
-				</div> -->
-			</div>
+				</div>
+			</div> -->
 			<div class="notice_wrap on">
-				<a class="tit" th:onclick="toggle(this)">
-					<span>알아두세요!</span>
+				<a class="tit" th:onclick="toggle(this)"> <span>알아두세요!</span>
 				</a>
 				<div class="notice_cont">
 					<ul class="ul_dot">
@@ -285,7 +283,7 @@
 	<footer id="r_footer" th:include="/reservation/rFooter"></footer>
 	<footer id="footer" th:include="/footerNav"></footer>
 
-
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<script src="/js/reservation/passenger_list.js"></script>
 </body>
 </html>

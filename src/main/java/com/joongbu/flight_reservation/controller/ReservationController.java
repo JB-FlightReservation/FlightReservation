@@ -66,7 +66,6 @@ public class ReservationController {
 			@SessionAttribute(required = false) CustomerDto loginCt,
 			@SessionAttribute ReservationDto rSession) {
 		
-//		sdto.setPgBirth(dto.getPgBirth());
 		rDto.setRvEmail(rDto.getRvEmail());
 		rDto.setRvPhone(rDto.getRvPhone());
 		
@@ -77,14 +76,19 @@ public class ReservationController {
 
 	// ------------- 예매 3 ------------------
 	@GetMapping("/baggage.do")
-	public String baggage(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
+	public String baggage() {
 		
-//		System.out.println(rSession);
 //		System.out.println(pDto);
 		
-//		pDto.setPgBaggage(pSession.getPgBaggage());
+		// pDto.setPgBaggage(pSession.getPgBaggage());
 		
+//		System.out.println(pSession);
 		return "reservation/baggage";
+	}
+	
+	@PostMapping("/baggage")
+	public void baggageInput(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
+		
 	}
 
 	// ------------- 예매 4 ------------------
