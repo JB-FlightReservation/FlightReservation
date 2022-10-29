@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.joongbu.flight_reservation.dto.AdminDto;
+import com.joongbu.flight_reservation.dto.CouponDto;
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.ReservationDto;
 
@@ -32,4 +33,7 @@ public interface AdminMapper {
 	int delete(int ctNo);
 
 	int insert(CustomerDto customer);
+	
+	int cpInsert(CouponDto couponDto);
+	List<CouponDto> list();
 }

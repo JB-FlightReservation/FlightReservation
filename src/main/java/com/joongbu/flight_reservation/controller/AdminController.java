@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.joongbu.flight_reservation.dto.AdminDto;
+import com.joongbu.flight_reservation.dto.CouponDto;
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.ReservationDto;
 import com.joongbu.flight_reservation.mapper.AdminMapper;
@@ -106,12 +108,46 @@ public class AdminController {
 	@GetMapping("management.do")
 	public void managemen() {
 	}
-
-	@GetMapping("createCoupon.do")
+	//쿠폰 페이지 - 발급
+	@GetMapping("/createCoupon.do")
 	public void createCoupon() {
 	}
 
-	@GetMapping("coupon.do")
+	@PostMapping("/createCoupon.do")
+	public String createCoupon(
+		CouponDto couponDto
+		) {
+	int insert=0;
+	try {
+		insert=adminMapper.cpInsert(couponDto);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	System.out.println(couponDto);
+	if(insert>0) {
+		return "redirect:/adminpage/createCoupon.do";
+	} else {
+		return "redirect:/adminpage/coupon.do";
+	}
+	}
+	
+	//쿠폰 리스트
+	@GetMapping("/couponList.do")
+	public String couponList(
+			Model model,
+			@RequestParam(defaultValue="1") int page
+			) {
+		final int ROWS=10;
+		PageHelper.startPage(page, ROWS);
+		List<CouponDto> userList=adminMapper.list();
+		PageInfo<CouponDto> paging=PageInfo.of(userList,5);
+		model.addAttribute("paging", paging);
+		return "/adminpage/couponList";
+	}
+	
+	
+
+	@GetMapping("/coupon.do")
 	public void coupon() {
 	}
 

@@ -78,5 +78,15 @@
 		admin_name=#{adminName}, admin_pw=#{adminPw}, admin_email=#{adminEmail}, admin_eno=#{adminEno}
 		WHERE admin_id=#{adminId}
 	</select>
+	
+	<insert id="cpInsert" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
+		INSERT INTO coupon
+			( cp_name,cp_start,cp_end,cp_discount)
+			VALUES
+			(#{cpName},#{cpStart},#{cpEnd}, #{cpDiscount})
+	</insert>
+	<select id="list" resultType="com.joongbu.flight_reservation.dto.CouponDto" >
+ 		SELECT *,cp_name cpName FROM coupon 
+ 	</select>
 
 </mapper>

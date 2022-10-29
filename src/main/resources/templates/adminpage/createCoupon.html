@@ -3,31 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link rel="stylesheet" href="/css/admin/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="/css/admin/style.css"> <!-- Resource style -->
+
 </head>
 <body>
-	<header th:include="/adminheaderNav"></header>
-	<main>
-		<h1>쿠폰 생성하기</h1>
-		<form>
-			<div>
-				<label>쿠폰이름 : </label>
-				<input class="" type="text" name="cpName" id="" value="">
-				<div class="">생성 가능한 쿠폰입니다.</div>
-				<div class="" id="">이미 생성한 쿠폰입니다.</div>
-			</div>
-			<div>
-				<label>할인율</label>
-				<input class="" type="text" name="cpDiscount" id="" value="">
-			</div>
-			<div>
-				<label>사용 기간</label>
-				<input class="" type="date" name="cpStart" value=""> ~ 
-				<input class="" type="date" name="cpEnd" value="">
-			</div>
-			<div>
-				<button class="">생성하기</button>
-			</div>
+	<form class="cd-form floating-labels" method="Post" action="/adminpage/createCoupon.do">
+		<fieldset>
+			<legend>쿠폰 생성</legend>
+	<!--  
+			<div class="error-message test">
+				<p>Please enter a valid email address</p>
+			</div>-->
+
+			<div class="icon">
+				<label class="cd-label" for="cd-name">쿠폰 이름</label>
+				<input class="user" type="text" name="cpName" id="cd-name" required>
+		    </div> 
+
+		    <div class="icon">
+		    	<label class="cd-label" for="cd-company">할인율</label>
+				<input class="company" type="text" name="cpDiscount" id="cd-company">
+		    </div> 
+		
+		    <div class="icon" id="dafy2">
+		    	<label class="cd-label" for="cd-company">기간 </label>
+				<input class="budget" type="date" name="cpStart" id="cd-company">
+		    </div> 
+		   <p class="cd-label" style="text-align:center; ">~ </p>
+		     <div class="icon"  id="dafy2">
+		     
+				<input class="budget" type="date" name="cpEnd" id="cd-company">
+		    </div> 
+		
+		   
+		 	<div>
+		      	<input type="submit" value="쿠폰 생성">
+		      	<button type="submit" class="btn btn-outline-primary">등록</button>
+		    </div>
+			
+		</fieldset>
+	</form>
+	<form class="cd-form floating-labels">
+		<legend>쿠폰 내역</legend>
 		</form>
-	</main>
+		<nav class="my-5" th:include="/adminPage/couponList"></nav>
+
+
 </body>
 </html>

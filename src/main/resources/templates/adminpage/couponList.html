@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header th:include="/headerNav"></header>
+	<main class="container mt-5">
+		<h1>Spring_board.user list</h1>
+		<p th:each="${paging.list}"></p>
+	
+		
+		
+	</main>
+
+</body>
+</html>
