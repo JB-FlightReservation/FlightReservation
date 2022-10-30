@@ -61,6 +61,7 @@ public class LoginController {
 			passwordEncoder = new BCryptPasswordEncoder();
 			boolean result=passwordEncoder.matches(ctPw,ctPw);//첫번째 평문, 두번째 암호화
 			if(result == true) {
+				session.setAttribute("loginCt", loginCt);
 				return "redirect:/";
 			}else {
 				return "redirect:/login/loginPage.do";
