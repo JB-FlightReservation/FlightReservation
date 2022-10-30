@@ -18,6 +18,8 @@ a {
     color: #222;
 }
 
+
+
 .main_tit_wrap .main_tit {
     font-size: 28px;
     font-weight: 400;
@@ -46,4 +48,8 @@ a {
 	box-sizing: border-box;
 }
 
+.tab_wrap {
+    margin-bottom: 50px;
+    display: unset;
+}
   

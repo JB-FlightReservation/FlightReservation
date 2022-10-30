@@ -6,11 +6,7 @@
 <mapper namespace="com.joongbu.flight_reservation.mapper.AdminMapper">
 
     <select id="customerList1" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
-<<<<<<< HEAD
-        SELECT * FROM CUSTOMER 
-=======
         SELECT * FROM CUSTOMER
->>>>>>> 43302ea56038b78f83727ec6b5cbf07bd2b10d6d
     </select>
     <!--    <select id="customerDetail" resultType="com.joongbu.flight_reservation.dto.CustomerDto">-->
     <!--        SELECT * FROM CUSTOMER WHERE ct_name = #{ctNAME}-->
@@ -50,9 +46,6 @@
         <collection property="customer" column="ct_no" fetchType="lazy"
                     select="com.joongbu.flight_reservation.mapper.AdminMapper.customerDetail"/>
     </resultMap>
-<<<<<<< HEAD
-    <!-- 회원 관리   -->
-=======
 
     <resultMap id="CouponMap" type="CouponDto">
         <id column="cp_no" property="cpNo"/>
@@ -63,7 +56,6 @@
         <id column="cp_discount" property="cpDiscount"/>
     </resultMap>
     <!-- 회원 관리 -->
->>>>>>> 43302ea56038b78f83727ec6b5cbf07bd2b10d6d
     <select id="customerList" resultMap="CustomerMap">
         SELECT * FROM customer
         <if test="ctName!=null">
@@ -111,21 +103,6 @@
     <!--  쿠폰 관리 끝 -->
 
 
-<<<<<<< HEAD
-   <select id="login" resultType="com.joongbu.flight_reservation.dto.AdminDto">
-      SELECT *,admin_id adminId from ADMIN
-       WHERE admin_id=#{adminId} AND admin_pw=#{adminPw}
-   </select>
-   <select id="adminDetail" resultType="com.joongbu.flight_reservation.dto.AdminDto">
-      SELECT *,admin_id adminId FROM ADMIN
-      WHERE admin_id=#{adminId}
-   </select>
-   <update id="Aupdate" parameterType="com.joongbu.flight_reservation.dto.AdminDto">
-      UPDATE ADMIN SET
-      admin_name=#{admin_name}, admin_pw=#{admin_pw}, admin_email=#{admin_email}, admin_no=#{admin_no}
-      WHERE admin_id=#{adminId}
-   </update>
-=======
     <select id="login" resultType="com.joongbu.flight_reservation.dto.AdminDto">
         SELECT *,admin_id adminId from ADMIN
         WHERE admin_id=#{adminId} AND admin_pw=#{adminPw}
@@ -163,5 +140,4 @@
     </update>
 
 
->>>>>>> 43302ea56038b78f83727ec6b5cbf07bd2b10d6d
 </mapper>
