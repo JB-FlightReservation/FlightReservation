@@ -10,22 +10,23 @@
 <body>
 	<main class="container mx-auto" style="max-width: 500px">
 	<h1 class="d-flex justify-content-center mt-5">아이디 찾기</h1>
-		<!-- action -->
-		<form id="findIdForm" name="findIdForm" action="/login/findId.do" method="post" class="mt-5">
+		<!-- action  action="/login/findId.do" -->
+		<form id="findIdForm" name="findIdForm" action="/login/findUserId.do"  method="post" class="mt-5">
+		<input type="hidden" >
 			<div class="input-group input-group-lg mb-3">
-				<span class="input-group-text" id="inputName">이름</span>
+				<span class="input-group-text" >이름</span>
 				<input name="ctName" type="text" class="form-control" placeholder="이름을 입력하세요" id="inputName">
 			</div>
 			<div class="input-group input-group-lg mb-3">
-				<span class="input-group-text" id="inputEmail">이메일</span>
+				<span class="input-group-text">이메일</span>
 			  	<input name="ctEmail" type="email" class="form-control" placeholder="이메일을 입력하세요" id="inputEmail" >
-			  	<a type="button" class="btn btn-outline-secondary" name="btnOtp" id="btnAuthNo">인증번호받기</a>
+			  	<a  class="btn btn-outline-secondary" name="btnOtp" id="btnAuthNo">인증번호받기</a>
 			</div>
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" name="otpNum" id="otpNum" placeholder="인증번호 입력" disabled>
+				<input type="text" class="form-control" id="otpNum" placeholder="인증번호 입력" disabled>
 			</div>
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="button" class="btn btn-primary mt-4">아이디 찾기</button>
+				<button onclick="mainSubmit()" type="button" class="btn btn-primary mt-4">아이디 찾기</button>
 			</div>
 		</form>
 	</main>
