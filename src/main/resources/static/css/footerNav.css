@@ -1,8 +1,12 @@
 .f_info{
 	background: #f2f2f3;
 	padding: 30px;
-	font-size: 13px;
+	font-size: 14px;
 }
-.f_addr p{
-	margin: 0 0 10px;
+.f_addr{
+	width: 1100px;
+	margin: 0 auto;
+}
+p {
+	margin-bottom: 10px;
 }

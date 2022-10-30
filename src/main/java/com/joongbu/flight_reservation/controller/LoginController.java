@@ -68,12 +68,6 @@ public class LoginController {
 				return "redirect:/login/loginPage.do";
 			}
 
-			if(loginCt!=null) {
-			session.setAttribute("loginCt", loginCt);
-			return "redirect:/";
-		}else {
-			return "redirect:/login/loginPage.do";
-		}
 		}
 
 		

@@ -98,7 +98,7 @@ public class JoinController {
 					e.printStackTrace();
 				}
 				//boolean b =passwordEncoder.matches(ctPw, customerDto.getCtPw());
-				System.out.println(b);
+//				System.out.println(b);
 				if(loginCt!=null) {
 					session.setAttribute("loginCt", loginCt);
 					return "redirect:/";
