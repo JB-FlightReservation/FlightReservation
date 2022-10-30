@@ -25,12 +25,11 @@ import java.sql.Timestamp;
 public class AirflightDto {
     private int afNo;
     private String afName;
-    private int alNo;
     private Timestamp afDepartTime;
     private Timestamp afLandTime;
     private Integer afEconomy;
     private Integer afBusiness;
-    private int afDepartAp;
-    private int afLandAp;
+    private String afDepartAp;
+    private String afLandAp;
     private String rvSeatGrade;
 }
