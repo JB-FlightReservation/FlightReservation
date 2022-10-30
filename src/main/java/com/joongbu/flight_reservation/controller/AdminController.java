@@ -197,7 +197,8 @@ public class AdminController {
 			if (update > 0) {
 				return "redirect:/adminpage/couponList.do";
 			} else {
-				return "redirect:/adminpage/cpUpdate.do?cpNo="+couponDto.getCpNo();
+				return "redirect:/adminpage/userManagement.do";
+
 			}
 		}
 	

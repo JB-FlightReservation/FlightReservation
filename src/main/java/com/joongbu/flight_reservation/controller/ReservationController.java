@@ -169,9 +169,9 @@ public class ReservationController {
 
 	// ------------- 예매 4 ------------------
 	@GetMapping("/terms.do")
+
 	public String terms(@SessionAttribute PassengerInfoDto pSession) {
-//		System.out.println(pSession);
-		
+//		System.out.println(pSession);	
 		return "reservation/reservationTerms";
 	}
 

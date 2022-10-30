@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 정보 페이지</title>
+<script type="text/javascript">
+window.onload = function(){
+    let update = document.getElementById('update');
+    update.onclick = function(){
+        alert('수정 완료');
+        update.onclick = null;
+    }
+}
+</script>
 </head>
 <body>
 	<header th:include="/adminpage/headerNav"></header>
@@ -35,7 +44,7 @@
 			</div>
 			<div>
 				<button type="reset" class="btn btn-outline-secondary">초기화 </button>
-				<button class="btn btn-outline-primary">수정</button>
+				<button class="btn btn-outline-primary" id="update">수정</button>
 			</div>
 		</form>
 	</main>
