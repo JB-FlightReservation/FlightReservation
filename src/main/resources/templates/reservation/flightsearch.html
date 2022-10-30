@@ -2,13 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>예매 페이지</title>
+<meta charset="UTF-8">
+<title>예매 페이지</title>
 
-	<script defer="defer" src="/js/search/flightsearch.js"></script>
-
-	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="/css/reservation/flightsearch.css" rel="stylesheet">
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/css/reservation/flightsearch.css" rel="stylesheet">
 
 </head>
 
@@ -37,62 +35,56 @@
 
 								<div class="airport_selector">
 									<div class="depart_airport_selector selector_option">
-										<label for="depart_airport"
-											class="depart_airport_tit sub-airport-tit">출발지</label>
+										<label for="depart_airport" class="depart_airport_tit sub-airport-tit">출발지</label>
 										<select class="form-select selector_box" id="depart_airport" name="depAprt">
 											<option value="">출발 공항</option>
-											<option th:each="i : ${airportList}" th:text="${i.airportNm}"
-												th:value="${i.airportId}"></option>
+											<option th:each="i : ${airportList}" th:text="${i.airportNm}" th:value="${i.airportId}"></option>
 										</select>
 									</div>
 									<div class="land_airport_selector selector_option">
 										<label for="land_airport" class="land_airport_tit sub-airport-tit">도착지</label>
 										<select class="form-select selector_box" id="land_airport" name="landAprt">
 											<option value="">도착 공항</option>
-											<option th:each="i : ${airportList}" th:text="${i.airportNm}"
-												th:value="${i.airportId}"></option>
+											<option th:each="i : ${airportList}" th:text="${i.airportNm}" th:value="${i.airportId}"></option>
 										</select>
 									</div>
 								</div>
 
 								<div class="plan_date selector_option">
 									<label for="depart_date" class="sub-airport-tit">탑승일</label>
-									<input class="depart_date selector_box" id="depart_date" name="depDate" type="date"
-										pattern="yyyymmdd">
+									<input class="depart_date selector_box" id="depart_date" name="depDate" type="date" pattern="yyyymmdd">
 								</div>
 
 								<div class="passenger_count">
 									<div class="adult_count count_box">
 										<label for="adult_count" class="sub-passenger-tit">성인</label>
 										<div class="btn-group" role="group">
-											<button type="button" class="btn btn-secondary"
-												onclick='count("minus")'>-</button>
+											<button type="button" class="btn btn-secondary" id="aMinus">-</button>
 											<div class="input_container">
-												<input type="text" id="adult_count" value="0">
+												<input type="text" id="adult_count" value="0" name="rvMatureAdult">
 											</div>
-											<button type="button" class="btn btn-secondary"
-												onclick='count("plus")'>+</button>
+											<button type="button" class="btn btn-secondary" id="aPlus">+</button>
 										</div>
 									</div>
 									<div class="teen_count count_box">
 										<label for="teen_count" class="sub-passenger-tit">소아</label>
 										<div class="btn-group" role="group">
-											<button type="button" class="btn btn-secondary">-</button>
+											<button type="button" class="btn btn-secondary" id="tMinus">-</button>
 											<div class="input_container">
-												<input type="text" id="teen_count" value="0">
+												<input type="text" id="teen_count" value="0" name="rvMatureTeen">
 											</div>
 
-											<button type="button" class="btn btn-secondary">+</button>
+											<button type="button" class="btn btn-secondary" id="tPlus">+</button>
 										</div>
 									</div>
 									<div class="baby_count count_box">
 										<label for="baby_count" class="sub-passenger-tit">유아</label>
 										<div class="btn-group" role="group">
-											<button type="button" class="btn btn-secondary">-</button>
+											<button type="button" class="btn btn-secondary" id="bMinus">-</button>
 											<div class="input_container">
-												<input type="text" id="baby_count" value="0">
+												<input type="text" id="baby_count" value="0" name="rvMatureBaby">
 											</div>
-											<button type="button" class="btn btn-secondary">+</button>
+											<button type="button" class="btn btn-secondary" id="bPlus">+</button>
 										</div>
 									</div>
 								</div>
@@ -110,6 +102,9 @@
 		</div>
 	</div>
 	<footer th:include="/footerNav"></footer>
+
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script src="/js/reservation/flightSearch.js"></script>
 </body>
 
 </html>
