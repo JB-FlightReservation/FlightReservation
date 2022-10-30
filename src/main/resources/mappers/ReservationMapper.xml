@@ -19,6 +19,28 @@
 		<result column="rv_land_ap" property="rvLandAp" />
 		<result column="next_rv_no" property="nextRvNo" />
 	</resultMap>
+	<resultMap type="PriceDto" id="PriceMap">
+		<id column="pr_no" property="prNo" />
+		<result column="pg_no" property="pgNo" />
+		<result column="pg_airfare" property="pgAirfare" />
+		<result column="pr_fuel_surcharge" property="prFuelSurcharge" />
+		<result column="pr_airport_usage_fee" property="prAirportUsageFee" />
+		<result column="pr_discount" property="prDiscount" />
+		<result column="pr_total" property="prTotal" />
+		
+	</resultMap>
+	<resultMap type="AirportDto" id="AirportMap">
+		<id column="ap_no" property="apNo" />
+		<result column="af_no" property="afNo" />
+		<result column="ap_name" property="apName" />
+		
+		
+	</resultMap>
 	
-	
+	<insert id="insert" >
+        INSERT INTO jb_flight_reservation.reservation
+(rv_no, ct_no, rv_phone, rv_email, rv_is_ticketed, rv_date, rv_mature_adult, rv_mature_teen, rv_mature_baby, rv_depart_ap, rv_land_ap, next_rv_no, rv_seat_grade)
+VALUES(#{rvNo}, #{ctNo}, #{rvPhone}, #{rvEmail}, #{rvIsTicketed}, #{rvDate}, #{rvMatureAdult}, #{rvMatureTeen}, #{rvMatureBaby}, 
+#{rvDepartAp}, #{rvLandAp}, #{nextRvNo}, #{rvSeatGrade})
+    </insert>
 </mapper>

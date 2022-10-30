@@ -4,13 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import com.github.pagehelper.Page;
+import com.joongbu.flight_reservation.dto.*;
 import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
-
-import com.joongbu.flight_reservation.dto.AdminDto;
-import com.joongbu.flight_reservation.dto.CouponDto;
-import com.joongbu.flight_reservation.dto.CustomerDto;
-import com.joongbu.flight_reservation.dto.ReservationDto;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Mapper
 public interface AdminMapper {
@@ -23,14 +21,13 @@ public interface AdminMapper {
 
 	CustomerDto customerCheckId(String ctId);
 	CustomerDto customerCheckName(String ctName);
+	CustomerDto custerCheckSearch(String ctName);
 
 	CustomerDto customerDetail(int ctNo);
 	/* 예약 관리 */
-	Page<ReservationDto> reservationList(Integer ctNo);
+	Page<ReservationDto> reservationList(Integer rvNo);
 
 
-	/* 쿠폰 관리 */
-	Page<CouponDto> couponList();
 
 	/* 관리자 */
 	List<AdminDto> adminList();
@@ -41,14 +38,10 @@ public interface AdminMapper {
 
 	int Aupdate(AdminDto admin);
 
-	int update(CustomerDto customer);
 
-	int delete(int ctNo);
-
-	int insert(CustomerDto customer);
-	
+	/* 쿠폰 관리 */
 	int cpInsert(CouponDto couponDto);
-	
+
 	List<CouponDto> cpList (int startRow, int rows);
 	
 	int cpDelete(int cpNo);

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<style>
+    .box1 {
+    	margin-top: 100px;
+        }
+	.box3 {
+		margin: 15px;
+		text-align: center;
+	}
+	.box4 {
+		margin:70px;
+	}
+</style>
+<head>
+    <title>항공편 현황</title>
+</head>
+<header th:include="/headerNav"></header>
+<body>
+<div class="box1">
+</div>
+<div class="card-group" style="float: none; margin:80px;">
+  <div class="card text-center text-bg-light">
+    <div class="card-body">
+      <h5 class="card-title">출발지</h5>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+			<option selected>출발 공항</option>
+			<option value="1">ICN</option>
+			<option value="2">GMP</option>
+			<option value="3">PUS</option>
+			<option value="4">CJU</option>
+			<option value="5">KWJ</option>
+			<option value="6">RSU</option>
+			<option value="7">KUV</option>
+			<option value="8">CJJ</option>
+			<option value="9">TAE</option>
+		</select>
+    </div>
+  </div>
+  <div class="card text-center text-bg-light">
+    <div class="card-body">
+      <h5 class="card-title">도착지</h5>
+      <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+			<option selected>도착 공항</option>
+			<option value="1">ICN</option>
+			<option value="2">GMP</option>
+			<option value="3">PUS</option>
+			<option value="4">CJU</option>
+			<option value="5">KWJ</option>
+			<option value="6">RSU</option>
+			<option value="7">KUV</option>
+			<option value="8">CJJ</option>
+			<option value="9">TAE</option>
+		</select>
+    </div>
+  </div>
+  <div class="card text-center text-bg-light">
+    <div class="card-body">
+      <h5 class="card-title">날자</h5>
+      <input type="date" name="date" id="date" class="col-md-8">
+    </div>
+  </div>
+</div>
+
+<div class="box3">
+	<button class="btn btn-outline-primary col-md-1" type="submit">조회</button>
+</div>
+<div class="box4">
+	<form action="">
+		<div style="margin: 20px;">
+			<div class="card-group">
+				<div class="card text-center text-bg-light">
+					<div class="card-body">
+						<h5 class="card-title">출발지</h5>
+						<h3>GMP 06:40</h3>
+					</div>
+				</div>
+				<div class="card text-center text-bg-light">
+					<div class="card-body">
+						<h5 class="card-title">도착지</h5>
+						<h3>CJU 07:50</h3>
+					</div>
+				</div>
+				<div class="card text-center text-bg-light">
+					<div class="card-body">
+						<h5 class="card-title">항공기</h5>
+						<h3 class="card-text">KE1201</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="margin: 20px;">
+			<div class="card-group">
+				<div class="card text-center text-bg-light">
+					<div class="card-body">
+						<h5 class="card-title">출발지</h5>
+						<h3>GMP 07:00</h3>
+					</div>
+				</div>
+				<div class="card text-center text-bg-light">
+					<div class="card-body">
+						<h5 class="card-title">도착지</h5>
+						<h3>CJU 08:10</h3>
+					</div>
+				</div>
+				<div class="card text-center text-bg-light">
+					<div class="card-body">
+						<h5 class="card-title">항공기</h5>
+						<h3 class="card-text">KE1203</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card text-bg-light mb-3" style="max-width: 48rem; float: none; margin:0 auto;">
+			<div class="card-header">유의 사항</div>
+			<div class="card-body">
+  				<h5 class="card-title">운항 편명 및 출발일자가 변경된 경우, ‘최초 스케줄상의 운항 편명과 출발일자’로 조회하시기 바랍니다.</h5>
+  				<h5 class="card-title">공동운항편(예:KE5901, 에어프랑스 운항)의 운항정보는 편명 조회로만 가능하며, 일부 항공편에 대해서만 조회 가능합니다. 조회 불가한 편명은 해당 항공사 홈페이지에서 조회하시기 바랍니다.</h5>
+  				<h5 class="card-title">출도착 시간은 현지 일자 및 시간 기준으로 표기됩니다.</h5>
+			</div>
+		</div>
+	</form>
+</div>
+
+<footer th:include="/footerNav"></footer>
+</body>
+</html>

@@ -45,7 +45,7 @@ public class JoinController {
 			HttpSession session
 			) {
 		int insert=0;
-		
+		String msg="";
 		try {
 			passwordEncoder = new BCryptPasswordEncoder();
 	        signupDto.setCtPw(passwordEncoder.encode(signupDto.getCtPw()));
@@ -62,6 +62,8 @@ public class JoinController {
 			session.setAttribute("signupDto",signupDto);
 			return "redirect:/signup/joinPage3.do";
 		} else {
+			msg="회원가입 실패. 다시 입력해주세요";
+			session.setAttribute("msg", msg);
 			return "redirect:/signup/joinPage2.do";
 		}
 	} 

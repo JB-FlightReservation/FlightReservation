@@ -3,6 +3,7 @@ package com.joongbu.flight_reservation.dto;
 import java.util.Date;
 
 import lombok.Data;
+import lombok.Getter;
 
 /*
 +-----------------+--------------+------+-----+---------+-------+
@@ -26,6 +27,7 @@ import lombok.Data;
  */
 
 @Data
+@Getter
 public class ReservationDto{
 	private int rvNo;
 	private int ctNo;

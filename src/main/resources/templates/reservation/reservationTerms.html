@@ -9,17 +9,17 @@
 <script defer="defer" src="/js/reservation/terms.js"></script>
 </head>
 <body>
-<!-- <header th:include="/headerNav"></header> -->
+<header th:include="/headerNav"></header>
 <!-- 항공권 정보 -->
 	<h3 class="container mt-4">항공권 예매</h3>
 	<div class="border border-secondary justify-content-center text-center container mt-5" >
 		구간1
 	</div>
 	<div class="d-flex border border-secondary container" >
-		<div class="d-flex align-items-center ms-5">2022-10-31(월)</div>
+		<!-- <div class="d-flex align-items-center ms-5" th:text="${reservation.rvDepartAp}">2022-10-31(월)</div> -->
 		<div class="d-inline-block" style="margin:auto;">
 			<div class="d-inline-block justify-content-center text-center p-3">
-				<strong class="fs-3">GMP</strong>
+				<strong class="fs-3" >GMP</strong>
 				<div class="addition">서울/김포</div>
 			</div>
 				<div class="d-inline-block text-center p-3">
@@ -29,8 +29,8 @@
 			  				<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
 						</svg>
 					</div>
-					<div class="d-inline-block pe-2">이코노미</div>
-					<div class="d-inline-block ps-2">B737-800</div>
+					<!-- <div class="d-inline-block pe-2" th:text="${airflight.afEconomy}">이코노미</div>
+					<div class="d-inline-block ps-2" th:text="${airflight.afNo}">B737-800</div> -->
 				</div>
 			<div class="d-inline-block justify-content-center text-center p-3">
 				<strong class="fs-3">CJU</strong>
@@ -42,11 +42,11 @@
 		구간2
 	</div>
 	<div class="d-flex border border-secondary container" >
-		<div class="d-flex align-items-center ms-5">2022-11-02(수)</div>
+		<!-- <div class="d-flex align-items-center ms-5" th:text="${reservation.rvDepartAp}">2022-11-02(수)</div> -->
 		<div class="d-inline-block" style="margin:auto;">
 			<div class="d-inline-block justify-content-center text-center p-3">
 				<strong class="fs-3">CJU</strong>
-				<div class="addition">제주</div>
+				<!-- <div class="addition" th:text="${airport.apName}">제주</div> -->
 			</div>
 			<div class="d-inline-block text-center p-3">
 				<div>07:55 ~ 09:05</div>
@@ -56,8 +56,8 @@
 					</svg>
 					
 				</div>
-				<div class="d-inline-block pe-2">이코노미</div>
-				<div class="d-inline-block ps-2">B737-800</div>
+				<!-- <div class="d-inline-block pe-2" th:text="${airflight.afEconomy}">이코노미</div>
+				<div class="d-inline-block ps-2" th:text="${airflight.alNo}">B737-800</div> -->
 			</div>
 			<div class="d-inline-block justify-content-center text-center p-3">
 				<strong class="fs-3">GMP</strong>
@@ -81,11 +81,11 @@
   </thead>
   <tbody>
 		<tr>
-			<td>KRW 54,900</td>
-			<td>KRW 30,800</td>
-			<td>KRW 8,000</td>
-			<td>KRW 0</td>
-			<td>KRW 93,700</td>
+			<!-- <td>KRW <strong th:text="${price.prAirfare}">54,900</strong></td>
+			<td>KRW <strong th:text="${price.prFuelSurcharge}">30,800</strong> </td>
+			<td>KRW <strong th:text="${price.prAirportUsageFee}">8,000</strong> </td>
+			<td>KRW <strong th:text="${price.prDiscount}">0</strong></td>
+			<td>KRW <strong th:text="${price.prTotal}">93,700</strong> </td> -->
 		</tr>
 	</tbody>
 </table>

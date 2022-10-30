@@ -3,6 +3,8 @@ package com.joongbu.flight_reservation.controller;
 import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
+import javax.security.auth.message.config.AuthConfig;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
@@ -10,16 +12,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.joongbu.flight_reservation.dto.CustomerDto;
+import com.joongbu.flight_reservation.dto.SignupDto;
 import com.joongbu.flight_reservation.mapper.CustomerMapper;
 import com.joongbu.flight_reservation.service.SendMailService;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
 @RequestMapping("/login")
 @RequiredArgsConstructor
 @Controller
@@ -69,53 +77,93 @@ public class LoginController {
 	//아이디 찾기
 	@Autowired
 	SendMailService emailservice;
-	String EmailotpNum;
+	String EmailauthNum;
 	
 	@GetMapping("/findId.do")
 	public void findId() {}
 	@PostMapping("/findId.do")
 	public String findId(
-			@RequestParam(required = true)String ctName,
-			@RequestParam(required = true)String ctEmail,
-			String otpNum
+			@RequestParam("name") String ctName,
+			@RequestParam("email") String ctEmail,
+			Model model
 			) {
 		System.out.println(ctName+"/"+ctEmail); 
 		CustomerDto find=null;
 		try {
 			find=customerMapper.find(ctName, ctEmail);
-			
+			//System.out.println(find.getCtId());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if(find!=null) {
 			String toEmail = ctEmail;
-			
 			try {
-				EmailotpNum = emailservice.sendEmail(toEmail);
-				System.out.println(EmailotpNum);
+				EmailauthNum = emailservice.sendEmail(toEmail);
 				
+				CheckNum aa=new CheckNum();
+				aa.setAuthNum(EmailauthNum);
+				System.out.println(EmailauthNum);
 			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			} catch (MessagingException e) {
 				e.printStackTrace();
 			}
-			System.out.println(otpNum);
-			if(otpNum == EmailotpNum)
-				return "/login/findUserId";
+			
+			return "redirect:/login/findUserId.do";
 		}
-		return "/login/findId";
+		return "redirect:/login/findId.do";
 	}
+	
+	@Getter@Setter
+	class CheckNum{
+		private String authNum;
+	}
+
+	
 	//아이디 찾기완료
-	@PostMapping("/findUserId.do")
-	public String findUserId() {
-		return "/login/findUserId";
-	}
+	@GetMapping("/findUserId.do")
+	public void findUserId() {}
+	
 	
 	//비번 찾기
 	@GetMapping("/findPassword.do")
-	public String findPassword() {
-		return "/login/findPassword";
+	public void findPassword() {}
+	@PostMapping("/findPassword.do")
+	public String findPw(
+			@RequestParam(required = true) String ctId,
+			@RequestParam(required = true) String ctName,
+			@RequestParam(required = true) String ctEmail
+			) {
+		System.out.println(ctId+"/"+ctName+"/"+ctEmail);
+		CustomerDto findPassword=null;
+		try {
+			findPassword=customerMapper.findPassword(ctId, ctName, ctEmail);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(findPassword != null) {
+			String toEmail = ctEmail;
+			try {
+				EmailauthNum = emailservice.sendEmail(toEmail);
+				System.out.println(EmailauthNum);
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+			
+			return "/login/findPwAuth.do";
+		}
+		return "redirect:/login/findPassword.do";
 	}
+	
+	//인증확인
+	@PostMapping("/findPwAuth.do")
+	public String findPwAuth() {
+		return "/findPwAuth.do";
+	}
+	
+	
 	//새비번 지정 
 	@GetMapping("/newPassword.do")
 	public String newPassword() {
