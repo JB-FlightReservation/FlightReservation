@@ -64,13 +64,13 @@
 													<th class="type">생년월일</th>
 													<td class="input_wrap">
 														<div>
-														<input type="date" name="pgBirth">
-															<select class="w170" name="selbox" th:onchange="selectDate(this)">
+														<input type="date" name="pgBirth[]" style="display:none;">
+															<select class="w170" name="selbox" onchange="selectYear(this)" >
 																<option value="" >YYYY</option>
 																<option value="2009">2009</option>
-																<option value="2009">2008</option>
+																<option value="2008">2008</option>
 															</select>
-															<select class="w150" name="selbox" onchange="selectDate(this)">
+															<select class="w150" name="selbox" onchange="selectMonth(this)">
 																<option value="">MM</option>
 																<option value="01">01</option>
 																<option value="02">02</option>
@@ -85,7 +85,7 @@
 																<option value="11">11</option>
 																<option value="12">12</option>
 															</select>
-															<select class="w150" name="selbox" onchange="selectDate(this)">
+															<select class="w150" name="selbox" onchange="selectDay(this)">
 																<option value="">DD</option>
 																<option value="01">01</option>
 																<option value="02">02</option>
