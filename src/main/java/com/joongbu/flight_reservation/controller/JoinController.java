@@ -2,6 +2,8 @@ package com.joongbu.flight_reservation.controller;
 
 import javax.servlet.http.HttpSession;
 
+import com.joongbu.flight_reservation.dto.CustomerDto;
+import com.joongbu.flight_reservation.mapper.CustomerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.SignupDto;
-import com.joongbu.flight_reservation.mapper.CustomerMapper;
 import com.joongbu.flight_reservation.mapper.SignupMapper;
 
 import lombok.Getter;
@@ -25,7 +25,7 @@ import lombok.Setter;
 @Controller 
 public class JoinController {
 	@Autowired //객체를 주입받겠다
-	SignupMapper signupMapper; 
+	SignupMapper signupMapper;
 	@Autowired
 	CustomerMapper customerMapper;
 
@@ -51,18 +51,22 @@ public class JoinController {
 			) {
 		int insert=0;
 		String msg="";
-		
+		System.out.println("SingupDto1: " + signupDto);
 		try {
 			passwordEncoder = new BCryptPasswordEncoder();
-			String input=passwordEncoder.encode(signupDto.getCtPw());
-	        signupDto.setCtPw(input);
+			System.out.println("SingupDto2: " + signupDto);
+			signupDto.setCtPw(passwordEncoder.encode(signupDto.getCtPw()));
+			insert = signupMapper.insert(signupDto);
+//			String input=passwordEncoder.encode(signupDto.getCtPw());
+//	        signupDto.setCtPw(input);
 			//userService.saveUserData(signupDto);
 			signupDto=signupMapper.login(ctName, ctId);
 //			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(signupDto);
+
+		System.out.println("SingupDto3: " + signupDto);
 		
 //		return "redirect:/signup/joinPage3.do";
 		if(insert>0) {
@@ -98,7 +102,6 @@ public class JoinController {
 					e.printStackTrace();
 				}
 				//boolean b =passwordEncoder.matches(ctPw, customerDto.getCtPw());
-				System.out.println(b);
 				if(loginCt!=null) {
 					session.setAttribute("loginCt", loginCt);
 					return "redirect:/";

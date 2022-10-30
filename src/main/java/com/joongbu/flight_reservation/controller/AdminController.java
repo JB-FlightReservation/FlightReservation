@@ -195,7 +195,7 @@ public class AdminController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(couponDto);
+		System.out.println("CouponDto: " + couponDto);
 		if (insert > 0) {
 			return "redirect:/adminpage/couponList.do";
 		} else {

@@ -11,7 +11,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.joongbu.flight_reservation.api.ApiController;
-import com.joongbu.flight_reservation.dto.SelectInfo;
+import com.joongbu.flight_reservation.dto.*;
 import com.joongbu.flight_reservation.vo.AirflightVO;
 import com.joongbu.flight_reservation.vo.AirportVO;
 import org.jdom2.Element;
@@ -20,14 +20,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.joongbu.flight_reservation.dto.AirflightDto;
-import com.joongbu.flight_reservation.dto.AirlineDto;
-import com.joongbu.flight_reservation.dto.AirportDto;
-
-import com.joongbu.flight_reservation.dto.CustomerDto;
-import com.joongbu.flight_reservation.dto.PassengerInfoDto;
-import com.joongbu.flight_reservation.dto.PriceDto;
-import com.joongbu.flight_reservation.dto.ReservationDto;
 import com.joongbu.flight_reservation.mapper.AirflightMapper;
 import com.joongbu.flight_reservation.mapper.ReservationMapper;
 
@@ -36,6 +28,7 @@ import com.joongbu.flight_reservation.mapper.ReservationMapper;
 public class ReservationController {
     @Autowired
     AirflightMapper afMapper;
+    @Autowired
     ReservationMapper rMapper;
 
     // ------------- 예매 1 ------------------
@@ -93,6 +86,8 @@ public class ReservationController {
         }
         if (afVOs.length > 0) {
             try {
+                si.setDepAprtNm(afVOs[0].getDepAirportNm());
+                si.setLandAprtNm(afVOs[0].getArrAirportNm());
                 session.setAttribute("si", si);
                 session.setAttribute("afs", afVOs);
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -132,13 +127,15 @@ public class ReservationController {
     }
 
     @PostMapping("/book")
-    public String firstBook(@SessionAttribute SelectInfo si, SelectInfo siFromHtml) {
+    public String firstBook(HttpSession session, @SessionAttribute SelectInfo si, SelectInfo siFromHtml, PriceDto price) {
         si.setVihicleId(siFromHtml.getVihicleId());
         si.setAirlineNm(siFromHtml.getAirlineNm());
         si.setDepTime(siFromHtml.getDepTime());
         si.setArrTime(siFromHtml.getArrTime());
         si.setSeatGrade(siFromHtml.getSeatGrade());
         si.setSeatGradeCharge(siFromHtml.getSeatGradeCharge());
+        price.setPrTotal(price.getPrTotal() + si.getSeatGradeCharge());
+        session.setAttribute("price", price);
         return "redirect:/reservation/passenger.do";
     }
 
@@ -170,26 +167,24 @@ public class ReservationController {
 
     // ------------- 예매 3 ------------------
     @GetMapping("/baggage.do")
-    public String baggage(@SessionAttribute PassengerInfoDto pSession) {
+    public String baggage(@SessionAttribute SelectInfo si, Model model) {
+        model.addAttribute("si", si);
         return "reservation/baggage";
     }
 
     @PostMapping("/baggage")
     public String baggageInput(PassengerInfoDto pDto,
-            @SessionAttribute PassengerInfoDto pSession) {
+                               @SessionAttribute PassengerInfoDto pSession, @SessionAttribute PriceDto price) {
         for (int i = 0; i < pSession.getP().size(); i++) {
             pSession.getP().get(i).setPgBaggage(pDto.getP().get(i).getPgBaggage());
-        }
-
-        for (PassengerInfoDto p : pSession.getP()) {
-            System.out.println("p->pgBaggage: " + p.getPgBaggage());
+            price.setPrTotal(price.getPrTotal() + pDto.getP().get(i).getPgBaggage() * 1000);
         }
         return "redirect:/reservation/terms.do";
     }
 
     // ------------- 예매 4 ------------------
     @GetMapping("/terms.do")
-    public String terms(Model model, @SessionAttribute SelectInfo si, @SessionAttribute ReservationDto rSession) {
+    public String terms(Model model, @SessionAttribute SelectInfo si, @SessionAttribute ReservationDto rSession, @SessionAttribute PriceDto price) {
 //        ReservationDto reservation = (ReservationDto) session.getAttribute("rSession"); // ReservationDto session
 //        AirflightDto airflight = (AirflightDto) session.getAttribute("aSession"); // AirflightDto session
 //        PriceDto price = (PriceDto) session.getAttribute("priceSession");
@@ -205,6 +200,7 @@ public class ReservationController {
 //        }
         model.addAttribute("reservation", rSession);
         model.addAttribute("si", si);
+        model.addAttribute("price", price);
 
         /*// airport
         if (airport == null) {

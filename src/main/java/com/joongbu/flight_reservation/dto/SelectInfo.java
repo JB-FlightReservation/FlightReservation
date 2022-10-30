@@ -5,7 +5,9 @@ import lombok.Data;
 @Data
 public class SelectInfo {
     private String depAprt;
+    private String depAprtNm;
     private String landAprt;
+    private String landAprtNm;
     private String depDate;
     private String vihicleId;
     private String airlineNm;
@@ -13,4 +15,5 @@ public class SelectInfo {
     private String arrTime;
     private String seatGrade;
     private Integer seatGradeCharge;
+
 }

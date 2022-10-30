@@ -24,9 +24,13 @@ swiper.on('transitionEnd', function(e){
 	let output = document.querySelector('.swiper-slide-active.passenger .add_price #p_bweight_'+idx);
 	let baggageOutput = document.querySelector('#b_weight');
 	let pgBaggage = document.querySelector('.add_price #baggage_value_'+idx);
+	let pgBaggageCharge = document.querySelector('#baggageCharge_'+idx);
+	let pgBaggageChargePrice= document.querySelector('#baggageChargePrice');
 	slider.value = output.innerText;
 	baggageOutput.innerHTML = slider.value;
 	pgBaggage.value = this.value;
+	pgBaggageCharge.innerHTML = (parseInt(this.value) * 1000).toString();
+	pgBaggageChargePrice.innerHTML = (this.value * 1000).toString();
 })
 
 
@@ -35,8 +39,12 @@ slider.oninput = function(){
 	let output = document.querySelector('.swiper-slide-active.passenger .add_price #p_bweight_'+idx);
 	let baggageOutput = document.querySelector('#b_weight');
 	let pgBaggage = document.querySelector('.add_price #baggage_value_'+idx);
+	let pgBaggageCharge = document.querySelector('#baggageCharge_'+idx);
+	let pgBaggageChargePrice= document.querySelector('#baggageChargePrice');
 	output.innerHTML = this.value;
 	pgBaggage.value = this.value;
 	baggageOutput.innerHTML = this.value;
 	slider.value = this.value;
+	pgBaggageCharge.innerHTML = (parseInt(this.value) * 1000).toString();
+	pgBaggageChargePrice.innerHTML = (this.value * 1000).toString();
 }

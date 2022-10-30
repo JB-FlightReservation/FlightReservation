@@ -34,12 +34,12 @@ $("input[name='rvSeatGrade']").change(function(){
 
 	seatCharge.value = $("input[name='rvSeatGrade']:checked").val();
 
-	alert(
-		"vihicleId: " + vihicleId.value
-		+ "\nairlineNm: " + airlineNm.value
-		+ "\ndepTime: " + depTime.value
-		+ "\narrTime: " + arrTime.value
-		+ "\nseatGrade: " + seatGrade.value
-		+ "\nseatCharge: " + seatCharge.value
-	)
+	// alert(
+	// 	"vihicleId: " + vihicleId.value
+	// 	+ "\nairlineNm: " + airlineNm.value
+	// 	+ "\ndepTime: " + depTime.value
+	// 	+ "\narrTime: " + arrTime.value
+	// 	+ "\nseatGrade: " + seatGrade.value
+	// 	+ "\nseatCharge: " + seatCharge.value
+	// )
 });
