@@ -33,10 +33,10 @@
 				</ul>
 				<div class="evt_wrap">
 					<ul class="evt_list">
-						<li>
+						<li th:each="coupon:${cpList}">
 							<a href="#pop_info_1" class="btn_open">
 								<div class="img1"><img alt="주말 특가" src="/imges/event1.jpg" width="300" height="200"></div>
-								<strong><span>국내선 주말 특가</span></strong>
+								<strong><span th:text="${coupon.cpName}"></span></strong>
 								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
 								<p>2022-10-28 ~ 2022-10-30</p>
 							</a>
@@ -66,7 +66,7 @@
 							</div>
 							<!-- //팝업창 -->
 						</li>
-						<li>
+						<!-- <li>
 							<a href="#pop_info_1" class="btn_open">
 								<div class="img2"><img alt="주말 특가" src="/imges/event1.jpg" width="300" height="200"></div>
 								<strong><span>국내선 주말 특가</span></strong>
@@ -81,7 +81,7 @@
 								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
 								<p>2022-10-28 ~ 2022-10-30</p>
 							</a>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>

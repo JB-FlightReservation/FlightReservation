@@ -33,21 +33,18 @@ public class EventController {
 	
 	@GetMapping("/couponList.do")
 	public String couponList(Model model, @RequestParam(defaultValue = "1") int page,
-			@RequestParam(required = false) String ctName, SearchDto search) {
+			SearchDto search) {
 		final int ROWS = 10;
 		int startRow = (page - 1) * ROWS;
 		List<CouponDto> cpList = null;
-		PageInfo<CustomerDto> paging = null;
 		try {
 			cpList = adminMapper.cpList(startRow, ROWS);
 			if (search.getOrderBy() == null)
 				search.setOrderBy("ct_no ASC");
-			paging = adminService.customerPaging(search, ctName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("cpList", cpList);
-		model.addAttribute("customer", paging);
 		return "/event/eventPage";
 	}
 }
