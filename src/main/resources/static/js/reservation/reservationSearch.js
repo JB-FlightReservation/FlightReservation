@@ -19,9 +19,27 @@ $("input[name='rvSeatGrade']").change(function(){
 	let seatGrade = document.querySelector('#s_g');
 	let seatCharge = document.querySelector('#s_g_c');
 
-	let RootNode = $("input[name='rvSeatGrade']:checked");
-	for(; RootNode.nodeName !== 'li'; RootNode = RootNode.parentElement);
-	dirlineNm = RootNode.querySelector('.jb');
-	var test = $("input[name='rvSeatGrade']:checked").val();
-	alert(test);
+	let RootNode = this;
+	for(RootNode; RootNode.nodeName !== 'LI'; RootNode= RootNode.parentElement){}
+
+	airlineNm.value = RootNode.querySelector('.jb.airline').innerText;
+	vihicleId.value = RootNode.querySelector('.vihicle').innerText;
+	depTime.value = RootNode.querySelector('.tit.depTime').innerText;
+	arrTime.value = RootNode.querySelector('.tit.arrTime').innerText;
+	if(this.id === 'normal'){
+		seatGrade.value = "economy";
+	} else if(this.id === 'business'){
+		seatGrade.value = "business";
+	}
+
+	seatCharge.value = $("input[name='rvSeatGrade']:checked").val();
+
+	alert(
+		"vihicleId: " + vihicleId.value
+		+ "\nairlineNm: " + airlineNm.value
+		+ "\ndepTime: " + depTime.value
+		+ "\narrTime: " + arrTime.value
+		+ "\nseatGrade: " + seatGrade.value
+		+ "\nseatCharge: " + seatCharge.value
+	)
 });

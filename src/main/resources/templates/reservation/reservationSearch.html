@@ -237,7 +237,7 @@
 						<!-- 항공편 리스트 -->
 						<div class="section_list" id="price_list_route_1">
                             <input type="hidden" name="vihicleId" id="v_id">
-                            <input type="hidden" name="airlineNm" id="al_Nm">
+                            <input type="hidden" name="airlineNm" id="al_nm">
                             <input type="hidden" name="depTime" id="dp_tm">
                             <input type="hidden" name="arrTime" id="ar_tm">
                             <input type="hidden" name="seatGrade" id="s_g">
@@ -255,16 +255,16 @@
 										<div class="section_info">
 											<div class="service_section_box">
 												<div class="plan_type">
-													<div class="bul_air_info jb" th:text="${airflight.vihicleId}" title="편명 보기" >JB123</div>
-													<div class="bul_air_info" th:text="${airflight.airlineNm}" title="항공기 정보 보기" >K456-789</div>
+													<div class="bul_air_info jb airline" th:text="${airflight.vihicleId}" title="편명 보기" >JB123</div>
+													<div class="bul_air_info vihicle" th:text="${airflight.airlineNm}" title="항공기 정보 보기" >K456-789</div>
 												</div>
 												<div class="service_name first">
-													<strong class="tit" th:text="${airflight.depPlandTime}">HH:mm</strong> <span class="addition" th:text="${airflight.depAirportNm}">출발지</span>
+													<strong class="tit depTime" th:text="${airflight.depPlandTime}">HH:mm</strong> <span class="addition" th:text="${airflight.depAirportNm}">출발지</span>
 													<input type="hidden" name="rvDepartAp" th:value="${airflight.depAirportNm}">
 												</div>
 												<div class="service_exp"></div>
 												<div class="service_name last">
-													<strong class="tit" th:text="${airflight.arrPlandTime}">HH:mm</strong> <span class="addition" th:text="${airflight.arrAirportNm}">도착지</span>
+													<strong class="tit arrTime" th:text="${airflight.arrPlandTime}">HH:mm</strong> <span class="addition" th:text="${airflight.arrAirportNm}">도착지</span>
 													<input type="hidden" name="rvDepartAp" th:value="${airflight.arrAirportNm}">
 												</div>
 

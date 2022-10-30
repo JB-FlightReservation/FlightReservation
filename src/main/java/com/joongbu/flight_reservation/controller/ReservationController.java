@@ -123,7 +123,14 @@ public class ReservationController {
     }
 
     @PostMapping("/book")
-    public String firstBook() {
+    public String firstBook(@SessionAttribute SelectInfo si, SelectInfo siFromHtml) {
+        si.setVihicleId(siFromHtml.getVihicleId());
+        si.setAirlineNm(siFromHtml.getAirlineNm());
+        si.setDepTime(siFromHtml.getDepTime());
+        si.setArrTime(siFromHtml.getArrTime());
+        si.setSeatGrade(siFromHtml.getSeatGrade());
+        si.setSeatGradeCharge(siFromHtml.getSeatGradeCharge());
+        System.out.println(si);
         return "redirect:/reservation/passenger.do";
     }
 
