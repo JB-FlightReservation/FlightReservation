@@ -18,7 +18,7 @@
     </tr>
     </thead>
     <tbody class="table-striped">
-    <tr th:each="rv : ${reservationAfter.list}"
+    <tr th:each="rv : ${reservation.list}"
         th:if="${#dates.format(rv.rvDate, 'yyyy-MM-dd')} < ${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}">
         <td th:text="${rv.rvNo}"></td>
         <td th:text="${rv.customer.ctName}"></td>
@@ -35,4 +35,5 @@
     </tr>
     </tbody>
 </table>
+
 </html>
