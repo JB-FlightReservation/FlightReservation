@@ -37,6 +37,7 @@ public class LoginController {
 	@Autowired
 	CustomerMapper customerMapper;
 	PasswordEncoder passwordEncoder;
+
 	//로그인
 		@Autowired
 		  public LoginController( PasswordEncoder passwordEncoder) {
@@ -61,11 +62,23 @@ public class LoginController {
 			passwordEncoder = new BCryptPasswordEncoder();
 			boolean result=passwordEncoder.matches(ctPw,ctPw);//첫번째 평문, 두번째 암호화
 			if(result == true) {
+				session.setAttribute("loginCt", loginCt);
 				return "redirect:/";
 			}else {
 				return "redirect:/login/loginPage.do";
 			}
+
+			if(loginCt!=null) {
+			session.setAttribute("loginCt", loginCt);
+			return "redirect:/";
+		}else {
+			return "redirect:/login/loginPage.do";
 		}
+		}
+
+		
+	
+
 	//로그아웃
 	@GetMapping("/logout.do")//세션삭제
 	public String logout(HttpSession session) {

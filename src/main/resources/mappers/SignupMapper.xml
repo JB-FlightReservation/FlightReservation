@@ -12,16 +12,16 @@
 			(#{ctId},#{ctPw},#{ctName}, #{ctEmail}, #{ctPhone},#{ctBirth},#{ctGender},#{ctCreate})
 	</insert>
 	
-	<select id="detail" resultType="com.joongbu.flight_reservation.dto.SignupDto">
-  			SELECT *,ct_id ctId FROM customer 
-  			WHERE ct_Id=#{ctId} 
-  	</select>
   		
   	<select id="login" resultType="com.joongbu.flight_reservation.dto.SignupDto">
   			SELECT *,ct_name ctName, ct_id ctId  FROM customer 
   			WHERE ct_name=#{ctName}  AND ct_id=#{ctId}
   		</select>
 	
+	<select id="detail" resultType="com.joongbu.flight_reservation.dto.SignupDto">
+  			SELECT *,ct_id ctId FROM customer 
+  			WHERE ct_Id=#{ctId} 
+  	</select>
   		
 </mapper>
 
