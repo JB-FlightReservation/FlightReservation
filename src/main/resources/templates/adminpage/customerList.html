@@ -67,14 +67,14 @@
 
                             </div>
                             <div class="mb-3 input-group">
-                                <select class="form-select" aria-label="Default select example" name="ctGender" th:default="${customer.ctGender}">
-                                    <option selected></option>
+                                <select class="form-select" aria-label="Default select example" name="ctGender">
+                                    <option selected>성별을 선택해주세요</option>
                                     <option value="남">남</option>
                                     <option value="여">여</option>
                                 </select>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">성별</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
                                 <button type="submit" class="btn btn-primary">수정</button>
                             </div>
                         </form>
