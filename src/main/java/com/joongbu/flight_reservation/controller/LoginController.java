@@ -4,6 +4,8 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.joongbu.flight_reservation.dto.CustomerDto;
+import com.joongbu.flight_reservation.dto.SignupDto;
 import com.joongbu.flight_reservation.mapper.CustomerMapper;
 @RequestMapping("/login")
 @Controller
@@ -19,7 +22,11 @@ public class LoginController {
 	private DataSource dataSource;
 	@Autowired
 	CustomerMapper customerMapper;
-	
+	PasswordEncoder passwordEncoder;
+	@Autowired
+    public LoginController( PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
 	//로그인
 	@GetMapping("/loginPage.do")
 	public void loginPage() {}
@@ -43,6 +50,9 @@ public class LoginController {
 			return "redirect:/login/loginPage.do";
 		}
 	}
+	
+		
+	
 	//로그아웃
 	@GetMapping("/logout.do")//세션삭제
 	public String logout(HttpSession session) {
