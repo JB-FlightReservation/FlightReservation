@@ -17,9 +17,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
 import com.joongbu.flight_reservation.dto.AirflightDto;
 import com.joongbu.flight_reservation.dto.AirlineDto;
 import com.joongbu.flight_reservation.dto.AirportDto;
+
+
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.PassengerInfoDto;
 import com.joongbu.flight_reservation.dto.PriceDto;
@@ -39,7 +42,9 @@ public class ReservationController {
     // ------------- 예매 1 ------------------
 
     //TODO: main 페이지의 예매 페이지와 연동하기
-    @GetMapping("/temp.do")
+
+    @GetMapping("/flightsearch.do")
+
     public String tempPage(Model model) throws IOException {
         ApiController api = new ApiController();
         List<Element> airport = api.airportInfo();
@@ -54,7 +59,7 @@ public class ReservationController {
             apVOs[idx++] = vo;
         }
         model.addAttribute("airportList", apVOs);
-        return "reservation/temp";
+        return "reservation/flightsearch";
     }
     
     //TODO: main 페이지의 예매 페이지와 연동하기
@@ -128,52 +133,52 @@ public class ReservationController {
     }
 
 	@PostMapping("/book")
-	public String firstBook(ReservationDto rDto, AirflightDto aDto, HttpSession session) {
+	public String firstBook() {
 		
-		session.setAttribute("rSession", rDto); // ReservationDto session
-		session.setAttribute("aSession", aDto); // AirflightDto session
 
 		return "redirect:/reservation/passenger.do";
 	}
 
 	// ------------- 예매 2 ------------------
-	@GetMapping("/passenger.do")
-	public String passenger() {
-		return "reservation/passenger";
-	}
+    @GetMapping("/passenger.do")
+    public String passenger() {
+        return "reservation/passenger";
+    }
+    @PostMapping("/passenger")
+    public String passengerInput(PassengerInfoDto pDto, ReservationDto rDto, HttpSession session,
+                                 @SessionAttribute(required = false) CustomerDto loginCt) {
 
-	@PostMapping("/passenger")
-	public String passengerInput(PassengerInfoDto pDto, ReservationDto rDto, HttpSession session,
-			@SessionAttribute(required = false) CustomerDto loginCt,
-			@SessionAttribute ReservationDto rSession) {
-		
-		rDto.setRvEmail(rDto.getRvEmail());
-		rDto.setRvPhone(rDto.getRvPhone());
-		
-		session.setAttribute("pSession", pDto);
-		
-		return "redirect:/reservation/baggage.do";
-	}
+        pDto.getP().get(0).setPgBirth(pDto.getPgBirth());
+        session.setAttribute("rSession", rDto); // ReservationDto session
+//        rSession.setRvEmail(rDto.getRvEmail());
+//        rSession.setRvPhone(rDto.getRvPhone());
 
-	// ------------- 예매 3 ------------------
-	@GetMapping("/baggage.do")
-	public String baggage() {
-				
-//		System.out.println(pSession);
-		return "reservation/baggage";
-	}
-	
-	@PostMapping("/baggage")
-	public String baggageInput(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
-		
-		
-		pDto.setPgBaggage(pDto.getPgBaggage());
-		System.out.println(pDto.getPgBaggage());
-		return "redirect:/reservation/terms.do";
-	}
+        session.setAttribute("pSession", pDto);
+
+        return "redirect:/reservation/baggage.do";
+    }
+
+    // ------------- 예매 3 ------------------
+    @GetMapping("/baggage.do")
+    public String baggage(@SessionAttribute PassengerInfoDto pSession) {
+        return "reservation/baggage";
+    }
+
+    @PostMapping("/baggage")
+    public String baggageInput(PassengerInfoDto pDto, /*@SessionAttribute ReservationDto rSession,*/ @SessionAttribute PassengerInfoDto pSession) {
+        for (PassengerInfoDto p : pDto.getP()) {
+            System.out.println(p.getPgLastName()+": " + p.getPgBaggage());
+        }
+
+//        System.out.println(pDto.getP().get(0).getPgBaggage());
+
+        return "redirect:/reservation/terms.do";
+    }
+
 
 	// ------------- 예매 4 ------------------
 	@GetMapping("/terms.do")
+
 	public String terms(Model model, HttpSession session) {
 		ReservationDto reservation = (ReservationDto)session.getAttribute("rSession"); // ReservationDto session
 		AirflightDto airflight = (AirflightDto)session.getAttribute("aSession"); // AirflightDto session
@@ -221,6 +226,11 @@ public class ReservationController {
 		
 		AirlineDto airline = new AirlineDto();
 		model.addAttribute("airline", airline);
+
+
+	public String terms(@SessionAttribute PassengerInfoDto pSession) {
+//		System.out.println(pSession);	
+
 		return "reservation/reservationTerms";
 	}
 

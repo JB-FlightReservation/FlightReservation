@@ -11,7 +11,7 @@ body {
 ul{
    list-style:none;
 }
-   
+
    
 /* 광고, 예매 */
 .main_content{
@@ -94,7 +94,7 @@ ul{
 	margin: auto;
 	padding: 0;
 }
-.icons > li{
+.icons li{
 	/* border: 1px solid black; */
 	flex: 1;
 	height: 320px;

@@ -26,7 +26,6 @@
         <result column="ct_birth" property="ctBirth"/>
         <result column="ct_gender" property="ctGender"/>
         <result column="ct_create" property="ctCreate"/>
-        <result column="oc_no" property="ocNo"/>
     </resultMap>
 
     <resultMap id="ReservationMap" type="ReservationDto">
@@ -49,11 +48,10 @@
 
     <resultMap id="CouponMap" type="CouponDto">
         <id column="cp_no" property="cpNo"/>
-        <id column="admin_no" property="adminNo"/>
-        <id column="cp_name" property="cpName"/>
-        <id column="cp_start" property="cpStart"/>
-        <id column="cp_end" property="cpEnd"/>
-        <id column="cp_discount" property="cpDiscount"/>
+        <result column="cp_name" property="cpName"/>
+        <result column="cp_start" property="cpStart"/>
+        <result column="cp_end" property="cpEnd"/>
+        <result column="cp_discount" property="cpDiscount"/>
     </resultMap>
     <!-- 회원 관리 -->
     <select id="customerList" resultMap="CustomerMap">
@@ -83,8 +81,8 @@
     <!--  예약 관리  -->
     <select id="reservationList" resultMap="ReservationMap">
         SELECT * FROM reservation
-        <if test="ctNo != null">
-            WHERE ct_no = #{ctNo}
+        <if test="rvNo != null">
+            WHERE rv_no LIKE CONCAT('%',#{rvNo},'%')
         </if>
     </select>
 
@@ -92,15 +90,6 @@
         SELECT COUNT(*) FROM reservation
     </select>
     <!--  예약 관리 끝 -->
-
-    <!--  쿠폰 관리  -->
-    <!--<insert id="couponInsert" >
-        INSERT INTO coupon(admin_no, cp_name, cp_start, cp_end, cp_discount) VALUES(#{adminNo}, #{cpStart}, #{cpEnd}, #{cpDiscount})
-    </insert>-->
-    <select id="couponList" resultMap="CouponMap">
-        SELECT * FROM coupon
-    </select>
-    <!--  쿠폰 관리 끝 -->
 
 
     <select id="login" resultType="com.joongbu.flight_reservation.dto.AdminDto">
@@ -117,6 +106,7 @@
         WHERE admin_id=#{adminId}
     </update>
 
+    <!--        쿠폰 관리       -->
     <insert id="cpInsert" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
         INSERT INTO coupon
         ( cp_name,cp_start,cp_end,cp_discount)
@@ -124,21 +114,20 @@
         (#{cpName},#{cpStart},#{cpEnd}, #{cpDiscount})
     </insert>
 
-    <select id="cpList" resultType="com.joongbu.flight_reservation.dto.CouponDto">
-        SELECT *,cp_name cpName FROM coupon
+    <select id="cpList" resultMap="CouponMap">
+        SELECT * FROM coupon
         LIMIT #{startRow}, #{rows}
     </select>
     <delete id="cpDelete">
-        DELETE FROM coupon WHERE cp_no = #{cPNo}
+        DELETE FROM coupon WHERE cp_no = #{cpNo}
     </delete>
 
     <update id="cpUpdate" parameterType="com.joongbu.flight_reservation.dto.CouponDto">
         UPDATE coupon SET
         cp_name=#{cpName},
         cp_start=#{cpStart},cp_end=#{cpEnd},cp_discount=#{cpDiscount}
-        WHERE cp_no = #{cPNo}
+        WHERE cp_no = #{cpNo}
     </update>
 
 
 </mapper>
-

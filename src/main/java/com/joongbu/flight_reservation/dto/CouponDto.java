@@ -9,7 +9,6 @@ import lombok.Data;
 public class CouponDto {
 
 private int cpNo;
-private int adminNo;
 private String cpName;
 @DateTimeFormat(pattern = "yyyy-MM-dd")
 private Date cpStart;

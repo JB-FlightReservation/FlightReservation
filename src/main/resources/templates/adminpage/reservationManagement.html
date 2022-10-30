@@ -6,17 +6,21 @@
 </head>
 <body>
 <header th:include="/adminpage/headerNav"></header>
+<script defer="defer" src="/js/admin/duplicateCheck.js"></script>
 <main class="container mx-auto mt-5" style="max-width: 80%;">
     <h1>진행중인 예약 목록</h1>
-    <form class="d-flex mb-3 mt-5" role="search" method="GET" action="" style="max-width: 250px;">
-        <input class="form-control me-2 " type="search" placeholder="고객번호 검색" aria-label="Search" name="ctNo">
+    <form class="d-flex mb-3 mt-5" role="search" method="get" action="" style="max-width: 250px;" name="searchReservationForm">
+        <input class="form-control me-2 " type="search" placeholder="고객번호 검색" name="rvNo" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
         <!--    진행중인 예약 리스트    -->
         <th:block th:include="/adminpage/reservationManagementList"></th:block>
 
         <!--    끝난 예약 리스트    -->
+    <h1 class="mb-5">지난 예약 목록</h1>
         <th:block th:include="/adminpage/reservationManagementAfterList"></th:block>
+    <nav aria-label="Page navigation example" th:include="/adminpage/reservationPagingNav">
+    </nav>
     <div class="mb-3" style="max-width: 300px;">
         <div class="input-group">
             <label class="input-group-text">총 예약 개수</label>

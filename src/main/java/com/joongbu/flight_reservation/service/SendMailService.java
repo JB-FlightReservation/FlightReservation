@@ -67,17 +67,12 @@ public class SendMailService {
     	
         //메일전송에 필요한 정보 설정
         MimeMessage emailForm = createEmailForm(toEmail);
-        //실제 메일 전송
-        emailSender.send(emailForm);
+        //실제 메일 전송 꺼놓음.
+        //emailSender.send(emailForm);
 
         return authNum; //인증 코드 반환
     }
     
-//    //타임리프를 이용한 context 설정
-//    public String setContext(String code) {
-//        Context context = new Context();
-//        context.setVariable("code", code);
-//        return templateEngine.process("/login/mail", context); //mail.html
-//    }
+
     
 }
