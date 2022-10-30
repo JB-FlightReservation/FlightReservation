@@ -210,7 +210,7 @@ public class AdminController {
 			if (redirectPage == null) {
 				return "redirect:/adminpage/management.do";
 			} else {
-				return "redirect:" + redirectPage;
+				return "redirect:/adminpage/userManagement.do";
 			}
 		} else {
 			return "redirect:/adminpage/loginpage.do";
