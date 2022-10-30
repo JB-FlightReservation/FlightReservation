@@ -143,7 +143,7 @@
 					<div class="slidecontainer">
 						<form id="rform" action="/reservation/baggage" method="post">
 							<input type="range" min="15" max="30" step="5" value="15" class="slider" id="myRange">
-							<input type="text" name="p[0].pgBaggage" id="b_value">
+							<input type="number" name="p[0].pgBaggage" id="b_value">
 							<div class="kgInfo">
 								<div>15kg</div>
 								<div>20kg</div>
@@ -159,7 +159,7 @@
 	<footer id="r_footer" th:include="/reservation/rFooter"></footer>
 	<footer id="footer" th:include="/footerNav"></footer>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	<script src="/js/reservation/baggage.js"></script>
 </body>
 </html>

@@ -35,6 +35,7 @@ public class ReservationController {
 
     //TODO: main 페이지의 예매 페이지와 연동하기
     @GetMapping("/temp.do")
+    
     public String tempPage(Model model) throws IOException {
         ApiController api = new ApiController();
         List<Element> airport = api.airportInfo();
@@ -142,8 +143,10 @@ public class ReservationController {
 			@SessionAttribute(required = false) CustomerDto loginCt,
 			@SessionAttribute ReservationDto rSession) {
 		
-		rDto.setRvEmail(rDto.getRvEmail());
-		rDto.setRvPhone(rDto.getRvPhone());
+		session.setAttribute("rSession", rDto);
+		
+//		rDto.setRvEmail(rDto.getRvEmail());
+//		rDto.setRvPhone(rDto.getRvPhone());
 		
 		session.setAttribute("pSession", pDto);
 		
@@ -162,15 +165,17 @@ public class ReservationController {
 	public String baggageInput(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
 		
 		
-		pDto.setPgBaggage(pDto.getPgBaggage());
-		System.out.println(pDto.getPgBaggage());
+		pSession.setPgBaggage(pDto.getP().get(0).getPgBaggage());
+		
+		System.out.println();
+		
 		return "redirect:/reservation/terms.do";
 	}
 
 	// ------------- 예매 4 ------------------
 	@GetMapping("/terms.do")
-	public String terms(@SessionAttribute PassengerInfoDto pSession) {
-		System.out.println(pSession);
+	public String terms() {
+//		System.out.println(pSession);
 		return "reservation/reservationTerms";
 	}
 

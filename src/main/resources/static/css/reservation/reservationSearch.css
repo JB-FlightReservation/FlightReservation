@@ -70,7 +70,7 @@ button {
 }
 
 #container {
-	height: 80vh;
+	min-height: 80vh;
 }
 /* SOL: HEADER PROGRESSBAR*/
 .tit_booking_wrap {
@@ -1049,9 +1049,9 @@ select {
 	max-width: 100%;
 }
 
-.research_plan_container .research_plan{
-    width: 1100px;
-    max-width: 100%;
+.research_plan_container .research_plan {
+	width: 1100px;
+	max-width: 100%;
 }
 
 .research_plan_container .research_plan form {
