@@ -48,6 +48,4 @@ public interface AdminMapper {
 	
 	int cpUpdate(CouponDto couponDto);
 
-
-	int cpGive(List<OwnedCouponDto> studyMaterials);
 }
