@@ -124,10 +124,10 @@ public class ReservationController {
     }
 
 	@PostMapping("/book")
-	public String firstBook(ReservationDto rDto, AirflightDto aDto, HttpSession session) {
+	public String firstBook() {
 		
-		session.setAttribute("rSession", rDto); // ReservationDto session
-		session.setAttribute("aSession", aDto); // AirflightDto session
+		
+//		session.setAttribute("aSession", aDto); // AirflightDto session
 
 		return "redirect:/reservation/passenger.do";
 	}
@@ -140,13 +140,11 @@ public class ReservationController {
 
 	@PostMapping("/passenger")
 	public String passengerInput(PassengerInfoDto pDto, ReservationDto rDto, HttpSession session,
-			@SessionAttribute(required = false) CustomerDto loginCt,
-			@SessionAttribute ReservationDto rSession) {
-		
-		session.setAttribute("rSession", rDto);
-		
-//		rDto.setRvEmail(rDto.getRvEmail());
-//		rDto.setRvPhone(rDto.getRvPhone());
+			@SessionAttribute(required = false) CustomerDto loginCt) {
+				
+		session.setAttribute("rSession", rDto); // ReservationDto session
+//		rSession.setRvEmail(rDto.getRvEmail());
+//		rSession.setRvPhone(rDto.getRvPhone());
 		
 		session.setAttribute("pSession", pDto);
 		
@@ -165,17 +163,17 @@ public class ReservationController {
 	public String baggageInput(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
 		
 		
-		pSession.setPgBaggage(pDto.getP().get(0).getPgBaggage());
+		pSession.getP().get(0).setPgBaggage(pDto.getP().get(0).getPgBaggage());
 		
-		System.out.println();
+//		System.out.println(pDto.getP().get(0).getPgBaggage());
 		
 		return "redirect:/reservation/terms.do";
 	}
 
 	// ------------- 예매 4 ------------------
 	@GetMapping("/terms.do")
-	public String terms() {
-//		System.out.println(pSession);
+	public String terms(@SessionAttribute PassengerInfoDto pSession) {
+		System.out.println(pSession);
 		return "reservation/reservationTerms";
 	}
 
