@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import com.joongbu.flight_reservation.api.ApiController;
+import com.joongbu.flight_reservation.dto.SelectInfo;
 import com.joongbu.flight_reservation.vo.AirflightVO;
 import com.joongbu.flight_reservation.vo.AirportVO;
 import org.jdom2.Element;
@@ -35,7 +36,6 @@ public class ReservationController {
     //TODO: main 페이지의 예매 페이지와 연동하기
 
     @GetMapping("/flightsearch.do")
-
     public String tempPage(Model model) throws IOException {
         ApiController api = new ApiController();
         List<Element> airport = api.airportInfo();
@@ -52,19 +52,17 @@ public class ReservationController {
         model.addAttribute("airportList", apVOs);
         return "reservation/flightsearch";
     }
-    
+
     //TODO: main 페이지의 예매 페이지와 연동하기
     @PostMapping("/temp.do")
-    public String reseravtionInputForm (
+    public String reseravtionInputForm(
             HttpSession session,
-            @RequestParam(value="depAprt") String depAprt,
-            @RequestParam(value="landAprt") String landAprt,
-            @RequestParam(value="depDate") String depDate
-            )throws IOException{
-        String tempDate = depDate.replace("-","");
-
+            SelectInfo si
+    ) throws IOException {
+        String tempDate = si.getDepDate().replace("-", "");
         ApiController api = new ApiController();
-        List<Element> airflight = api.airflightInfo("NAAR"+depAprt, "NAAR"+landAprt, tempDate);
+
+        List<Element> airflight = api.airflightInfo("NAAR" + si.getDepAprt(), "NAAR" + si.getLandAprt(), tempDate);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
         DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm");
@@ -88,28 +86,24 @@ public class ReservationController {
             AirflightVO vo = new AirflightVO(vihicleId, airlineNm, depPlandTime, arrPlandTime, economyCharge, prestigeCharge, depAirportNm, arrAirportNm);
             afVOs[idx++] = vo;
         }
-        if(afVOs.length > 0){
-            session.setAttribute("depAprt", "NAAR"+depAprt);
-            session.setAttribute("landAprt", "NAAR"+landAprt);
-            session.setAttribute("depDate", depDate);
+        if (afVOs.length > 0) {
+            session.setAttribute("selectInfo", si);
             session.setAttribute("airflightList", afVOs);
             return "redirect:/reservation/booking.do";
-        }else{
+        } else {
             return "redirect:/reservation/temp.do";
         }
     }
 
     @GetMapping("/booking.do")
-    public String booking(HttpSession session, Model model) throws Exception {
+    public String booking(@SessionAttribute SelectInfo si,@SessionAttribute AirflightVO[] afs, Model model) throws Exception {
         ApiController api = new ApiController();
-        model.addAttribute("depAprt", ((String)session.getAttribute("depAprt")).substring(4));
-        model.addAttribute("landAprt", ((String)session.getAttribute("landAprt")).substring(4));
-        model.addAttribute("depDate", session.getAttribute("depDate"));
-        AirflightVO[] airflightList = (AirflightVO[]) session.getAttribute("airflightList");
-        model.addAttribute("airflightList", airflightList);
+        model.addAttribute("depAprt", si.getDepAprt().substring(4));
+        model.addAttribute("landAprt", si.getLandAprt().substring(4));
+        model.addAttribute("depDate", si.getDepDate());
+        model.addAttribute("airflightList", afs);
 
         List<Element> airport = api.airportInfo();
-
         int idx = 0;
         AirportVO[] apVOs = new AirportVO[airport.size()];
         for (Element item : airport) {
@@ -123,18 +117,18 @@ public class ReservationController {
         return "reservation/reservationSearch";
     }
 
-	@PostMapping("/book")
-	public String firstBook() {
-		
+    @PostMapping("/book")
+    public String firstBook() {
 
-		return "redirect:/reservation/passenger.do";
-	}
+        return "redirect:/reservation/passenger.do";
+    }
 
-	// ------------- 예매 2 ------------------
+    // ------------- 예매 2 ------------------
     @GetMapping("/passenger.do")
     public String passenger() {
         return "reservation/passenger";
     }
+
     @PostMapping("/passenger")
     public String passengerInput(PassengerInfoDto pDto, ReservationDto rDto, HttpSession session,
                                  @SessionAttribute(required = false) CustomerDto loginCt) {
@@ -157,32 +151,34 @@ public class ReservationController {
 
     @PostMapping("/baggage")
     public String baggageInput(PassengerInfoDto pDto, /*@SessionAttribute ReservationDto rSession,*/ @SessionAttribute PassengerInfoDto pSession) {
-        for (PassengerInfoDto p : pDto.getP()) {
-            System.out.println(p.getPgLastName()+": " + p.getPgBaggage());
+        for (int i = 0; i < pSession.getP().size(); i++) {
+            pSession.getP().get(i).setPgBaggage(pDto.getP().get(i).getPgBaggage());
         }
 
-//        System.out.println(pDto.getP().get(0).getPgBaggage());
+        for (PassengerInfoDto p : pSession.getP()) {
+            System.out.println("p->pgBaggage: " + p.getPgBaggage());
+        }
 
         return "redirect:/reservation/terms.do";
     }
 
 
-	// ------------- 예매 4 ------------------
-	@GetMapping("/terms.do")
-	public String terms(@SessionAttribute PassengerInfoDto pSession) {
+    // ------------- 예매 4 ------------------
+    @GetMapping("/terms.do")
+    public String terms(@SessionAttribute PassengerInfoDto pSession) {
 //		System.out.println(pSession);
-		
-		return "reservation/reservationTerms";
-	}
 
-	// ------------- 예매 5 ------------------
-	@GetMapping("/pay.do")
-	public String pay() {
-		return "reservation/reservationPay";
-	}
+        return "reservation/reservationTerms";
+    }
 
-	@GetMapping("/payComplete.do")
-	public String payComplete() {
-		return "reservation/reservationPayComplete";
-	}
+    // ------------- 예매 5 ------------------
+    @GetMapping("/pay.do")
+    public String pay() {
+        return "reservation/reservationPay";
+    }
+
+    @GetMapping("/payComplete.do")
+    public String payComplete() {
+        return "reservation/reservationPayComplete";
+    }
 }
