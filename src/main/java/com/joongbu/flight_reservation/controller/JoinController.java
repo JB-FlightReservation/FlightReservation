@@ -92,15 +92,14 @@ public class JoinController {
 				System.out.println(ctId+"/"+ctPw);
 				CustomerDto loginCt=null;
 				loginCt=customerMapper.login(ctId, ctPw);
-//				try {
-//					loginCt=customerMapper.login(ctId, ctPw);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-				
-				boolean b =passwordEncoder.matches(ctPw, customerDto.getCtPw());
+				try {
+					loginCt=customerMapper.login(ctId, ctPw);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				//boolean b =passwordEncoder.matches(ctPw, customerDto.getCtPw());
 				System.out.println(b);
-				if(loginCt!=null && passwordEncoder.matches(loginCt.getCtPw(),customerDto.getCtPw() )) {
+				if(loginCt!=null) {
 					session.setAttribute("loginCt", loginCt);
 					return "redirect:/";
 				}else {
