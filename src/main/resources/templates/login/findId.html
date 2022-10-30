@@ -11,23 +11,33 @@
 	<main class="container mx-auto" style="max-width: 500px">
 	<h1 class="d-flex justify-content-center mt-5">아이디 찾기</h1>
 		<!-- action  action="/login/findId.do" -->
-		<form id="findIdForm" name="findIdForm" action="/login/findUserId.do"  method="post" class="mt-5">
-		<input type="hidden" >
-			<div class="input-group input-group-lg mb-3">
-				<span class="input-group-text" >이름</span>
-				<input name="ctName" type="text" class="form-control" placeholder="이름을 입력하세요" id="inputName">
-			</div>
-			<div class="input-group input-group-lg mb-3">
-				<span class="input-group-text">이메일</span>
-			  	<input name="ctEmail" type="email" class="form-control" placeholder="이메일을 입력하세요" id="inputEmail" >
-			  	<a  class="btn btn-outline-secondary" name="btnOtp" id="btnAuthNo">인증번호받기</a>
-			</div>
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" id="otpNum" placeholder="인증번호 입력" disabled>
-			</div>
-			<div class="d-grid gap-2 col-6 mx-auto">
-				<button onclick="mainSubmit()" type="button" class="btn btn-primary mt-4">아이디 찾기</button>
-			</div>
+		<form id="findNameForm" name="findNameForm" action="/login/findUserId"  method="post" class="mt-5">
+			<div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">이름</label>
+            <div class="col-sm-10">
+               <input name="ctName" type="text" class="form-control" value="">
+               <div class="valid-feedback" id="ctNameValid">
+                  존재하는 이름 입니다.
+               </div>
+               <div class="invalid-feedback" id="ctNameInvalid">
+                  존재하지 않는 이름 입니다.
+               </div>
+            </div>
+         </div>
+         
+         <div class="mb-3 row">
+            <label class="col-sm-2 col-form-label">이메일</label>
+            <div class="col-sm-10">
+               <input name="ctEmail" type="email" class="form-control" value="">
+               <div class="valid-feedback" id="ctEmailValid">
+                  일치하는 이메일 입니다.
+               </div>
+               <div class="invalid-feedback" id="ctEmailInvalid">
+                  일치하지 않는 이메일 입니다.
+               </div>
+            </div>
+         </div>
+         <button  type="submit" class="btn btn-primery">아이디 찾기</button>
 		</form>
 	</main>
 </body>

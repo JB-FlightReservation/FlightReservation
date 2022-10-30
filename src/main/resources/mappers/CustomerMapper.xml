@@ -16,8 +16,19 @@
 		where ct_id=#{ctId} and ct_name=#{ctName} and ct_email=#{ctEmail}
 	</select>
 	
-	<update id="newPassword">
+	<select id="detail" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
+		SELECT *,ct_name ctName FROM CUSTOMER
+        WHERE ct_name=#{ctName} 
+	</select>
+	<select id="detail2" resultType="com.joongbu.flight_reservation.dto.CustomerDto">
+		SELECT *,ct_email ctEmail FROM CUSTOMER
+        WHERE ct_email=#{ctEmail}
+	</select>
+	
+	<update id="newPassword" parameterType="com.joongbu.flight_reservation.dto.CustomerDto">
 		update customer set ct_pw=#{ctPw} 
 		where ct_id=#{ctId}
 	</update>
+	
+	
   </mapper>

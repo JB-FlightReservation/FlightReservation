@@ -1,10 +1,10 @@
 package com.joongbu.flight_reservation.controller;
 
-import java.io.UnsupportedEncodingException;
-
-import javax.mail.MessagingException;
-import javax.security.auth.message.config.AuthConfig;
-import javax.servlet.http.HttpServletRequest;
+//import java.io.UnsupportedEncodingException;
+//
+//import javax.mail.MessagingException;
+//import javax.security.auth.message.config.AuthConfig;
+//import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
@@ -18,11 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.joongbu.flight_reservation.dto.CustomerDto;
-import com.joongbu.flight_reservation.dto.SignupDto;
 import com.joongbu.flight_reservation.mapper.CustomerMapper;
-import com.joongbu.flight_reservation.service.SendMailService;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -74,55 +73,94 @@ public class LoginController {
 	}
 	
 	
-	//아이디 찾기
-	@Autowired
-	SendMailService emailservice;
-	String EmailauthNum;
-	
+	//아이디찾기
+	@Getter
+	@Setter
+	class CheckUser {
+		private int check;
+		private CustomerDto customer; 
+	}
 	@GetMapping("/findId.do")
 	public void findId() {}
 	@PostMapping("/findId.do")
 	public String findId(
-			@RequestParam("name") String ctName,
-			@RequestParam("email") String ctEmail,
-			Model model
+			CustomerDto customer
 			) {
-		System.out.println(ctName+"/"+ctEmail); 
-		CustomerDto find=null;
+		int findId = 0;
 		try {
-			find=customerMapper.find(ctName, ctEmail);
-			//System.out.println(find.getCtId());
+			findId = customerMapper.newPassword(customer);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if(find!=null) {
-			String toEmail = ctEmail;
-			try {
-				EmailauthNum = emailservice.sendEmail(toEmail);
-				
-				CheckNum aa=new CheckNum();
-				aa.setAuthNum(EmailauthNum);
-				System.out.println(EmailauthNum);
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			} catch (MessagingException e) {
-				e.printStackTrace();
-			}
-			
+		if(findId >0) {
 			return "redirect:/login/findUserId.do";
+		}else {
+			return "redirect:/login/findId.do";
 		}
-		return "redirect:/login/findId.do";
+		
 	}
-	
-	@Getter@Setter
-	class CheckNum{
-		private String authNum;
+	@GetMapping("/checkName.do")
+	public @ResponseBody CheckUser checkUserName (
+			@RequestParam(required = true) String ctName
+			) {
+		CheckUser checkUser = new CheckUser();
+		CustomerDto customer=null;
+		try {
+			customer=customerMapper.detail(ctName);
+			if(customer != null) {
+				checkUser.setCheck(0);
+				checkUser.setCustomer(customer);
+			}else {
+				checkUser.setCheck(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			checkUser.setCheck(-1);
+		}
+		
+		return checkUser;
 	}
-
+	@GetMapping("/checkEmail.do")
+	public @ResponseBody CheckUser checkUserEmail (
+			
+			@RequestParam(required = true) String ctEmail
+			) {
+		CheckUser checkUser = new CheckUser();
+		CustomerDto customer=null;
+		try {
+			customer=customerMapper.detail2(ctEmail);
+			if(customer != null) {
+				checkUser.setCheck(0);
+				checkUser.setCustomer(customer);
+			}else {
+				checkUser.setCheck(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			checkUser.setCheck(-1);
+		}
+		
+		return checkUser;
+	}
 	
 	//아이디 찾기완료
 	@GetMapping("/findUserId.do")
-	public void findUserId() {}
+	public String findUId(
+			@SessionAttribute CustomerDto customer,
+			Model model
+			) {
+		model.addAttribute("findId",customer.getCtId());
+		return "/login/findUserId";
+	}
+	@PostMapping("/findUserId")
+	public String findUserId(
+			CustomerDto customer,
+			HttpSession session
+			) {
+		CustomerDto custo = customerMapper.find(customer.getCtName(), customer.getCtEmail());
+		session.setAttribute("customer", custo);
+		return "redirect:/login/findUserId.do";
+	}
 	
 	
 	//비번 찾기
@@ -142,15 +180,7 @@ public class LoginController {
 			e.printStackTrace();
 		}
 		if(findPassword != null) {
-			String toEmail = ctEmail;
-			try {
-				EmailauthNum = emailservice.sendEmail(toEmail);
-				System.out.println(EmailauthNum);
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			} catch (MessagingException e) {
-				e.printStackTrace();
-			}
+			
 			
 			return "/login/findPwAuth.do";
 		}
