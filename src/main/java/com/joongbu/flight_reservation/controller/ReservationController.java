@@ -3,6 +3,7 @@ package com.joongbu.flight_reservation.controller;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,8 +18,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.joongbu.flight_reservation.dto.AirflightDto;
+import com.joongbu.flight_reservation.dto.AirlineDto;
+import com.joongbu.flight_reservation.dto.AirportDto;
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.PassengerInfoDto;
+import com.joongbu.flight_reservation.dto.PriceDto;
 import com.joongbu.flight_reservation.dto.ReservationDto;
 import com.joongbu.flight_reservation.mapper.AirflightMapper;
 import com.joongbu.flight_reservation.mapper.ReservationMapper;
@@ -29,6 +33,7 @@ public class ReservationController {
 
     @Autowired
     AirflightMapper afMapper;
+    @Autowired
     ReservationMapper rMapper;
 
     // ------------- 예매 1 ------------------
@@ -169,19 +174,91 @@ public class ReservationController {
 
 	// ------------- 예매 4 ------------------
 	@GetMapping("/terms.do")
-	public String terms(@SessionAttribute PassengerInfoDto pSession) {
-		System.out.println(pSession);
+	public String terms(Model model, HttpSession session) {
+		ReservationDto reservation = (ReservationDto)session.getAttribute("rSession"); // ReservationDto session
+		AirflightDto airflight = (AirflightDto)session.getAttribute("aSession"); // AirflightDto session
+		PriceDto price = (PriceDto)session.getAttribute("priceSession");
+		AirportDto airport = (AirportDto)session.getAttribute("airportSession");
+		
+		//reservation
+		if( reservation == null ) {
+			reservation = new ReservationDto();
+			reservation.setRvDepartAp("2022-10-28(목)");
+			reservation.setRvLandAp("2022-11-01(화)");
+			
+			session.setAttribute("rSession", reservation);
+		}
+		model.addAttribute("reservation", reservation);
+		
+		//airport
+		if( airport == null) {
+			airport = new AirportDto();
+			airport.setApName("제주2");
+			session.setAttribute("airportSession", airport);
+		}
+		model.addAttribute("airport", airport);
+		
+		//price
+		if( price == null ) {
+			price = new PriceDto();
+			price.setPrAirfare(10000);
+			price.setPrAirportUsageFee(2000);
+			price.setPrDiscount(0);
+			price.setPrFuelSurcharge(5000);
+			price.setPrTotal(price.getPrAirfare()+price.getPrAirportUsageFee()+price.getPrDiscount()+price.getPrFuelSurcharge());
+			session.setAttribute("priceSession", price);
+		}
+		model.addAttribute("price", price);
+		
+		//airflight
+		if( airflight == null ) {
+			airflight = new AirflightDto(); 
+			airflight.setAfEconomy(1111);
+			airflight.setAfNo(1234);
+			session.setAttribute("aSession", airflight);
+		}
+		model.addAttribute("airflight", airflight);
+		
+		AirlineDto airline = new AirlineDto();
+		model.addAttribute("airline", airline);
 		return "reservation/reservationTerms";
 	}
 
 	// ------------- 예매 5 ------------------
 	@GetMapping("/pay.do")
-	public String pay() {
+	public String pay(Model model, HttpSession session) {
+		PriceDto price = (PriceDto)session.getAttribute("priceSession");
+		
+		
+		price.getPrTotal();
 		return "reservation/reservationPay";
 	}
 
 	@GetMapping("/payComplete.do")
-	public String payComplete() {
+	public String payComplete(HttpSession session) {
+		ReservationDto reservation = (ReservationDto)session.getAttribute("rSession"); // ReservationDto session
+		AirflightDto airflight = (AirflightDto)session.getAttribute("aSession"); // AirflightDto session
+		
+		if( reservation == null ) reservation = new ReservationDto();
+		// test only
+//		rv_no, ct_no, rv_phone, rv_email, rv_is_ticketed, rv_date, rv_mature_adult, 
+//		rv_mature_teen, rv_mature_baby, rv_depart_ap, rv_land_ap, next_rv_no, rv_seat_grade
+		reservation.setRvNo(6);
+		reservation.setCtNo(1);
+		reservation.setRvPhone("1");
+		reservation.setRvEmail("1");
+		reservation.setRvIsTicketed(1);
+		reservation.setRvDate(new Date());
+		reservation.setRvMatureAdult(1);
+		reservation.setRvMatureTeen(1);
+		reservation.setRvMatureBaby(1);
+		reservation.setRvDepartAp("1");
+		reservation.setRvLandAp("1");
+		reservation.setNextRvNo(1);
+		reservation.setRvSeatGrade("1");
+//		System.out.println(reservation.getRvDepartAp());
+		rMapper.insert(reservation);
+		
 		return "reservation/reservationPayComplete";
 	}
 }

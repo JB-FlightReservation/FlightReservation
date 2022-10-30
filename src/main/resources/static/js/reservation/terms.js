@@ -82,38 +82,3 @@ function info(){
 	
 }
 
-function fn_check(){
-	if( document.frm.chkAll.checked == false ||
-		document.frm1.check.checked == false ||
-		document.frm2.check.checked == false ||
-		document.frm3.check.checked == false ||
-		document.frm4.check.checked == false ||
-		document.frmDanger1.chkDangerRule.checked == false ||
-		document.frmDanger.frmDanger.checked == false
-		){
-			if( (document.frm.chkAll.checked == false ||
-			document.frm1.check.checked == false ||
-			document.frm2.check.checked == false ||
-			document.frm3.check.checked == false ||
-			document.frm4.check.checked == false) &&
-			(document.frmDanger1.chkDangerRule.checked == true ||
-			document.frmDanger.frmDanger.checked == true)
-			){
-			alert("예약 규정을 동의 해주세요.")
-			return 
-			}
-			if( (document.frmDanger.frmDanger.checked == false || document.frmDanger1.chkDangerRule.checked == false) &&
-			(document.frm.chkAll.checked == true ||
-			document.frm1.check.checked == true ||
-			document.frm2.check.checked == true ||
-			document.frm3.check.checked == true ||
-			document.frm4.check.checked == true)
-			){
-			alert("위험물 안내 규정을 동의 해주세요.")
-			return
-			}
-		alert("모든 규정을 동의 해주세요.")
-		}else{
-			location = "/reservation/pay.do";
-		}
-}
