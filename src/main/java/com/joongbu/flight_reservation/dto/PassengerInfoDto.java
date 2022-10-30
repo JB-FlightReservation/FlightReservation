@@ -1,4 +1,4 @@
-	package com.joongbu.flight_reservation.dto;
+package com.joongbu.flight_reservation.dto;
 
 import java.util.Date;
 import java.util.List;
@@ -21,15 +21,18 @@ import lombok.Data;
 +---------------+------------------+------+-----+---------+----------------+
  */
 @Data
-public class PassengerInfoDto{
-	
+public class PassengerInfoDto {
+
 	private int pgNo;
 	private String pgFirstName;
 	private String pgLastName;
 	private int pgGender;
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date pgBirth;
 	private String pgCountry;
 	private int pgBaggage;
+
 	private List<PassengerInfoDto> p;
+
 }

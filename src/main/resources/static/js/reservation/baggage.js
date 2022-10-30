@@ -6,6 +6,7 @@ var swiper = new Swiper("#secondSwiper", {
 		nextEl: ".btn_slide_next",
 		prevEl: ".btn_slide_prev",
 	},
+	
 });
 
 var slider = document.getElementById("myRange");

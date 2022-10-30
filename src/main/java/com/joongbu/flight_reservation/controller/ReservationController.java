@@ -16,7 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import com.joongbu.flight_reservation.dto.AirflightDto;
 import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.PassengerInfoDto;
 import com.joongbu.flight_reservation.dto.ReservationDto;
@@ -34,8 +33,7 @@ public class ReservationController {
     // ------------- 예매 1 ------------------
 
     //TODO: main 페이지의 예매 페이지와 연동하기
-    @GetMapping("/temp.do")
-    
+    @GetMapping("/flightsearch.do")
     public String tempPage(Model model) throws IOException {
         ApiController api = new ApiController();
         List<Element> airport = api.airportInfo();
@@ -50,7 +48,7 @@ public class ReservationController {
             apVOs[idx++] = vo;
         }
         model.addAttribute("airportList", apVOs);
-        return "reservation/temp";
+        return "reservation/flightsearch";
     }
     
     //TODO: main 페이지의 예매 페이지와 연동하기
@@ -126,8 +124,6 @@ public class ReservationController {
 	@PostMapping("/book")
 	public String firstBook() {
 		
-		
-//		session.setAttribute("aSession", aDto); // AirflightDto session
 
 		return "redirect:/reservation/passenger.do";
 	}
@@ -141,7 +137,8 @@ public class ReservationController {
 	@PostMapping("/passenger")
 	public String passengerInput(PassengerInfoDto pDto, ReservationDto rDto, HttpSession session,
 			@SessionAttribute(required = false) CustomerDto loginCt) {
-				
+		
+		pDto.getP().get(0).setPgBirth(pDto.getPgBirth());
 		session.setAttribute("rSession", rDto); // ReservationDto session
 //		rSession.setRvEmail(rDto.getRvEmail());
 //		rSession.setRvPhone(rDto.getRvPhone());
@@ -153,7 +150,7 @@ public class ReservationController {
 
 	// ------------- 예매 3 ------------------
 	@GetMapping("/baggage.do")
-	public String baggage() {
+	public String baggage(@SessionAttribute PassengerInfoDto pSession) {
 				
 //		System.out.println(pSession);
 		return "reservation/baggage";
@@ -162,10 +159,10 @@ public class ReservationController {
 	@PostMapping("/baggage")
 	public String baggageInput(PassengerInfoDto pDto, @SessionAttribute ReservationDto rSession, @SessionAttribute PassengerInfoDto pSession) {
 		
-		
 		pSession.getP().get(0).setPgBaggage(pDto.getP().get(0).getPgBaggage());
+//		pSession.getP().get(1).setPgBaggage(pDto.getP().get(1).getPgBaggage());
 		
-//		System.out.println(pDto.getP().get(0).getPgBaggage());
+		System.out.println(pSession.getP().get(0).getPgBaggage());
 		
 		return "redirect:/reservation/terms.do";
 	}
@@ -173,7 +170,8 @@ public class ReservationController {
 	// ------------- 예매 4 ------------------
 	@GetMapping("/terms.do")
 	public String terms(@SessionAttribute PassengerInfoDto pSession) {
-		System.out.println(pSession);
+//		System.out.println(pSession);
+		
 		return "reservation/reservationTerms";
 	}
 

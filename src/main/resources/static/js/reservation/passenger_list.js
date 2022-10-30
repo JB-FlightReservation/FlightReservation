@@ -11,5 +11,5 @@ function selectDate(event) {
 
 	birth += va;
 	console.log(birth);
+	$('input[name=pgBirth]').attr('value', '1999-05-17');
 }
-// $('input[name=(p[0].pgBirth)]').attr('value', birth);
