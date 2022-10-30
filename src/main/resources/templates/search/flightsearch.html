@@ -5,6 +5,7 @@
 <title>예매 페이지</title>
 	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<link href="/css/search/flightsearch.css" rel="stylesheet">
+	<script defer="defer" src="/js/search/flightsearch.js"></script>
 </head>
 <body>
 	<header th:include="/headerNav"></header>
@@ -65,11 +66,11 @@
 									<div class="adult_count count_box">
 										<label for="adult_count" class="sub-passenger-tit">성인</label>
 										<div class="btn-group" role="group">
-											<button type="button" class="btn btn-secondary">-</button>
+											<button type="button" class="btn btn-secondary" onclick='count("minus")'>-</button>
 											<div class="input_container">
-												<input type="text" id="adult_count" value="1">
+												<input type="text" id="adult_count" value="0">
 											</div>
-											<button type="button" class="btn btn-secondary">+</button>
+											<button type="button" class="btn btn-secondary" onclick='count("plus")'>+</button>
 										</div>
 									</div>
 									<div class="teen_count count_box">

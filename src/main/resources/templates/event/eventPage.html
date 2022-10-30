@@ -6,6 +6,7 @@
 	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
 	<script src="/bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="/css/event/eventPage.css">
+	<script defer="defer" src="/js/event/event.js"></script>
 </head>
 <body>
 	<header th:include="/headerNav"></header>
@@ -42,24 +43,49 @@
 				<div class="evt_wrap">
 					<ul class="evt_list">
 						<li>
-							<a href="#">
-								<div class="img1"><img alt="주말 특가" src=""></div>
+							<a href="#pop_info_1" class="btn_open">
+								<div class="img1"><img alt="주말 특가" src="/imges/event1.jpg" width="300" height="200"></div>
+								<strong><span>국내선 주말 특가</span></strong>
+								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
+								<p>2022-10-28 ~ 2022-10-30</p>
+							</a>
+							<!-- 팝업창 -->
+							<div id="pop_info_1" class="pop_wrap" style="display:none;">
+							  <div class="pop_inner">
+							    <p class="dsc">쿠폰을 발급받으시겠습니까?</p>
+							    <hr>
+							    <div class="select_coupon">
+							    <div class="check">
+							    	<input class="check_input" type="radio" id="flexRadioDefault1">
+							    	<label class="check_label" for="flexRadioDefault1">쿠폰1</label>
+							    </div>
+							    <div class="check">
+							    	<input class="check_input" type="radio" id="flexRadioDefault2">
+							    	<label class="check_label" for="flexRadioDefault2">쿠폰2</label>
+							    </div>
+							    <div class="check">
+							    	<input class="check_input" type="radio" id="flexRadioDefault3">
+							    	<label class="check_label" for="flexRadioDefault3">쿠폰3</label>
+							    </div>
+							    </div>
+							    <hr>
+							    <button type="button" class="btn_receive" onclick="location.href='/event/eventPage.do'">쿠폰 발급</button>
+							    <button type="button" class="btn_close">닫기</button>
+							  </div>
+							</div>
+							<!-- //팝업창 -->
+						</li>
+						<li>
+							<a href="#pop_info_1" class="btn_open">
+								<div class="img2"><img alt="주말 특가" src="/imges/event1.jpg" width="300" height="200"></div>
 								<strong><span>국내선 주말 특가</span></strong>
 								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
 								<p>2022-10-28 ~ 2022-10-30</p>
 							</a>
 						</li>
 						<li>
-							<a href="#">
-								<div class="img2"><img alt="주말 특가" src=""></div>
-								<strong><span>국내선 주말 특가</span></strong>
-								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
-								<p>2022-10-28 ~ 2022-10-30</p>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<div class="img3"><img alt="주말 특가" src=""></div>
+							<a href="#pop_info_1" class="btn_open">
+								<div class="img3"><img alt="주말 특가" src="/imges/event1.jpg" width="300" height="200"></div>
 								<strong><span>국내선 주말 특가</span></strong>
 								<p class="sbj_sub">단, 3일간 국내선 특별 할인</p>
 								<p>2022-10-28 ~ 2022-10-30</p>
