@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.joongbu.flight_reservation.dto.AdminDto;
 import com.joongbu.flight_reservation.dto.CouponDto;
 import com.joongbu.flight_reservation.dto.CustomerDto;
@@ -161,7 +159,9 @@ public class AdminController {
 
 	//쿠폰페이지- 삭제
 		@GetMapping("/cpDelete.do")
-		public String couponDelete(int cpNo) {
+		public String couponDelete(
+			@RequestParam(required=true) int cpNo
+				) {
 			int delete = 0;
 			try {
 				delete = adminMapper.cpDelete(cpNo);
@@ -176,9 +176,25 @@ public class AdminController {
 		}
 		@GetMapping("/cpUpdate.do")
 		public void cpUpdate() {
+			
 		}
 		
-		
+		@PostMapping("/cpUpdate.do")
+		public String cpUpdate(
+				CouponDto couponDto
+				) {
+			int update = 0;
+			try {
+				update = adminMapper.cpUpdate(couponDto);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			if (update > 0) {
+				return "redirect:/adminpage/couponList.do";
+			} else {
+				return "redirect:/adminpage/cpUpdate.do?cpNo="+couponDto.getCpNo();
+			}
+		}
 	
 
 	@GetMapping("/coupon.do")
