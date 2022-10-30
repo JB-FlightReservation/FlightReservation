@@ -26,12 +26,8 @@ public class EventController {
 	@Autowired
 	AdminService adminService;
 	
-	@GetMapping("/eventPage.do")
-	public String eventPage() {
-		return "/event/eventPage";
-	}
 	
-	@GetMapping("/couponList.do")
+	@GetMapping("/eventPage.do")
 	public String couponList(Model model, @RequestParam(defaultValue = "1") int page,
 			SearchDto search) {
 		final int ROWS = 10;
