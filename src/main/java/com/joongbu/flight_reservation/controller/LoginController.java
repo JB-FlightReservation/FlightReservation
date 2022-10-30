@@ -37,6 +37,7 @@ public class LoginController {
 	@Autowired
 	CustomerMapper customerMapper;
 	PasswordEncoder passwordEncoder;
+
 	//로그인
 		@Autowired
 		  public LoginController( PasswordEncoder passwordEncoder) {
@@ -66,7 +67,18 @@ public class LoginController {
 			}else {
 				return "redirect:/login/loginPage.do";
 			}
+
+			if(loginCt!=null) {
+			session.setAttribute("loginCt", loginCt);
+			return "redirect:/";
+		}else {
+			return "redirect:/login/loginPage.do";
 		}
+		}
+
+		
+	
+
 	//로그아웃
 	@GetMapping("/logout.do")//세션삭제
 	public String logout(HttpSession session) {

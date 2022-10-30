@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.joongbu.flight_reservation.dto.CustomerDto;
 import com.joongbu.flight_reservation.dto.SignupDto;
+import com.joongbu.flight_reservation.mapper.CustomerMapper;
 import com.joongbu.flight_reservation.mapper.SignupMapper;
 
 import lombok.Getter;
@@ -24,6 +26,8 @@ import lombok.Setter;
 public class JoinController {
 	@Autowired //객체를 주입받겠다
 	SignupMapper signupMapper; 
+	@Autowired
+	CustomerMapper customerMapper;
 
 	PasswordEncoder passwordEncoder;
 	@Autowired
@@ -40,22 +44,26 @@ public class JoinController {
 	@PostMapping("/joinPage2.do")
 	public String joinPage2(
 			SignupDto signupDto,
+			
 			@RequestParam(required=true) String ctName, 
 			@RequestParam(required=true) String ctId, 
 			HttpSession session
 			) {
 		int insert=0;
 		String msg="";
+		
 		try {
 			passwordEncoder = new BCryptPasswordEncoder();
-	        signupDto.setCtPw(passwordEncoder.encode(signupDto.getCtPw()));
-			insert=signupMapper.insert(signupDto);
+			String input=passwordEncoder.encode(signupDto.getCtPw());
+	        signupDto.setCtPw(input);
 			//userService.saveUserData(signupDto);
 			signupDto=signupMapper.login(ctName, ctId);
+//			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		System.out.println(signupDto);
+		
 //		return "redirect:/signup/joinPage3.do";
 		if(insert>0) {
 			
@@ -67,6 +75,40 @@ public class JoinController {
 			return "redirect:/signup/joinPage2.do";
 		}
 	} 
+	
+	
+	//로그인
+			@GetMapping("/loginPage.do")
+			public void loginPage() {}
+			@PostMapping("/loginPage.do")
+			public String loginPage(
+					CustomerDto customerDto,
+					SignupDto signupDto,
+					@RequestParam(required = true) String ctId,
+					@RequestParam(required = true) String ctPw,
+					HttpSession session
+					) {
+				
+				System.out.println(ctId+"/"+ctPw);
+				CustomerDto loginCt=null;
+				loginCt=customerMapper.login(ctId, ctPw);
+				try {
+					loginCt=customerMapper.login(ctId, ctPw);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				//boolean b =passwordEncoder.matches(ctPw, customerDto.getCtPw());
+				System.out.println(b);
+				if(loginCt!=null) {
+					session.setAttribute("loginCt", loginCt);
+					return "redirect:/";
+				}else {
+					return "redirect:/login/loginPage.do";
+				}
+			}
+			
+	
+	
 	
 	//insert- 아이디 중복 체크 (userinsert.js)
 		@Getter@Setter
