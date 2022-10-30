@@ -38,35 +38,31 @@
 	margin-bottom: 20px;
 	width: 48%;
 }
-.sub-airport-tit{
+
+.sub-airport-tit {
 	margin-bottom: 10px;
 	font-size: 25px;
 	font-weight: 600;
 }
+
 .plan_date {
 	margin: 23px 0 23px 0;
 }
 
 .passenger_count {
 	display: flex;
-	width: 100%;
+	max-width: 1100px;
 	justify-content: space-between;
 	margin: 10px 0 10px 0;
 }
 
-.adult_count {
-	width: 300px;
-	max-width: 100%;
+.count_box {
+	font-size: 22px;
+	font-weight: 600;
 }
 
-.teen_count {
-	width: 300px;
-	max-width: 100%;
-}
-
-.baby_count {
-	width: 300px;
-	max-width: 100%;
+.sub-passenger-tit {
+	margin-bottom: 10px;
 }
 
 .btn.btn-secondary {
@@ -74,10 +70,23 @@
 }
 
 .btn_group {
-	margin: 40px 0 30px 0;
 	text-align: center;
+}
+
+.content_footer {
+	margin-top: 80px;
 }
 
 .submit_search {
 	display: inline-block;
+	width: 230px;
+	height: 60px;
+}
+
+.passenger_count input {
+	text-align: center;
+}
+.plan_date .selector_box{
+	width: 300px;
+	height: 35px;
 }

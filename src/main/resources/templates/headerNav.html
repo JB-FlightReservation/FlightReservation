@@ -21,11 +21,10 @@
 				<a href="/signup/joinPage.do">회원가입</a>
 			</th:block>
 			<th:block th:unless="${session.loginCt==null}">
-				<a class="btn btn-sm btn-outline-secondary"> <span th:text="${session.loginCt.ctName}"></span> (<span th:text="${session.loginCt.ctId}"></span>)
+				<a> <span th:text="${session.loginCt.ctName}"></span> (<span th:text="${session.loginCt.ctId}"></span>)
 				</a> / 
-			<a href="/login/logout.do" class="btn btn-sm btn-danger">로그아웃</a>
+			<a href="/login/logout.do">로그아웃</a>
 			</th:block>
-			<a href="#">마이페이지</a>
 		</div>
 
 	</nav>

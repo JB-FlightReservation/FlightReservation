@@ -1,32 +1,38 @@
 @charset "UTF-8";
+
 * {
 	padding: 0;
 	margin: 0;
 }
 
-body {
+
+ul {
+	list-style: none;
+}
+
+.container {
 	width: 1100px;
 	margin: 0 auto;
 }
-ul{
-   list-style:none;
-}
-
-   
 /* 광고, 예매 */
-.main_content{
+.main_content {
+	margin-top: 20px;
 	width: 100%;
 	height: 500px;
 	background: #f2f2f3;
+	width: 100%;
 }
-.main_content .image{
-	border: 1px solid black;
+
+.main_content .image {
 	width: 50%;
 	height: 500px;
 	float: left;
 	box-sizing: border-box;
+	background-size: contain;
+	background: url("https://post-phinf.pstatic.net/MjAxODA4MThfMTA3/MDAxNTM0NTIyODcwNjAz.Qxr438Tdjh2mRFUSQ6izrC9uG0aFyoql3aHONjHW0nEg.-KGpvYLk8IJZ8tvPCQj1HjGX31dll9Y854ZUKggGnmAg.PNG/%EB%82%98%EB%A7%8C_%EC%95%8C%EA%B3%A0_%EC%8B%B6%EC%9D%80_%EB%82%98%EB%9D%BC_%ED%95%B4%EC%99%B8_%EB%B0%94%EB%8B%A4_%EC%97%AC%ED%96%89_%EC%B6%94%EC%B2%9C_%ED%98%B8%ED%85%94%ED%8C%A8%EC%8A%A4_0_2018%2C08%2C18_012040.png?type=w1200") no-repeat;
 }
-.main_content .reserve{
+
+.main_content .reserve {
 	/* border: 1px solid black; */
 	width: 50%;
 	height: 500px;
@@ -34,11 +40,13 @@ ul{
 	box-sizing: border-box;
 	background: #91B9F5;
 }
-.reserve_contents{
+
+.reserve_contents {
 	text-align: center;
 	margin: 23px;
 }
-.reserve_name{
+
+.reserve_name {
 	border: 1px solid black;
 	height: 35px;
 	padding-top: 10px;
@@ -46,15 +54,16 @@ ul{
 	background: darkblue;
 	color: white;
 }
-.triptypeselect, 
-.singledestcontrols_places, 
-.daterangeselector, .section_passenger{
+
+.triptypeselect, .singledestcontrols_places, .daterangeselector, .section_passenger {
 	margin: 35px 30px 30px;
 }
-.triptypeselect a{
+
+.triptypeselect a {
 	margin-left: 5px;
 }
-.reserve_selector{
+
+.reserve_selector {
 	border: 1px solid black;
 	border-radius: 20px;
 	background: white;
@@ -62,20 +71,24 @@ ul{
 	padding: 20px;
 	margin-top: 10px;
 }
-.singledestcontrols_places{
+
+.singledestcontrols_places {
 	display: flex;
 }
-.locationselector, .switch_button{
-	flex: 1;
-}
-.daterangeselector{
-	display: flex;
-}
-.date-st, .date-de{
+
+.locationselector, .switch_button {
 	flex: 1;
 }
 
-.tripselect_btn{
+.daterangeselector {
+	display: flex;
+}
+
+.date-st, .date-de {
+	flex: 1;
+}
+
+.tripselect_btn {
 	width: 50%;
 	height: 40px;
 	border-radius: 20px;
@@ -84,46 +97,47 @@ ul{
 }
 
 /* 할인 */
-.discount{
+.discount {
 	width: 100%;
 	height: 370px;
 	margin: 45px 0 45px 0;
 }
-.icons{
+
+.icons {
 	display: flex;
 	margin: auto;
 	padding: 0;
 }
-.icons li{
+
+.icons li {
 	/* border: 1px solid black; */
 	flex: 1;
 	height: 320px;
 	text-align: center;
 	margin: 30px;
 }
-.icons .discount_contents{
+
+.icons .discount_contents {
 	font-weight: bold;
 }
-img{
+
+img {
 	border-radius: 50%;
 }
 
 /* 회원해택 */
-.member{
+.member {
 	width: 100%;
 	height: 230px;
 }
-.member .member-box{
+
+.member .member-box {
 	width: 80%;
 	height: 110px;
 	margin-top: 25px;
 	margin-left: 105px;
 	background: #ffb6c1;
-	display : flex;
- 	justify-content: center;
-  	align-items : center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-
-
-
-
