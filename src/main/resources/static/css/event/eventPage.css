@@ -27,44 +27,9 @@ a {
     font-weight: 400;
     color: #1a1a1a;
     text-align: center;
-    margin: 20px 0 25px 0;
+    margin: 20px 0 15px 0;
 }
 
-.slick-list{
-	width: 100%;
-	height: 350px;
-	background: #f2f2f3;
-}
-.slick-slide1{
-	border: 1px solid black;
-	width: 50%;
-	height: 350px;
-	float: left;
-	box-sizing: border-box;
-}
-.slick-slide2{
-	border: 1px solid black;
-	width: 50%;
-	height: 350px;
-	float: right;
-	box-sizing: border-box;
-}
-
-.btn_prev{
-	float: left;
-    width: 39px;
-    height: 39px;
-    background: url(//contents-image.twayair.com/homepage/images/main/btn_goods_prev.png) 0px 0px no-repeat;
-    text-indent: -9999px;
-	
-}
-.btn_next{
-	float: right;
-    width: 39px;
-    height: 39px;
-    background: url(//contents-image.twayair.com/homepage/images/main/btn_goods_next.png) 0px 0px no-repeat;
-    text-indent: -9999px;
-}
 
 .tab_wrap {
     width: 100%;
