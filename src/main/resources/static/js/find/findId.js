@@ -51,7 +51,7 @@ async function checkUserEmail(){
          alert("통신 장애(다시시도)"+resp.status);
       }
    }else{
-      ctEmailInvalid.innerText="2글자 이상 작성하세요.";
+      ctEmailInvalid.innerText="가입하신 이메일을 입력하세요";
        findNameForm.ctEmail.classList.add("is-invalid");
    }
 }
