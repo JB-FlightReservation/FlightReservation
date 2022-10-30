@@ -12,4 +12,5 @@ public class SelectInfo {
     private String depTime;
     private String arrTime;
     private String seatGrade;
+    private Integer seatGradeCharge;
 }

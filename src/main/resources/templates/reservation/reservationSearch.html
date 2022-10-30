@@ -236,11 +236,12 @@
 
 						<!-- 항공편 리스트 -->
 						<div class="section_list" id="price_list_route_1">
-                            <input type="hidden" name="vihicleId">
-                            <input type="hidden" name="airlineNm">
-                            <input type="hidden" name="depTime">
-                            <input type="hidden" name="arrTime">
-                            <input type="hidden" name="seatGrade">
+                            <input type="hidden" name="vihicleId" id="v_id">
+                            <input type="hidden" name="airlineNm" id="al_Nm">
+                            <input type="hidden" name="depTime" id="dp_tm">
+                            <input type="hidden" name="arrTime" id="ar_tm">
+                            <input type="hidden" name="seatGrade" id="s_g">
+                            <input type="hidden" name="seatGradeCharge" id="s_g_c">
 							<ul>
 								<li class="section price_list modify route_all route_1" id="msg_filter_route_1_not" style="display: none">
 									<div class="non_service_wrap mt10 mb70">
@@ -317,7 +318,7 @@
 											<div class="rate_box fareType business">
 												<div class="select_rate">
 													<label class="float_item">
-														<input class="form-check-input" id="business" name="rvSeatGrade" type="radio" th:value="airflight.prestigeCharge">
+														<input class="form-check-input" id="business" name="rvSeatGrade" type="radio" th:value="${airflight.prestigeCharge}">
 														<label class="form-check-label" for="business">비즈니스 운임</label>
 													</label>
 													<a class="btn_tooltip alertIcon" href="#"></a>

@@ -92,19 +92,19 @@ public class ReservationController {
             afVOs[idx++] = vo;
         }
         if (afVOs.length > 0) {
-            session.setAttribute("selectInfo", si);
-            session.setAttribute("airflightList", afVOs);
+            session.setAttribute("si", si);
+            session.setAttribute("afs", afVOs);
             return "redirect:/reservation/booking.do";
         } else {
-            return "redirect:/reservation/temp.do";
+            return "redirect:/reservation/flightsearch.do";
         }
     }
 
     @GetMapping("/booking.do")
     public String booking(@SessionAttribute SelectInfo si,@SessionAttribute AirflightVO[] afs, Model model) throws Exception {
         ApiController api = new ApiController();
-        model.addAttribute("depAprt", si.getDepAprt().substring(4));
-        model.addAttribute("landAprt", si.getLandAprt().substring(4));
+        model.addAttribute("depAprt", si.getDepAprt());
+        model.addAttribute("landAprt", si.getLandAprt());
         model.addAttribute("depDate", si.getDepDate());
         model.addAttribute("airflightList", afs);
 
