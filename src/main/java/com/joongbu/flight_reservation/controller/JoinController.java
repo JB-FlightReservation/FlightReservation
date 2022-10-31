@@ -44,7 +44,6 @@ public class JoinController {
 	@PostMapping("/joinPage2.do")
 	public String joinPage2(
 			SignupDto signupDto,
-			
 			@RequestParam(required=true) String ctName, 
 			@RequestParam(required=true) String ctId, 
 			HttpSession session
@@ -57,8 +56,7 @@ public class JoinController {
 			String input=passwordEncoder.encode(signupDto.getCtPw());
 	        signupDto.setCtPw(input);
 			//userService.saveUserData(signupDto);
-			signupDto=signupMapper.login(ctName, ctId);
-//			
+			insert=signupMapper.insert(signupDto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -76,36 +74,7 @@ public class JoinController {
 		}
 	} 
 	
-	
-	//로그인
-			@GetMapping("/loginPage.do")
-			public void loginPage() {}
-			@PostMapping("/loginPage.do")
-			public String loginPage(
-					CustomerDto customerDto,
-					SignupDto signupDto,
-					@RequestParam(required = true) String ctId,
-					@RequestParam(required = true) String ctPw,
-					HttpSession session
-					) {
-				
-				System.out.println(ctId+"/"+ctPw);
-				CustomerDto loginCt=null;
-				loginCt=customerMapper.login(ctId, ctPw);
-				try {
-					loginCt=customerMapper.login(ctId, ctPw);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-				//boolean b =passwordEncoder.matches(ctPw, customerDto.getCtPw());
-				System.out.println(b);
-				if(loginCt!=null) {
-					session.setAttribute("loginCt", loginCt);
-					return "redirect:/";
-				}else {
-					return "redirect:/login/loginPage.do";
-				}
-			}
+
 			
 	
 	
