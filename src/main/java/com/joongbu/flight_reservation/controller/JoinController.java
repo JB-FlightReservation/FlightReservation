@@ -8,11 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import com.joongbu.flight_reservation.dto.SignupDto;
 import com.joongbu.flight_reservation.mapper.SignupMapper;
@@ -50,25 +46,19 @@ public class JoinController {
 			) {
 		int insert=0;
 		String msg="";
-		System.out.println("SingupDto1: " + signupDto);
 		try {
 			passwordEncoder = new BCryptPasswordEncoder();
-			System.out.println("SingupDto2: " + signupDto);
 			signupDto.setCtPw(passwordEncoder.encode(signupDto.getCtPw()));
 			insert = signupMapper.insert(signupDto);
 //			String input=passwordEncoder.encode(signupDto.getCtPw());
 //	        signupDto.setCtPw(input);
-			//userService.saveUserData(signupDto);
-			insert=signupMapper.insert(signupDto);
+// 			userService.saveUserData(signupDto);
+// 			insert=signupMapper.insert(signupDto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		System.out.println("SingupDto3: " + signupDto);
-
 //		return "redirect:/signup/joinPage3.do";
 		if(insert>0) {
-
 			session.setAttribute("signupDto",signupDto);
 			return "redirect:/signup/joinPage3.do";
 		} else {
@@ -81,21 +71,28 @@ public class JoinController {
 
 	//로그인
 			@GetMapping("/loginPage.do")
-			public void loginPage() {}
+			public void loginPage() {
+
+			}
 			@PostMapping("/loginPage.do")
 			public String loginPage(
 					CustomerDto customerDto,
-					SignupDto signupDto,
+					@SessionAttribute SignupDto signupDto,
 					@RequestParam(required = true) String ctId,
 					@RequestParam(required = true) String ctPw,
 					HttpSession session
 					) {
 
-				System.out.println(ctId+"/"+ctPw);
 				CustomerDto loginCt=null;
-				loginCt=customerMapper.login(ctId, ctPw);
+					// loginCt=customerMapper.login(ctId, ctPw);
 				try {
-					loginCt=customerMapper.login(ctId, ctPw);
+					BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
+					System.out.println(pe.matches(ctPw, signupDto.getCtPw()));
+					if(pe.matches(ctPw, signupDto.getCtPw())){
+						loginCt=customerMapper.login(ctId, signupDto.getCtPw());
+					}else{
+						return "redirect:/login/loginPage.do";
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

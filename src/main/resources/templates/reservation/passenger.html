@@ -82,8 +82,7 @@
                                                         <input name="pgBirth[]" style="display:none;" type="date">
                                                         <select class="w170" name="selbox" onchange="selectYear(this)">
                                                             <option value="">YYYY</option>
-                                                            <option value="2009">2009</option>
-                                                            <option value="2009">2008</option>
+                                                            <option th:each="year: ${#numbers.sequence(1990, 2022)}" th:text="${year}" value="2009">2009</option>
                                                         </select>
                                                         <select class="w150" name="selbox" onchange="selectMonth(this)">
                                                             <option value="">MM</option>

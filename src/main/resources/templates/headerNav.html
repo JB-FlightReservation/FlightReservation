@@ -21,7 +21,7 @@
 				<a href="/signup/joinPage.do">회원가입</a>
 			</th:block>
 			<th:block th:unless="${session.loginCt==null}">
-				<a> <span th:text="${session.loginCt.ctName}"></span> (<span th:text="${session.loginCt.ctId}"></span>)
+				<a> <span th:text="${session.loginCt.ctId}+'님'"></span>
 				</a> / 
 			<a href="/login/logout.do">로그아웃</a>
 			</th:block>

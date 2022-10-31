@@ -240,39 +240,41 @@ public class ReservationController {
 
     // ------------- 예매 5 ------------------
     @GetMapping("/pay.do")
-    public String pay(Model model, HttpSession session) {
-        PriceDto price = (PriceDto) session.getAttribute("priceSession");
-
-        price.getPrTotal();
+    public String pay(@SessionAttribute ReservationDto rSession, @SessionAttribute SelectInfo si, @SessionAttribute PriceDto price, Model model) {
+        model.addAttribute("rSession", rSession);
+        model.addAttribute("si", si);
+        model.addAttribute("price", price);
         return "reservation/reservationPay";
     }
 
     @GetMapping("/payComplete.do")
-    public String payComplete(HttpSession session) {
-        ReservationDto reservation = (ReservationDto) session.getAttribute("rSession"); // ReservationDto session
-        AirflightDto airflight = (AirflightDto) session.getAttribute("aSession"); // AirflightDto session
-
-        if (reservation == null)
-            reservation = new ReservationDto();
-        // test only
-//		rv_no, ct_no, rv_phone, rv_email, rv_is_ticketed, rv_date, rv_mature_adult, 
-//		rv_mature_teen, rv_mature_baby, rv_depart_ap, rv_land_ap, next_rv_no, rv_seat_grade
-        reservation.setRvNo(6);
-        reservation.setCtNo(1);
-        reservation.setRvPhone("1");
-        reservation.setRvEmail("1");
-        reservation.setRvIsTicketed(1);
-        reservation.setRvDate(new Date());
-        reservation.setRvMatureAdult(1);
-        reservation.setRvMatureTeen(1);
-        reservation.setRvMatureBaby(1);
-        reservation.setRvDepartAp("1");
-        reservation.setRvLandAp("1");
-        reservation.setNextRvNo(1);
-        reservation.setRvSeatGrade("1");
-//		System.out.println(reservation.getRvDepartAp());
-        rMapper.insert(reservation);
-
+    public String payComplete(@SessionAttribute ReservationDto rSession, @SessionAttribute SelectInfo si, @SessionAttribute PriceDto price, Model model) {
+//         ReservationDto reservation = (ReservationDto) session.getAttribute("rSession"); // ReservationDto session
+//         AirflightDto airflight = (AirflightDto) session.getAttribute("aSession"); // AirflightDto session
+//
+//         if (reservation == null)
+//             reservation = new ReservationDto();
+//         // test only
+// //		rv_no, ct_no, rv_phone, rv_email, rv_is_ticketed, rv_date, rv_mature_adult,
+// //		rv_mature_teen, rv_mature_baby, rv_depart_ap, rv_land_ap, next_rv_no, rv_seat_grade
+//         reservation.setRvNo(6);
+//         reservation.setCtNo(1);
+//         reservation.setRvPhone("1");
+//         reservation.setRvEmail("1");
+//         reservation.setRvIsTicketed(1);
+//         reservation.setRvDate(new Date());
+//         reservation.setRvMatureAdult(1);
+//         reservation.setRvMatureTeen(1);
+//         reservation.setRvMatureBaby(1);
+//         reservation.setRvDepartAp("1");
+//         reservation.setRvLandAp("1");
+//         reservation.setNextRvNo(1);
+//         reservation.setRvSeatGrade("1");
+// //		System.out.println(reservation.getRvDepartAp());
+//         rMapper.insert(reservation);
+            model.addAttribute("rSession", rSession);
+            model.addAttribute("si", si);
+            model.addAttribute("price", price);
         return "reservation/reservationPayComplete";
     }
 }
