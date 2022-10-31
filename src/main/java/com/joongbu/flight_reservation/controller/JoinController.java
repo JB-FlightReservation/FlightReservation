@@ -22,7 +22,7 @@ import lombok.Setter;
 
 
 @RequestMapping("/signup")
-@Controller 
+@Controller
 public class JoinController {
 	@Autowired //객체를 주입받겠다
 	SignupMapper signupMapper;
@@ -34,19 +34,18 @@ public class JoinController {
     public JoinController( PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
-	
+
 	@GetMapping("/joinPage.do")
 	public void joinPage() {
 	}
-	
+
 	@GetMapping("/joinPage2.do")
-	public void joinPage2() {} 
+	public void joinPage2() {}
 	@PostMapping("/joinPage2.do")
 	public String joinPage2(
 			SignupDto signupDto,
-			
-			@RequestParam(required=true) String ctName, 
-			@RequestParam(required=true) String ctId, 
+			@RequestParam(required=true) String ctName,
+			@RequestParam(required=true) String ctId,
 			HttpSession session
 			) {
 		int insert=0;
@@ -60,17 +59,16 @@ public class JoinController {
 //			String input=passwordEncoder.encode(signupDto.getCtPw());
 //	        signupDto.setCtPw(input);
 			//userService.saveUserData(signupDto);
-			signupDto=signupMapper.login(ctName, ctId);
-//			
+			insert=signupMapper.insert(signupDto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		System.out.println("SingupDto3: " + signupDto);
-		
+
 //		return "redirect:/signup/joinPage3.do";
 		if(insert>0) {
-			
+
 			session.setAttribute("signupDto",signupDto);
 			return "redirect:/signup/joinPage3.do";
 		} else {
@@ -78,9 +76,9 @@ public class JoinController {
 			session.setAttribute("msg", msg);
 			return "redirect:/signup/joinPage2.do";
 		}
-	} 
-	
-	
+	}
+
+
 	//로그인
 			@GetMapping("/loginPage.do")
 			public void loginPage() {}
@@ -92,7 +90,7 @@ public class JoinController {
 					@RequestParam(required = true) String ctPw,
 					HttpSession session
 					) {
-				
+
 				System.out.println(ctId+"/"+ctPw);
 				CustomerDto loginCt=null;
 				loginCt=customerMapper.login(ctId, ctPw);
@@ -109,10 +107,10 @@ public class JoinController {
 					return "redirect:/login/loginPage.do";
 				}
 			}
-			
-	
-	
-	
+
+
+
+
 	//insert- 아이디 중복 체크 (userinsert.js)
 		@Getter@Setter
 		class CheckUser {
@@ -139,10 +137,10 @@ public class JoinController {
 			}
 			return checkUser;
 		}
-		
+
 	@GetMapping("/joinPage3.do")
-	public void joinPage3() {} 
-	
-	
+	public void joinPage3() {}
+
+
 
 }
