@@ -5,8 +5,7 @@
 }
 
 body {
-	width: 1100px;
-	margin: 0 auto;
+	
 }
 
 ul, li{
@@ -20,6 +19,9 @@ a {
 
 .container{
 	padding: 0;
+	width: 1100px;
+	margin: 0 auto;
+	min-height: 63vh;
 }
 
 .main_tit_wrap .main_tit {
